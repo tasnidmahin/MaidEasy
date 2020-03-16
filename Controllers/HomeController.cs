@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaidEasy.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace MaidEasy.Controllers
     {
         public ActionResult Index()
         {
+            DBHelper db = new DBHelper();
+            db.DBConnection();
             return View();
         }
 
