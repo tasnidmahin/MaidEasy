@@ -12,7 +12,8 @@ namespace MaidEasy.Controllers
         public ActionResult Index()
         {
             DBHelper db = new DBHelper();
-            db.DBConnection();
+            string s = db.DBConnection();
+            System.Diagnostics.Debug.WriteLine(s);
             return View();
         }
 

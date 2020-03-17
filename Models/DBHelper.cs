@@ -8,21 +8,26 @@ namespace MaidEasy.Models
 {
     public class DBHelper
     {
-        public void DBConnection()
+        public string DBConnection()
         {
-            string connectionstring = "datasource = localhost; username =root; password =root; database = maideasy";
+            string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
+            string output = " ---- ";
             MySqlConnection DBConnect = new MySqlConnection(connectionstring);
             try
             {
                 DBConnect.Open();
-                string query = "INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('Mahin', 'mahin', 'Mahin', '015', 'goran', 'goran');  ";
+                //string query = "INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('Mahin1', 'mahin', 'Mahin', '015', 'goran', 'goran');  ";
+                //string query = "SELECT username, mobile from Users";
+                //string query = "UPDATE Users SET Name = 'Tasnid3' WHERE UserId = 3" ;
+                string query = "DELETE FROM Users WHERE UserId=3";
                 var cmd = new MySqlCommand(query, DBConnect);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     string someStringFromColumnZero = reader.GetString(0);
                     string someStringFromColumnOne = reader.GetString(1);
-                    Console.WriteLine(someStringFromColumnZero + "," + someStringFromColumnOne);
+                    //System.Diagnostics.Debug.WriteLine(someStringFromColumnZero + "," + someStringFromColumnOne);
+                    output = output + someStringFromColumnZero + "," + someStringFromColumnOne + "-------------\n";
                 }
                 DBConnect.Close();
             }
@@ -30,6 +35,7 @@ namespace MaidEasy.Models
             {
 
             }
+            return output;
         }
     }
 }
