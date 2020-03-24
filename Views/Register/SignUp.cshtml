@@ -1,10 +1,21 @@
-﻿<!DOCTYPE html>
+﻿@model MaidEasy.Models.SignupModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title> SignUp </title>
     <link href="~/Content/signup.css" rel="stylesheet" />
+
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
 </head>
+
 <body>
     <div class='signup-page'>
         <div class='form'>
@@ -46,5 +57,13 @@
 
         </div>
     </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <script>
+            alert("@ViewBag.Error");
+        </script>
+    }
+
 </body>
 </html>

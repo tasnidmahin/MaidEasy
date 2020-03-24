@@ -2,9 +2,33 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title> Login </title>
+    <link href="~/Content/signup.css" rel="stylesheet" />
+
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
 </head>
+
+
 <body>
 
+    <div class='signup-page'>
+        <div class='form'>
+            <form method="post" action="something.php" class="signup-form">
+
+                <input type="text" placeholder="User Name" name="Username">
+
+
+
+                <input type="password" placeholder="Password" name="loginpassword">
+
+                <button type="submit" class="btn btn-primary btn-block" name="signupbutton">Log IN</button>
+
+            </form>
+        </div>
+
+    </div>
 </body>
 </html>
