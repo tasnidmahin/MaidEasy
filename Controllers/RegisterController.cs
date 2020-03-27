@@ -18,5 +18,10 @@ namespace MaidEasy.Controllers
         {
             return View();
         }
+
+        public ActionResult LogIn()
+        {
+            return View();
+        }
     }
 }
