@@ -19,51 +19,41 @@
 <body>
     <div class='signup-page'>
         <div class='form'>
-            <form method="post" action="something.php" class="signup-form">
+            <form   class="signup-form">
 
 
                 <input id="username" type="text" placeholder="User Name" name="Username">
-
-
-
-
                 <input id="name" type="text" name="name" placeholder="Name">
-
-
-
                 <input id="Phoneno" type="text" name="Phone" placeholder="Phone no.">
-
-
                 <input id="presentaddress" type="text" name="presentaddress" placeholder="Present Address">
-
                 <input id="permanenttaddress" type="text" name="permanentaddress" placeholder="Permanent Address">
-
-                <!--	<input id="email" type="text"  name="email" placeholder="Email"> -->
-
-
-
                 <input id="signUpPassword" type="password" name="signUpPassword" placeholder="Password">
-
-
-
                 <input id="confirmPassword" type="password" name="confirmPassword" placeholder="confirmPassword">
 
                 <input id="profileimage" type="file" name="profileimage">
 
+                <div id="recaptha-container"></div> <br />
 
-                <button type="submit" class="btn btn-primary btn-block" name="signupbutton">Sign Up</button>
+
+                <button id="signup-btn" type="button" class="btn btn-primary btn-block" name="signupbutton" onclick="phoneAuth();">Sign Up</button>
+
+            </form> <br>
+
+            <h3> Enter Verification code </h3>
+
+            <form>
+
+                <input type="text" id="verificationCode" placeholder="Enter Verfication code">
+                <button type="button" onclick="codeverify();"> Verify code </button>
             </form>
 
 
         </div>
     </div>
 
-    @if (ViewBag.Error != null)
-    {
-        <script>
-            alert("@ViewBag.Error");
-        </script>
-    }
+    <script src="~/Scripts/JS/index.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/NumberAuthentication.js" type="text/javascript"></script>
 
 </body>
 </html>
