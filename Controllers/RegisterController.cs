@@ -23,5 +23,9 @@ namespace MaidEasy.Controllers
         {
             return View();
         }
+        public ActionResult Service()
+        {
+            return View();
+        }
     }
 }

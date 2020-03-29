@@ -1,0 +1,87 @@
+﻿[data-tab-content] {
+    display: none;
+}
+
+.active[data-tab-content] {
+    display: block;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 120px;
+    margin-right: 120px;
+    border: 1px solid black;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px;
+}
+
+    .tab.active {
+        background-color: black;
+        color: aliceblue;
+    }
+
+    .tab:hover {
+        background-color: black;
+        color: aliceblue;
+    }
+
+.tab-content {
+    /*margin-left: 520px;
+    margin-right: 20px;  */
+    position: absolute;
+    top: 10%;
+    left: 40%;
+}
+
+.container {
+    margin-top: 80px;
+    font-family: "Roboto",sans-serif;
+}
+
+.box {
+    border-radius: 8px;
+}
+
+.container select {
+    background: #525861;
+    color: #ffff;
+    padding: 10px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.5);
+    -webkit-appearance: button;
+    outline: none;
+}
+
+.container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width;
+    50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: :#fff;
+    font-size: 28px;
+    background: #0000;
+    pointer-events: none;
+}
+
+.container:hover:before {
+    background: #0472ca;
+}
+
+.checked {
+    color: orange;
+}

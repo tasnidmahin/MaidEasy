@@ -1,0 +1,85 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+    background: #f1f1f1;
+    font-family: arial;
+    box-sizing: border-box;
+}
+
+.card-box {
+    width: 300px;
+    height: 430px;
+    background: #FFF;
+    border-radius: 6px;
+    position: absolute;
+    top: 350%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 1px 10px 1px #000;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.upper-box {
+    height: 150px;
+    background: #00afffc7;
+}
+
+.image-box {
+    background: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 5px;
+    transform: translate(100px,100px);
+}
+
+    .image-box img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+
+.lower-box {
+    height: 280px;
+    background: #FFF;
+    padding: 20px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+    .lower-box h3, h4 {
+        box-sizing: border-box;
+        line-height: .6;
+        font-weight: lighter;
+    }
+
+    .lower-box h4 {
+        color: #00afffc7;
+        opacity: .9;
+        font-weight: bold;
+    }
+
+    .lower-box p {
+        font-size: 16px;
+        color: gray;
+        margin-bottom: 30px;
+    }
+
+    .lower-box .btn {
+        padding: 12px 20px;
+        background: #00afffc7;
+        border: none;
+        color: white;
+        border-radius: 30px;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all .3s ease-in;
+    }
+
+        .lower-box .btn:hover {
+            background: transparent;
+            color: #00afffc7;
+            border: 2px solid #00afffc7;
+        }

@@ -136,7 +136,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\profile.jpg" />
     <Content Include="Content\signup.css" />
+    <Content Include="Content\service.css" />
+    <Content Include="Content\profilecard.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -154,6 +157,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JS\index.js" />
+    <Content Include="Scripts\JS\tabscript.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\NumberAuthentication.js" />
     <Content Include="Web.config" />
@@ -172,6 +176,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Register\LogIn.cshtml" />
     <Content Include="Views\Register\SignUp.cshtml" />
+    <Content Include="Views\Service\Service.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
