@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -8,18 +9,24 @@ namespace MaidEasy.Models
 {
     public class DBHelper
     {
-        public string DBConnection()
+        public static int flag = 0;
+        public static string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
+        MySqlConnection DBConnect = new MySqlConnection(connectionstring);
+
+        static DBHelper db = null;
+        public void DBConnection()
         {
-            string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
-            string output = " ---- ";
-            MySqlConnection DBConnect = new MySqlConnection(connectionstring);
+            if (flag == 1) return;
+            /*string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
+            MySqlConnection DBConnect = new MySqlConnection(connectionstring);*/
             try
             {
                 DBConnect.Open();
+                flag = 1;
                 //string query = "INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('Mahin1', 'mahin', 'Mahin', '015', 'goran', 'goran');  ";
                 //string query = "SELECT username, mobile from Users";
                 //string query = "UPDATE Users SET Name = 'Tasnid3' WHERE UserId = 3" ;
-                string query = "DELETE FROM Users WHERE UserId=3";
+                /*string query = "DELETE FROM Users WHERE UserId=3";
                 var cmd = new MySqlCommand(query, DBConnect);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -27,15 +34,52 @@ namespace MaidEasy.Models
                     string someStringFromColumnZero = reader.GetString(0);
                     string someStringFromColumnOne = reader.GetString(1);
                     //System.Diagnostics.Debug.WriteLine(someStringFromColumnZero + "," + someStringFromColumnOne);
-                    output = output + someStringFromColumnZero + "," + someStringFromColumnOne + "-------------\n";
+                    //output = output + someStringFromColumnZero + "," + someStringFromColumnOne + "-------------\n";
                 }
-                DBConnect.Close();
+                DBConnect.Close();*/
             }
             catch
             {
 
             }
-            return output;
+            return ;
         }
+
+        private  DBHelper()
+        {
+        }
+
+        public static DBHelper getDB()
+        {
+            if (db == null)
+            {
+                return db = new DBHelper();
+            }
+            else return db;
+        }
+
+        public MySqlDataReader getData(string query)
+        {
+            DBConnection();
+            var cmd = new MySqlCommand(query, DBConnect);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+
+
+        public void setData(string query)
+        {
+            DBConnection();
+            var cmd = new MySqlCommand(query, DBConnect);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            return;
+        }
+
+        public void stopConnection()
+        {
+            flag = 0;
+            DBConnect.Close();
+        }
+
     }
 }
