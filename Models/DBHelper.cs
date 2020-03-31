@@ -16,10 +16,10 @@ namespace MaidEasy.Models
             try
             {
                 DBConnect.Open();
-                //string query = "INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('Mahin1', 'mahin', 'Mahin', '015', 'goran', 'goran');  ";
+                string query = "INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('taqi2', 'taqi', 'taqi', '015', 'ctg', 'ctg');  ";
                 //string query = "SELECT username, mobile from Users";
                 //string query = "UPDATE Users SET Name = 'Tasnid3' WHERE UserId = 3" ;
-                string query = "DELETE FROM Users WHERE UserId=3";
+                //string query = "DELETE FROM Users WHERE UserId=3";
                 var cmd = new MySqlCommand(query, DBConnect);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
