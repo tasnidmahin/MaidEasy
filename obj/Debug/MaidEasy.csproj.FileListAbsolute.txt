@@ -159,3 +159,4 @@ D:\Desktop08.12.2018\Documents\GitHub\MaidEasy\obj\Debug\MaidEasy.csprojAssembly
 D:\Desktop08.12.2018\Documents\GitHub\MaidEasy\obj\Debug\MaidEasy.csproj.CopyComplete
 D:\Desktop08.12.2018\Documents\GitHub\MaidEasy\obj\Debug\MaidEasy.dll
 D:\Desktop08.12.2018\Documents\GitHub\MaidEasy\obj\Debug\MaidEasy.pdb
+D:\Desktop08.12.2018\Documents\GitHub\MaidEasy\bin\MySql.Data.dll
