@@ -12,10 +12,14 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    margin-left: 120px;
-    margin-right: 120px;
+    margin-left: 10%;
+    margin-right: 10%;
     border: 1px solid black;
+    background-color: #00afffc7;
+    font-size: 22px;
 }
+
+/*#4487cc */
 
 .tab {
     cursor: pointer;
@@ -36,52 +40,37 @@
     /*margin-left: 520px;
     margin-right: 20px;  */
     position: absolute;
-    top: 10%;
+    /* top:10%; */
     left: 40%;
 }
 
-.container {
-    margin-top: 80px;
-    font-family: "Roboto",sans-serif;
-}
-
+/* class for the whole tab section */
 .box {
     border-radius: 8px;
+    padding-top: 80px;
+}
+/* class for the select box */
+.experiencebox {
+    width: 250px;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
 }
 
-.container select {
-    background: #525861;
-    color: #ffff;
-    padding: 10px;
-    width: 150px;
-    height: 50px;
-    border: none;
-    font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0,0,0,.5);
-    -webkit-appearance: button;
-    outline: none;
-}
+    /* class for the options */
 
-.container:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width;
-    50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    color: :#fff;
-    font-size: 28px;
-    background: #0000;
-    pointer-events: none;
-}
+    .experiencebox select {
+        width: inherit;
+        /*position: relative; */
+        -webkit-appearance: none;
+    }
 
-.container:hover:before {
-    background: #0472ca;
-}
+
 
 .checked {
     color: orange;
+}
+
+body {
+    padding-top: 50px;
 }
