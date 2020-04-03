@@ -21,84 +21,83 @@
 
 </head>
 <body>
-    <ul class="tabs">
-        <li data-tab-target="#temporary" class="active tab">Temporary</li>
-        <li data-tab-target="#permanent" class="tab">Permanent</li>
-        <li data-tab-target="#babycare" class="tab">Baby care</li>
-        <li data-tab-target="#elderlycare" class="tab">Elderly care</li>
+    <div class="box">
+        <ul class="tabs">
+            <li data-tab-target="#temporary" class="active tab">Temporary</li>
+            <li data-tab-target="#permanent" class="tab">Permanent</li>
+            <li data-tab-target="#babycare" class="tab">Baby care</li>
+            <li data-tab-target="#elderlycare" class="tab">Elderly care</li>
 
 
 
-    </ul>
+        </ul>
 
-    <div class="tab-content">
+        <div class="tab-content">
 
 
-        <div id="temporary" data-tab-content class="active">
-            <div class="container">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <!--  <label class="input-group-text" for="inputGroupSelect01">Experience</label> -->
+            <div id="temporary" data-tab-content class="active">
+                <div class="experiencebox">
+                    <select class="input-lg form-control" id="paperSelect">
+                        <option value="0">Experience:</option>
+                        <option value="1" id="oneyear">1 year</option>
+                        <option value="2" id="twoyear">2 year</option>
+                        <option value="3" id="threeyear">3 year</option>
+                        <option value="4" id="fouryear">4 year</option>
 
-                        <select class="custom-select" id="inputGroupSelect01">
+                    </select>
 
-                            <option selected>Experience...</option>
-                            <option value="1">1 year</option>
-                            <option value="2">2 year</option>
-                            <option value="3">3 year</option>
+                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
 
-                        </select>
+                </div>
+
+                <div class="card-box">
+
+                    <div class="upper-box">
+                        <div class="image-box">
+                            <img src="profile.jpg" />
+                        </div>
+                    </div>
+
+                    <div class="lower-box">
+                        <div>
+                            <h3>Alaina Wick</h3>
+                            <!--<h4>3 year experience</h4> -->
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+
+                        </div>
+                        <div>
+                            <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn">View profile</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div id="permanent" data-tab-content>
+                <h1>Temporary</h1>
+                <div class="row">
+                    <div class="col-xs-6">
+
+                        <h1>enter your preferences </h1>
 
                     </div>
 
+                    <div class="col-xs-6">
+                        <h1>enter your preferences </h1>
+                    </div>
                 </div>
             </div>
-            <div class="card-box">
-
-                <div class="upper-box">
-                    <div class="image-box">
-                        <img src="~/Content/Images/profile.jpg" />
-                    </div>
-                </div>
-
-                <div class="lower-box">
-                    <div>
-                        <h3>Alaina Wick</h3>
-                        <!--<h4>3 year experience</h4> -->
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-
-                    </div>
-                    <div>
-                        <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
-                    </div>
-                    <div>
-                        <a href="#" class="btn">View profile</a>
-                    </div>
-                </div>
-
+            <div id="babycare" data-tab-content>
+                <h1>Temporary</h1>
             </div>
 
-        </div>
-        <div id="permanent" data-tab-content>
-            <h1>Temporary</h1>
-            <div class="row">
-                <div class="col-xs-6">
-
-                    <h1>enter your preferences </h1>
-
-                </div>
-
-                <div class="col-xs-6">
-                    <h1>enter your preferences </h1>
-                </div>
-            </div>
-        </div>
-        <div id="babycare" data-tab-content>
-            <h1>Temporary</h1>
         </div>
 
     </div>
