@@ -1,0 +1,120 @@
+﻿
+.current-box {
+    position: relative;
+    height: 400px;
+}
+
+.previous-box {
+    position: relative;
+    height: 770px;
+}
+
+
+.time {
+    padding-top: 30px;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 30px;
+    color: #77c1e4;
+    text-align: center;
+}
+
+
+.column1 {
+    float: left;
+    width: 35%;
+    word-wrap: break-word;
+}
+
+.column2 {
+    float: right;
+    width: 55%;
+    word-wrap: break-word;
+}
+
+/* Clear floats after the column2 */
+.row:after column2 {
+    content: "";
+    display: table;
+    clear: both;
+    word-wrap: break-word;
+}
+
+.profile {
+    padding-top: 20px;
+    font-family: cursive;
+    color: darkslateblue;
+    text-align: center;
+    font-weight: bold;
+}
+
+.head-box {
+    text-decoration: underline;
+    text-decoration-color: darkslateblue;
+    margin-top: 30px;
+    background: #9ca1a5;
+}
+
+.card-box {
+    width: 600px;
+    height: 500px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 1px 1px 12px 7px #006680;
+    overflow: hidden;
+    display: inline-block;
+}
+
+
+
+.upper-box {
+    height: 160px;
+    background: #001a33;
+}
+
+.image-box {
+    background: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transform: translate(230px, 10px);
+}
+
+.image-box img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+}
+
+.lower-box {
+    background: #FFF;
+    padding-top: 100px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.lower-box h3 {
+        padding-left: 50px;
+        text-align: left;
+        box-sizing: border-box;
+        font-weight: bold;
+}
+
+#hw_button {
+    color: #77c1e4;
+    margin: 20px;
+    border-radius: 20px;
+    width: 200px;
+    height: 60px;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: #001a33;
+    border-color: #77c1e4;
+    border-width: thick;
+    margin: 10px;
+}

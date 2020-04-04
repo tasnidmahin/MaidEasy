@@ -137,6 +137,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\footer.css" />
+    <Content Include="Content\hired_workers_profile.css" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
     <Content Include="Content\signup.css" />
@@ -182,10 +183,10 @@
     <Content Include="Views\Service\Service.cshtml" />
     <Content Include="Views\Maid\Hire.cshtml" />
     <Content Include="Views\Shared\footer.cshtml" />
+    <Content Include="Views\User\hired_workers_profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
