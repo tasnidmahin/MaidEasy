@@ -44,7 +44,14 @@ function checkInputs() {
 	} else {
 		setSuccessFor(email);
 	} */
-
+	
+	if (phoneValue === '') {
+		setErrorFor(phone, 'Phone no. cannot be blank');
+	} else if (!isPhone(phoneValue)) {
+		setErrorFor(phone, 'Not a valid Phone No.');
+	} else {
+		setSuccessFor(phone);
+	}  
 	if (passwordValue === '') {
 		setErrorFor(password, 'Password cannot be blank');
 	} else {
@@ -71,6 +78,10 @@ function setSuccessFor(input) {
 	const formControl = input.parentElement;
 	formControl.className = 'form-control success';
 }
+
+function isPhone(phone) {
+	return /01d{ 9 }/.test(phone);
+} 
 
 /*function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
