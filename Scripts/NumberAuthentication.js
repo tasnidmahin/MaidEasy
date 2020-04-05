@@ -7,9 +7,11 @@ function render() {
     recaptchaVerifier.render();
 }
 
-function phoneAuth() {
+function phoneAuth(num) {
     // get the number
-    var number = document.getElementById('Phoneno').value;
+    //var number = document.getElementById('Phoneno').value;
+    var number = num;
+    console.log(number);
     // phone no authentication function of firebase
     //it takes two parameter first one is number,,,second one is recaptcha
 

@@ -131,6 +131,7 @@
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
+    <Compile Include="Models\VerificationCodeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +185,7 @@
     <Content Include="Views\Service\Service.cshtml" />
     <Content Include="Views\Maid\Hire.cshtml" />
     <Content Include="Views\Shared\footer.cshtml" />
+    <Content Include="Views\Register\VerificationCode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
