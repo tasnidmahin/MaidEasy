@@ -26,17 +26,17 @@ namespace MaidEasy.Models
                 //string query = "INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('Mahin1', 'mahin', 'Mahin', '015', 'goran', 'goran');  ";
                 //string query = "SELECT username, mobile from Users";
                 //string query = "UPDATE Users SET Name = 'Tasnid3' WHERE UserId = 3" ;
-                /*string query = "DELETE FROM Users WHERE UserId=3";
-                var cmd = new MySqlCommand(query, DBConnect);
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    string someStringFromColumnZero = reader.GetString(0);
-                    string someStringFromColumnOne = reader.GetString(1);
-                    //System.Diagnostics.Debug.WriteLine(someStringFromColumnZero + "," + someStringFromColumnOne);
-                    //output = output + someStringFromColumnZero + "," + someStringFromColumnOne + "-------------\n";
-                }
-                DBConnect.Close();*/
+                //string query = "DELETE FROM Users WHERE UserId=3";
+                //var cmd = new MySqlCommand(query, DBConnect);
+                //MySqlDataReader reader = cmd.ExecuteReader();
+                //while (reader.Read())
+                //{
+                /*string someStringFromColumnZero = reader.GetString(0);
+                string someStringFromColumnOne = reader.GetString(1);*/
+                //System.Diagnostics.Debug.WriteLine(someStringFromColumnZero + "," + someStringFromColumnOne);
+                //output = output + someStringFromColumnZero + "," + someStringFromColumnOne + "-------------\n";
+                //}
+                //DBConnect.Close();
             }
             catch
             {
@@ -72,6 +72,7 @@ namespace MaidEasy.Models
             DBConnection();
             var cmd = new MySqlCommand(query, DBConnect);
             MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Close();
             return;
         }
 

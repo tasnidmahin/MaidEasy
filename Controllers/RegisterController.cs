@@ -34,20 +34,52 @@ namespace MaidEasy.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddUser(SignupModel signupModel)
+        public ActionResult CheckInfo(SignupModel signupModel)
         {
-            var p = Request["signUpPassword"];
-            var cp = Request["confirmPassword"];
-            //System.Diagnostics.Debug.WriteLine(p);
-            //System.Diagnostics.Debug.WriteLine(cp);
-            // Check Password and ConfirmPassword are match or not
-            if (p != cp)
+
+            var user = Request["Username"];
+            var name = Request["Name"];
+            var phone = Request["Phone"];
+            var presentAddress = Request["presentAddress"];
+            var permanentAddress = Request["permanentAddress"];
+            var pass = Request["signUpPassword"];
+            var conpass = Request["confirmPassword"];
+
+            TempData["username"] = user;
+            TempData["name"] = name;
+            TempData["phone"] = phone;
+            TempData["presentAddress"] = presentAddress;
+            TempData["permanentAddress"] = permanentAddress;
+            TempData["pass"] = pass;
+            TempData["conpass"] = conpass;
+
+
+            DBHelper db = DBHelper.getDB();
+            string sql = "SELECT count(UserId) from users where username = '" + user + "'" ;
+
+            var table = db.getData(sql);
+            table.Read();
+            int count = Int32.Parse(table.GetString(0));
+            table.Close();
+            if (count > 0)
             {
-                TempData["message"] = "Password not match";
+                TempData["message"] = "Username allready exits";
                 return RedirectToAction("SignUp", "Register");
             }
 
-            ViewData["phoneNumber"] = Request["Phone"]; ;
+            /*sql = "SELECT count(UserId) from users where mobile = '" + phone + "'";
+            table = db.getData(sql);
+            table.Read();
+            count = Int32.Parse(table.GetString(0));
+            if (count > 0)
+            {
+                TempData["message"] = "Phone No allready used";
+                return RedirectToAction("SignUp", "Register");
+            }*/
+            pass = hash(pass);
+            TempData["pass"] = pass;
+            ViewData["phoneNumber"] = phone;
+
             return View("~/Views/Register/VerificationCode.cshtml");
         }
 
@@ -70,6 +102,25 @@ namespace MaidEasy.Controllers
             string savedPasswordHash = Convert.ToBase64String(hashBytes);
 
             return savedPasswordHash;
+        }
+
+        [HttpPost]
+        public ActionResult AddUser()
+        {
+            DBHelper db = DBHelper.getDB();
+            string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('" + TempData["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + " ');" ;
+            db.setData(sql);
+
+
+            /*System.Diagnostics.Debug.WriteLine("--------------------");
+            System.Diagnostics.Debug.WriteLine(ViewData["phoneNumber"]);
+            System.Diagnostics.Debug.WriteLine(TempData["username"]);
+            */
+
+            Session["username"] = TempData["username"];
+
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -7,5 +7,6 @@ namespace MaidEasy.Models
 {
     public class VerificationCodeModel
     {
+        public string VerificationCode { get; set; }
     }
 }
