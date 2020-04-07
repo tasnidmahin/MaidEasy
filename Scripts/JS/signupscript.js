@@ -44,22 +44,22 @@ function checkInputs() {
 	} else {
 		setSuccessFor(email);
 	} */
-
+<<<<<<< Updated upstream
 	
+=======
 
-
-
+>>>>>>> Stashed changes
 	if (phoneValue === '') {
 		setErrorFor(phone, 'Phone no. cannot be blank');
 	} else if (!isPhone(phoneValue)) {
 		setErrorFor(phone, 'Not a valid Phone No.');
 	} else {
 		setSuccessFor(phone);
-
+<<<<<<< Updated upstream
 	}  
-
+=======
 	}
-
+>>>>>>> Stashed changes
 	if (passwordValue === '') {
 		setErrorFor(password, 'Password cannot be blank');
 	} else {
@@ -89,18 +89,22 @@ function setSuccessFor(input) {
 
 function isPhone(phone) {
 	return /01d{ 9 }/.test(phone);
-
+<<<<<<< Updated upstream
 } 
-
+=======
 }
-
+>>>>>>> Stashed changes
 
 /*function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
   */
+
+<<<<<<< Updated upstream
+=======
 /*code for autocomplete thana */
 
+>>>>>>> Stashed changes
 
 
 

@@ -1,22 +1,20 @@
-﻿@model MaidEasy.Models.ServiceModel
+﻿
 @{
     //ViewBag.Title = "Service";
     Layout = null;
 }
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="~/Scripts/JS/tabscript.js" defer></script>
 
     <link href="~/Content/service.css" rel="stylesheet">
     <link href="~/Content/profilecard.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <title>Services</title>
 
@@ -40,10 +38,11 @@
             <div id="temporary" data-tab-content class="active">
                 <div class="experiencebox">
                     <select class="input-lg form-control" id="paperSelect">
-                        <option value="0">Sort By</option>
-                        <option value="1" id="experience">Experience</option>
-                        <option value="2" id="rating">Rating</option>
-                       
+                        <option value="0">Experience:</option>
+                        <option value="1" id="oneyear">1 year</option>
+                        <option value="2" id="twoyear">2 year</option>
+                        <option value="3" id="threeyear">3 year</option>
+                        <option value="4" id="fouryear">4 year</option>
 
                     </select>
 
@@ -55,7 +54,7 @@
 
                     <div class="upper-box">
                         <div class="image-box">
-                            <img src="~/Content/Images/profile.jpg" />
+                            <img src="profile.jpg" />
                         </div>
                     </div>
 

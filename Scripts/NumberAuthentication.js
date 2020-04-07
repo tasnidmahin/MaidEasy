@@ -27,7 +27,7 @@ function phoneAuth() {
 function codeverify() {
     var code = document.getElementById('verificationCode').value;
     coderesult.confirm(code).then(function (result) {
-        alert("Congratulations!!! Your Phone No. is now verified.");
+        alert("Successfully registered");
         var user = result.user;
         console.log(user);
     }).catch(function (error) {
