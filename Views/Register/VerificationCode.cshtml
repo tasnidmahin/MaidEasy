@@ -20,15 +20,16 @@
 
 
     <h2>VerificationCode</h2>
-    <form class="signup-form" action="/Register/AddUser" method="post">
+    <form id="myForm" onsubmit="codeverify()"  class="signup-form" action="javascript:void(0)" method="post">
         <div id="recaptha-container"></div> <br />
         <button  type="button" class="btn btn-primary btn-block" name="signupbutton" onclick="phoneAuth('@ViewData["phoneNumber"]');"> Send code</button>
 
         <input type="text" id="verificationCode" placeholder="Enter Verfication code" name="VerificationCode" required>
-        <button type="button" onclick="codeverify();"> Verify code </button>
+        <!-- <button type="submit" onclick="codeverify()"> Verify code </button> -->
+        <button type="submit"> Verify code </button>
 
         <br> <br />
-        <button id="signup-btn" type="submit" class="btn btn-primary btn-block" name="signupbutton"> Sign Up </button>
+        <!-- <button id="signup-btn" type="submit" class="btn btn-primary btn-block" name="signupbutton"> Sign Up </button> -->
     </form> <br>
 
 

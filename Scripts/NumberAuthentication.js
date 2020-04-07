@@ -30,7 +30,15 @@ function codeverify() {
         alert("Congratulations!!! Your Phone No. is now verified.");
         var user = result.user;
         console.log(user);
+        //document.getElementById("myForm").submit();
+        var url = "/Register/AddUser";
+        window.location = url; 
+        return true;
     }).catch(function (error) {
         alert(error.message);
+        console.log("FALSE");
+        //var url = "http://aust.edu/";
+        //window.location = url; 
+        return false;
     });
 }
