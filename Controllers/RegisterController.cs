@@ -104,7 +104,7 @@ namespace MaidEasy.Controllers
             return savedPasswordHash;
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult AddUser()
         {
             DBHelper db = DBHelper.getDB();
@@ -112,13 +112,14 @@ namespace MaidEasy.Controllers
             db.setData(sql);
 
 
-            /*System.Diagnostics.Debug.WriteLine("--------------------");
+            System.Diagnostics.Debug.WriteLine("--------------------");
             System.Diagnostics.Debug.WriteLine(ViewData["phoneNumber"]);
             System.Diagnostics.Debug.WriteLine(TempData["username"]);
-            */
+            
 
             Session["username"] = TempData["username"];
 
+            TempData["username"] = null;
 
             return RedirectToAction("Index", "Home");
         }
