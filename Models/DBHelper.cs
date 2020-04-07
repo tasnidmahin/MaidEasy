@@ -8,8 +8,16 @@ namespace MaidEasy.Models
 {
     public class DBHelper
     {
-       
-        public string DBConnection()
+
+
+        public static int flag = 0;
+        public static string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
+        MySqlConnection DBConnect = new MySqlConnection(connectionstring);
+
+        static DBHelper db = null;
+        public void DBConnection()
+
+
         {
             string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
             string output = " ---- ";
@@ -61,6 +69,7 @@ namespace MaidEasy.Models
             var cmd = new MySqlCommand(query, DBConnect);
             MySqlDataReader reader = cmd.ExecuteReader();
             return reader;
+
         }
 
 
@@ -71,6 +80,14 @@ namespace MaidEasy.Models
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Close();
             return;
+        }
+
+        public void stopConnection()
+        {
+            flag = 0;
+            DBConnect.Close();
+        }
+
 
     }
 }
