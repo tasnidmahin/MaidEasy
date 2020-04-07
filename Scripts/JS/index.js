@@ -18,4 +18,4 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  //firebase.analytics();

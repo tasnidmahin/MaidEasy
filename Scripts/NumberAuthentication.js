@@ -7,9 +7,11 @@ function render() {
     recaptchaVerifier.render();
 }
 
-function phoneAuth() {
+function phoneAuth(num) {
     // get the number
-    var number = document.getElementById('Phoneno').value;
+    //var number = document.getElementById('Phoneno').value;
+    var number = num;
+    console.log(number);
     // phone no authentication function of firebase
     //it takes two parameter first one is number,,,second one is recaptcha
 
@@ -27,10 +29,18 @@ function phoneAuth() {
 function codeverify() {
     var code = document.getElementById('verificationCode').value;
     coderesult.confirm(code).then(function (result) {
-        alert("Successfully registered");
+        alert("Congratulations!!! Your Phone No. is now verified.");
         var user = result.user;
         console.log(user);
+        //document.getElementById("myForm").submit();
+        var url = "/Register/AddUser";
+        window.location = url; 
+        return true;
     }).catch(function (error) {
         alert(error.message);
+        console.log("FALSE");
+        //var url = "http://aust.edu/";
+        //window.location = url; 
+        return false;
     });
 }
