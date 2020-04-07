@@ -8,6 +8,7 @@ namespace MaidEasy.Models
 {
     public class DBHelper
     {
+       
         public string DBConnection()
         {
             string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
@@ -20,22 +21,56 @@ namespace MaidEasy.Models
                 //string query = "SELECT username, mobile from Users";
                 //string query = "UPDATE Users SET Name = 'Tasnid3' WHERE UserId = 3" ;
                 //string query = "DELETE FROM Users WHERE UserId=3";
-                var cmd = new MySqlCommand(query, DBConnect);
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    string someStringFromColumnZero = reader.GetString(0);
-                    string someStringFromColumnOne = reader.GetString(1);
-                    //System.Diagnostics.Debug.WriteLine(someStringFromColumnZero + "," + someStringFromColumnOne);
-                    output = output + someStringFromColumnZero + "," + someStringFromColumnOne + "-------------\n";
-                }
-                DBConnect.Close();
+
+                //var cmd = new MySqlCommand(query, DBConnect);
+                //MySqlDataReader reader = cmd.ExecuteReader();
+                //while (reader.Read())
+                //{
+                /*string someStringFromColumnZero = reader.GetString(0);
+                string someStringFromColumnOne = reader.GetString(1);*/
+                //System.Diagnostics.Debug.WriteLine(someStringFromColumnZero + "," + someStringFromColumnOne);
+                //output = output + someStringFromColumnZero + "," + someStringFromColumnOne + "-------------\n";
+                //}
+                //DBConnect.Close();
+
             }
             catch
             {
 
             }
-            return output;
+
+            return ;
         }
+
+        private  DBHelper()
+        {
+        }
+
+        public static DBHelper getDB()
+        {
+            if (db == null)
+            {
+                return db = new DBHelper();
+            }
+            else return db;
+        }
+
+        public MySqlDataReader getData(string query)
+        {
+            DBConnection();
+            var cmd = new MySqlCommand(query, DBConnect);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+
+
+        public void setData(string query)
+        {
+            DBConnection();
+            var cmd = new MySqlCommand(query, DBConnect);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Close();
+            return;
+
     }
 }
