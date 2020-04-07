@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -8,16 +9,23 @@ namespace MaidEasy.Models
 {
     public class DBHelper
     {
-       
-        public string DBConnection()
+
+        public static int flag = 0;
+        public static string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
+        MySqlConnection DBConnect = new MySqlConnection(connectionstring);
+
+        static DBHelper db = null;
+        public void DBConnection()
+
         {
-            string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
-            string output = " ---- ";
-            MySqlConnection DBConnect = new MySqlConnection(connectionstring);
+            if (flag == 1) return;
+            /*string connectionstring = "datasource = localhost; username =root; password =; database = maideasy";
+            MySqlConnection DBConnect = new MySqlConnection(connectionstring);*/
             try
             {
                 DBConnect.Open();
-                string query = "INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('taqi2', 'taqi', 'taqi', '015', 'ctg', 'ctg');  ";
+                flag = 1;
+                //string query = "INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('Mahin1', 'mahin', 'Mahin', '015', 'goran', 'goran');  ";
                 //string query = "SELECT username, mobile from Users";
                 //string query = "UPDATE Users SET Name = 'Tasnid3' WHERE UserId = 3" ;
                 //string query = "DELETE FROM Users WHERE UserId=3";
@@ -61,6 +69,7 @@ namespace MaidEasy.Models
             var cmd = new MySqlCommand(query, DBConnect);
             MySqlDataReader reader = cmd.ExecuteReader();
             return reader;
+
         }
 
 
@@ -71,6 +80,14 @@ namespace MaidEasy.Models
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Close();
             return;
+        }
+
+        public void stopConnection()
+        {
+            flag = 0;
+            DBConnect.Close();
+        }
+
 
     }
 }

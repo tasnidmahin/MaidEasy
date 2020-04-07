@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MaidEasy.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,6 +18,8 @@ namespace MaidEasy.Controllers
 
         public ActionResult SignUp()
         {
+            if (TempData["message"] != null) //It will true when Password and ConfirmPassword not match
+                ViewBag.Error = TempData["message"].ToString();
             return View();
         }
 
