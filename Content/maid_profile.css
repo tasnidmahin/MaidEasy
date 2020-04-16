@@ -1,0 +1,181 @@
+﻿body {
+    font-family: 'Open Sans', sans-serif; 
+    background: #000;
+    /* font-family: 'Helvetica Neue', sans-serif; */
+}
+
+.no-display {
+    display: none;
+}
+
+
+#top-half {
+    margin-top: 30px;
+}
+
+#user-info {
+    background-color: #ccd9e2;
+    padding: 50px;
+    margin-top: 115px;
+}
+
+#user-photo-wrapper {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid 1px #d8d8d8;
+    display: block;
+    margin: auto;
+}
+
+#user-photo {
+    width: 200px;
+}
+
+#user-name {
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    color: #103868;
+}
+
+#user-data {
+    margin-top: 50px;
+}
+
+.category {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.user-input {
+    font-weight: 300 !important;
+    margin-left: 1em;
+}
+
+/*
+.focus {
+  background-color: #103868;
+}
+*/
+    #page {
+    background-color: rgba(204, 217, 226, 0.11);
+}
+
+#bottom-half {
+    padding-bottom: 200px;
+    padding-top: 10px;
+    font-size:15px;
+}
+
+
+
+
+
+#list-display-mode {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+/*
+.mode {
+  padding: 10px;
+  margin: 0;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+
+
+#list-display {
+  color: #1595ff;
+}  
+*/
+
+#list-mode {
+    width: 60%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px) {
+    #user-data {
+        margin-left: 100px;
+    }
+}
+
+
+
+@media (min-width: 1024px) {
+
+
+    #user-data {
+        margin-left: 0;
+    }
+
+
+    #top-half {
+        position: relative;
+    }
+
+    #user-info {
+        position: absolute;
+        left: 100px;
+    }
+
+
+
+    #bottom-half {
+        margin-left: 450px;
+    }
+
+    #list-mode {
+        width: 80%;
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+
+    #list-mode {
+        width: 60%;
+    }
+
+    /*
+  #sort {
+    margin-left: 100px;
+  }
+  */
+    #list-display-mode {
+        margin-right: 100px;
+    }
+
+    #user-info {
+        position: absolute;
+        left: 150px;
+    }
+}
+
+.card-inner {
+    margin-left: 4rem;
+}
