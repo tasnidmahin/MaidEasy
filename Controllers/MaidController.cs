@@ -6,14 +6,20 @@ using System.Web.Mvc;
 
 namespace MaidEasy.Controllers
 {
-    public class maid_profileController : Controller
+    public class MaidController : Controller
     {
-        // GET: maid_profile
+        // GET: Maid
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult maidprofile()
+
+        public ActionResult MaidProfile()
+        {
+            return View();
+        }
+
+        public ActionResult Hire()
         {
             return View();
         }
