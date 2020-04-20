@@ -1,0 +1,121 @@
+﻿@model MaidEasy.Models.SignupModel
+@{
+    ViewBag.Title = "SignUp";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> SignUp </title>
+    <link href="~/Content/signup.css" rel="stylesheet" />
+
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Create Account</h2>
+        </div>
+        <form  action="/Register/CheckInfo" class="signup-form" autocomplete="off" method="post">
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input id="username" type="text" placeholder="User Name" name="Username" value="@TempData["username"]" required />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="username">Name</label>
+                <input id="name" type="text" name="name" placeholder="Name" value="@TempData["name"]" required />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="username">Phone No.</label>
+                <input id="Phoneno" type="text" name="Phone" placeholder="phone no (+8801*********)" value="@TempData["phone"]" required />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control autocomplete">
+                <label for="username">Present Address</label>
+                <input id="presentaddress" type="text" name="presentAddress" placeholder="Present Address" value="@TempData["presentAddress"]" required />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+
+                <label for="username">Thana</label>
+
+                <input id="myInput" type="text" name="myCountry" placeholder="Country">
+
+
+
+
+
+            </div>
+            <div class="form-control">
+                <label for="username">Permanent Address</label>
+                <input id="permanenttaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["permanentAddress"]" required />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="username">Password</label>
+                <input id="signUpPassword" type="password" name="signUpPassword" placeholder="Password" value="@TempData["pass"]" required />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="username">Password check</label>
+                <input id="confirmPassword" type="password" name="confirmPassword" placeholder="confirmPassword" value="@TempData["conpass"]" required />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+                <label for="username">Enter Profile Image</label>
+                <input id="profileimage" type="file" name="profileimage">
+
+
+            </div>
+
+
+            <!--<button>Submit</button> -->
+
+            <button id="submit-btn" type="submit" class="btn btn-primary btn-block" name="submitbutton">Sign Up</button>
+        </form>
+    </div>
+
+
+
+
+
+    <!-- @*Footer*@
+    @{
+        Html.RenderPartial("footer");
+    }    -->
+
+    @if (ViewBag.Error != null)
+    {
+        <script>
+            alert("@ViewBag.Error");
+        </script>
+    }
+
+    <script src="~/Scripts/JS/index.js" type="text/javascript"></script>
+    <script src="~/Scripts/NumberAuthentication.js" type="text/javascript"></script>
+    <script src="~/Scripts/JS/signupscript.js" type="text/javascript"></script>
+    <script src="~/Scripts/JS/thanaScript.js" type="text/javascript"></script>
+
+</body>
+</html>
