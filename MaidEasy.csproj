@@ -142,7 +142,6 @@
     <Content Include="Content\footer.css" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
-    <Content Include="Content\signup.css" />
     <Content Include="Content\service.css" />
     <Content Include="Content\profilecard.css" />
     <Content Include="Content\hire.css" />
@@ -181,7 +180,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Register\LogIn.cshtml" />
-    <Content Include="Views\Register\SignUp.cshtml" />
     <Content Include="Views\Service\Service.cshtml" />
     <Content Include="Views\Maid\Hire.cshtml" />
     <Content Include="Views\Shared\footer.cshtml" />

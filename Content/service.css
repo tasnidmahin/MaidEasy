@@ -1,4 +1,5 @@
-﻿[data-tab-content] {
+﻿
+[data-tab-content] {
     display: none;
 }
 
@@ -16,10 +17,7 @@
     margin-right: 10%;
     border: 1px solid black;
     background-color: #00afffc7;
-    font-size: 22px;
 }
-
-/*#4487cc */
 
 .tab {
     cursor: pointer;
@@ -39,24 +37,23 @@
 .tab-content {
     /*margin-left: 520px;
     margin-right: 20px;  */
-    position: absolute;
-    /* top:10%; */
-    left: 40%;
+    /* position: absolute; */
+    top: 20%;
+    /* left:40%; */
 }
 
-/* class for the whole tab section */
 .box {
     border-radius: 8px;
     padding-top: 80px;
 }
+
 /* class for the select box */
 .experiencebox {
-    width: 250px;
-    margin: 30px auto;
+    width: 130px;
+    /*margin:30px auto; */
     display: flex;
     align-items: center;
 }
-
 
     /* class for the options */
 
@@ -65,8 +62,6 @@
         /*position: relative; */
         -webkit-appearance: none;
     }
-
-
 
 
 .checked {
