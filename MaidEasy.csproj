@@ -122,7 +122,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MaidController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
@@ -130,7 +129,6 @@
     </Compile>
     <Compile Include="Models\DBHelper.cs" />
     <Compile Include="Models\LogInModel.cs" />
-    <Compile Include="Models\MaidProfileModel.cs" />
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
     <Compile Include="Models\VerificationCodeModel.cs" />
@@ -144,11 +142,9 @@
     <Content Include="Content\footer.css" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
-    <Content Include="Content\signup.css" />
     <Content Include="Content\service.css" />
     <Content Include="Content\profilecard.css" />
     <Content Include="Content\hire.css" />
-    <Content Include="Content\maid_profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -168,7 +164,6 @@
     <Content Include="Scripts\JS\index.js" />
     <Content Include="Scripts\JS\signupscript.js" />
     <Content Include="Scripts\JS\tabscript.js" />
-    <Content Include="Scripts\JS\thanaScript.js" />
     <Content Include="Scripts\JS\timerscript.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\NumberAuthentication.js" />
@@ -187,12 +182,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Register\LogIn.cshtml" />
-    <Content Include="Views\Register\SignUp.cshtml" />
     <Content Include="Views\Service\Service.cshtml" />
     <Content Include="Views\Maid\Hire.cshtml" />
     <Content Include="Views\Shared\footer.cshtml" />
     <Content Include="Views\Register\VerificationCode.cshtml" />
-    <Content Include="Views\Maid\MaidProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
