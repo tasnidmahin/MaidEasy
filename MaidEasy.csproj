@@ -145,6 +145,7 @@
     <Content Include="Content\service.css" />
     <Content Include="Content\profilecard.css" />
     <Content Include="Content\hire.css" />
+    <Content Include="Content\signup.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -184,6 +185,7 @@
     <Content Include="Views\Maid\Hire.cshtml" />
     <Content Include="Views\Shared\footer.cshtml" />
     <Content Include="Views\Register\VerificationCode.cshtml" />
+    <Content Include="Views\Register\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
