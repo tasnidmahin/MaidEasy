@@ -122,6 +122,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaidController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
@@ -129,6 +130,7 @@
     </Compile>
     <Compile Include="Models\DBHelper.cs" />
     <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\MaidProfileModel.cs" />
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
     <Compile Include="Models\VerificationCodeModel.cs" />
@@ -163,7 +165,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JS\index.js" />
+    <Content Include="Scripts\JS\signupscript.js" />
     <Content Include="Scripts\JS\tabscript.js" />
+    <Content Include="Scripts\JS\thanaScript.js" />
+    <Content Include="Scripts\JS\timerscript.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\NumberAuthentication.js" />
     <Content Include="Web.config" />

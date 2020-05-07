@@ -7,5 +7,6 @@ namespace MaidEasy.Models
 {
     public class ServiceModel
     {
+        public string tab { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@model MaidEasy.Models.ServiceModel
 @{
-    //ViewBag.Title = "Service";
+    ViewBag.Title = "Service";
     Layout = null;
 }
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 </head>
 <body>
     <div class="box">
-        <ul class="tabs">
+        <ul  class="tabs">
             <li data-tab-target="#temporary" class="active tab">Temporary</li>
             <li data-tab-target="#permanent" class="tab">Permanent</li>
             <li data-tab-target="#babycare" class="tab">Baby care</li>
@@ -38,141 +38,144 @@
 
             <div id="temporary" data-tab-content class="active">
                 <br>
-                <div class="container-fluid " style="top:20%;">
-                    <div class="row">
-                        <div class="col-md-4" style="padding-left:140px;">
-                            <h5 style="position: relative;padding-left: 20px;">Sort By</h5>
-                            <div class="experiencebox" style="width:120px;">
-                                <select class="input-lg form-control" id="paperSelect">
-                                    <option value="0"> Sort By  </option>
-                                    <option value="1" id="sortbyname">Name</option>
-                                    <option value="2" id="sortbyexperience">Experience</option>
-                                    <option value="3" id="sortbyexperience">Rating</option>
+                <form action="/Service/Searching" method="get">
+                    <input type="hidden" name="type" value="temporary" />
+                    <div class="container-fluid " style="top:20%;">
+                        <div class="row">
+                            <div class="col-md-4" style="padding-left:140px;">
+                                <h5 style="position: relative;padding-left: 20px;">Sort By</h5>
+                                <div class="experiencebox" style="width:120px;">
+                                    <select class="input-lg form-control" id="paperSelect" name="sortby">
+                                        <option value="name" id="sortbyname">Name</option>
+                                        <option value="experience" id="sortbyexperience">Experience</option>
+                                        <option value="rating" id="sortbyrating">Rating</option>
 
 
-                                </select>
+                                    </select>
 
-                                <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
 
+                                </div>
                             </div>
+                            <div class="col-md-4" style="padding-left:50px;">
+                                <!--    <div class="row">
+                    <div class="col-md-2"> -->
+                                <h5>Starting Time</h5>
+                                <div class="experiencebox" style="padding-left: 10px;">
+                                    <select name="startTime" id="main_menu" class="input-lg form-control">
+                                        <option value=""> </option>  
+                                        <option value="6">6:00 AM</option>
+                                        <option value="6:30">6:30 AM</option>
+                                        <option value="7">7:00 AM</option>
+                                        <option value="7:30">7:30 AM</option>
+                                        <option value="8">8:00 AM</option>
+                                        <option value="8:30">8:30 AM</option>
+                                        <option value="9">9:00 AM</option>
+                                        <option value="9:30">9:30 AM</option>
+                                        <option value="10">10:00 AM</option>
+                                        <option value="10:30">10:30 AM</option>
+                                        <option value="11">11:00 AM</option>
+                                        <option value="11:30">11:30 AM</option>
+                                        <option value="12">12:00 PM</option>
+                                        <option value="12:30">12:30 PM</option>
+                                        <option value="1">1:00 PM</option>
+                                        <option value="1:30">1:30  PM</option>
+                                        <option value="2">2:00  PM</option>
+                                        <option value="2:30">2:30  PM</option>
+                                        <option value="3">3:00  PM</option>
+                                        <option value="3:30">3:30  PM</option>
+                                        <option value="4">4:00  PM</option>
+                                        <option value="4:30">4:30  PM</option>
+                                        <option value="5">5:00  PM</option>
+                                    </select>
+                                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                </div>
+                                <!-- </div> -->
+                                <!--  <div class="col-md-2" style="padding-left: 55px;">
+
+                        <h5>Time</h5>
+
+                        <div class="experiencebox" style="position: relative;">
+                            <select name="car" id="main_menu" class="input-lg form-control">
+
+                                <option value="am">a.m.</option>
+                                <option value="pm">p.m.</option>
+
+                            </select>
+                            <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
                         </div>
-                        <div class="col-md-4"style="padding-left:50px;">
-                            <!--    <div class="row">
-        <div class="col-md-2"> -->
-                            <h5>Starting Time</h5>
-                            <div class="experiencebox" style="padding-left: 10px;">
-                                <select name="time" id="main_menu" class="input-lg form-control">
-                                    <option value=""> </option>
-                                    <option value="6">6:00 AM</option>
-                                    <option value="630">6:30 AM</option>
-                                    <option value="7">7:00 AM</option>
-                                    <option value="730">7:30 AM</option>
-                                    <option value="8">8:00 AM</option>
-                                    <option value="830">8:30 AM</option>
-                                    <option value="9">9:00 AM</option>
-                                    <option value="930">9:30 AM</option>
-                                    <option value="10">10:00 AM</option>
-                                    <option value="1030">10:30 AM</option>
-                                    <option value="11">11:00 AM</option>
-                                    <option value="1130">11:30 AM</option>
-                                    <option value="12">12:00 PM</option>
-                                    <option value="1230">12:30 PM</option>
-                                    <option value="1">1:00 PM</option>
-                                    <option value="130">1:30  PM</option>
-                                    <option value="2">2:00  PM</option>
-                                    <option value="230">2:30  PM</option>
-                                    <option value="3">3:00  PM</option>
-                                    <option value="330">3:30  PM</option>
-                                    <option value="4">4:00  PM</option>
-                                    <option value="430">4:30  PM</option>
-                                    <option value="5">5:00  PM</option>
-                                </select>
-                                <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-                            </div>
-                            <!-- </div> -->
-                            <!--  <div class="col-md-2" style="padding-left: 55px;">
-
-            <h5>Time</h5>
-
-            <div class="experiencebox" style="position: relative;">
-                <select name="car" id="main_menu" class="input-lg form-control">
-
-                    <option value="am">a.m.</option>
-                    <option value="pm">p.m.</option>
-
-                </select>
-                <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-            </div>
-        </div>  -->
-                        </div>
-                        <!--  </div> -->
-                        <div class="col-md-4">
-                            <!--  <div class="row">
-
-    <div class="col-md-2"> -->
-                            <h5>Ending Time</h5>
-
-                            <div class="experiencebox"style="padding-left: 10px;">
-                                <select name="carname" id="sub_menu" class="input-lg form-control">
-                                </select>
-                                <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                    </div>  -->
                             </div>
                             <!--  </div> -->
-                            <!-- <div class="col-md-2" style="padding-left:55px;">
-           <h5>Time</h5>
-           <div class="experiencebox" style="position: relative;">
-               <select name="car" id="main_menu" class="input-lg form-control">
+                            <div class="col-md-4">
+                                <!--  <div class="row">
 
-                   <option value="am">a.m.</option>
-                   <option value="pm">p.m.</option>
-               </select>
-               <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-           </div>
-       </div> -->
-                            <!-- </div> -->
+                    <div class="col-md-2"> -->
+                                <h5>Ending Time</h5>
+
+                                <div class="experiencebox" style="padding-left: 10px;">
+                                    <select name="endTime" id="sub_menu" class="input-lg form-control">
+                                    </select>
+                                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                </div>
+                                <!--  </div> -->
+                                <!-- <div class="col-md-2" style="padding-left:55px;">
+                        <h5>Time</h5>
+                        <div class="experiencebox" style="position: relative;">
+                            <select name="car" id="main_menu" class="input-lg form-control">
+
+                                <option value="am">a.m.</option>
+                                <option value="pm">p.m.</option>
+                            </select>
+                            <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                        </div>
+                    </div> -->
+                                <!-- </div> -->
 
 
 
+                            </div>
                         </div>
                     </div>
-    </div>
-        <br>
-        <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
+                    <br>
+                    <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
 
-            <button type="button" class="btn btn-outline-light btn-lg">Search</button>
+                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>  -->
+                        <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
 
-        </div>
+                    </div>
+                </form>
 
-        <div class="card-box">
+                <div class="card-box">
 
-            <div class="upper-box">
-                <div class="image-box">
-                    <img src="~/Content/Images/profile.jpg" />
+                    <div class="upper-box">
+                        <div class="image-box">
+                            <img src="~/Content/Images/profile.jpg" />
+                        </div>
+                    </div>
+
+                    <div class="lower-box">
+                        <div>
+                            <h3>Alaina Wick</h3>
+                            <!--<h4>3 year experience</h4> -->
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+
+                        </div>
+                        <div>
+                            <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn">View profile</a>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
-
-            <div class="lower-box">
-                <div>
-                    <h3>Alaina Wick</h3>
-                    <!--<h4>3 year experience</h4> -->
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-
-                            </div>
-                            <div>
-                                <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
-                            </div>
-                            <div>
-                                <a href="#" class="btn">View profile</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
             <div id="permanent" data-tab-content>
                 <div class="experiencebox" style="margin:30px auto;width:120px;">
                     <select class="input-lg form-control" id="paperSelect">
@@ -188,7 +191,7 @@
 
                 <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
 
-                    <button type="button" class="btn btn-outline-light btn-lg">Search</button>
+                    <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>
 
                 </div>
 
@@ -237,7 +240,7 @@
 
                     <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
 
-                        <button type="button" class="btn btn-outline-light btn-lg">Search</button>
+                        <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>
 
                     </div>
 
@@ -287,7 +290,7 @@
 
                     <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
 
-                        <button type="button" class="btn btn-outline-light btn-lg">Search</button>
+                        <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>
 
                     </div>
 
