@@ -142,6 +142,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\footer.css" />
+    <Content Include="Content\Header.css" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
     <Content Include="Content\signup.css" />
@@ -165,6 +166,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JS\Header.js" />
     <Content Include="Scripts\JS\index.js" />
     <Content Include="Scripts\JS\signupscript.js" />
     <Content Include="Scripts\JS\tabscript.js" />
@@ -193,6 +195,7 @@
     <Content Include="Views\Shared\footer.cshtml" />
     <Content Include="Views\Register\VerificationCode.cshtml" />
     <Content Include="Views\maid_profile\maidprofile.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
