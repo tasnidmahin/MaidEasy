@@ -188,7 +188,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Register\LogIn.cshtml" />
     <Content Include="Views\Register\SignUp.cshtml" />
-    <Content Include="Views\Service\Service.cshtml" />
     <Content Include="Views\Maid\Hire.cshtml" />
     <Content Include="Views\Shared\footer.cshtml" />
     <Content Include="Views\Register\VerificationCode.cshtml" />
@@ -198,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Service\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
