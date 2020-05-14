@@ -191,7 +191,6 @@
     <Content Include="Views\Maid\Hire.cshtml" />
     <Content Include="Views\Shared\footer.cshtml" />
     <Content Include="Views\Register\VerificationCode.cshtml" />
-    <Content Include="Views\maid_profile\maidprofile.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Maid\MaidProfile.cshtml" />
   </ItemGroup>
