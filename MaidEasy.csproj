@@ -122,6 +122,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaidController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
@@ -129,6 +130,7 @@
     </Compile>
     <Compile Include="Models\DBHelper.cs" />
     <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\MaidProfileModel.cs" />
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
     <Compile Include="Models\VerificationCodeModel.cs" />
@@ -196,7 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Service\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
