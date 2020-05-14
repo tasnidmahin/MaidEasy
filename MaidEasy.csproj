@@ -191,6 +191,7 @@
     <Content Include="Views\Shared\footer.cshtml" />
     <Content Include="Views\Register\VerificationCode.cshtml" />
     <Content Include="Views\Register\SignUp.cshtml" />
+    <Content Include="Views\Maid\MaidProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
