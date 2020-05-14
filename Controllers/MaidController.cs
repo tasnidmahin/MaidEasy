@@ -8,6 +8,7 @@ namespace MaidEasy.Controllers
 {
     public class MaidController : Controller
     {
+        //
         // GET: Maid
         public ActionResult Index()
         {

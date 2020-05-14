@@ -5,6 +5,7 @@ using System.Web;
 
 namespace MaidEasy.Models
 {
+    //
     public class MaidProfileModel
     {
     }
