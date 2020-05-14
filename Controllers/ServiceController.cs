@@ -81,8 +81,8 @@ namespace MaidEasy.Controllers
             System.Diagnostics.Debug.WriteLine(type);
             System.Diagnostics.Debug.WriteLine(status);
 
-            string sql = "SELECT count(WorkerId) from Worker where (SELECT SUBSTRING(type, " + type  + ", 1) from Worker) = '1' and (SELECT SUBSTRING(status, start, end - start + 1) from Worker) = '" + status + "';";
-            //string sql = "SELECT count(WorkerId) from Worker where (SELECT SUBSTRING(type, 0, 1) from Worker) = '1' and (SELECT SUBSTRING(status, start, end - start + 1) from Worker) = '0000';";
+            string sql = "SELECT count(WorkerId) from Worker where (SELECT SUBSTRING(type, " + (type+1)  + ", 1) from Worker) = '1' and (SELECT SUBSTRING(status," + (start+1) + "," + (end - start + 1 )+ ") from Worker) = '" + status + "';";
+            //string sql = "SELECT count(WorkerId) from Worker where (SELECT SUBSTRING(type, 0, 1) from Worker) = '1' and (SELECT SUBSTRING(status, 0, 4) from Worker) = '0000';";
             //select insert(str, 3, 1, '*')
             //select SUBSTRING(@meme,2,1)
 
@@ -91,6 +91,10 @@ namespace MaidEasy.Controllers
             var table = db.getData(sql);
             table.Read();
             int count = Int32.Parse(table.GetString(0));
+            table.Close();
+
+            sql = "SELECT count(WorkerId) from Worker where (SELECT SUBSTRING(type, " + (type + 1) + ", 1) from Worker) = '1' and (SELECT SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") from Worker) = '" + status + "';";
+
 
             ViewData["cnt_row"] = count;
 
