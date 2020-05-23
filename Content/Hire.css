@@ -1,4 +1,9 @@
-﻿.head-box {
+﻿body {
+    background-color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.head-box {
     margin-top: 30px;
     height: auto;
     background: #9ca1a5;
@@ -6,7 +11,7 @@
 
 .hire {
     padding-top: 20px;
-    font-family: cursive;
+    /* font-family: cursive;*/
     color: darkslateblue;
     text-align: center;
 }
@@ -18,7 +23,7 @@
     background: #FFFFFF;
     border-radius: 6px;
     position: absolute;
-    top: 65%;
+    top: 380px;
     left: 50%;
     transform: translate(-50%,-50%);
     box-shadow: 1px 1px 12px 7px #006680;
@@ -26,8 +31,18 @@
     display: inline-block;
 }
 
-
-
+.upper-box {
+    height: 100px;
+    background: #007a99;
+}
+h1 {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding-top: 30px;
+   
+}
 .choices {
     padding: 60px 50px 30px 140px;
 }
@@ -76,7 +91,9 @@
     border-width: thick;
 }
 
-
+strong{
+    font-weight:500;
+}
 
 
 
@@ -145,4 +162,16 @@
     transform: rotate(45deg);
 }
 
+.parallax {
+    /* The image used */
+    background-image: url("../../Content/Images/bg.jpg");
+    /* Set a specific height */
+    min-height: 5310px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+   
 /*--------------c-b----------------------------------------------*/
