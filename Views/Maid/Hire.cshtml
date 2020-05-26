@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Hire";
+     Layout = null;
 }
 
 
@@ -14,16 +15,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="hire.css" rel="stylesheet" />
+    <link href="~/Content/hire.css" rel="stylesheet">
 
     <title>Hire</title>
 
+
 </head>
+@{
+    Html.RenderPartial("Header");
+}
 
 
 <body>
 
-    <div class="head-box">
+
+
+    <!--  <div class="head-box">
 
         <div class="hire">
             <header>
@@ -34,57 +41,58 @@
         </div>
 
 
-    </div>
-
-
-
+    </div>   -->
+    <!--     <div class="parallax"> -->
     <div class="card-box">
+        <div class="upper-box">
+          <h1>
+              Select the services you want
+          </h1>
+        </div>
+            <div class="choices">
+                <label class="container">
+                    Cooking
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
 
-        <div class="choices">
-            <label class="container">
-                Cooking
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-            </label>
+                <label class="container">
+                    Washing Clothes
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
 
-            <label class="container">
-                Washing Clothes
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
+                <label class="container">
+                    Home Cleaning
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
 
-            <label class="container">
-                Home Cleaning
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
+            </div>
+
+
+
+            <div class="Salary">
+
+                <div class="salary_tag"><strong>Salary</strong></div>
+                <div class="salary_amount"><strong>BDT 0.00</strong></div>
+
+            </div>
+
+
+            <div style="text-align:center;">
+
+                <button type="button" id="ok_button">OK</button>
+
+            </div>
+
 
         </div>
-
-
-
-        <div class="Salary">
-
-            <div class="salary_tag"><strong>Salary</strong></div>
-            <div class="salary_amount"><strong>BDT 0.00</strong></div>
-
-        </div>
-
-
-        <div style="text-align:center;">
-
-            <button type="button" id="ok_button">OK</button>
-
-        </div>
-
-
-    </div>
-
-
+        <!--     </div>  -->
 
 
 
 
 
 </body>
-</html>
+    </html>

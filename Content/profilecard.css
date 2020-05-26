@@ -1,7 +1,7 @@
 ﻿body {
     margin: 0px;
     padding: 0px;
-    padding-top: 50px;
+    /*  padding-top: 50px; */
     background: #000;
     /*font-family: arial; */
     box-sizing: border-box;
@@ -26,7 +26,16 @@
     height: 150px;
     background: #00afffc7;
 }
+.category {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
 
+.user-input {
+    font-weight: 300 !important;
+    margin-left: 1em;
+}
 .image-box {
     background: white;
     width: 80px;
@@ -54,6 +63,7 @@
         box-sizing: border-box;
         line-height: .6;
         font-weight: lighter;
+        color: #00afffc7;
     }
 
     .lower-box h4 {
