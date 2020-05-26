@@ -17,7 +17,9 @@
 </head>
 <body>
     <div class="topnav" id="myTopnav">
+        @if(Session["username"]!=null)
 
+        {
         <div class="dropdown">
             <button class="dropbtn">
                 Dropdown
@@ -29,6 +31,12 @@
                 <a href="#">Link 3</a>
             </div>
         </div>
+        }
+        @if(Session["username"]==null)
+        {
+        <a href="#login">Login</a>
+        }
+
         <a href="#home">Home</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
