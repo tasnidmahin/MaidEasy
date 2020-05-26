@@ -1,0 +1,74 @@
+DROP database maideasy
+create database maideasy
+
+create table Worker(
+	WorkerId INT(20) AUTO_INCREMENT PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL,
+	fatherName VARCHAR(30) NOT NULL,
+	mobile VARCHAR(15) NOT NULL,
+	PresentAddress VARCHAR(100) NOT NULL,
+	PermanentAddress VARCHAR(100) NOT NULL,
+	Area VARCHAR(300) NOT NULL,
+	type VARCHAR(8) NOT NULL,
+	experience INT(10) DEFAULT 0,
+	rating INT(10) DEFAULT 0,
+	image LONGBLOB,
+	status VARCHAR(25) DEFAULT '0000000000000000000000000',
+	gender VARCHAR(15) NOT NULL
+)
+
+create table Users(
+	UserId INT(20) AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(70) NOT NULL UNIQUE,
+	password VARCHAR(100) NOT NULL,
+	Name VARCHAR(30) NOT NULL,
+	mobile VARCHAR(15) NOT NULL,
+	PresentAddress VARCHAR(100) NOT NULL,
+	PermanentAddress VARCHAR(100) NOT NULL,
+	image LONGBLOB
+)
+
+create table Thana(
+	ThanaId INT(6) AUTO_INCREMENT PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL
+)
+
+create table Admin(
+	AdminId INT(20) AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(70) NOT NULL UNIQUE,
+	password VARCHAR(100) NOT NULL
+)
+
+create table WorkerReview(
+	Id INT(20) AUTO_INCREMENT,
+	WorkerId INT(20) NOT NULL,
+	description VARCHAR(250),
+	PRIMARY KEY (Id),
+    	FOREIGN KEY (WorkerId) REFERENCES Worker(WorkerId)
+)
+
+
+create table Contracts(
+	Id INT(20) AUTO_INCREMENT PRIMARY KEY,
+	WorkerId INT(20) NOT NULL,
+	UserId INT(20) NOT NULL,
+	Month INT(8) NOT NULL,
+	StartMonth VARCHAR(20) NOT NULL,
+	Hour INT(8) NOT NULL,
+	Amount INT(10) NOT NULL,
+	Worklist VARCHAR(300) NOT NULL,
+    	FOREIGN KEY (WorkerId) REFERENCES Worker(WorkerId),
+    	FOREIGN KEY (UserId) REFERENCES Users(UserId)
+)
+
+create table Work(
+	WorkId INT(6) AUTO_INCREMENT PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL
+)
+
+create table ContactUs(
+	Id INT(20) AUTO_INCREMENT PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL,
+	description VARCHAR(250) NOT NULL
+)
+
