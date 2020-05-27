@@ -11,7 +11,7 @@ create table Worker(
 	Area VARCHAR(300) NOT NULL,
 	type VARCHAR(8) NOT NULL,
 	experience INT(10) DEFAULT 0,
-	rating INT(10) DEFAULT 0,
+	rating DOUBLE(10,2) DEFAULT 0,
 	image LONGBLOB,
 	status VARCHAR(25) DEFAULT '0000000000000000000000000',
 	gender VARCHAR(15) NOT NULL
@@ -42,6 +42,7 @@ create table Admin(
 create table WorkerReview(
 	Id INT(20) AUTO_INCREMENT,
 	WorkerId INT(20) NOT NULL,
+	rating DOUBLE(10,2) DEFAULT 0,
 	description VARCHAR(250),
 	PRIMARY KEY (Id),
     	FOREIGN KEY (WorkerId) REFERENCES Worker(WorkerId)

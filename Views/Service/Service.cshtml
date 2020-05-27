@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
+
     <title>Services</title>
 
 
@@ -149,14 +150,13 @@
                     </div>
                 </form>
                 <div class="searchresults">
-                    @for (var i = 0; i < Convert.ToInt32(ViewData["cnt_row"]); i++)
+                    @{ 
+                        string[,] WData = (string[,])ViewData["workerData"];
+                    }
+                    @for (int i = 0; i < Convert.ToInt32(ViewData["cnt_row"]); i++)
                     {
-                        <script>
-                        console.log(@Convert.ToInt32(ViewData["cnt_row"]));
-                        console.log("5");
-                        </script>
 
-
+                        System.Diagnostics.Debug.WriteLine(@WData[i,1]);
 
                         <div class="card-box">
 
@@ -168,7 +168,7 @@
 
                             <div class="lower-box">
                                 <div>
-                                    <h3>Alaina Wick</h3>
+                                    <h3>@WData[i, 1]</h3>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
@@ -177,7 +177,10 @@
 
                                 </div>
                                 <div>
-                                    <h4 class="category">Favorite Country: <span class="user-input">Thailand</span></h4>
+                                    <h4 class="category">Rating: <span class="user-input"> @WData[i, 2] / 5.00 </span></h4>
+                                </div>
+                                <div>
+                                    <h4 class="category">Experience: <span class="user-input"> @WData[i, 3] months </span></h4>
                                 </div>
                                 <div>
                                     <a href="#" class="btn">View profile</a>
@@ -345,7 +348,7 @@
 
         </div>
     </div>
-    <script src="~/Scripts/JS/timerscript.js"></script>
+    <script src="~/Scripts/JS/timerscript.js"></script> 
 
 </body>
 </html>

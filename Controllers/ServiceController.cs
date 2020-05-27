@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -67,20 +68,19 @@ namespace MaidEasy.Controllers
             var startTime = Request["startTime"].ToString();
             var endTime = Request["endTime"].ToString();
 
-            double d = Convert.ToDouble(startTime);
-            if (d < 6) d += 12;         d -= 6;
-
             int type = findType(t);
-            int start = Convert.ToInt32(d * 2);
+
+            int start = convert(startTime);
             int end = convert(endTime);
 
             string status = "";
-            for(int i=start;i<=end;i++) status += "0";
+            for(int i1=start;i1<=end;i1++) status += "0";
             
                 
             System.Diagnostics.Debug.WriteLine(type);
             System.Diagnostics.Debug.WriteLine(status);
 
+            // sql for count of workers
             string sql = "SELECT count(WorkerId) from Worker where SUBSTRING(type, " + (type+1)  + ", 1) = '1' and SUBSTRING(status," + (start+1) + "," + (end - start + 1 )+ ") = '" + status + "';";
             //string sql = "SELECT count(WorkerId) from Worker where (SELECT SUBSTRING(type, 0, 1) from Worker) = '1' and (SELECT SUBSTRING(status, 0, 4) from Worker) = '0000';";
             //select insert(str, 3, 1, '*')
@@ -91,17 +91,41 @@ namespace MaidEasy.Controllers
             var table = db.getData(sql);
             table.Read();
             int count = Int32.Parse(table.GetString(0));
-            System.Diagnostics.Debug.WriteLine("--------------------------------------------------------------------");
-            System.Diagnostics.Debug.WriteLine(count);
-            System.Diagnostics.Debug.WriteLine("--------------------------------------------------------------------");
             table.Close();
 
-            sql = "SELECT count(WorkerId) from Worker where (SELECT SUBSTRING(type, " + (type + 1) + ", 1) from Worker) = '1' and (SELECT SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") from Worker) = '" + status + "';";
+            string[,] data = new string[count,4];
+            //byte[,] photo = new byte[count, 4294967295];
+            //sql for data of workers
+            sql = "SELECT WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "';";
 
+            table = db.getData(sql);
+            int i = 0;
+            while(table.Read())
+            {
+                System.Diagnostics.Debug.WriteLine("---------------------------------------------------");
+                data[i, 0] = table.GetString(0);
+                data[i, 1] = table.GetString(1);
+                data[i, 2] = table.GetString(2);
+                data[i, 3] = table.GetString(3);
+                System.Diagnostics.Debug.WriteLine("---" + i + "----" );
+                System.Diagnostics.Debug.WriteLine(data[i, 0]);
+                System.Diagnostics.Debug.WriteLine(data[i, 1]);
+                System.Diagnostics.Debug.WriteLine(data[i, 2]);
+                System.Diagnostics.Debug.WriteLine(data[i, 3]);
+                //photo[i] = Encoding.ASCII.GetBytes(table.GetString(4));
+                //Array.Copy(photo[i], Encoding.ASCII.GetBytes(table.GetString(4)), 4294967295);
+                i++;
+            }
+            table.Close();
+
+            ViewData["workerData"] = data;
 
             ViewData["cnt_row"] = count;
 
             return View("~/Views/Service/Service.cshtml");
         }
+
+
+
     }
 }
