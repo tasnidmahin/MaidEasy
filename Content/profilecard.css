@@ -13,13 +13,16 @@
     height: 430px;
     background: #FFF;
     border-radius: 6px;
-    position: absolute;
-    top: 120%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    /*position: absolute;
+     top: 120%; */
+    /* left: 35%; */
+    /*transform: translate(-50%,-50%); */
+    position:static;
     box-shadow: 0px 1px 10px 1px #000;
     overflow: hidden;
     display: inline-block;
+    margin-top: 70px;
+    margin-left: 35%;
 }
 
 .upper-box {
