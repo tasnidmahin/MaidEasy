@@ -33,30 +33,54 @@
 
     <div class="box">
         <div id="top-half">
-            <div id="user-info">
+            <form action="/Maid/MaidProfile" method="get">
+                <div id="user-info">
+                    @{
+                        string[] data = (string[])Session["CurWorker"];
+                        var Type = data[1];
+                        var type = "";
+                        if (Type[0] == '1')
+                        {
+                            type += "Temporary ";
+                        }
+                        if (Type[1] == '1')
+                        {
+                            type += "Permanent ";
+                        }
+                        if (Type[2] == '1')
+                        {
+                            type += "Baby Care ";
+                        }
+                        if (Type[3] == '1')
+                        {
+                            type += "Eldery Care ";
+                        }
+                    }
 
-                <div id="user-photo-wrapper">
-                    <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image">
+                    <div id="user-photo-wrapper">
+                        <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image">
+                    </div>
+
+
+                    <h3 id="user-name">@data[0]</h3>
+
+                    <div id="user-data">
+                        <h4 class="category">Experience:<span class="user-input">@data[3] months</span></h4>
+                        <h4 class="category">Maid type:<span class="user-input">@type</span></h4>
+                        <h4 class="category">
+                            Ratings:   <span class="text-warning fa fa-star user-input"></span>
+                            <span class="text-warning fa fa-star "></span>
+                            <span class="text-warning fa fa-star "></span>
+                            <span class="text-warning fa fa-star"></span>
+                        </h4>
+                        <h4 class="category">Rating:<span class="user-input">@data[2] / 5.00</span></h4>
+                        <button type="submit" class="btn btn-dark">Hire</button>
+                    </div>
+
+
+
                 </div>
-
-
-                <h3 id="user-name">Jane Doe</h3>
-
-                <div id="user-data">
-                    <h4 class="category">Experience:<span class="user-input">3 Year</span></h4>
-                    <h4 class="category">Maid type:<span class="user-input">Temporary</span></h4>
-                    <h4 class="category">
-                        Ratings:   <span class="text-warning fa fa-star user-input"></span>
-                        <span class="text-warning fa fa-star "></span>
-                        <span class="text-warning fa fa-star "></span>
-                        <span class="text-warning fa fa-star"></span>
-                    </h4>
-                    <button type="button" class="btn btn-dark">Hire</button>
-                </div>
-
-
-
-            </div>
+            </form>
         </div>
 
         <!--  <div id=page> -->

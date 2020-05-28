@@ -149,55 +149,64 @@
 
                     </div>
                 </form>
-                <div class="searchresults">
-                    @{ 
-                        string[,] WData = (string[,])ViewData["workerData"];
-                    }
-                    @for (int i = 0; i < Convert.ToInt32(ViewData["cnt_row"]); i++)
-                    {
+                <form action="/Service/ViewProfile" method="get">
+                    <div class="searchresults">
+                        @{
+                            string[,] WData = (string[,])ViewData["workerData"];
+                            byte[][] Wphoto = (byte[][])ViewData["workerPhoto"];
+                        }
+                        @for (int i = 0; i < Convert.ToInt32(ViewData["cnt_row"]); i++)
+                        {
+                            string imgsrc = Convert.ToBase64String(@Wphoto[i]);
+                            //System.Diagnostics.Debug.WriteLine(imgsrc);
+                            //System.Diagnostics.Debug.WriteLine("-----------------------------------------------");
+                            //imgsrc = "data:image/png;base64," + imgsrc;
+                            //System.Diagnostics.Debug.WriteLine(imgsrc);
 
-                        System.Diagnostics.Debug.WriteLine(@WData[i,1]);
+                            <div class="card-box">
 
-                        <div class="card-box">
-
-                            <div class="upper-box">
-                                <div class="image-box">
-                                    <img src="~/Content/Images/profile.jpg" />
+                                <div class="upper-box">
+                                    <div class="image-box">
+                                        <!-- <img src="~/Content/Images/profile.jpg" />  -->
+                                        <!-- <img src= "data:image/jpg;base64,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" alt="Red dot" />  -->
+                                        <img id="WImage" src="">
+                                    </div>
                                 </div>
+
+                                <div class="lower-box">
+                                    <div>
+                                        <h3>@WData[i, 1]</h3>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+
+                                    </div>
+                                    <div>
+                                        <h4 class="category">Rating: <span class="user-input"> @WData[i, 2] / 5.00 </span></h4>
+                                    </div>
+                                    <div>
+                                        <h4 class="category">Experience: <span class="user-input"> @WData[i, 3] months </span></h4>
+                                    </div>
+                                    <div>
+                                       <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@WData[i, 0]">View profile</a>  -->
+                                        <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@WData[i, 0]">View profile</button>
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <div class="lower-box">
-                                <div>
-                                    <h3>@WData[i, 1]</h3>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-
-                                </div>
-                                <div>
-                                    <h4 class="category">Rating: <span class="user-input"> @WData[i, 2] / 5.00 </span></h4>
-                                </div>
-                                <div>
-                                    <h4 class="category">Experience: <span class="user-input"> @WData[i, 3] months </span></h4>
-                                </div>
-                                <div>
-                                    <a href="#" class="btn">View profile</a>
-                                </div>
-                            </div>
-
-                        </div>
 
 
+                            <br />
 
-                        <br />
 
+                        }
+                    </div>
+                </form>
 
-                    }
-                </div>
-
-            </div>
+</div>
             <div id="permanent" data-tab-content>
                 <div class="experiencebox" style="margin:30px auto;width:120px;">
                     <select class="input-lg form-control" id="paperSelect">
@@ -349,6 +358,11 @@
         </div>
     </div>
     <script src="~/Scripts/JS/timerscript.js"></script> 
+    <script>
+        //document.getElementById("WImage").src = "data:image/png;base64," + "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+        document.getElementById("WImage").src = "data:image/png;base64," + imgsrc;
+        document.getElementById("WImage").alt = "Red dot";
+    </script>
 
 </body>
 </html>
