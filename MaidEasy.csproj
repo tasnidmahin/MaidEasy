@@ -167,6 +167,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JS\Header.js" />
+    <Content Include="Scripts\JS\hire.js" />
     <Content Include="Scripts\JS\index.js" />
     <Content Include="Scripts\JS\signupscript.js" />
     <Content Include="Scripts\JS\tabscript.js" />
