@@ -21,15 +21,14 @@ namespace MaidEasy.Controllers
             double time = (double)Session["SearchTimeForWorker"];
 
             var id = data[4];
-            System.Diagnostics.Debug.WriteLine(id);
-            System.Diagnostics.Debug.WriteLine("-----------------------------------------");
             return View("~/Views/Maid/Hire.cshtml");
         }
 
+        [HttpGet]
         public ActionResult Hire()
         {
-            string[] data = (string[])Session["CurWorker"];
-            var id = data[4];
+            var salary = Request["salary"].ToString();
+            string sql = "";
             return View();
         }
     }

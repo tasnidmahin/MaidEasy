@@ -22,23 +22,23 @@
         {
         <div class="dropdown">
             <button class="dropbtn">
-                Dropdown
+                @Session["username"]
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">Link 1</a>
+                <a href="#">My Account</a>
                 <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                <a href="#">logout</a>
             </div>
         </div>
         }
         @if(Session["username"]==null)
         {
-        <a href="#login">Login</a>
+            <a href="@Url.Action("LogIn", "Register")">Login</a>
         }
 
-        <a href="#home">Home</a>
-        <a href="#news">News</a>
+        <a href="@Url.Action("Index", "Home")">Home</a>
+        <a href="@Url.Action("Service", "Service")">Service</a>
         <a href="#contact">Contact</a>
 
         <a href="#about">About</a>
