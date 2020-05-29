@@ -146,6 +146,7 @@
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
+    <Content Include="Content\maid_profile.css" />
     <Content Include="Content\service.css" />
     <Content Include="Content\profilecard.css" />
     <Content Include="Content\hire.css" />
