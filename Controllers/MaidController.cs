@@ -28,10 +28,7 @@ namespace MaidEasy.Controllers
         public ActionResult Hire()
         {
             var salary = Request["salary"].ToString();
-            //var mahin = web.Document.GetElementById("sal").OuterText; ;
-            System.Diagnostics.Debug.WriteLine("-----------------------------------------");
-            System.Diagnostics.Debug.WriteLine(salary);
-            System.Diagnostics.Debug.WriteLine("-----------------------------------------");
+            string sql = "";
             return View();
         }
     }
