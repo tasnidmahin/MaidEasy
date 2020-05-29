@@ -1,6 +1,6 @@
 ﻿body {
     background-color: #000;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
 }
 
 .head-box {
@@ -16,10 +16,23 @@
     text-align: center;
 }
 
+.btn-primary {
+    color: #77c1e4;
+    margin: 20px;
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #001a33;
+    border-color: #77c1e4;
+    margin: 10px;
+    margin-left: 160px;
+}
 
 .card-box {
     width: 500px;
-    height: 400px;
+    height: 450px;
     background: #FFFFFF;
     border-radius: 6px;
     position: absolute;
@@ -33,16 +46,18 @@
 
 .upper-box {
     height: 100px;
-    background: #007a99;
+    background: #138faf;
 }
+
 h1 {
     color: #fff;
     margin: 0;
     padding: 0;
     text-align: center;
     padding-top: 30px;
-   
+    font-family: "Georgia", "Arial", "Helvetica";
 }
+
 .choices {
     padding: 60px 50px 30px 140px;
 }
@@ -58,7 +73,7 @@ h1 {
     width: 100px;
     font-size: 22px;
     display: inline-block;
-    background-color: #007a99;
+    background-color: #138faf;
     margin-left: 30px;
     padding: 10px;
     color: white;
@@ -70,10 +85,11 @@ h1 {
     width: 130px;
     font-size: 22px;
     display: inline-block;
-    margin-left: 90px;
-    background-color: #007a99;
+    /* margin-left: 90px; */
+    background-color: #138faf;
     padding: 10px;
     color: white;
+    border-radius: 15px;
 }
 
 
@@ -91,8 +107,9 @@ h1 {
     border-width: thick;
 }
 
-strong{
-    font-weight:500;
+strong {
+    font-weight: 500;
+    font-family: "sans-serif", "Helvetica";
 }
 
 
@@ -108,7 +125,10 @@ strong{
     cursor: pointer;
     font-size: 22px;
     user-select: none;
+    font-family: "Helvetica","sans-serif";
+    font-weight: 10;
 }
+
 
     /* Hide the browser's default checkbox */
     .container input {
@@ -173,5 +193,7 @@ strong{
     background-repeat: no-repeat;
     background-size: cover;
 }
-   
+
+/*--------------c-b----------------------------------------------*/
+
 /*--------------c-b----------------------------------------------*/
