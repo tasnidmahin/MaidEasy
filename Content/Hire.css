@@ -16,10 +16,23 @@
     text-align: center;
 }
 
+.btn-primary {
+    color: #77c1e4;
+    margin: 20px;
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #001a33;
+    border-color: #77c1e4;
+    margin: 10px;
+    margin-left: 160px;
+}
 
 .card-box {
     width: 500px;
-    height: 400px;
+    height: 450px;
     background: #FFFFFF;
     border-radius: 6px;
     position: absolute;
