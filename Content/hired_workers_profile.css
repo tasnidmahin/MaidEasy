@@ -1,23 +1,30 @@
-﻿
+﻿body {
+    background-color: #000;
+}
+
 .current-box {
     position: relative;
     height: 400px;
 }
 
 .previous-box {
-    position: relative;
-    height: 770px;
+    /* position: relative; 
+    height: 770px; */
+    margin-top: 30px;
 }
 
+.extra {
+    margin-top: 530px;
+    margin-bottom: 102px;
+}
 
 .time {
-    padding-top: 30px;
-    text-decoration: underline;
-    font-style: italic;
+    padding-top: 10px;
     font-weight: bold;
     font-size: 30px;
     color: #77c1e4;
     text-align: center;
+    font-family: "Helvetica","Arial","sans-serif";
 }
 
 
@@ -43,22 +50,20 @@
 
 .profile {
     padding-top: 20px;
-    font-family: cursive;
-    color: darkslateblue;
+    font-family: "Georgia", "Arial", "Helvetica";
+    color: #fff;
     text-align: center;
     font-weight: bold;
 }
 
 .head-box {
-    text-decoration: underline;
     text-decoration-color: darkslateblue;
     margin-top: 30px;
-    background: #9ca1a5;
 }
 
 .card-box {
-    width: 600px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     background: #FFFFFF;
     border-radius: 6px;
     position: absolute;
@@ -82,39 +87,56 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    transform: translate(230px, 10px);
+    /*transform: translate(230px, 10px); */
+    transform: translate(130px, 5px);
 }
 
-.image-box img {
+    .image-box img {
         width: 150px;
         height: 150px;
         border-radius: 50%;
-}
+    }
 
 .lower-box {
     background: #FFF;
-    padding-top: 100px;
+    padding-top: 70px;
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 }
 
-.lower-box h3 {
+    .lower-box h3 {
         padding-left: 50px;
         text-align: left;
         box-sizing: border-box;
         font-weight: bold;
-}
+    }
 
-#hw_button {
+.btn-primary {
     color: #77c1e4;
     margin: 20px;
     border-radius: 20px;
-    width: 200px;
-    height: 60px;
-    font-size: x-large;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
     font-weight: bold;
     background-color: #001a33;
     border-color: #77c1e4;
-    border-width: thick;
     margin: 10px;
+    margin-left: 115px;
+}
+
+#user-data {
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+.category {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.user-input {
+    font-weight: 300 !important;
+    margin-left: 1em;
 }

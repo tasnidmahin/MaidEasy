@@ -8,6 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -28,7 +29,7 @@
         <div class="profile">
             <header>
                 <h1>Hired Workers Profile</h1>
-                <br><hr>
+
             </header>
 
         </div>
@@ -38,52 +39,90 @@
 
 
 
-    <div class="current-box">
+    <!--   <div class="current-box"> -->
 
 
-        <div class="card-box">
+    <div class="card-box">
 
 
 
-            <div class="upper-box">
-                <div class="time"><span>Current Worker</span></div>
-                <div class="image-box">
-                    <img src="hw_pic.jpg" />
-                </div>
+        <div class="upper-box">
+            <div class="time"><h2>Current Worker</h2></div>
+            <div class="image-box">
+                <img src="hw_pic.jpg" />
             </div>
+        </div>
 
 
 
-            <div class="lower-box">
+        <div class="lower-box">
 
 
-                <div class="row">
-                    <div class="column1"><h3>Name</h3></div>
+            <!-- <div class="row">
+            <div class="column1"><h3>Name</h3></div>
 
-                    <div class="column2"><h3>Ms. XYZ</h3></div>
+               <div class="column2"><h3>Ms. XYZ</h3></div>
 
-                </div>
+               </div>
 
-                <div class="row">
+                      <div class="row">
 
-                    <div class="column1"><h3>Work Type</h3></div>
+            <div class="column1"><h3>Work Type</h3></div>
 
                     <div class="column2"><h3>Temporary</h3></div>
 
-                </div>
+                          </div> -->
+            <div id="user-data">
+                <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
+                <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
 
             </div>
+        </div>
 
 
-            <div style="text-align:center;">
+        <!--        <div style="text-align:center;">
 
-                <button type="button" id="hw_button">Give Feedback</button>
+        <button type="button" id="hw_button">Give Feedback</button>
+
+        </div> -->
+        <button type="button" class="btn btn-primary">Give Feedback</button>
+
+    </div>
+
+
+
+
+    <!-- 	</div>  -->
+    <!--<div class="previous-box"> -->
+
+
+    <div class="card-box extra">
+
+
+
+        <div class="upper-box">
+            <div class="time"><h2>Previous Worker</h2></div>
+            <div class="image-box">
+                <img src="hw_pic.jpg" />
+            </div>
+        </div>
+
+
+
+        <div class="lower-box">
+
+
+            <div id="user-data">
+                <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
+                <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
 
             </div>
-
 
         </div>
 
+
+
+        <button type="button" class="btn btn-primary">Give Feedback</button>
 
 
 
@@ -93,56 +132,9 @@
 
 
 
+    <!-- 	</div>  -->
 
-    <div class="previous-box">
-
-
-        <div class="card-box">
-
-
-
-            <div class="upper-box">
-                <div class="time"><span>Previous Worker</span></div>
-                <div class="image-box">
-                    <img src="hw_pic.jpg" />
-                </div>
-            </div>
-
-
-
-            <div class="lower-box">
-
-
-                <div class="row">
-                    <div class="column1"><h3>Name</h3></div>
-
-                    <div class="column2"><h3>Ms. CDE</h3></div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="column1"><h3>Work Type</h3></div>
-
-                    <div class="column2"><h3>Temporary</h3></div>
-
-                </div>
-
-            </div>
-
-            <div style="text-align:center;">
-
-                <button type="button" id="hw_button">Give Feedback</button>
-
-            </div>
-
-        </div>
-
-
-    </div>
 
 
 </body>
-
 </html>
-
