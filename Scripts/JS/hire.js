@@ -24,7 +24,7 @@ function myFunction() {
     }
 
 
-
+    document.getElementById("sal").setAttribute("value", sum);
 }
 
 function myFunction1() {
@@ -39,7 +39,7 @@ function myFunction1() {
         document.getElementById("salary").innerHTML = sum;
     }
 
-
+    document.getElementById("sal").setAttribute("value", sum);
 }
 
 
@@ -55,5 +55,6 @@ function myFunction2() {
         document.getElementById("salary").innerHTML = sum;
     }
 
-
+    document.getElementById("sal").setAttribute("value", sum);
 }
+

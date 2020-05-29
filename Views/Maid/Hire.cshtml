@@ -43,62 +43,63 @@
 
     </div>   -->
     <!--     <div class="parallax"> -->
-    <div class="card-box">
-        <div class="upper-box">
-            <h1>
-                Select the services you want
-            </h1>
+    <form action="/Maid/Hire" method="get">
+        <div class="card-box">
+            <div class="upper-box">
+                <h1>
+                    Select the services you want
+                </h1>
+            </div>
+            <div class="choices">
+                <label class="container">
+                    Cooking
+                    <input type="checkbox" id="myCheck" onclick="myFunction()">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">
+                    Washing Clothes
+                    <input type="checkbox" id="myCheck1" onclick="myFunction1()">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">
+                    Home Cleaning
+                    <input type="checkbox" id="myCheck2" onclick="myFunction2()">
+                    <span class="checkmark"></span>
+                </label>
+
+            </div>
+
+
+
+            <div class="Salary">
+
+                <div class="salary_tag"><strong>Salary</strong></div>
+                <div class="salary_amount"><strong>BDT </strong><strong id="salary" ></strong></div>
+                <input type="hidden" id="sal" name="salary"  />
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Hire</button>
+
+
+
         </div>
-        <div class="choices">
-            <label class="container">
-                Cooking
-                <input type="checkbox" id="myCheck" onclick="myFunction()">
-                <span class="checkmark"></span>
-            </label>
 
-            <label class="container">
-                Washing Clothes
-                <input type="checkbox" id="myCheck1" onclick="myFunction1()">
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="container">
-                Home Cleaning
-                <input type="checkbox" id="myCheck2" onclick="myFunction2()">
-                <span class="checkmark"></span>
-            </label>
-
-        </div>
+    </form>
 
 
 
-        <div class="Salary">
-
-            <div class="salary_tag"><strong>Salary</strong></div>
-            <div class="salary_amount"><strong>BDT </strong><strong id=salary></strong></div>
-
-        </div>
-
-
-        <button type="button" class="btn btn-primary">Hire</button>
 
 
 
-    </div>
 
-
-   
-
-        
-   
-
-
-    
-    <!--     </div>  -->
+        <!--     </div>  -->
 
 
 
-    <script src="~/Scripts/JS/hire.js"></script>
+        <script src="~/Scripts/JS/hire.js"></script>
 
 </body>
     </html>
