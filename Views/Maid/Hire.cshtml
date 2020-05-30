@@ -16,6 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="~/Content/hire.css" rel="stylesheet">
+    <link href="~/Content/selectbox.css" rel="stylesheet">
 
     <title>Hire</title>
 
@@ -53,19 +54,19 @@
             <div class="choices">
                 <label class="container">
                     Cooking
-                    <input type="checkbox" id="myCheck" onclick="myFunction(@Session["SearchTimeForWorker"])">
+                    <input type="checkbox" id="myCheck" onclick="myFunction()">
                     <span class="checkmark"></span>
                 </label>
 
                 <label class="container">
                     Washing Clothes
-                    <input type="checkbox" id="myCheck1" onclick="myFunction1(@Session["SearchTimeForWorker"])">
+                    <input type="checkbox" id="myCheck1" onclick="myFunction1()">
                     <span class="checkmark"></span>
                 </label>
 
                 <label class="container">
                     Home Cleaning
-                    <input type="checkbox" id="myCheck2" onclick="myFunction2(@Session["SearchTimeForWorker"])">
+                    <input type="checkbox" id="myCheck2" onclick="myFunction2()">
                     <span class="checkmark"></span>
                 </label>
 
@@ -73,24 +74,67 @@
 
 
 
-            <div class="Salary">
+            <!-- <div class="Salary">
 
-                <div class="salary_tag"><strong>Salary</strong></div>
-                <div class="salary_amount"><strong>BDT </strong><strong id="salary" ></strong></div>
-                <input type="hidden" id="sal" name="salary"  />
-            </div>
+             <div class="salary_tag"><strong>Salary</strong></div>
+             <div class="salary_amount"><strong>BDT </strong><strong id=salary></strong></div>
+
+         </div>-->
 
 
-           
-        <button type="button" class="btn btn-primary">Hire</button>
+
+
+
+
 
 
 
         </div>
+        <!--     </div>  -->
+
+        <div class="card-box1">
+            <div class="upper-box">
+                <h1 style="padding-top: 25px;">
+                    Select the length of your contract
+                </h1>
+            </div>
+            <div class="choices1">
+                <div class="custom-select" style="width:200px;">
+                    <select>
+                        <option value="0">Months</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="card-box2">
+            <div class="upper-box">
+                <h1 style="padding-top: 25px;">
+                    Salary (BDT)
+                </h1>
+            </div>
+            <div class="Salary">
+                <div class="salary_amount"><strong id=salary></strong></div>
+            </div>
+            <button type="button" class="btn btn-primary">Hire</button>
+        </div>
+        
 
 
     </form>
-
 
 
 
@@ -103,6 +147,7 @@
 
 
         <script src="~/Scripts/JS/hire.js"></script>
+        <script src="~/Scripts/JS/selectbox.js"></script>
 
 </body>
     </html>
