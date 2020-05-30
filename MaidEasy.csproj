@@ -155,6 +155,9 @@
     <Content Include="Content\hire.css" />
     <Content Include="Content\signup.css" />
     <Content Include="Content\starrating.css" />
+    <Content Include="Content\hired_workers_profile.css" />
+    <Content Include="Content\Images\sample_profile.jpg" />
+    <Content Include="Content\user_profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -203,6 +206,8 @@
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Maid\MaidProfile.cshtml" />
     <Content Include="Views\User\feedback.cshtml" />
+    <Content Include="Views\User\hired_workers_profile.cshtml" />
+    <Content Include="Views\User\user_profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
