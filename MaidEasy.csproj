@@ -199,10 +199,10 @@
     <Content Include="Views\Register\SignUp.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Maid\MaidProfile.cshtml" />
+    <Content Include="Views\User\feedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
