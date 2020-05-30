@@ -13,5 +13,20 @@ namespace MaidEasy.Controllers
         {
             return View();
         }
+
+        public ActionResult feedback()
+        {
+            return View();
+        }
+
+        public ActionResult user_profile()
+        {
+            return View();
+        }
+
+        public ActionResult hired_workers_profile()
+        {
+            return View();
+        }
     }
 }
