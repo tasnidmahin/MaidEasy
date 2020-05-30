@@ -146,6 +146,8 @@
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
+    <Content Include="Content\maid_profile.css" />
+    <Content Include="Content\selectbox.css" />
     <Content Include="Content\service.css" />
     <Content Include="Content\profilecard.css" />
     <Content Include="Content\hire.css" />
@@ -169,6 +171,7 @@
     <Content Include="Scripts\JS\Header.js" />
     <Content Include="Scripts\JS\hire.js" />
     <Content Include="Scripts\JS\index.js" />
+    <Content Include="Scripts\JS\selectbox.js" />
     <Content Include="Scripts\JS\signupscript.js" />
     <Content Include="Scripts\JS\tabscript.js" />
     <Content Include="Scripts\JS\timerscript.js" />
