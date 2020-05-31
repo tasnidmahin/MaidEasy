@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "hired_workers_profile";
+      Layout = null;
 }
 
 <!DOCTYPE html>
@@ -19,6 +20,9 @@
 
 </head>
 
+@{
+    Html.RenderPartial("Header");
+}
 
 <body>
 
@@ -48,7 +52,7 @@
         <div class="upper-box">
             <div class="time"><h2>Current Worker</h2></div>
             <div class="image-box">
-                <img src="hw_pic.jpg" />
+                <img src="~/Content/Images/profile.jpg"  />
             </div>
         </div>
 
@@ -74,6 +78,11 @@
             <div id="user-data">
                 <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
                 <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
+                <h3 class="category">Month:<span class="user-input">Temporary</span></h3>
+                <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
+                <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
+                <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
+                <h3 class="category">Work-list:<span class="user-input"><li>Washing</li><li>Washing</li><li>Washing</li></span></h3>
 
             </div>
         </div>
@@ -102,7 +111,7 @@
         <div class="upper-box">
             <div class="time"><h2>Previous Worker</h2></div>
             <div class="image-box">
-                <img src="hw_pic.jpg" />
+                <img src="~/Content/Images/profile.jpg" />
             </div>
         </div>
 
