@@ -1,4 +1,4 @@
-﻿@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+﻿
 
 fieldset, label {
     margin: 0;
@@ -6,7 +6,7 @@ fieldset, label {
 }
 
 body {
-    margin: 20px;
+   /* margin: 20px; */
     background-color: #000;
 }
 

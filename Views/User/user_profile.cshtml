@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "user_profile";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -17,21 +18,13 @@
     <title>User Profile</title>
 
 </head>
-
+@{
+    Html.RenderPartial("Header");
+}
 
 <body>
 
-    <div class="head-box">
 
-        <div class="profile">
-            <header>
-                <h1>User Profile</h1>
-                <br><hr>
-            </header>
-
-        </div>
-
-    </div>
 
 
 
@@ -43,7 +36,7 @@
 
         <div class="upper-box">
             <div class="image-box">
-                <img src="sample_profile.jpg" />
+                <img src="~/Content/Images/profile.jpg" />
             </div>
         </div>
 
@@ -52,56 +45,29 @@
         <div class="lower-box">
 
 
-            <div class="row">
-                <div class="column1"><h3>Name</h3></div>
+            <div id="user-data">
+                <h4 class="category">User Name:<span class="user-input">3 months</span></h4>
+                <h4 class="category">Name:<span class="user-input">3 months</span></h4>
+                <h4 class="category">Mobile:<span class="user-input">3 months</span></h4>
+                <h4 class="category">Present Address:<span class="user-input">3 months</span></h4>
+                <h4 class="category">Permanent Address:<span class="user-input">3 months</span></h4>
 
-                <div class="column2"><h3>Mr. ABC</h3></div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="column1"><h3>Mobile Number</h3></div>
-
-                <div class="column2"><h3>+8801234567899</h3></div>
+                <h4 class="category">Thana:<span class="user-input">Temporary</span></h4>
 
             </div>
-
-
-            <div class="row">
-
-                <div class="column1"><h3>Email</h3></div>
-
-                <div class="column2"><h3>abc@mail.com</h3></div>
-
-            </div>
-
-
-            <div class="row">
-
-                <div class="column1"><h3>Present Address</h3></div>
-
-                <div class="column2"><h3>sample present address showing</h3></div>
-
-            </div>
-
-
-            <div class="row">
-
-                <div class="column1"><h3>Permanent Address</h3></div>
-
-                <div class="column2"><h3>sample permanent address showing</h3></div>
-
-            </div>
-
 
 
         </div>
 
 
-        <div style="text-align:center;">
 
-            <button type="button" id="hw_button">Hired Workers</button>
+
+        <button type="button" class="hw_button">Hired Workers</button>
+
+        <br>
+
+        <div style="text-align:center;">
+            <button type="button" class="hw_button1">Edit Profile</button>
 
         </div>
 
