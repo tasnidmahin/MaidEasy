@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <title> Login </title>
-    <link href="~/Content/signup.css" rel="stylesheet" />
+    <link href="~/Content/login.css" rel="stylesheet" />
 
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
@@ -18,28 +18,31 @@
 
 
 <body>
+    <div class="container">
+       
+            <div class="form">
+                <form method="post" action="something.php" class="signup-form">
+                    <div class="form-control">
+                        <label for="username">Username</label>
+                        <input type="text" placeholder="Enter Username" name="Username">
+                    </div>
 
-    <div class='signup-page'>
-        <div class='form'>
-            <form method="post" action="something.php" class="signup-form">
+                    <div class="form-control">
+                        <label for="username">Password</label>
+                        <input type="password" placeholder="Enter Password" name="loginpassword">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" name="signupbutton">Log In</button>
 
-                <input type="text" placeholder="User Name" name="Username">
+                    <p style="font-size:15px";>Don't have an account? <a href="#" style="color:dodgerblue;">Register here</a>.</p>
+                </form>
+            </div>
 
-
-
-                <input type="password" placeholder="Password" name="loginpassword">
-
-                <button type="submit" class="btn btn-primary btn-block" name="signupbutton">Log IN</button>
-
-            </form>
         </div>
 
-    </div>
-
-    @*Footer*@
-    @{
-        //Html.RenderPartial("footer");
-    }
+        @*Footer*@
+        @{
+            //Html.RenderPartial("footer");
+        }
 
 </body>
 </html>
