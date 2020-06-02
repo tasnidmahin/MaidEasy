@@ -55,18 +55,21 @@
                 <label class="container">
                     Cooking
                     <input type="checkbox" id="myCheck" onclick="myFunction(@Session["SearchTimeForWorker"])">
+                    <input type="hidden" id="check1" name="check1" />
                     <span class="checkmark"></span>
                 </label>
 
                 <label class="container">
                     Washing Clothes
                     <input type="checkbox" id="myCheck1" onclick="myFunction1(@Session["SearchTimeForWorker"])">
+                    <input type="hidden" id="check2" name="check2" />
                     <span class="checkmark"></span>
                 </label>
 
                 <label class="container">
                     Home Cleaning
                     <input type="checkbox" id="myCheck2" onclick="myFunction2(@Session["SearchTimeForWorker"])">
+                    <input type="hidden" id="check3" name="check3" />
                     <span class="checkmark"></span>
                 </label>
 
@@ -100,7 +103,7 @@
             </div>
             <div class="choices1">
                 <div class="custom-select" style="width:200px;">
-                    <select>
+                    <select name="con_length">
                         <option value="0">Months</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -128,8 +131,9 @@
             </div>
             <div class="Salary">
                 <div class="salary_amount"><strong id=salary></strong></div>
+                <input type="hidden" id="sal" name="salary" />
             </div>
-            <button type="button" class="btn btn-primary">Hire</button>
+            <button type="submit" class="btn btn-primary">Hire</button>
         </div>
         
 
