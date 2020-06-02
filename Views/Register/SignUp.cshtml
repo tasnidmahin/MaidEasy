@@ -22,6 +22,7 @@
 </head>
 
 <body>
+    <div class="area">
     <div class="container">
         <div class="header">
             <h2>Create Account</h2>
@@ -56,54 +57,56 @@
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
-                <div class="form-control autocomplete">
-                    <label for="username">Thana</label>
+            <div class="form-control autocomplete">
+                <label for="username">Thana</label>
 
-                    <input id="thana" type="text" name="myCountry" placeholder="Country">
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-
-
+                <input id="thana" type="text" name="myCountry" placeholder="Country">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
 
 
-                </div>
-                <div class="form-control">
-                    <label for="username">Permanent Address</label>
-                    <input id="permanentaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["permanentAddress"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-                <div class="form-control">
-                    <label for="username">Password</label>
-                    <input id="password" type="password" name="signUpPassword" placeholder="Password" value="@TempData["pass"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-                <div class="form-control">
-                    <label for="username">Password check</label>
-                    <input id="password2" type="password" name="confirmPassword" placeholder="confirmPassword" value="@TempData["conpass"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-
-                <div class="form-control">
-                    <label for="username">Enter Profile Image</label>
-                    <input id="profileimage" type="file" name="profileimage">
 
 
-                </div>
+            </div>
+            <div class="form-control">
+                <label for="username">Permanent Address</label>
+                <input id="permanentaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["permanentAddress"]" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="username">Password</label>
+                <input id="password" type="password" name="signUpPassword" placeholder="Password" value="@TempData["pass"]" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="username">Password check</label>
+                <input id="password2" type="password" name="confirmPassword" placeholder="confirmPassword" value="@TempData["conpass"]" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+                <label for="username">Enter Profile Image</label>
+                <input id="profileimage" type="file" name="profileimage">
 
 
-                <!--<button>Submit</button> -->
+            </div>
 
-                <button id="submit-btn" type="button" class="btn btn-primary btn-block" name="submitbutton">Sign Up</button>
+
+            <!--<button>Submit</button> -->
+
+            <button id="submit-btn" type="button" class="btn btn-primary btn-block" name="submitbutton">Sign Up</button>
+
+            <p style="font-size:15px" ;>Already have an account? <a href="#" style="color:dodgerblue;">Login</a></p>
         </form>
     </div>
-
+  </div>
 
 
 

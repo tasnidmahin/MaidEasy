@@ -1,5 +1,4 @@
-
-/*@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+﻿/*@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap'); */
 
 * {
@@ -9,23 +8,22 @@
 body {
     background-color: #000;
     font-family: 'Open Sans', sans-serif;
-    display: flex;
+    /*display: flex; */
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     margin: 0;
 }
-.area{
-    margin-top:70px;
-}
-.container {
+
+.containerno {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    width: 400px;
+    width: 500px;
     max-width: 100%;
-    margin-bottom:70px;
+    margin-bottom: 40px;
+   /* margin-top:200px;*/
 }
 
 .header {
@@ -43,7 +41,7 @@ body {
 }
 
 .form-control {
-    margin-bottom: 2px;
+    margin-bottom: 10px;
     padding-bottom: 20px;
     position: relative;
 }
@@ -106,8 +104,8 @@ body {
     }
 
 .form button {
-    background-color: #0a8aec;
-    border: 2px solid #0a8aec;
+    background-color: #8e44ad;
+    border: 2px solid #8e44ad;
     border-radius: 4px;
     color: #fff;
     display: block;
@@ -118,39 +116,19 @@ body {
     width: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-.floating-btn {
-    border-radius: 26.5px;
-    background-color: #001F61;
-    border: 1px solid #001F61;
-    box-shadow: 0 16px 22px -17px #03153B;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 20px;
-    padding: 12px 20px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
+.area{
+    padding-top:80px;
 }
 
-    .floating-btn:hover {
-        background-color: #ffffff;
-        color: #001F61;
-    }
 
-    .floating-btn:focus {
-        outline: none;
-    }
+
+
+
+
+
+
+
+    
 
 
 
@@ -167,7 +145,7 @@ body {
 .autocomplete {
     /*the container must be positioned relative:*/
     position: relative;
-    display: inline-block;
+    display: block;
 }
 
 
@@ -201,3 +179,17 @@ body {
     color: #ffffff;
 }
 
+#user-photo-wrapper {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid 1px #d8d8d8;
+    display: block;
+    margin: auto;
+}
+
+#user-photo {
+    width: 200px;
+    height: 200px;
+}

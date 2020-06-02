@@ -142,12 +142,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\editprofile.css" />
     <Content Include="Content\feedback.css" />
     <Content Include="Content\footer.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\maid_profile.css" />
     <Content Include="Content\selectbox.css" />
     <Content Include="Content\service.css" />
@@ -174,6 +176,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JS\editprofilescript.js" />
     <Content Include="Scripts\JS\Header.js" />
     <Content Include="Scripts\JS\hire.js" />
     <Content Include="Scripts\JS\index.js" />
@@ -208,6 +211,7 @@
     <Content Include="Views\User\feedback.cshtml" />
     <Content Include="Views\User\hired_workers_profile.cshtml" />
     <Content Include="Views\User\user_profile.cshtml" />
+    <Content Include="Views\User\Edit_profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
