@@ -112,9 +112,9 @@ namespace MaidEasy.Controllers
             db.setData(sql);
 
 
-            System.Diagnostics.Debug.WriteLine("--------------------");
-            System.Diagnostics.Debug.WriteLine(ViewData["phoneNumber"]);
-            System.Diagnostics.Debug.WriteLine(TempData["username"]);
+            //System.Diagnostics.Debug.WriteLine("--------------------");
+            //System.Diagnostics.Debug.WriteLine(ViewData["phoneNumber"]);
+            //System.Diagnostics.Debug.WriteLine(TempData["username"]);
             
 
             Session["username"] = TempData["username"];

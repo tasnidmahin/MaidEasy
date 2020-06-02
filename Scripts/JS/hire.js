@@ -19,9 +19,11 @@ function myFunction(t) {
     if (checkBox.checked == true) {
         sum = sum + (s1 * time);
         document.getElementById("salary").innerHTML = sum;
+        document.getElementById("check1").setAttribute("value", "Cooking");
     } else {
         sum = sum - (s1 * time);
         document.getElementById("salary").innerHTML = sum;
+        document.getElementById("check1").setAttribute("value", "null");
     }
 
 
@@ -36,9 +38,11 @@ function myFunction1(t) {
     if (checkBox1.checked == true) {
         sum = sum + (s2 * time);
         document.getElementById("salary").innerHTML = sum;
+        document.getElementById("check2").setAttribute("value", "Washing Clothes");
     } else {
         sum = sum - (s2 * time);
         document.getElementById("salary").innerHTML = sum;
+        document.getElementById("check2").setAttribute("value", "null");
     }
 
     document.getElementById("sal").setAttribute("value", sum);
@@ -53,9 +57,11 @@ function myFunction2(t) {
     if (checkBox2.checked == true) {
         sum = sum + (s3 * time);
         document.getElementById("salary").innerHTML = sum;
+        document.getElementById("check3").setAttribute("value", "Home Cleaning");
     } else {
         sum = sum - (s3 * time);
         document.getElementById("salary").innerHTML = sum;
+        document.getElementById("check3").setAttribute("value", "null");
     }
 
     document.getElementById("sal").setAttribute("value", sum);

@@ -28,7 +28,19 @@ namespace MaidEasy.Controllers
         public ActionResult Hire()
         {
             var salary = Request["salary"].ToString();
-            string sql = "";
+            var month = Request["con_length"].ToString();
+            //var worklist = "";
+            var w1 = Request["check1"].ToString();
+            var w2 = Request["check2"].ToString();
+            var w3 = Request["check3"].ToString();
+            System.Diagnostics.Debug.WriteLine("--------------------------------");
+            System.Diagnostics.Debug.WriteLine(salary);
+            System.Diagnostics.Debug.WriteLine(month);
+            System.Diagnostics.Debug.WriteLine(w1);
+            System.Diagnostics.Debug.WriteLine(w2);
+            System.Diagnostics.Debug.WriteLine(w3);
+            System.Diagnostics.Debug.WriteLine("--------------------------------");
+            //string sql = "";
             return View();
         }
     }
