@@ -1,4 +1,29 @@
-﻿input[type=text], select, textarea {
+﻿.card-body{
+    background-color: #fff;
+}
+body {
+    align-items: center;
+    justify-content: center;
+ 
+}
+.area {
+    padding-top: 80px;
+    margin-left:300px;
+}
+.container1 {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 400px;
+    max-width: 100%;
+   
+}
+.form {
+    padding: 30px 40px;
+}
+
+input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -6,38 +31,20 @@
     margin-bottom: 16px;
     resize: vertical;
 }
-/*
+
 input[type=submit] {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
     border: none;
     cursor: pointer;
-}  */
+}
 
     input[type=submit]:hover {
         background-color: #45a049;
     }
 
 .container-fluid {
-   /* margin-top: 100px; */
-}
-
-.card {
- margin-top:70px;
- width:450px;
-}
-
-.btn-primary {
-    color: #77c1e4;
-    margin: 20px;
-    border-radius: 20px;
-    width: 130px;
-    height: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #001a33;
-    border-color: #77c1e4;
-    margin: 10px;
-   /* margin-left: 160px; */
+    padding-top: 80px;
+    
 }
