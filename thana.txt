@@ -1,0 +1,60 @@
+A
+Adabar
+Azampur
+B
+Badda
+Bangsal
+Bimanbandar
+C
+Cantonment
+Chowkbazar
+D
+Darus Salam
+Demra
+Dhanmondi
+G
+Gendaria
+Gulshan
+H
+Hazaribagh
+K
+Kadamtali
+Kafrul
+Kalabagan
+Kamrangirchar
+Khilgaon
+Khilkhet
+Kotwali
+L
+Lalbagh
+M
+Mirpur
+Mohammadpur
+Motijheel
+N
+New Market
+P
+Pallabi
+Paltan
+Panthapath
+R
+Ramna
+Rampura
+S
+Sabujbagh
+Shah Ali
+Shahbag
+Sher-e-Bangla Nagar
+Shyampur
+Sutrapur
+T
+Tejgaon Industrial Area
+Tejgaon
+Turag
+U
+Uttar Khan
+Uttara
+V
+Vatara
+W
+Wari

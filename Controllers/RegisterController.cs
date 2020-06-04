@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -33,10 +34,30 @@ namespace MaidEasy.Controllers
             return View();
         }
 
+        private string getThanaID(string thana)
+        {
+            DBHelper db = DBHelper.getDB();
+            string sql = "SELECT ThanaId from Thana where Name = '" + thana + "'";
+            var table = db.getData(sql);
+            table.Read();
+            int t = Int32.Parse(table.GetString(0));
+            StringBuilder r = new StringBuilder("00000000000000000000000000000000000000000000000000");
+
+            if(t-1 >= 0 && t-1<r.Length) r[t - 1] = '1';
+
+            string ret = r.ToString();
+            table.Close();
+
+
+            Session["thanaID"] = t - 1;
+
+            return ret;
+        }
+
         [HttpPost]
         public ActionResult CheckInfo(SignupModel signupModel)
         {
-
+            //get info from form in signup html
             var user = Request["Username"];
             var name = Request["Name"];
             var phone = Request["Phone"];
@@ -44,6 +65,8 @@ namespace MaidEasy.Controllers
             var permanentAddress = Request["permanentAddress"];
             var pass = Request["signUpPassword"];
             var conpass = Request["confirmPassword"];
+            var thana = Request["thana"];
+            string thanastring = getThanaID(thana);
 
             TempData["username"] = user;
             TempData["name"] = name;
@@ -52,6 +75,9 @@ namespace MaidEasy.Controllers
             TempData["permanentAddress"] = permanentAddress;
             TempData["pass"] = pass;
             TempData["conpass"] = conpass;
+            TempData["thana"] = thana;
+            TempData["thanastring"] = thanastring;
+
 
 
             DBHelper db = DBHelper.getDB();
@@ -107,8 +133,10 @@ namespace MaidEasy.Controllers
         [HttpGet]
         public ActionResult AddUser()
         {
+
             DBHelper db = DBHelper.getDB();
-            string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('" + TempData["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + " ');" ;
+            //string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('" + TempData["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + " ');" ;
+            string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress , thana ) VALUES('" + TempData["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + "', '" + TempData["thanastring"] + " ');" ;
             db.setData(sql);
 
 
