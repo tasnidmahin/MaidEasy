@@ -41,7 +41,7 @@ namespace MaidEasy.Controllers
             System.Diagnostics.Debug.WriteLine(w3);
             System.Diagnostics.Debug.WriteLine("--------------------------------");
             //string sql = "";
-            return View();
+            return View("~/Views/User/hired_workers_profile.cshtml");
         }
     }
 }

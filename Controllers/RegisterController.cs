@@ -37,12 +37,14 @@ namespace MaidEasy.Controllers
         private string getThanaID(string thana)
         {
             DBHelper db = DBHelper.getDB();
-            string sql = "SELECT ThanaId from Thana from where Name = '" + thana + "'";
+            string sql = "SELECT ThanaId from Thana where Name = '" + thana + "'";
             var table = db.getData(sql);
             table.Read();
             int t = Int32.Parse(table.GetString(0));
-            StringBuilder r = new StringBuilder(00000000000000000000000000000000000000000000000000); 
-            r[t - 1] = '1';
+            StringBuilder r = new StringBuilder(00000000000000000000000000000000000000000000000000);
+
+            if(t-1 >= 0 && t-1<r.Length) r[t - 1] = '1';
+
             string ret = r.ToString();
             table.Close();
 

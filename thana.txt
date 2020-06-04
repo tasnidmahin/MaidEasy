@@ -1,5 +1,5 @@
 A
-Adabar 
+Adabar
 Azampur
 B
 Badda
@@ -9,52 +9,52 @@ C
 Cantonment
 Chowkbazar
 D
-Darus Salam Thana
-Demra Thana
-Dhanmondi Thana
+Darus Salam
+Demra
+Dhanmondi
 G
-Gendaria Thana
-Gulshan Thana
+Gendaria
+Gulshan
 H
-Hazaribagh Thana
+Hazaribagh
 K
-Kadamtali Thana
-Kafrul Thana
+Kadamtali
+Kafrul
 Kalabagan
-Kamrangirchar Thana
+Kamrangirchar
 Khilgaon
-Khilkhet Thana
-Kotwali Thana (Dhaka)
+Khilkhet
+Kotwali
 L
-Lalbagh Thana
+Lalbagh
 M
-Mirpur Model Thana
-Mohammadpur Thana
-Motijheel Thana
+Mirpur
+Mohammadpur
+Motijheel
 N
-New Market Thana
+New Market
 P
-Pallabi Thana
+Pallabi
 Paltan
 Panthapath
 R
-Ramna Thana
-Rampura Thana
+Ramna
+Rampura
 S
-Sabujbagh Thana
-Shah Ali Thana
+Sabujbagh
+Shah Ali
 Shahbag
 Sher-e-Bangla Nagar
-Shyampur Thana
-Sutrapur Thana
+Shyampur
+Sutrapur
 T
-Tejgaon Industrial Area Thana
-Tejgaon Thana
-Turag Thana
+Tejgaon Industrial Area
+Tejgaon
+Turag
 U
-Uttar Khan Thana
-Uttara Thana
+Uttar Khan
+Uttara
 V
-Vatara Thana
+Vatara
 W
-Wari Thana
+Wari
