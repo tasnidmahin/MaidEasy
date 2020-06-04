@@ -41,12 +41,13 @@ namespace MaidEasy.Controllers
             var table = db.getData(sql);
             table.Read();
             int t = Int32.Parse(table.GetString(0));
-            StringBuilder r = new StringBuilder(00000000000000000000000000000000000000000000000000);
+            StringBuilder r = new StringBuilder("00000000000000000000000000000000000000000000000000");
 
             if(t-1 >= 0 && t-1<r.Length) r[t - 1] = '1';
 
             string ret = r.ToString();
             table.Close();
+
 
             Session["thanaID"] = t - 1;
 
@@ -76,7 +77,6 @@ namespace MaidEasy.Controllers
             TempData["conpass"] = conpass;
             TempData["thana"] = thana;
             TempData["thanastring"] = thanastring;
-
 
 
 
@@ -133,6 +133,7 @@ namespace MaidEasy.Controllers
         [HttpGet]
         public ActionResult AddUser()
         {
+
             DBHelper db = DBHelper.getDB();
             //string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('" + TempData["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + " ');" ;
             string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress , thana ) VALUES('" + TempData["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + "', '" + TempData["thanastring"] + " ');" ;
