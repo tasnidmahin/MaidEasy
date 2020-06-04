@@ -72,8 +72,7 @@ body {
     padding-top: 50px;
 }
 
-.searchresults
-{
-    top:120%;
-
+.searchresults {
+    top: 120%;
+    min-height: 200px;
 }

@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-md-4" style="padding-left:50px;">
                                 <!--    <div class="row">
-                    <div class="col-md-2"> -->
+                                <div class="col-md-2"> -->
                                 <h5>Starting Time</h5>
                                 <div class="experiencebox" style="padding-left: 10px;">
                                     <select name="startTime" id="main_menu" class="input-lg form-control" required>
@@ -97,24 +97,24 @@
                                 <!-- </div> -->
                                 <!--  <div class="col-md-2" style="padding-left: 55px;">
 
-                        <h5>Time</h5>
+                                    <h5>Time</h5>
 
-                        <div class="experiencebox" style="position: relative;">
-                            <select name="car" id="main_menu" class="input-lg form-control">
+                                    <div class="experiencebox" style="position: relative;">
+                                        <select name="car" id="main_menu" class="input-lg form-control">
 
-                                <option value="am">a.m.</option>
-                                <option value="pm">p.m.</option>
+                                            <option value="am">a.m.</option>
+                                            <option value="pm">p.m.</option>
 
-                            </select>
-                            <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-                        </div>
-                    </div>  -->
+                                        </select>
+                                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                    </div>
+                                </div>  -->
                             </div>
                             <!--  </div> -->
                             <div class="col-md-4">
                                 <!--  <div class="row">
 
-                    <div class="col-md-2"> -->
+                                <div class="col-md-2"> -->
                                 <h5>Ending Time</h5>
 
                                 <div class="experiencebox" style="padding-left: 10px;">
@@ -124,16 +124,16 @@
                                 </div>
                                 <!--  </div> -->
                                 <!-- <div class="col-md-2" style="padding-left:55px;">
-                        <h5>Time</h5>
-                        <div class="experiencebox" style="position: relative;">
-                            <select name="car" id="main_menu" class="input-lg form-control">
+                                    <h5>Time</h5>
+                                    <div class="experiencebox" style="position: relative;">
+                                        <select name="car" id="main_menu" class="input-lg form-control">
 
-                                <option value="am">a.m.</option>
-                                <option value="pm">p.m.</option>
-                            </select>
-                            <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-                        </div>
-                    </div> -->
+                                            <option value="am">a.m.</option>
+                                            <option value="pm">p.m.</option>
+                                        </select>
+                                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                    </div>
+                                </div> -->
                                 <!-- </div> -->
 
 
@@ -190,7 +190,7 @@
                                         <h4 class="category">Experience: <span class="user-input"> @WData[i, 3] months </span></h4>
                                     </div>
                                     <div>
-                                       <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@WData[i, 0]">View profile</a>  -->
+                                        <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@WData[i, 0]">View profile</a>  -->
                                         <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@WData[i, 0]">View profile</button>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@
                     </div>
                 </form>
 
-</div>
+            </div>
             <div id="permanent" data-tab-content>
                 <div class="experiencebox" style="margin:30px auto;width:120px;">
                     <select class="input-lg form-control" id="paperSelect">
@@ -357,13 +357,15 @@
 
         </div>
     </div>
-    <script src="~/Scripts/JS/timerscript.js"></script> 
+    <script src="~/Scripts/JS/timerscript.js"></script>
     <script>
         //document.getElementById("WImage").src = "data:image/png;base64," + "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
         document.getElementById("WImage").src = "data:image/png;base64," + imgsrc;
         document.getElementById("WImage").alt = "Red dot";
     </script>
-
+    @{
+        Html.RenderPartial("footer");
+    }
 </body>
 </html>
 

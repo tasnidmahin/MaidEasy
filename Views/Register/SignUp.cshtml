@@ -10,8 +10,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    
+
+
     <title> SignUp </title>
     <link href="~/Content/signup.css" rel="stylesheet" />
 
@@ -23,98 +23,95 @@
 
 <body>
     <div class="area">
-    <div class="container">
-        <div class="header">
-            <h2>Create Account</h2>
+        <div class="container">
+            <div class="header">
+                <h2>Create Account</h2>
+            </div>
+            <form id="form" action="/Register/CheckInfo" class="form" autocomplete="off" method="post">
+                <!--     <form id="form" action="javascript:void(0)" class="form" autocomplete="off" method="post">-->
+                <div class="form-control">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" placeholder="User Name" name="Username" value="@TempData["username"]" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-control">
+                    <label for="username">Name</label>
+                    <input id="name" type="text" name="name" placeholder="Name" value="@TempData["name"]" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-control">
+                    <label for="username">Phone No.</label>
+                    <input id="Phoneno" type="text" name="Phone" placeholder="phone no (+8801*********)" value="@TempData["phone"]" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-control">
+                    <label for="username">Present Address</label>
+                    <input id="presentaddress" type="text" name="presentAddress" placeholder="Present Address" value="@TempData["presentAddress"]" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-control autocomplete">
+                    <label for="username">Thana</label>
+
+                    <input id="thana" type="text" name="myCountry" placeholder="Country">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+
+
+
+
+                </div>
+                <div class="form-control">
+                    <label for="username">Permanent Address</label>
+                    <input id="permanentaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["permanentAddress"]" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-control">
+                    <label for="username">Password</label>
+                    <input id="password" type="password" name="signUpPassword" placeholder="Password" value="@TempData["pass"]" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-control">
+                    <label for="username">Password check</label>
+                    <input id="password2" type="password" name="confirmPassword" placeholder="confirmPassword" value="@TempData["conpass"]" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+
+                <div class="form-control">
+                    <label for="username">Enter Profile Image</label>
+                    <input id="profileimage" type="file" name="profileimage">
+
+
+                </div>
+
+
+                <!--<button>Submit</button> -->
+
+                <button id="submit-btn" type="button" class="btn btn-primary btn-block" name="submitbutton">Sign Up</button>
+
+                <p style="font-size:15px" ;>Already have an account? <a href="#" style="color:dodgerblue;">Login</a></p>
+            </form>
         </div>
-        <form id="form" action="/Register/CheckInfo" class="form" autocomplete="off" method="post">
-            <!--     <form id="form" action="javascript:void(0)" class="form" autocomplete="off" method="post">-->
-            <div class="form-control">
-                <label for="username">Username</label>
-                <input id="username" type="text" placeholder="User Name" name="Username" value="@TempData["username"]" />
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
-            </div>
-            <div class="form-control">
-                <label for="username">Name</label>
-                <input id="name" type="text" name="name" placeholder="Name" value="@TempData["name"]" />
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
-            </div>
-            <div class="form-control">
-                <label for="username">Phone No.</label>
-                <input id="Phoneno" type="text" name="Phone" placeholder="phone no (+8801*********)" value="@TempData["phone"]" />
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
-            </div>
-            <div class="form-control">
-                <label for="username">Present Address</label>
-                <input id="presentaddress" type="text" name="presentAddress" placeholder="Present Address" value="@TempData["presentAddress"]" />
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
-            </div>
-            <div class="form-control autocomplete">
-                <label for="username">Thana</label>
-
-                <input id="thana" type="text" name="myCountry" placeholder="Country">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
-
-
-
-
-            </div>
-            <div class="form-control">
-                <label for="username">Permanent Address</label>
-                <input id="permanentaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["permanentAddress"]" />
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
-            </div>
-            <div class="form-control">
-                <label for="username">Password</label>
-                <input id="password" type="password" name="signUpPassword" placeholder="Password" value="@TempData["pass"]" />
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
-            </div>
-            <div class="form-control">
-                <label for="username">Password check</label>
-                <input id="password2" type="password" name="confirmPassword" placeholder="confirmPassword" value="@TempData["conpass"]" />
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
-            </div>
-
-            <div class="form-control">
-                <label for="username">Enter Profile Image</label>
-                <input id="profileimage" type="file" name="profileimage">
-
-
-            </div>
-
-
-            <!--<button>Submit</button> -->
-
-            <button id="submit-btn" type="button" class="btn btn-primary btn-block" name="submitbutton">Sign Up</button>
-
-            <p style="font-size:15px" ;>Already have an account? <a href="#" style="color:dodgerblue;">Login</a></p>
-        </form>
     </div>
-  </div>
 
 
 
 
-    <!-- @*Footer*@
-    @{
-        Html.RenderPartial("footer");
-    }    -->
+      
 
     @if (ViewBag.Error != null)
     {
@@ -130,4 +127,7 @@
 
 
 </body>
+@{
+    Html.RenderPartial("footer");
+}
 </html>

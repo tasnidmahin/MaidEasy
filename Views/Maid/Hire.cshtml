@@ -44,114 +44,119 @@
 
     </div>   -->
     <!--     <div class="parallax"> -->
-    <form action="/Maid/Hire" method="get">
-        <div class="card-box">
-            <div class="upper-box">
-                <h1>
-                    Select the services you want
-                </h1>
-            </div>
-            <div class="choices">
-                <label class="container">
-                    Cooking
-                    <input type="checkbox" id="myCheck" onclick="myFunction(@Session["SearchTimeForWorker"])">
-                    <input type="hidden" id="check1" name="check1" />
-                    <span class="checkmark"></span>
-                </label>
+    <div class="area">
+        <form action="/Maid/Hire" method="get">
 
-                <label class="container">
-                    Washing Clothes
-                    <input type="checkbox" id="myCheck1" onclick="myFunction1(@Session["SearchTimeForWorker"])">
-                    <input type="hidden" id="check2" name="check2" />
-                    <span class="checkmark"></span>
-                </label>
+            <div class="card-box">
+                <div class="upper-box">
+                    <h1>
+                        Select the services you want
+                    </h1>
+                </div>
+                <div class="choices">
+                    <label class="container">
+                        Cooking
+                        <input type="checkbox" id="myCheck" onclick="myFunction(@Session["SearchTimeForWorker"])">
+                        <input type="hidden" id="check1" name="check1" />
+                        <span class="checkmark"></span>
+                    </label>
 
-                <label class="container">
-                    Home Cleaning
-                    <input type="checkbox" id="myCheck2" onclick="myFunction2(@Session["SearchTimeForWorker"])">
-                    <input type="hidden" id="check3" name="check3" />
-                    <span class="checkmark"></span>
-                </label>
+                    <label class="container">
+                        Washing Clothes
+                        <input type="checkbox" id="myCheck1" onclick="myFunction1(@Session["SearchTimeForWorker"])">
+                        <input type="hidden" id="check2" name="check2" />
+                        <span class="checkmark"></span>
+                    </label>
 
-            </div>
+                    <label class="container">
+                        Home Cleaning
+                        <input type="checkbox" id="myCheck2" onclick="myFunction2(@Session["SearchTimeForWorker"])">
+                        <input type="hidden" id="check3" name="check3" />
+                        <span class="checkmark"></span>
+                    </label>
 
-
-
-            <!-- <div class="Salary">
-
-             <div class="salary_tag"><strong>Salary</strong></div>
-             <div class="salary_amount"><strong>BDT </strong><strong id=salary></strong></div>
-
-         </div>-->
-
-
-
-
-
-
-
-
-
-        </div>
-        <!--     </div>  -->
-
-        <div class="card-box1">
-            <div class="upper-box">
-                <h1 style="padding-top: 25px;">
-                    Select the length of your contract
-                </h1>
-            </div>
-            <div class="choices1">
-                <div class="custom-select" style="width:200px;">
-                    <select name="con_length">
-                        <option value="0">Months</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
                 </div>
 
 
+
+                <!-- <div class="Salary">
+
+                    <div class="salary_tag"><strong>Salary</strong></div>
+                    <div class="salary_amount"><strong>BDT </strong><strong id=salary></strong></div>
+
+                </div>-->
+
+
+
+
+
+
+
+
+
             </div>
-        </div>
-        <div class="card-box2">
-            <div class="upper-box">
-                <h1 style="padding-top: 25px;">
-                    Salary (BDT)
-                </h1>
+            <!--     </div>  -->
+
+            <div class="card-box1">
+                <div class="upper-box">
+                    <h1 style="padding-top: 25px;">
+                        Select the length of your contract
+                    </h1>
+                </div>
+                <div class="choices1">
+                    <div class="custom-select" style="width:200px;">
+                        <select name="con_length">
+                            <option value="0">Months</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+
+
+                </div>
             </div>
-            <div class="Salary">
-                <div class="salary_amount"><strong id=salary></strong></div>
-                <input type="hidden" id="sal" name="salary" />
+            <div class="card-box2">
+                <div class="upper-box">
+                    <h1 style="padding-top: 25px;">
+                        Salary (BDT)
+                    </h1>
+                </div>
+                <div class="Salary">
+                    <div class="salary_amount"><strong id=salary></strong></div>
+                    <input type="hidden" id="sal" name="salary" />
+                </div>
+                <button type="submit" class="btn btn-primary">Hire</button>
             </div>
-            <button type="submit" class="btn btn-primary">Hire</button>
-        </div>
-        
-
-
-    </form>
 
 
 
+        </form>
+
+
+    </div>
 
 
 
 
-        <!--     </div>  -->
+    <!--     </div>  -->
 
 
 
-        <script src="~/Scripts/JS/hire.js"></script>
-        <script src="~/Scripts/JS/selectbox.js"></script>
+    <script src="~/Scripts/JS/hire.js"></script>
+    <script src="~/Scripts/JS/selectbox.js"></script>
 
 </body>
-    </html>
+@{
+    Html.RenderPartial("footer");
+}
+</html>
