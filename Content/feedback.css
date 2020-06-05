@@ -9,7 +9,7 @@ body {
 }
 .area {
     padding-top: 80px;
-    margin-left:300px;
+    /* margin-left:300px;*/
 }
 .container1 {
     background-color: #fff;
@@ -18,7 +18,7 @@ body {
     overflow: hidden;
     width: 400px;
     max-width: 100%;
-   
+    margin: auto;
 }
 .form {
     padding: 30px 40px;
