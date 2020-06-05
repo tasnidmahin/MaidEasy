@@ -19,30 +19,38 @@
 
 <body>
     <div class="container">
-       
-            <div class="form">
-                <form method="post" action="something.php" class="signup-form">
+
+        <div class="form">
+            <form action="/Register/VerifyUser" class="signup-form" autocomplete="off" method="post">
                     <div class="form-control">
                         <label for="username">Username</label>
-                        <input type="text" placeholder="Enter Username" name="Username">
+                        <input type="text" placeholder="Enter Username" name="Username" value="@TempData["user"]">
                     </div>
 
                     <div class="form-control">
                         <label for="username">Password</label>
-                        <input type="password" placeholder="Enter Password" name="loginpassword">
+                        <input type="password" placeholder="Enter Password" name="loginpassword" value="@TempData["pass"]">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block" name="signupbutton">Log In</button>
 
-                    <p style="font-size:15px";>Don't have an account? <a href="@Url.Action("SignUp", "Register")" style="color:dodgerblue;">Register here</a>.</p>
-                </form>
-            </div>
+                    <p style="font-size:15px" ;>Don't have an account? <a href="@Url.Action("SignUp", "Register")" style="color:dodgerblue;">Register here</a>.</p>
+            </form>
+</div>
 
-        </div>
+    </div>
 
-        @*Footer*@
-        @{
-            Html.RenderPartial("footer");
-        }
+    @*Footer*@
+    @{
+        Html.RenderPartial("footer");
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <script>
+            alert("@ViewBag.Error");
+        </script>
+    }
+
 
 </body>
 </html>

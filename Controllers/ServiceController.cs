@@ -78,10 +78,13 @@ namespace MaidEasy.Controllers
             string status = "";
             for (int i1 = start; i1 <= end; i1++) status += "0";
 
+            int thana = Int32.Parse(Session["thanaID"].ToString());
 
 
             // sql for count of workers
-            string sql = "SELECT count(WorkerId) from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "';";
+            //string sql = "SELECT count(WorkerId) from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "';";
+            string sql = "SELECT count(WorkerId) from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "' and SUBSTRING(Area, " + (thana + 1) + ", 1) = '1' ;";
+            //string sql = "SELECT count(WorkerId),WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "' and SUBSTRING(Area, " + (thana + 1) + ", 1) = '1' ORDER BY " + sortby + ";";
             //string sql = "SELECT count(WorkerId) from Worker where (SELECT SUBSTRING(type, 0, 1) from Worker) = '1' and (SELECT SUBSTRING(status, 0, 4) from Worker) = '0000';";
             //select insert(str, 3, 1, '*')
             //select SUBSTRING(@meme,2,1)
@@ -93,16 +96,27 @@ namespace MaidEasy.Controllers
             int count = Int32.Parse(table.GetString(0));
             table.Close();
 
-            string[,] data = new string[count, 4];
-            byte[][] photo = new byte[count][];
+            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+            System.Diagnostics.Debug.WriteLine(count);
+            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+
+            string[,] data = new string[count+1, 4];
+            byte[][] photo = new byte[count+1][];
             //sql for data of workers
             //sql = "SELECT WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "';";
-            sql = "SELECT WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "' ORDER BY " + sortby + ";";
+            sql = "SELECT WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "' and SUBSTRING(Area, " + (thana + 1) + ", 1) = '1' ORDER BY " + sortby + ";";
 
             table = db.getData(sql);
             int i = 0;
             while (table.Read())
             {
+                System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+                System.Diagnostics.Debug.WriteLine(i);
+                System.Diagnostics.Debug.WriteLine(table.GetString(0));
+                System.Diagnostics.Debug.WriteLine(table.GetString(1));
+                System.Diagnostics.Debug.WriteLine(table.GetString(2));
+                System.Diagnostics.Debug.WriteLine(table.GetString(3));
+                System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
                 data[i, 0] = table.GetString(0);
                 data[i, 1] = table.GetString(1);
                 data[i, 2] = table.GetString(2);

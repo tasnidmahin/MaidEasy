@@ -26,6 +26,8 @@ namespace MaidEasy.Controllers
 
         public ActionResult LogIn()
         {
+            if (TempData["message"] != null) //It will true when Password not match with DB password or wrong usrname
+                ViewBag.Error = TempData["message"].ToString();
             return View();
         }
 
@@ -34,7 +36,7 @@ namespace MaidEasy.Controllers
             return View();
         }
 
-        private string getThanaID(string thana)
+        private string getThanaString(string thana)
         {
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT ThanaId from Thana where Name = '" + thana + "'";
@@ -54,6 +56,18 @@ namespace MaidEasy.Controllers
             return ret;
         }
 
+        private int getThanaID(string thana)
+        {
+            int t = 0;
+            int len = thana.Length;
+            for(int i=0;i<len;i++){
+                if(thana[i] == '1'){
+                    t = i;  break;
+                }
+            }
+            return t;
+        }
+
         [HttpPost]
         public ActionResult CheckInfo(SignupModel signupModel)
         {
@@ -66,7 +80,7 @@ namespace MaidEasy.Controllers
             var pass = Request["signUpPassword"];
             var conpass = Request["confirmPassword"];
             var thana = Request["thana"];
-            string thanastring = getThanaID(thana);
+            string thanastring = getThanaString(thana);
 
             TempData["username"] = user;
             TempData["name"] = name;
@@ -130,6 +144,23 @@ namespace MaidEasy.Controllers
             return savedPasswordHash;
         }
 
+        private bool checkPassword(string savedPasswordHash, string password)
+        {
+            /* Extract the bytes */
+            byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
+            /* Get the salt */
+            byte[] salt = new byte[16];
+            Array.Copy(hashBytes, 0, salt, 0, 16);
+            /* Compute the hash on the password the user entered */
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+            byte[] hash = pbkdf2.GetBytes(20);
+            /* Compare the results */
+            for (int i = 0; i < 20; i++)
+                if (hashBytes[i + 16] != hash[i]) return false;
+            
+            return true;
+        }
+
         [HttpGet]
         public ActionResult AddUser()
         {
@@ -148,6 +179,48 @@ namespace MaidEasy.Controllers
             Session["username"] = TempData["username"];
 
             TempData["username"] = null;
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
+        public ActionResult VerifyUser()
+        {
+            var user = Request["Username"];
+            var pass = Request["loginpassword"];
+
+            TempData["user"] = user;
+            TempData["pass"] = pass;
+
+            string sql = "SELECT count(UserId),password,thana from Users where username = '" + user + "'";
+
+            DBHelper db = DBHelper.getDB();
+            var table = db.getData(sql);
+            table.Read();
+            int count = Int32.Parse(table.GetString(0));
+            if(count == 0)
+            {
+                TempData["message"] = "Username doesn't exist";
+                table.Close();
+                return RedirectToAction("LogIn", "Register");
+            }
+
+            var p = table.GetString(1);
+
+            if(!checkPassword(p, pass))
+            {
+                TempData["message"] = "Password didn't match";
+                table.Close();
+                return RedirectToAction("LogIn", "Register");
+            }
+            var thanaS = table.GetString(2);
+            var thana = getThanaID(thanaS);
+            table.Close();
+
+            Session["thanaID"] = thana;
+            Session["username"] = user;
+            TempData["user"] = null;
+            TempData["pass"] = null;
 
             return RedirectToAction("Index", "Home");
         }
