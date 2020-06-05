@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
- 
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title> Edit Profile </title>
     <link href="~/Content/editprofile.css" rel="stylesheet" />
@@ -124,10 +124,7 @@
 
 
 
-    <!-- @*Footer*@
-    @{
-        Html.RenderPartial("footer");
-    }    -->
+     
 
     @if (ViewBag.Error != null)
     {
@@ -143,6 +140,9 @@
 
 
 </body>
+@{
+    Html.RenderPartial("footer");
+}
 </html>
 
 
