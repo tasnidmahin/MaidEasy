@@ -66,6 +66,7 @@ create table Contracts(
 create table Work(
 	WorkId INT(6) AUTO_INCREMENT PRIMARY KEY,
 	Name VARCHAR(30) NOT NULL
+	UnitPrice INT(6) NOT NULL,
 )
 
 create table ContactUs(
