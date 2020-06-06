@@ -31,6 +31,15 @@ namespace MaidEasy.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            Session.Remove("username");
+            Session.Remove("thanaID");
+            Session.Remove("SearchTimeForWorker");
+            Session.Remove("CurWorker");
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult VerificationCode()
         {
             return View();
