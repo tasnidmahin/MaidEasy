@@ -45,7 +45,7 @@
     </div>   -->
     <!--     <div class="parallax"> -->
     <div class="area">
-        <form action="/Maid/Hire" method="get">
+        <form action="/Maid/Booking" method="get">
 
             <div class="card-box">
                 <div class="upper-box">
@@ -54,26 +54,42 @@
                     </h1>
                 </div>
                 <div class="choices">
-                    <label class="container">
-                        Cooking
-                        <input type="checkbox" id="myCheck" onclick="myFunction(@Session["SearchTimeForWorker"])">
-                        <input type="hidden" id="check1" name="check1" />
-                        <span class="checkmark"></span>
-                    </label>
+                    @{
+                        string[,] WData = (string[,])ViewData["workList"];
+                    }
+                    @for (int i = 0; i < Convert.ToInt32(ViewData["work_row"]); i++)
+                    {
+                        <label class="container">
+                            @WData[i, 0]
+                            @{
+                                var dynamicId = "check_" + i;
+                            }
 
-                    <label class="container">
-                        Washing Clothes
-                        <input type="checkbox" id="myCheck1" onclick="myFunction1(@Session["SearchTimeForWorker"])">
-                        <input type="hidden" id="check2" name="check2" />
-                        <span class="checkmark"></span>
-                    </label>
+                            <input type="checkbox" id="@dynamicId" onclick="myFunction('@dynamicId' , '@WData[i , 0]', @Session["SearchTimeForWorker"], @WData[i , 1] )">
+                            <span class="checkmark"></span>
+                        </label>
 
-                    <label class="container">
-                        Home Cleaning
-                        <input type="checkbox" id="myCheck2" onclick="myFunction2(@Session["SearchTimeForWorker"])">
-                        <input type="hidden" id="check3" name="check3" />
-                        <span class="checkmark"></span>
-                    </label>
+                        System.Diagnostics.Debug.WriteLine("--------------------------------");
+                        System.Diagnostics.Debug.WriteLine(@Int32.Parse(WData[i, 1]));
+                        System.Diagnostics.Debug.WriteLine("--------------------------------");
+
+
+                    }
+                    <input type="hidden" id="checked_value" name="checked_value" />
+
+                    <!--<label class="container">
+        Washing Clothes
+        <input type="checkbox" id="myCheck1" onclick="myFunction1(@Session["SearchTimeForWorker"])">
+        <input type="hidden" id="check2" name="check2" />
+        <span class="checkmark"></span>
+    </label>
+
+    <label class="container">
+        Home Cleaning
+        <input type="checkbox" id="myCheck2" onclick="myFunction2(@Session["SearchTimeForWorker"])">
+        <input type="hidden" id="check3" name="check3" />
+        <span class="checkmark"></span>
+    </label>    -->
 
                 </div>
 
@@ -81,10 +97,10 @@
 
                 <!-- <div class="Salary">
 
-                    <div class="salary_tag"><strong>Salary</strong></div>
-                    <div class="salary_amount"><strong>BDT </strong><strong id=salary></strong></div>
+            <div class="salary_tag"><strong>Salary</strong></div>
+            <div class="salary_amount"><strong>BDT </strong><strong id=salary></strong></div>
 
-                </div>-->
+        </div>-->
 
 
 
@@ -135,10 +151,9 @@
                     <div class="salary_amount"><strong id=salary></strong></div>
                     <input type="hidden" id="sal" name="salary" />
                 </div>
-                <button type="submit" class="btn btn-primary">Hire</button>
             </div>
 
-
+            <button type="submit" class="btn btn-primary">Hire</button>
 
         </form>
 

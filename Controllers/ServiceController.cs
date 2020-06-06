@@ -96,12 +96,12 @@ namespace MaidEasy.Controllers
             int count = Int32.Parse(table.GetString(0));
             table.Close();
 
-            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+            /*System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
             System.Diagnostics.Debug.WriteLine(count);
-            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");*/
 
-            string[,] data = new string[count+1, 4];
-            byte[][] photo = new byte[count+1][];
+            string[,] data = new string[count, 4];
+            byte[][] photo = new byte[count][];
             //sql for data of workers
             //sql = "SELECT WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "';";
             sql = "SELECT WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "' and SUBSTRING(Area, " + (thana + 1) + ", 1) = '1' ORDER BY " + sortby + ";";
@@ -110,13 +110,13 @@ namespace MaidEasy.Controllers
             int i = 0;
             while (table.Read())
             {
-                System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+                /*System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
                 System.Diagnostics.Debug.WriteLine(i);
                 System.Diagnostics.Debug.WriteLine(table.GetString(0));
                 System.Diagnostics.Debug.WriteLine(table.GetString(1));
                 System.Diagnostics.Debug.WriteLine(table.GetString(2));
                 System.Diagnostics.Debug.WriteLine(table.GetString(3));
-                System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+                System.Diagnostics.Debug.WriteLine("----------------------------------------------------");*/
                 data[i, 0] = table.GetString(0);
                 data[i, 1] = table.GetString(1);
                 data[i, 2] = table.GetString(2);

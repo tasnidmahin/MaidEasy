@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaidEasy.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,29 +18,62 @@ namespace MaidEasy.Controllers
 
         public ActionResult MaidProfile()
         {
-            string[] data = (string[])Session["CurWorker"];
-            double time = (double)Session["SearchTimeForWorker"];
+            return View();
+        }
+        public ActionResult Hire()
+        {
+            string sql = "SELECT COUNT(WorkId) from work";
+            DBHelper db = DBHelper.getDB();
+            var table = db.getData(sql);
+            table.Read();
+            int count = Int32.Parse(table.GetString(0));
+            table.Close();
+            ViewData["work_row"] = count;
 
-            var id = data[4];
+            /*System.Diagnostics.Debug.WriteLine("--------------------------------");
+            System.Diagnostics.Debug.WriteLine("--------------------------------");*/
+
+            string[,] data = new string[count , 2];
+
+            sql = "SELECT Name,UnitPrice from work";
+            table = db.getData(sql);
+            int i = 0;
+            while (table.Read())
+            {
+                data[i, 0] = table.GetString(0);
+                data[i, 1] = table.GetString(1);
+                i++;
+            }
+            table.Close();
+
+            ViewData["workList"] = data;
+
             return View("~/Views/Maid/Hire.cshtml");
         }
 
         [HttpGet]
-        public ActionResult Hire()
+        public ActionResult Booking()
         {
             var salary = Request["salary"].ToString();
-            var month = Request["con_length"].ToString();
+            var conLen = Request["con_length"].ToString();
             //var worklist = "";
-            var w1 = Request["check1"].ToString();
-            var w2 = Request["check2"].ToString();
-            var w3 = Request["check3"].ToString();
+            var w1 = Request["checked_value"].ToString();
+            //var w2 = Request["check2"].ToString();
+            //var w3 = Request["check3"].ToString();
             System.Diagnostics.Debug.WriteLine("--------------------------------");
             System.Diagnostics.Debug.WriteLine(salary);
-            System.Diagnostics.Debug.WriteLine(month);
+            System.Diagnostics.Debug.WriteLine(conLen);
             System.Diagnostics.Debug.WriteLine(w1);
-            System.Diagnostics.Debug.WriteLine(w2);
-            System.Diagnostics.Debug.WriteLine(w3);
+            //System.Diagnostics.Debug.WriteLine(w2);
+            //System.Diagnostics.Debug.WriteLine(w3);
             System.Diagnostics.Debug.WriteLine("--------------------------------");
+
+            string Month = DateTime.Now.ToString("MM");
+            var wData = (string[])Session["CurWorker"];
+            var wID = wData[4];
+            var uID = Session["username"];
+            var hour = Session["SearchTimeForWorker"];
+
             //string sql = "";
             return View("~/Views/User/hired_workers_profile.cshtml");
         }
