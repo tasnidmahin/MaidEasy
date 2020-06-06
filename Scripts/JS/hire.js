@@ -7,23 +7,30 @@
 
 
 var sum = 0;
+var cnt = 1;
+var last = "";
+var v = "";
 
 
-function myFunction(t) {
+function myFunction(dID, element_id , value , t,  sal) {
 
+
+    console.log(value);
     var time = t;
-    var checkBox = document.getElementById("myCheck");
+    var checkBox = document.getElementById(element_id);
 
-    var s1 = 50;
+    var s1 = sal;
 
     if (checkBox.checked == true) {
         sum = sum + (s1 * time);
         document.getElementById("salary").innerHTML = sum;
-        document.getElementById("check1").setAttribute("value", "Cooking");
+        //document.getElementById("checked_value").setAttribute("value", value);
+        document.getElementById(dID).setAttribute("value", value);
     } else {
         sum = sum - (s1 * time);
         document.getElementById("salary").innerHTML = sum;
-        document.getElementById("check1").setAttribute("value", "null");
+        //document.getElementById("checked_value").setAttribute("value", "null");
+        document.getElementById(dID).setAttribute("value", "null");
     }
 
 
