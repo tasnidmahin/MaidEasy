@@ -28,7 +28,7 @@ namespace MaidEasy.Controllers
             table.Read();
             int count = Int32.Parse(table.GetString(0));
             table.Close();
-            ViewData["work_row"] = count;
+            Session["work_row"] = count;
 
             /*System.Diagnostics.Debug.WriteLine("--------------------------------");
             System.Diagnostics.Debug.WriteLine("--------------------------------");*/
@@ -56,18 +56,26 @@ namespace MaidEasy.Controllers
         {
             var salary = Request["salary"].ToString();
             var conLen = Request["con_length"].ToString();
-            //var worklist = "";
-            var w1 = Request["checked_value"].ToString();
+            var worklist = "";
+            //int cnt = Int32.Parse(Session["work_row"].ToString());
+            //var w1 = Request["checked_value"].ToString();
             //var w2 = Request["check2"].ToString();
             //var w3 = Request["check3"].ToString();
-            System.Diagnostics.Debug.WriteLine("--------------------------------");
+            System.Diagnostics.Debug.WriteLine("--------------Booking()salary, con len, worklist------------------");
             System.Diagnostics.Debug.WriteLine(salary);
             System.Diagnostics.Debug.WriteLine(conLen);
-            System.Diagnostics.Debug.WriteLine(w1);
+            //System.Diagnostics.Debug.WriteLine(cnt);
             //System.Diagnostics.Debug.WriteLine(w2);
             //System.Diagnostics.Debug.WriteLine(w3);
             System.Diagnostics.Debug.WriteLine("--------------------------------");
+            for (int i=0;i<3;i++)
+            {
+                var nm = "box_" + i;
+                worklist += Request[nm].ToString();
+                worklist += "\n";
+            }
 
+            System.Diagnostics.Debug.WriteLine(worklist);
             string Month = DateTime.Now.ToString("MM");
             var wData = (string[])Session["CurWorker"];
             var wID = wData[4];

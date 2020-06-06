@@ -57,15 +57,17 @@
                     @{
                         string[,] WData = (string[,])ViewData["workList"];
                     }
-                    @for (int i = 0; i < Convert.ToInt32(ViewData["work_row"]); i++)
+                    @for (int i = 0; i < Convert.ToInt32(Session["work_row"]); i++)
                     {
                         <label class="container">
                             @WData[i, 0]
                             @{
                                 var dynamicId = "check_" + i;
+                                var dId = "box_" + i;
                             }
 
-                            <input type="checkbox" id="@dynamicId" onclick="myFunction('@dynamicId' , '@WData[i , 0]', @Session["SearchTimeForWorker"], @WData[i , 1] )">
+                            <input type="checkbox" id="@dynamicId" onclick="myFunction('@dId' ,'@dynamicId' , '@WData[i , 0]', @Session["SearchTimeForWorker"], @WData[i , 1] )">
+                            <input type="hidden" id="@dId" name="@dId" />
                             <span class="checkmark"></span>
                         </label>
 
@@ -75,21 +77,20 @@
 
 
                     }
-                    <input type="hidden" id="checked_value" name="checked_value" />
 
                     <!--<label class="container">
-        Washing Clothes
-        <input type="checkbox" id="myCheck1" onclick="myFunction1(@Session["SearchTimeForWorker"])">
-        <input type="hidden" id="check2" name="check2" />
-        <span class="checkmark"></span>
-    </label>
+                Washing Clothes
+                <input type="checkbox" id="myCheck1" onclick="myFunction1(@Session["SearchTimeForWorker"])">
+                <input type="hidden" id="check2" name="check2" />
+                <span class="checkmark"></span>
+            </label>
 
-    <label class="container">
-        Home Cleaning
-        <input type="checkbox" id="myCheck2" onclick="myFunction2(@Session["SearchTimeForWorker"])">
-        <input type="hidden" id="check3" name="check3" />
-        <span class="checkmark"></span>
-    </label>    -->
+            <label class="container">
+                Home Cleaning
+                <input type="checkbox" id="myCheck2" onclick="myFunction2(@Session["SearchTimeForWorker"])">
+                <input type="hidden" id="check3" name="check3" />
+                <span class="checkmark"></span>
+            </label>    -->
 
                 </div>
 
@@ -152,6 +153,7 @@
                     <input type="hidden" id="sal" name="salary" />
                 </div>
             </div>
+            <!-- <input type="hidden" id="checked_value" name="checked_value" /> -->
 
             <button type="submit" class="btn btn-primary">Hire</button>
 

@@ -12,7 +12,7 @@ var last = "";
 var v = "";
 
 
-function myFunction(element_id , value , t,  sal) {
+function myFunction(dID, element_id , value , t,  sal) {
 
 
     console.log(value);
@@ -24,11 +24,13 @@ function myFunction(element_id , value , t,  sal) {
     if (checkBox.checked == true) {
         sum = sum + (s1 * time);
         document.getElementById("salary").innerHTML = sum;
-        document.getElementById("checked_value").setAttribute("value", value);
+        //document.getElementById("checked_value").setAttribute("value", value);
+        document.getElementById(dID).setAttribute("value", value);
     } else {
         sum = sum - (s1 * time);
         document.getElementById("salary").innerHTML = sum;
-        document.getElementById("checked_value").setAttribute("value", "null");
+        //document.getElementById("checked_value").setAttribute("value", "null");
+        document.getElementById(dID).setAttribute("value", "null");
     }
 
 
