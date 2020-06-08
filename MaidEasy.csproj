@@ -121,6 +121,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaidController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -138,6 +139,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Adminhome.css" />
+    <Content Include="Content\Admin_login.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -147,6 +150,7 @@
     <Content Include="Content\footer.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\Images\bg.jpg" />
+    <Content Include="Content\Images\bgadmin.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
     <Content Include="Content\login.css" />
@@ -214,6 +218,8 @@
     <Content Include="Views\User\hired_workers_profile.cshtml" />
     <Content Include="Views\User\user_profile.cshtml" />
     <Content Include="Views\User\Edit_profile.cshtml" />
+    <Content Include="Views\Admin\Admin_home.cshtml" />
+    <Content Include="Views\Admin\Admin_login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Admin_login";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> Login </title>
+    <link href="~/Content/Admin_login.css" rel="stylesheet" />
+
+   
+</head>
+
+
+<body>
+    <div class="container">
+
+        <div class="form">
+            <form action="/Register/VerifyUser" class="signup-form" autocomplete="off" method="post">
+                <div class="form-control">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="Enter Username" name="Username">
+                </div>
+
+                <div class="form-control">
+                    <label for="username">Password</label>
+                    <input type="password" placeholder="Enter Password" name="loginpassword">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" name="signupbutton">Log In</button>
+
+               
+            </form>
+        </div>
+
+    </div>
+
+   
+
+   
+
+
+</body>
+</html>

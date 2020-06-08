@@ -1,0 +1,78 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 280px;
+    margin: 30px;
+    height: 300px;
+    border-radius: 35px;
+    /* Should be removed. Only for demonstration */
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+    background-color: #183fad8c;
+    margin-right: 25px;
+}
+
+    .column:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        transform: translateY(10px);
+    }
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.icon {
+    width: 150px;
+    height: 150px;
+    margin-left: 75px;
+    margin-top: 30px;
+}
+
+.icon1 {
+    width: 130px;
+    height: 120px;
+    margin-left: 75px;
+    margin-top: 45px;
+}
+
+.column1 {
+    float: left;
+    width: 280px;
+    margin: 30px;
+    height: 300px;
+    border-radius: 35px;
+    /* Should be removed. Only for demonstration */
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+    background-color: #183fad8c;
+}
+
+    .column1:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        transform: translateY(10px);
+    }
+
+h2 {
+    font-family: "Georgia", "Arial", "Helvetica";
+    text-align: center;
+    /* margin-top: 30px; */
+}
+
+.parallax {
+    /* The image used */
+    background-image: url("Images/bgadmin.jpg");
+    /* Set a specific height */
+    min-height: 500px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
