@@ -139,6 +139,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Add_worker.css" />
     <Content Include="Content\Adminhome.css" />
     <Content Include="Content\Admin_login.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -220,6 +221,7 @@
     <Content Include="Views\User\Edit_profile.cshtml" />
     <Content Include="Views\Admin\Admin_home.cshtml" />
     <Content Include="Views\Admin\Admin_login.cshtml" />
+    <Content Include="Views\Admin\Add_worker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,198 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+}
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    /position: relative;
+    display: inline-block;
+}
+
+.row {
+    margin-top: 60px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+h2 {
+    font-family: "Georgia", "Arial", "Helvetica";
+}
+
+input[type=text], input[type=password] {
+    width: 350px;
+    padding: 15px;
+    /* margin: 5px 0 22px 0; */
+    display: block;
+    border: none;
+    background: #f1f1f1;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-family: 'Open Sans','sans-serif';
+    font-size: 1rem;
+    color: #212529;
+}
+
+.choices {
+    padding: 60px 50px 30px 0px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.autocomplete-items {
+    /*  position: absolute; */
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 350px;
+}
+
+    .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+        .autocomplete-items div:hover {
+            /*when hovering an item:*/
+            background-color: #e9e9e9;
+        }
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+
+/*  .form-control label {
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+/*
+    .form-control input {
+        border: 2px solid #f0f0f0;
+        border-radius: 4px;
+        display: block;
+        font-family: inherit;
+        font-size: 14px;
+        padding: 10px;
+        width: 100%;
+    }
+
+        .form-control input:focus {
+            outline: 0;
+            border-color: #777;
+        }  
+    
+   
+    .form-control.success input {
+        border-color: #2ecc71;
+    }
+
+    .form-control.error input {
+        border-color: #e74c3c;
+    }
+.form-control i {
+        visibility: hidden;
+        position: absolute;
+        top: 40px;
+        right: 10px;
+    }
+
+    .form-control.success i.fa-check-circle {
+        color: #2ecc71;
+        visibility: visible;
+    }
+
+    .form-control.error i.fa-exclamation-circle {
+        color: #e74c3c;
+        visibility: visible;
+    }
+
+    .form-control small {
+        color: #e74c3c;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        visibility: hidden;
+    }
+
+    .form-control.error small {
+        visibility: visible;
+    }
+
+*/
+
+/* thana select box css */
+
+
+
