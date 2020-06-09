@@ -143,8 +143,14 @@ namespace MaidEasy.Controllers
             var STime = Session["startTime"];
             var ETime = Session["endTime"];
 
-            string sql = "INSERT into contracts (WorkerId, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + uID + " ', ' " + SMonth + " ', ' " + EMonth + " ', ' " + STime + " ', ' " + ETime + " ', ' " + salary + "', '" + worklist + " ');";
             DBHelper db = DBHelper.getDB();
+            string sql = "SELECT Name from Worker where WorkerId = ' " + wID + "'";
+            var table = db.getData(sql);
+            table.Read();
+            string WName = table.GetString(0);
+            table.Close();
+
+            sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + " ', ' " + uID + " ', ' " + SMonth + " ', ' " + EMonth + " ', ' " + STime + " ', ' " + ETime + " ', ' " + salary + "', '" + worklist + " ');";
             db.setData(sql);
 
             string status = getStatus();
@@ -158,7 +164,8 @@ namespace MaidEasy.Controllers
             Session.Remove("startTime");
             Session.Remove("endTime");
             Session.Remove("SearchTimeForWorker");
-            return View("~/Views/User/hired_workers_profile.cshtml");
+            //return View("~/Views/User/hired_workers_profile.cshtml");
+            return RedirectToAction("hired_workers_profile", "User");
         }
     }
 }

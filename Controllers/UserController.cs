@@ -35,7 +35,7 @@ namespace MaidEasy.Controllers
             int cnt1 = Int32.Parse(table.GetString(0));
             table.Close();
             string[,] data1 = new string[cnt1, 7];
-            sql = "SELECT WorkerId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist from Contracts where UserId = '" + id + "' and status = 'current'";
+            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist from Contracts where UserId = '" + id + "' and status = 'current'";
             table = db.getData(sql);
             int i = 0;
             while(table.Read())
@@ -47,6 +47,7 @@ namespace MaidEasy.Controllers
                 data1[i, 4] = table.GetString(4);
                 data1[i, 5] = table.GetString(5);
                 data1[i, 6] = table.GetString(6);
+                i++;
             }
             table.Close();
 
@@ -57,7 +58,7 @@ namespace MaidEasy.Controllers
             int cnt2 = Int32.Parse(table.GetString(0));
             table.Close();
             string[,] data2 = new string[cnt2, 7];
-            sql = "SELECT WorkerId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist from Contracts where UserId = '" + id + "' and status = 'previous'";
+            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist from Contracts where UserId = '" + id + "' and status = 'previous'";
             table = db.getData(sql);
             i = 0;
             while (table.Read())
@@ -69,6 +70,7 @@ namespace MaidEasy.Controllers
                 data2[i, 4] = table.GetString(4);
                 data2[i, 5] = table.GetString(5);
                 data2[i, 6] = table.GetString(6);
+                i++;
             }
             table.Close();
 

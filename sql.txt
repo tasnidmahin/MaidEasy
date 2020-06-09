@@ -53,6 +53,7 @@ create table WorkerReview(
 create table Contracts(
 	Id INT(20) AUTO_INCREMENT PRIMARY KEY,
 	WorkerId INT(20) NOT NULL,
+	WorkerName VARCHAR(40) NOT NULL,
 	UserId INT(20) NOT NULL,
 	StartMonth VARCHAR(10) NOT NULL,
 	EndMonth VARCHAR(10) NOT NULL,

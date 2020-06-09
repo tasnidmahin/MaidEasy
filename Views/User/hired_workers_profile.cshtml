@@ -51,6 +51,11 @@
             }
             @for (int i = 0; i < Convert.ToInt32(ViewData["cnt1"]); i++)
             {
+                string work = data1[i, 6];
+                String[] spearator = { "\n"};
+                String[] strlist = work.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
+                int Wcnt = strlist.Length;
+
                 <div class="card-box">
 
 
@@ -84,14 +89,20 @@
 
                               </div> -->
                         <div id="user-data">
-                            <h3 class="category">Name:<span class="user-input">3 Year</span></h3>
-                            <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
-                            <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">Month:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">Work-list:<span class="user-input"><li>Washing</li><li>Washing</li><li>Washing</li></span></h3>
+                            <h3 class="category">Name:<span class="user-input">@data1[i, 0]</span></h3>
+                            <h3 class="category">Start Month:<span class="user-input">@data1[i, 1]</span></h3>
+                            <h3 class="category">End Month:<span class="user-input">@data1[i, 2]</span></h3>
+                            <h3 class="category">Start Time:<span class="user-input">@data1[i, 3]</span></h3>
+                            <h3 class="category">End Time:<span class="user-input">@data1[i, 4]</span></h3>
+                            <h3 class="category">Amount:<span class="user-input">@data1[i, 5] BDT</span></h3>
+                            <h3 class="category">Work-list:<span class="user-input">
+                                @for (int j = 0; j < Wcnt-1; j++)
+                                {
+                                    <li>@strlist[j]</li>
+                                }
+
+                                </span>
+                            </h3>
 
                         </div>
                     </div>
@@ -121,6 +132,10 @@
             }
             @for (int i = 0; i < Convert.ToInt32(ViewData["cnt2"]); i++)
             {
+                string work = data2[i, 6];
+                String[] spearator = { "\n"};
+                String[] strlist = work.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
+                int Wcnt = strlist.Length;
                 <div class="card-box extra">
 
 
@@ -145,7 +160,14 @@
                             <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
                             <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
                             <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">Work-list:<span class="user-input"><li>Washing</li><li>Washing</li><li>Washing</li></span></h3>
+                            <h3 class="category">Work-list:<span class="user-input">
+                                    @for (int j = 0; j < Wcnt - 1; j++)
+                                    {
+                                        <li>@strlist[j]</li>
+                                    }
+
+                                </span>
+                            </h3>
 
 
                         </div>
