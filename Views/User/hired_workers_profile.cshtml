@@ -46,25 +46,30 @@
         <button type="button" class="collapsible">Current Workers</button>
         <div class="content">
 
-            <div class="card-box">
+            @{
+                string[,] data1 = (string[,])ViewData["data1"];
+            }
+            @for (int i = 0; i < Convert.ToInt32(ViewData["cnt1"]); i++)
+            {
+                <div class="card-box">
 
 
 
-                <div class="upper-box">
-                    <!--   <div class="time"><h2>Current Worker</h2></div>-->
-                    <div class="image-box">
-                        <img src="~/Content/Images/profile.jpg" />
+                    <div class="upper-box">
+                        <!--   <div class="time"><h2>Current Worker</h2></div>-->
+                        <div class="image-box">
+                            <img src="~/Content/Images/profile.jpg" />
+                        </div>
                     </div>
-                </div>
 
 
 
 
 
-                <div class="lower-box">
+                    <div class="lower-box">
 
 
-                    <!-- <div class="row">
+                        <!-- <div class="row">
                 <div class="column1"><h3>Name</h3></div>
 
                    <div class="column2"><h3>Ms. XYZ</h3></div>
@@ -78,29 +83,32 @@
                         <div class="column2"><h3>Temporary</h3></div>
 
                               </div> -->
-                    <div id="user-data">
-                        <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
-                        <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
-                        <h3 class="category">Month:<span class="user-input">Temporary</span></h3>
-                        <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
-                        <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
-                        <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
-                        <h3 class="category">Work-list:<span class="user-input"><li>Washing</li><li>Washing</li><li>Washing</li></span></h3>
+                        <div id="user-data">
+                            <h3 class="category">Name:<span class="user-input">3 Year</span></h3>
+                            <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
+                            <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
+                            <h3 class="category">Month:<span class="user-input">Temporary</span></h3>
+                            <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
+                            <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
+                            <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
+                            <h3 class="category">Work-list:<span class="user-input"><li>Washing</li><li>Washing</li><li>Washing</li></span></h3>
 
+                        </div>
                     </div>
-                </div>
 
 
-                <!--        <div style="text-align:center;">
+                    <!--        <div style="text-align:center;">
 
             <button type="button" id="hw_button">Give Feedback</button>
 
             </div> -->
-                <button type="button" class="btn btn-primary">Give Feedback</button>
+                    <a href="@Url.Action("feedback", "User")">   <button type="button" class="btn btn-primary">Give Feedback</button> </a>
 
-            </div>
-
-        </div>
+                </div>
+                <br />
+            }
+                </div>
+            
 
         <br>
         <!-- 	</div>  -->
@@ -108,46 +116,52 @@
 
         <button type="button" class="collapsible">Previous Workers</button>
         <div class="content">
-            <div class="card-box extra">
+            @{
+                string[,] data2 = (string[,])ViewData["data2"];
+            }
+            @for (int i = 0; i < Convert.ToInt32(ViewData["cnt2"]); i++)
+            {
+                <div class="card-box extra">
 
 
 
-                <div class="upper-box">
-                    <!-- <div class="time"><h2>Previous Worker</h2></div> -->
-                    <div class="image-box">
-                        <img src="~/Content/Images/profile.jpg" />
-                    </div>
-                </div>
-
-
-
-                <div class="lower-box">
-
-
-                    <div id="user-data">
-                        <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
-                        <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
-
-                        <h3 class="category">Month:<span class="user-input">Temporary</span></h3>
-                        <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
-                        <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
-                        <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
-                        <h3 class="category">Work-list:<span class="user-input"><li>Washing</li><li>Washing</li><li>Washing</li></span></h3>
-
-
+                    <div class="upper-box">
+                        <!-- <div class="time"><h2>Previous Worker</h2></div> -->
+                        <div class="image-box">
+                            <img src="~/Content/Images/profile.jpg" />
+                        </div>
                     </div>
 
+
+
+                    <div class="lower-box">
+
+
+                        <div id="user-data">
+                            <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
+                            <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
+
+                            <h3 class="category">Month:<span class="user-input">Temporary</span></h3>
+                            <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
+                            <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
+                            <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
+                            <h3 class="category">Work-list:<span class="user-input"><li>Washing</li><li>Washing</li><li>Washing</li></span></h3>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <a href="@Url.Action("feedback", "User")">   <button type="button" class="btn btn-primary">Give Feedback</button>   </a>
+
+
+
                 </div>
-
-
-
-                <button type="button" class="btn btn-primary">Give Feedback</button>
-
-
-
+                <br />
+            }
             </div>
-
-         </div>
 
         </div>
 
