@@ -53,12 +53,15 @@ create table WorkerReview(
 create table Contracts(
 	Id INT(20) AUTO_INCREMENT PRIMARY KEY,
 	WorkerId INT(20) NOT NULL,
+	WorkerName VARCHAR(40) NOT NULL,
 	UserId INT(20) NOT NULL,
-	Month INT(8) NOT NULL,
-	StartMonth VARCHAR(20) NOT NULL,
-	Hour INT(8) NOT NULL,
+	StartMonth VARCHAR(10) NOT NULL,
+	EndMonth VARCHAR(10) NOT NULL,
+	StartTime VARCHAR(30) NOT NULL,
+	EndTime VARCHAR(30) NOT NULL,
 	Amount INT(10) NOT NULL,
 	Worklist VARCHAR(300) NOT NULL,
+	status VARCHAR(15) DEFAULT 'current',
     	FOREIGN KEY (WorkerId) REFERENCES Worker(WorkerId),
     	FOREIGN KEY (UserId) REFERENCES Users(UserId)
 )

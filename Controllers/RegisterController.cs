@@ -34,6 +34,7 @@ namespace MaidEasy.Controllers
         public ActionResult Logout()
         {
             Session.Remove("username");
+            Session.Remove("userID");
             Session.Remove("thanaID");
             Session.Remove("SearchTimeForWorker");
             Session.Remove("CurWorker");
@@ -201,7 +202,7 @@ namespace MaidEasy.Controllers
             TempData["user"] = user;
             TempData["pass"] = pass;
 
-            string sql = "SELECT count(UserId),password,thana from Users where username = '" + user + "'";
+            string sql = "SELECT count(UserId),password,thana,UserId from Users where username = '" + user + "'";
 
             DBHelper db = DBHelper.getDB();
             var table = db.getData(sql);
@@ -224,10 +225,12 @@ namespace MaidEasy.Controllers
             }
             var thanaS = table.GetString(2);
             var thana = getThanaID(thanaS);
+            var uID = table.GetString(3);
             table.Close();
 
             Session["thanaID"] = thana;
             Session["username"] = user;
+            Session["userID"] = uID;
             TempData["user"] = null;
             TempData["pass"] = null;
 
