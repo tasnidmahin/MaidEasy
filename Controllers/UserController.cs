@@ -99,7 +99,10 @@ namespace MaidEasy.Controllers
         {
             var comment = Request["comment"];
             var rating = Request["rating"];
+            var wID = Request["maid"];
 
+            DBHelper db = DBHelper.getDB();
+            string sql = "INSERT into WorkerReview (WorkerId, rating , username , description )VALUES(";
             return View("~/Views/User/user_profile.cshtml");
         }
     }
