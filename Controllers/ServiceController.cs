@@ -74,6 +74,8 @@ namespace MaidEasy.Controllers
             int end = convert(endTime);
             double time = (end - start) / 2.0;
             Session["SearchTimeForWorker"] = time;
+            Session["startTime"] = startTime;       Session["endTime"] = endTime;
+            Session["start"] = start;               Session["end"] = end;
 
             string status = "";
             for (int i1 = start; i1 <= end; i1++) status += "0";
