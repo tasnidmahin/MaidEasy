@@ -60,6 +60,7 @@ create table Contracts(
 	EndTime VARCHAR(30) NOT NULL,
 	Amount INT(10) NOT NULL,
 	Worklist VARCHAR(300) NOT NULL,
+	status VARCHAR(15) DEFAULT 'current',
     	FOREIGN KEY (WorkerId) REFERENCES Worker(WorkerId),
     	FOREIGN KEY (UserId) REFERENCES Users(UserId)
 )

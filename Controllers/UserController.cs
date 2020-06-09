@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaidEasy.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,6 +27,10 @@ namespace MaidEasy.Controllers
 
         public ActionResult hired_workers_profile()
         {
+            //DBHelper db = DBHelper.getDB();
+            int id = Int32.Parse(Session["userID"].ToString());
+            //string sql = "SELECT WorkerId,StartMonth ,EndMonth ,StartTime ,EndTime ,Amount ,Worklist ,status where UserId = '" + id + "'";
+            //var table = db.getData(sql);
             return View();
         }
         public ActionResult Edit_profile()

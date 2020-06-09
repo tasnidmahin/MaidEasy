@@ -139,6 +139,7 @@ namespace MaidEasy.Controllers
             var wData = (string[])Session["CurWorker"];
             var wID = wData[4];
             var uID = Int32.Parse(Session["userID"].ToString());
+            int id = uID;
             var STime = Session["startTime"];
             var ETime = Session["endTime"];
 
