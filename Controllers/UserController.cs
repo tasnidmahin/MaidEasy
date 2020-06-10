@@ -102,7 +102,8 @@ namespace MaidEasy.Controllers
             var wID = Request["maid"];
 
             DBHelper db = DBHelper.getDB();
-            string sql = "INSERT into WorkerReview (WorkerId, rating , username , description )VALUES(";
+            string sql = "INSERT into WorkerReview (WorkerId, rating , username , description )VALUES( '" + wID + " ', ' " + rating + "', '" + Session["username"] + "', '" + comment + " ');";
+            db.setData(sql);
             return View("~/Views/User/user_profile.cshtml");
         }
     }
