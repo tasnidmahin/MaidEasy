@@ -24,11 +24,11 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row" style=" margin-top: 60px;">
+        <div class="col-md-4 columnstyle">
             <h2>Personal Information</h2>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" style="background-color: #264a96;">
             <label for="Name"><b>Name</b></label>
             <input type="text" placeholder="Name" name="name" required>
             <label for="Father's Name"><b>Father's Name</b></label>
@@ -39,7 +39,7 @@
             <input type="text" placeholder="Present Address" name="fathername" required>
             <label for="Father's Name"><b>Permanent Address</b></label>
             <input type="text" placeholder="Permanent Address" name="Phone" required>
-            <div style="margin-top:20px;">
+            <div style="margin-top:20px;margin-bottom: 20px;">
                 <select class="selectpicker" data-width="fit" title="Gender">
                     <option>Male</option>
                     <option>Female</option>
@@ -48,7 +48,7 @@
                 </select>
             </div>
 
-            <div style="margin-top:20px;">
+            <!--  <div style="margin-top:20px;">
                 <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
                     <option>Temporary</option>
                     <option>Permanent</option>
@@ -57,7 +57,7 @@
 
 
                 </select>
-            </div>
+            </div>-->
 
         </div>
 
@@ -66,13 +66,15 @@
 
     </div>
 
-    <div class="row" style="margin-bottom:600px;">
-        <div class="col-md-4">
-            <h2>Work related information</h2>
+    <div class="row" style="margin-bottom:60px;">
+        <div class="col-md-4 columnstyle">
+            <div style="    text-align: center;">
+                <h2>Work related information</h2>
+            </div>
         </div>
 
 
-        <div class="col-md-8">
+        <div class="col-md-8" style="background-color: #264a96;">
             <label for="Father's Name"><b>Work Type</b></label>
             <div class="choices">
                 <label class="container">
@@ -100,59 +102,63 @@
                 </label>
 
             </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-8">
+            <!--  </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8"> -->
             <label for="Father's Name"><b>Work Area</b></label>
             <br>
-            <select class="selectpicker" data-width="fit" data-style="btn-info" data-live-search="true" multiple>
-                <option>Adabar</option>
-                <option>Azampur</option>
-                <option>Badda</option>
-                <option>Bangsal</option>
-                <option>Bimanbandar</option>
-                <option>Cantonment</option>
-                <option>Chowkbazar</option>
-                <option>Darus Salam</option>
-                <option>Demra</option>
-                <option>Dhanmondi</option>
-                <option>Gendaria</option>
-                <option>Gulshan</option>
-                <option>Hazaribagh</option>
-                <option>Kadamtali</option>
-                <option>Kafrul</option>
-                <option>Kalabagan</option>
-                <option>Kamrangirchar</option>
-                <option>Khilgaon</option>
-                <option>Khilkhet</option>
-                <option>Kotwali</option>
-                <option>Lalbagh</option>
-                <option>Mirpur</option>
-                <option>Mohammadpur</option>
-                <option>Motijheel</option>
-                <option>New Market</option>
-                <option>Pallabi</option>
-                <option>Paltan</option>
-                <option>Panthapath</option>
-                <option>Ramna</option>
-                <option>Rampura</option>
-                <option>Sabujbagh</option>
-                <option>Shah Ali</option>
-                <option>Shahbag</option>
-                <option>Sher-e-Bangla Nagar</option>
-                <option>Shyampur</option>
-                <option>Sutrapur</option>
-                <option>Tejgaon Industrial Area</option>
-                <option>Tejgaon</option>
-                <option>Turag</option>
-                <option>Uttar Khan</option>
-                <option>Uttara</option>
-                <option>Vatara</option>
+            <div style="margin-bottom:20px;">
+                <select class="selectpicker" style="margin-bottom:20px;" data-width="fit" data-style="btn-info" data-live-search="true" multiple>
+                    <option>Adabar</option>
+                    <option>Azampur</option>
+                    <option>Badda</option>
+                    <option>Bangsal</option>
+                    <option>Bimanbandar</option>
+                    <option>Cantonment</option>
+                    <option>Chowkbazar</option>
+                    <option>Darus Salam</option>
+                    <option>Demra</option>
+                    <option>Dhanmondi</option>
+                    <option>Gendaria</option>
+                    <option>Gulshan</option>
+                    <option>Hazaribagh</option>
+                    <option>Kadamtali</option>
+                    <option>Kafrul</option>
+                    <option>Kalabagan</option>
+                    <option>Kamrangirchar</option>
+                    <option>Khilgaon</option>
+                    <option>Khilkhet</option>
+                    <option>Kotwali</option>
+                    <option>Lalbagh</option>
+                    <option>Mirpur</option>
+                    <option>Mohammadpur</option>
+                    <option>Motijheel</option>
+                    <option>New Market</option>
+                    <option>Pallabi</option>
+                    <option>Paltan</option>
+                    <option>Panthapath</option>
+                    <option>Ramna</option>
+                    <option>Rampura</option>
+                    <option>Sabujbagh</option>
+                    <option>Shah Ali</option>
+                    <option>Shahbag</option>
+                    <option>Sher-e-Bangla Nagar</option>
+                    <option>Shyampur</option>
+                    <option>Sutrapur</option>
+                    <option>Tejgaon Industrial Area</option>
+                    <option>Tejgaon</option>
+                    <option>Turag</option>
+                    <option>Uttar Khan</option>
+                    <option>Uttara</option>
+                    <option>Vatara</option>
 
-            </select>
-
+                </select>
+            </div>
         </div>
+    </div>
+    <div>
+        <button type="button" class="btn btn-outline-dark ">Dark</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

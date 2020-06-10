@@ -13,11 +13,16 @@ body {
 }
 
 .row {
-    margin-top: 60px;
+   
     margin-right: 0px;
     margin-left: 0px;
 }
 
+.columnstyle {
+    display: flex;
+    align-items: center;
+    background-color: #285eab
+}
 h2 {
     font-family: "Georgia", "Arial", "Helvetica";
 }
