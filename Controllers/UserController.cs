@@ -31,6 +31,7 @@ namespace MaidEasy.Controllers
 
         public ActionResult user_profile()
         {
+            DBHelper db = DBHelper.getDB();
             return View();
         }
 

@@ -140,7 +140,7 @@ namespace MaidEasy.Controllers
         }
 
 
-        [HttpGet]
+        /*[HttpGet]
         public ActionResult ViewProfile()
         {
             var id = Request["maid"].ToString();
@@ -163,6 +163,6 @@ namespace MaidEasy.Controllers
             Session["CurWorker"] = data;
 
             return View("~/Views/Maid/MaidProfile.cshtml");
-        }
+        }*/
     }
 }
