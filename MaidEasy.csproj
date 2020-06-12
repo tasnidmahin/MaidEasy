@@ -154,6 +154,7 @@
     <Content Include="Content\Images\bgadmin.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
+    <Content Include="Content\Images\staff.svg" />
     <Content Include="Content\login.css" />
     <Content Include="Content\maid_profile.css" />
     <Content Include="Content\selectbox.css" />
