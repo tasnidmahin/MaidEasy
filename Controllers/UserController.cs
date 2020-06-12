@@ -29,9 +29,29 @@ namespace MaidEasy.Controllers
             return View();
         }
 
-        public ActionResult user_profile()
+        private string getThana(int id)
         {
             DBHelper db = DBHelper.getDB();
+            string sql = "SELECT Name from Thana where ThanaId  = '" + id + "'";
+            return "";
+        }
+
+        [HttpGet]
+        public ActionResult user_profile()
+        {
+            var id = Session["username"];
+            DBHelper db = DBHelper.getDB();
+            string sql = "SELECT Name ,mobile ,PresentAddress,PermanentAddress,thana  from Users where username = '" + id + "'";
+            var table = db.getData(sql);
+            table.Read();
+            ViewData["Name"]             =  table.GetString(0);
+            ViewData["mobile"]           =  table.GetString(1);
+            ViewData["PresentAddress"]   =  table.GetString(2);
+            ViewData["PermanentAddress"] =  table.GetString(3);
+            string s                     = table.GetString(4).ToString();
+            table.Close();
+            int t = 0;
+            ViewData["thana"] = getThana(t);
             return View();
         }
 
