@@ -4,6 +4,7 @@
 
 body {
     padding: 0;
+    background-color: #000;
 }
 
 .autocomplete {
@@ -45,7 +46,7 @@ label {
 }
 
 .choices {
-    padding: 60px 50px 30px 0px;
+    padding: 20px 50px 30px 0px;
 }
 
 .container {
@@ -200,4 +201,17 @@ label {
 /* thana select box css */
 
 
+.collapsible {
+    cursor: pointer;
+    padding: 18px;
+    width: 250px;
+    /* border: none;*/
+    text-align: center;
+    outline: none;
+    font-size: 18px;
+    background-color:#fff;
+}
 
+    .collapsible:focus {
+        outline: none;
+    }

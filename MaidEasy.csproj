@@ -154,6 +154,7 @@
     <Content Include="Content\Images\bgadmin.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\profile.jpg" />
+    <Content Include="Content\Images\staff.svg" />
     <Content Include="Content\login.css" />
     <Content Include="Content\maid_profile.css" />
     <Content Include="Content\selectbox.css" />
@@ -165,6 +166,7 @@
     <Content Include="Content\hired_workers_profile.css" />
     <Content Include="Content\Images\sample_profile.jpg" />
     <Content Include="Content\user_profile.css" />
+    <Content Include="Content\Worker.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -191,6 +193,7 @@
     <Content Include="Scripts\JS\tabscript.js" />
     <Content Include="Scripts\JS\thanaScript.js" />
     <Content Include="Scripts\JS\timerscript.js" />
+    <Content Include="Scripts\JS\Worker.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\NumberAuthentication.js" />
     <Content Include="Web.config" />
@@ -222,6 +225,7 @@
     <Content Include="Views\Admin\Admin_home.cshtml" />
     <Content Include="Views\Admin\Admin_login.cshtml" />
     <Content Include="Views\Admin\Add_worker.cshtml" />
+    <Content Include="Views\Admin\Worker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
