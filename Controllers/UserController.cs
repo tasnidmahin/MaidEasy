@@ -33,7 +33,11 @@ namespace MaidEasy.Controllers
         {
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT Name from Thana where ThanaId  = '" + id + "'";
-            return "";
+            var table = db.getData(sql);
+            table.Read();
+            string ret = table.GetString(0);
+            table.Close();
+            return ret;
         }
 
         [HttpGet]
@@ -48,9 +52,19 @@ namespace MaidEasy.Controllers
             ViewData["mobile"]           =  table.GetString(1);
             ViewData["PresentAddress"]   =  table.GetString(2);
             ViewData["PermanentAddress"] =  table.GetString(3);
-            string s                     = table.GetString(4).ToString();
+            string s                     =  table.GetString(4);
             table.Close();
-            int t = 0;
+            int t = 0, len = s.Length;
+            for(int i = 0; i<len; i++)
+            {
+                if(s[i] == '1')
+                { t = i + 1; break; }
+            }
+
+            System.Diagnostics.Debug.WriteLine("--------thana id------------");
+            System.Diagnostics.Debug.WriteLine(t);
+            System.Diagnostics.Debug.WriteLine("--------------------");
+
             ViewData["thana"] = getThana(t);
             return View();
         }
