@@ -129,6 +129,7 @@ namespace MaidEasy.Controllers
             pass = hash(pass);
             TempData["pass"] = pass;
             ViewData["phoneNumber"] = phone;
+            ViewData["codeverify"] = 1;
 
             return View("~/Views/Register/VerificationCode.cshtml");
         }
@@ -235,6 +236,13 @@ namespace MaidEasy.Controllers
             TempData["pass"] = null;
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult editProfile()
+        {
+
+            return RedirectToAction("user_profile", "User");
         }
     }
 }
