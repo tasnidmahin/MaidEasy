@@ -26,16 +26,23 @@ function phoneAuth(num) {
     });
 }
 
-function codeverify() {
+function codeverify(cv) {
     var code = document.getElementById('verificationCode').value;
     coderesult.confirm(code).then(function (result) {
         alert("Congratulations!!! Your Phone No. is now verified.");
         var user = result.user;
         console.log(user);
         //document.getElementById("myForm").submit();
-        var url = "/Register/AddUser";
-        window.location = url; 
-        return true;
+        if (cv == 1) {
+            var url = "/Register/AddUser";
+            window.location = url;
+            return true;
+        }
+        if (cv == 2) {
+            var url = "/Register/saveEditProfile";
+            window.location = url;
+            return true;
+        }
     }).catch(function (error) {
         alert(error.message);
         console.log("FALSE");

@@ -29,8 +29,14 @@ namespace MaidEasy.Controllers
             return View();
         }
 
-        private string getThana(int id)
+        private string getThana(string s)
         {
+            int id = 0, len = s.Length;
+            for (int i = 0; i < len; i++)
+            {
+                if (s[i] == '1')
+                { id = i + 1; break; }
+            }
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT Name from Thana where ThanaId  = '" + id + "'";
             var table = db.getData(sql);
@@ -54,18 +60,12 @@ namespace MaidEasy.Controllers
             ViewData["PermanentAddress"] =  table.GetString(3);
             string s                     =  table.GetString(4);
             table.Close();
-            int t = 0, len = s.Length;
-            for(int i = 0; i<len; i++)
-            {
-                if(s[i] == '1')
-                { t = i + 1; break; }
-            }
 
-            System.Diagnostics.Debug.WriteLine("--------thana id------------");
+            /*System.Diagnostics.Debug.WriteLine("--------thana id------------");
             System.Diagnostics.Debug.WriteLine(t);
-            System.Diagnostics.Debug.WriteLine("--------------------");
+            System.Diagnostics.Debug.WriteLine("--------------------");*/
 
-            ViewData["thana"] = getThana(t);
+            ViewData["thana"] = getThana(s);
             return View();
         }
 
@@ -127,6 +127,24 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Edit_profile()
         {
+            if (TempData["message"] != null) //It will true when Password not match with DB password 
+                ViewBag.Error = TempData["message"].ToString();
+
+
+            DBHelper db = DBHelper.getDB();
+            string sql = "SELECT Name ,  mobile , PresentAddress , PermanentAddress , thana , image  from Users where username  = '" + Session["username"] + "' ";
+            var table = db.getData(sql);
+            table.Read();
+            TempData["Ename"] =              table.GetString(0);
+            TempData["Ephone"] =             table.GetString(1);
+            TempData["EpresentAddress"] =    table.GetString(2);
+            TempData["EpermanentAddress"] =  table.GetString(3);
+            string s =             table.GetString(4);
+            table.Close();
+
+            TempData["Ethana"] = getThana(s);
+
+
             return View();
         }
         [HttpPost]
