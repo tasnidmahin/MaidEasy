@@ -20,7 +20,7 @@
 
 
     <h2>VerificationCode</h2>
-    <form id="myForm" onsubmit="codeverify()"  class="signup-form" action="javascript:void(0)" method="post">
+    <form id="myForm" onsubmit="codeverify('@ViewData["codeverify"]')"  class="signup-form" action="javascript:void(0)" method="post">
         <div id="recaptha-container"></div> <br />
         <button  type="button" class="btn btn-primary btn-block" name="signupbutton" onclick="phoneAuth('@ViewData["phoneNumber"]');"> Send code</button>
 
