@@ -28,8 +28,9 @@ body {
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 19px;
         height: 55px; /*added */
+        min-width:110px;
     }
 
 .active {
@@ -45,10 +46,11 @@ body {
     float: right;
     overflow: hidden;
     position:static;
+    margin-right:20px;
 }
 
     .dropdown .dropbtn {
-        font-size: 17px;
+        font-size: 19px;
         border: none;
         outline: none;
         color: white;
@@ -56,7 +58,7 @@ body {
         background-color: inherit;
         font-family: inherit;
         margin: 0;
-        min-width: 30px; /*added */
+        min-width: 110px; /*added */
         /*  height: 55px;  /*added */
     }
 
@@ -64,7 +66,7 @@ body {
     display: none;
     position: absolute;
     background-color: #000;
-    min-width: 160px;
+    min-width: 110px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }

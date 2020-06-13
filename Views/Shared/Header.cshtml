@@ -26,7 +26,7 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="@Url.Action("user_profile", "User")">My Account</a>
+                <a href="@Url.Action("user_profile", "User")">Profile</a>
                 <a href="#">Link 2</a>
                 <a href="@Url.Action("Logout", "Register")">logout</a>
             </div>
@@ -34,7 +34,7 @@
         }
         @if(Session["username"]==null)
         {
-            <a href="@Url.Action("LogIn", "Register")">Login</a>
+            <a href="@Url.Action("LogIn", "Register")" style="margin-right:20px;">Login</a>
         }
 
         <a href="@Url.Action("Index", "Home")">Home</a>
