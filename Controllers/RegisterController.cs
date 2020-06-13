@@ -172,6 +172,7 @@ namespace MaidEasy.Controllers
             return true;
         }
 
+
         [HttpGet]
         public ActionResult AddUser()
         {
@@ -211,7 +212,7 @@ namespace MaidEasy.Controllers
             int count = Int32.Parse(table.GetString(0));
             if(count == 0)
             {
-                TempData["message"] = "Username doesn't exist";
+                TempData["message"] = "Username does not exist";
                 table.Close();
                 return RedirectToAction("LogIn", "Register");
             }
@@ -220,7 +221,7 @@ namespace MaidEasy.Controllers
 
             if(!checkPassword(p, pass))
             {
-                TempData["message"] = "Password didn't match";
+                TempData["message"] = "Password did not match";
                 table.Close();
                 return RedirectToAction("LogIn", "Register");
             }
@@ -239,10 +240,58 @@ namespace MaidEasy.Controllers
         }
 
         [HttpPost]
-        public ActionResult editProfile()
+        public ActionResult getEditProfileData()
         {
+            var name = Request["name"];
+            var phone = Request["Phone"];
+            var presentAddress = Request["presentAddress"];
+            var permanentAddress = Request["permanentAddress"];
+            var Opass = Request["Password"];
+            var Npass = Request["newPassword"];
+            var conpass = Request["confirmPassword"];
+            var thana = Request["thana"];
 
+
+            TempData["Ename"] = Request["name"];
+            TempData["Ephone"] = Request["Phone"];
+            TempData["EpresentAddress"] = Request["presentAddress"];
+            TempData["EpermanentAddress"] = Request["permanentAddress"];
+            TempData["Epass"] = Request["Password"];
+            TempData["Enewpass"] = Request["newPassword"];
+            TempData["Econpass"] = Request["confirmPassword"];
+            TempData["Ethana"] = Request["thana"];
+
+
+            string sql = "SELECT password from Users where username = '" + Session["username"] + "'";
+
+            DBHelper db = DBHelper.getDB();
+            var table = db.getData(sql);
+            table.Read();
+            var p = table.GetString(0);
+            table.Close();
+            if (!checkPassword(p, Opass))
+            {
+                TempData["message"] = "Old Password did not match";
+                return RedirectToAction("Edit_profile", "User");
+            }
+
+
+            ViewData["phoneNumber"] = phone;
+            ViewData["codeverify"] = 2;
+
+            return View("~/Views/Register/VerificationCode.cshtml");
+        }
+
+        public ActionResult saveEditProfile()
+        {
+            string sql = "UPDATE Users SET Name  = '" + TempData["Ename"] + "' where username  = '" + Session["username"] + "'";
+            //string sql = "INSERT INTO table (id,Col1,Col2) VALUES (1,1,1),(2,2,3),(3,9,3),(4,10,12)ON DUPLICATE KEY UPDATE Col1 = VALUES(Col1),Col2 = VALUES(Col2); ";
+            DBHelper db = DBHelper.getDB();
+            var table = db.getData(sql);
+            table.Read();
+            table.Close();
             return RedirectToAction("user_profile", "User");
         }
+
     }
 }

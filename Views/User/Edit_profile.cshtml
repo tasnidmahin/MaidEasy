@@ -35,14 +35,14 @@
             <div id="user-photo-wrapper">
                 <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image">
             </div>
-            <form id="form" action="/Register/editProfile" class="form" autocomplete="off" method="post">
+            <form id="form" action="/Register/getEditProfileData" class="form" autocomplete="off" method="post">
                 <!--     <form id="form" action="javascript:void(0)" class="form" autocomplete="off" method="post">-->
                 <div class="form-control">
                     <label for="username">Username</label> <br />
-                     <input id="username" type="text" name="Username" value="@Session["username"]" />
+                    <input id="username" type="text" name="Username" value="@Session["username"]" />
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small> 
+                    <small>Error message</small>
                 </div>
                 <div class="form-control">
                     <label for="username">Name</label>
@@ -124,7 +124,7 @@
 
 
 
-     
+
 
     @if (ViewBag.Error != null)
     {
@@ -142,6 +142,13 @@
 </body>
 @{
     Html.RenderPartial("footer");
+}
+
+@if (ViewBag.Error != null)
+{
+    <script>
+            alert("@ViewBag.Error");
+    </script>
 }
 </html>
 

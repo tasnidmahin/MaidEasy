@@ -127,6 +127,10 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Edit_profile()
         {
+            if (TempData["message"] != null) //It will true when Password not match with DB password 
+                ViewBag.Error = TempData["message"].ToString();
+
+
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT Name ,  mobile , PresentAddress , PermanentAddress , thana , image  from Users where username  = '" + Session["username"] + "' ";
             var table = db.getData(sql);
