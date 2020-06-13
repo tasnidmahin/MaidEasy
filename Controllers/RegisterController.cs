@@ -60,6 +60,9 @@ namespace MaidEasy.Controllers
             string ret = r.ToString();
             table.Close();
 
+            System.Diagnostics.Debug.WriteLine("---------Thana String-----------");
+            System.Diagnostics.Debug.WriteLine(ret);
+            System.Diagnostics.Debug.WriteLine(t);
 
             Session["thanaID"] = t - 1;
 
@@ -284,12 +287,13 @@ namespace MaidEasy.Controllers
 
         public ActionResult saveEditProfile()
         {
-            string sql = "UPDATE Users SET Name  = '" + TempData["Ename"] + "' where username  = '" + Session["username"] + "'";
-            //string sql = "INSERT INTO table (id,Col1,Col2) VALUES (1,1,1),(2,2,3),(3,9,3),(4,10,12)ON DUPLICATE KEY UPDATE Col1 = VALUES(Col1),Col2 = VALUES(Col2); ";
+            System.Diagnostics.Debug.WriteLine("--------SAVE   EDIT------------");
+            var p = hash(TempData["Enewpass"].ToString());
+            var thana = getThanaString(TempData["Ethana"].ToString());
+            //string sql = "UPDATE Users SET Name  = '" + TempData["Ename"] + "' where username  = '" + Session["username"] + "'";
+            string sql = "UPDATE Users SET Name  = '" + TempData["Ename"] + "', password = '" + p + "', mobile = '" + TempData["Ephone"] + "', PresentAddress  = '" + TempData["EpresentAddress"] + "', PermanentAddress = '" + TempData["EpermanentAddress"] + "', thana  = '" + thana + "' where username  = '" + Session["username"] + "'";
             DBHelper db = DBHelper.getDB();
-            var table = db.getData(sql);
-            table.Read();
-            table.Close();
+            db.setData(sql);
             return RedirectToAction("user_profile", "User");
         }
 

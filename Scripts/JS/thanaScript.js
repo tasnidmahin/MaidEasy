@@ -99,6 +99,6 @@ function autocomplete(inp, arr) {
     });
 }
 
-var thanalist = ["Adabar", "Azampur", "Badda", "Bangsal", "Bimanbandar", "Cantonment ", "Chowkbazar", "Darus Salam ", "Demra ", "Dhanmondi", "Gendaria ", "Gulshan ", "Hazaribagh", "Kadamtali", "Kafrul", "Kalabagan", "Kamrangirchar", "Khilgaon", "Khilkhet ", "Kotwali", "Lalbagh ", "Mirpur Model", "Mohammadpur", "Motijheel", "New Market", "Pallabi", "Paltan", "Panthapath", "Ramna", "Rampura", "Sabujbagh", "Shah Ali", "Shahbag", "Sher-e-Bangla Nagar", "Shyampur", "Sutrapur", "Tejgaon Industrial Area", "Tejgaon", "Turag", "Uttar Khan", "Uttara", "Vatara", "Wari"];
+var thanalist = ["Adabar", "Azampur", "Badda", "Bangsal", "Bimanbandar", "Cantonment", "Chowkbazar", "Darus Salam ", "Demra", "Dhanmondi", "Gendaria", "Gulshan", "Hazaribagh", "Kadamtali", "Kafrul", "Kalabagan", "Kamrangirchar", "Khilgaon", "Khilkhet ", "Kotwali", "Lalbagh ", "Mirpur Model", "Mohammadpur", "Motijheel", "New Market", "Pallabi", "Paltan", "Panthapath", "Ramna", "Rampura", "Sabujbagh", "Shah Ali", "Shahbag", "Sher-e-Bangla Nagar", "Shyampur", "Sutrapur", "Tejgaon Industrial Area", "Tejgaon", "Turag", "Uttar Khan", "Uttara", "Vatara", "Wari"];
 
 autocomplete(document.getElementById("thana"),thanalist)

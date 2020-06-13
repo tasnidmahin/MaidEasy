@@ -36,8 +36,13 @@ function codeverify(cv) {
         if (cv == 1) {
             var url = "/Register/AddUser";
             window.location = url;
+            return true;
         }
-        return true;
+        if (cv == 2) {
+            var url = "/Register/saveEditProfile";
+            window.location = url;
+            return true;
+        }
     }).catch(function (error) {
         alert(error.message);
         console.log("FALSE");
