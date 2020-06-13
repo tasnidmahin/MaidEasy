@@ -43,10 +43,12 @@ create table Admin(
 create table WorkerReview(
 	Id INT(20) AUTO_INCREMENT,
 	WorkerId INT(20) NOT NULL,
+	username VARCHAR(70) NOT NULL
 	rating DOUBLE(10,2) DEFAULT 0,
 	description VARCHAR(250),
 	PRIMARY KEY (Id),
-    	FOREIGN KEY (WorkerId) REFERENCES Worker(WorkerId)
+    	FOREIGN KEY (WorkerId) REFERENCES Worker(WorkerId),
+	FOREIGN KEY (username) REFERENCES Users(username )
 )
 
 

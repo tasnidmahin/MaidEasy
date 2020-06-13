@@ -19,6 +19,45 @@ namespace MaidEasy.Controllers
 
         public ActionResult MaidProfile()
         {
+            var id = Request["maid"].ToString();
+            //System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+            //System.Diagnostics.Debug.WriteLine(id);
+
+            string sql = "SELECT Name,type,rating,experience,image from Worker where WorkerId = " + id;
+
+            DBHelper db = DBHelper.getDB();
+            var table = db.getData(sql);
+            table.Read();
+            string[] data = new string[5];
+            data[0] = table.GetString(0);
+            data[1] = table.GetString(1);
+            data[2] = table.GetString(2);
+            data[3] = table.GetString(3);
+            data[4] = id;
+            table.Close();
+
+            //sql for feedback info
+            sql = "SELECT count(username) from WorkerReview where WorkerId = " + id;
+            table = db.getData(sql);
+            table.Read();
+            int count = Int32.Parse(table.GetString(0));
+            table.Close();
+            sql = "SELECT username ,description ,rating from WorkerReview where WorkerId = " + id;
+            string[,] feedback = new string[count, 3];
+            table = db.getData(sql);
+
+            int i = 0;
+            while(table.Read())
+            {
+                feedback[i, 0] = table.GetString(0);
+                feedback[i, 1] = table.GetString(1);
+                feedback[i, 2] = table.GetString(2);
+            }
+            table.Close();
+
+            Session["CurWorker"] = data;
+            ViewData["feedback"] = feedback;
+            ViewData["cnt_feed"] = count;
             return View();
         }
         public ActionResult Hire()

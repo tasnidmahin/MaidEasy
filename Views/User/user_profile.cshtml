@@ -46,13 +46,13 @@
 
 
             <div id="user-data">
-                <h4 class="category">User Name:<span class="user-input">3 months</span></h4>
-                <h4 class="category">Name:<span class="user-input">3 months</span></h4>
-                <h4 class="category">Mobile:<span class="user-input">3 months</span></h4>
-                <h4 class="category">Present Address:<span class="user-input">3 months</span></h4>
-                <h4 class="category">Permanent Address:<span class="user-input">3 months</span></h4>
+                <h4 class="category">User Name:<span class="user-input">@Session["username"]</span></h4>
+                <h4 class="category">Name:<span class="user-input">@ViewData["Name"]</span></h4>
+                <h4 class="category">Mobile:<span class="user-input">@ViewData["mobile"]</span></h4>
+                <h4 class="category">Present Address:<span class="user-input">@ViewData["PresentAddress"]</span></h4>
+                <h4 class="category">Permanent Address:<span class="user-input">@ViewData["PermanentAddress"]</span></h4>
 
-                <h4 class="category">Thana:<span class="user-input">Temporary</span></h4>
+                <h4 class="category">Thana:<span class="user-input">@ViewData["thana"]</span></h4>
 
             </div>
 
