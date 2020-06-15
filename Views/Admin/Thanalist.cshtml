@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Thanalist";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <title> Work List</title>
+    <link href="~/Content/Thanalist.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <div style="text-align:center;">
+        <button type="button" class="collapsible">Add Thana</button>
+
+        <div class="content">
+            <form>
+                <div class="form-row  justify-content-center">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationServer01">Thana Name</label>
+                        <input type="text" class="form-control is-valid " id="validationServer01" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="col-md-4 mb-3" style="margin:auto;">
+            <input class="form-control" id="tableSearch" type="text"
+                   placeholder="Type something to search list items">
+        </div>
+        <table class="table table-bordered table-striped table-sm" style="margin:auto;" id="myTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Thana ID</th>
+                    <th onclick="sortTable(1)">Thana Name</th>
+                 
+
+
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <tr>
+                    <td>1</td>
+                    <td>Toe</td>
+                   
+                    <td class="middle"><button type="button" class="btn btn-outline-dark">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Doe</td>
+                    
+
+                    <td class="middle"><button type="button" class="btn btn-outline-dark">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Doe</td>
+                   
+
+                    <td class="middle"><button type="button" class="btn btn-outline-dark">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Doe michael</td>
+                    
+
+                    <td class="middle"><button type="button" class="btn btn-outline-dark">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+    
+
+    <script src="~/Scripts/JS/collpasible.js"></script>
+    <script src="~/Scripts/JS/thanalist.js"></script>
+</body>
+
+</html>
+

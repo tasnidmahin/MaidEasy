@@ -33,5 +33,17 @@ namespace MaidEasy.Controllers
         {
             return View();
         }
+        public ActionResult Worklist()
+        {
+            return View();
+        }
+        public ActionResult Edit_work()
+        {
+            return View();
+        }
+        public ActionResult Thanalist()
+        {
+            return View();
+        }
     }
 }

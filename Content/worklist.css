@@ -1,0 +1,60 @@
+﻿
+.collapsible {
+    background-color: #001a33;
+    color: #77c1e4;
+    cursor: pointer;
+    padding: 18px;
+    width: 350px;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 25px;
+    font-family: 'Montserrat', "Georgia", "Arial", "Helvetica";
+    font-weight: bold;
+    margin-top: 50px;
+}
+.active {
+    background-color: #77c1e4 !important;
+    color: #fff;
+}
+
+.collapsible:hover {
+    background-color: #77c1e4;
+    color: #fff;
+}
+
+.collapsible:focus {
+    outline: none;
+}
+
+.content {
+    display: none;
+}
+
+.form {
+    padding: 30px 40px;
+}
+
+.container {
+    margin-top: 80px;
+   
+}
+
+.table {
+    width: auto;
+  
+}
+th {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+
+tr {
+    font-size: 17px;
+}
+
+
+.middle {
+    text-align: center;
+}

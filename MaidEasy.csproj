@@ -147,6 +147,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\editprofile.css" />
+    <Content Include="Content\editwork.css" />
     <Content Include="Content\edit_worker.css" />
     <Content Include="Content\feedback.css" />
     <Content Include="Content\footer.css" />
@@ -166,8 +167,10 @@
     <Content Include="Content\starrating.css" />
     <Content Include="Content\hired_workers_profile.css" />
     <Content Include="Content\Images\sample_profile.jpg" />
+    <Content Include="Content\Thanalist.css" />
     <Content Include="Content\user_profile.css" />
     <Content Include="Content\Worker.css" />
+    <Content Include="Content\worklist.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -192,9 +195,11 @@
     <Content Include="Scripts\JS\selectbox.js" />
     <Content Include="Scripts\JS\signupscript.js" />
     <Content Include="Scripts\JS\tabscript.js" />
+    <Content Include="Scripts\JS\thanalist.js" />
     <Content Include="Scripts\JS\thanaScript.js" />
     <Content Include="Scripts\JS\timerscript.js" />
     <Content Include="Scripts\JS\Worker.js" />
+    <Content Include="Scripts\JS\worklist.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\NumberAuthentication.js" />
     <Content Include="Web.config" />
@@ -228,6 +233,9 @@
     <Content Include="Views\Admin\Add_worker.cshtml" />
     <Content Include="Views\Admin\Worker.cshtml" />
     <Content Include="Views\Admin\Edit_worker.cshtml" />
+    <Content Include="Views\Admin\Worklist.cshtml" />
+    <Content Include="Views\Admin\Edit_work.cshtml" />
+    <Content Include="Views\Admin\Thanalist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
