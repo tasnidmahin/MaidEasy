@@ -27,15 +27,30 @@
 }
 <body>
     <div class="box">
-        <ul class="tabs">
-            <li data-tab-target="#temporary" class="active tab">Temporary</li>
-            <li data-tab-target="#permanent" class="tab">Permanent</li>
-            <li data-tab-target="#babycare" class="tab">Baby care</li>
-            <li data-tab-target="#elderlycare" class="tab">Elderly care</li>
+         <ul class="tabs" id="myTab">
+
+        <li data-tab-target="#temporary" class="active tab">Temporary</li>
+        <li data-tab-target="#permanent" class="tab">Permanent</li>
+        <li data-tab-target="#babycare" class="tab">Baby care</li>
+        <li data-tab-target="#elderlycare" class="tab">Elderly care</li>
+
+    </ul>   
+        <!-- <ul class="tabs" id="myTab">
+        <li class="active"><a href="#temporary">Temporary</a></li>
+        <li><a href="#permanent">Permanent</a></li>
+        <li><a href="#babycare">Baby care</a></li>
+        <li><a href="#elderlycare">Elderly care</a></li>
+    </ul> -->
+        <!-- <div class="tab-content">
+        <div class="tab-pane active" id="home">home</div>
+        <div class="tab-pane" id="profile">profile</div>
+        <div class="tab-pane" id="messages">messages</div>
+        <div class="tab-pane" id="settings">settings</div>
+    </div>-->
 
 
 
-        </ul>
+
 
         <div class="tab-content">
 
@@ -63,7 +78,7 @@
                             </div>
                             <div class="col-md-4" style="padding-left:50px;">
                                 <!--    <div class="row">
-                                <div class="col-md-2"> -->
+                            <div class="col-md-2"> -->
                                 <h5>Starting Time</h5>
                                 <div class="experiencebox" style="padding-left: 10px;">
                                     <select name="startTime" id="main_menu" class="input-lg form-control" required>
@@ -97,24 +112,24 @@
                                 <!-- </div> -->
                                 <!--  <div class="col-md-2" style="padding-left: 55px;">
 
-                                    <h5>Time</h5>
+                                <h5>Time</h5>
 
-                                    <div class="experiencebox" style="position: relative;">
-                                        <select name="car" id="main_menu" class="input-lg form-control">
+                                <div class="experiencebox" style="position: relative;">
+                                    <select name="car" id="main_menu" class="input-lg form-control">
 
-                                            <option value="am">a.m.</option>
-                                            <option value="pm">p.m.</option>
+                                        <option value="am">a.m.</option>
+                                        <option value="pm">p.m.</option>
 
-                                        </select>
-                                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-                                    </div>
-                                </div>  -->
+                                    </select>
+                                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                </div>
+                            </div>  -->
                             </div>
                             <!--  </div> -->
                             <div class="col-md-4">
                                 <!--  <div class="row">
 
-                                <div class="col-md-2"> -->
+                            <div class="col-md-2"> -->
                                 <h5>Ending Time</h5>
 
                                 <div class="experiencebox" style="padding-left: 10px;">
@@ -124,16 +139,16 @@
                                 </div>
                                 <!--  </div> -->
                                 <!-- <div class="col-md-2" style="padding-left:55px;">
-                                    <h5>Time</h5>
-                                    <div class="experiencebox" style="position: relative;">
-                                        <select name="car" id="main_menu" class="input-lg form-control">
+                                <h5>Time</h5>
+                                <div class="experiencebox" style="position: relative;">
+                                    <select name="car" id="main_menu" class="input-lg form-control">
 
-                                            <option value="am">a.m.</option>
-                                            <option value="pm">p.m.</option>
-                                        </select>
-                                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-                                    </div>
-                                </div> -->
+                                        <option value="am">a.m.</option>
+                                        <option value="pm">p.m.</option>
+                                    </select>
+                                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                </div>
+                            </div> -->
                                 <!-- </div> -->
 
 
@@ -152,6 +167,7 @@
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
                     <div class="searchresults">
+
                         @{
                             string[,] WData = (string[,])ViewData["workerData"];
                             byte[][] Wphoto = (byte[][])ViewData["workerPhoto"];
@@ -209,64 +225,69 @@
 
             </div>
             <div id="permanent" data-tab-content>
-                <div class="experiencebox" style="margin:30px auto;width:120px;">
-                    <select class="input-lg form-control" id="paperSelect">
-                        <option value="0">Sort By</option>
-                        <option value="1" id="sortbyname">Name</option>
-                        <option value="2" id="sortbyexperience">Experience</option>
+                <form action="/Service/SearchingFull" method="get">
+                    <input type="hidden" name="type" value="permanent" />
+                    <div class="experiencebox" style="width:120px;">
+                        <select class="input-lg form-control" id="paperSelect" name="sortby">
+                            <option value="Name" id="sortbyname">Name</option>
+                            <option value="experience" id="sortbyexperience">Experience</option>
+                            <option value="rating" id="sortbyrating">Rating</option>
 
-                    </select>
 
-                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                        </select>
 
-                </div>
+                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
 
-                <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
+                    </div>
 
-                    <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>
+                    <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
 
-                </div>
+                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
+                        <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                    </div>
 
-                <!--    <div class="card-box">
+                    <!--    <div class="card-box">
 
-        <div class="upper-box">
-            <div class="image-box">
-                <img src="~/Content/Images/profile.jpg" />
-            </div>
-        </div>
+                    <div class="upper-box">
+                        <div class="image-box">
+                            <img src="~/Content/Images/profile.jpg" />
+                        </div>
+                    </div>
 
-        <div class="lower-box">
-            <div>
-                <h3>Alaina Wick</h3>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
+                    <div class="lower-box">
+                        <div>
+                            <h3>Alaina Wick</h3>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
 
-            </div>
-            <div>
-                <h4 class="category">Favorite Country: <span class="user-input">Thailand</span></h4>
-            </div>
-            <div>
-                <a href="#" class="btn">View profile</a>
-            </div>
-        </div>
+                        </div>
+                        <div>
+                            <h4 class="category">Favorite Country: <span class="user-input">Thailand</span></h4>
+                        </div>
+                        <div>
+                            <a href="#" class="btn">View profile</a>
+                        </div>
+                    </div>
 
-    </div>  -->
-                <form action="/Service/ViewProfile" method="get">
+                </div>  -->
+                </form>
+                <!-- <form action="/Service/ViewProfile" method="get"> -->
+                <form action="/Maid/MaidProfile" method="get">
                     <div class="searchresults">
-                       @{
-                            //string[,] WData = (string[,])ViewData["workerData"];
-                            //byte[][] Wphoto = (byte[][])ViewData["workerPhoto"];
+                        @{
+                            string[,] PData = (string[,])ViewData["PworkerData"];
+                            byte[][] Pphoto = (byte[][])ViewData["PworkerPhoto"];
                         }
-                        @for (int i = 0; i < Convert.ToInt32(ViewData["cnt_row"]); i++)
+                        @for (int i = 0; i < Convert.ToInt32(ViewData["Pcnt_row"]); i++)
                         {
-                            string imgsrc = Convert.ToBase64String(@Wphoto[i]); 
+                            //string imgsrc = Convert.ToBase64String(@Pphoto[i]);
                             //System.Diagnostics.Debug.WriteLine(imgsrc);
-                            //System.Diagnostics.Debug.WriteLine("-----------------------------------------------");
+                            System.Diagnostics.Debug.WriteLine("-----------------------      GHURTESI     ------------------------");
                             //imgsrc = "data:image/png;base64," + imgsrc;
-                            //System.Diagnostics.Debug.WriteLine(imgsrc);    
+                            //System.Diagnostics.Debug.WriteLine(imgsrc);
 
                             <div class="card-box">
 
@@ -280,7 +301,7 @@
 
                                 <div class="lower-box">
                                     <div>
-                                        <h3>@WData[i, 1]</h3>
+                                        <h3>@PData[i, 1]</h3>
                                         <span class="fa fa-star checked"></span>
                                         <span class="fa fa-star checked"></span>
                                         <span class="fa fa-star checked"></span>
@@ -289,14 +310,15 @@
 
                                     </div>
                                     <div>
-                                        <h4 class="category">Rating: <span class="user-input"> @WData[i, 2] / 5.00 </span></h4>
+                                        <h4 class="category">Rating: <span class="user-input"> @PData[i, 2] / 5.00 </span></h4>
                                     </div>
                                     <div>
-                                        <h4 class="category">Experience: <span class="user-input"> @WData[i, 3] months </span></h4>
+                                        <h4 class="category">Experience: <span class="user-input"> @PData[i, 3] months </span></h4>
                                     </div>
                                     <div>
-                                        <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@WData[i, 0]">View profile</a>  -->
-                                        <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@WData[i, 0]">View profile</button>
+
+                                        <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@PData[i, 0]">View profile</a>  -->
+                                        <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@PData[i, 0]">View profile</button>
                                     </div>
                                 </div>
 
@@ -313,61 +335,66 @@
 
             </div>
             <div id="babycare" data-tab-content>
-                <div class="experiencebox" style="margin:30px auto;width:120px;">
-                    <select class="input-lg form-control" id="paperSelect">
-                        <option value="0">Sort By</option>
-                        <option value="1" id="sortbyname">Name</option>
-                        <option value="2" id="sortbyexperience">Experience</option>
+                <form action="/Service/SearchingFull" method="get">
+                    <input type="hidden" name="type" value="babycare" />
+                    <div class="experiencebox" style="width:120px;">
+                        <select class="input-lg form-control" id="paperSelect" name="sortby">
+                            <option value="Name" id="sortbyname">Name</option>
+                            <option value="experience" id="sortbyexperience">Experience</option>
+                            <option value="rating" id="sortbyrating">Rating</option>
 
-                    </select>
 
-                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                        </select>
+
+                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+
+                    </div>
+
+                    <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
+
+                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
+                        <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                    </div>
+
+                    <!--     <div class="card-box">
+
+            <div class="upper-box">
+                <div class="image-box">
+                    <img src="~/Content/Images/profile.jpg" />
+                </div>
+            </div>
+
+            <div class="lower-box">
+                <div>
+                    <h3>Alaina Wick</h3>
+                    <h4>3 year experience</h4>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
 
                 </div>
-
-                <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
-
-                    <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>
-
+                <div>
+                    <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
                 </div>
-
-                <!--     <div class="card-box">
-
-        <div class="upper-box">
-            <div class="image-box">
-                <img src="~/Content/Images/profile.jpg" />
+                <div>
+                    <a href="#" class="btn">View profile</a>
+                </div>
             </div>
-        </div>
 
-        <div class="lower-box">
-            <div>
-                <h3>Alaina Wick</h3>
-                <h4>3 year experience</h4>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-
-            </div>
-            <div>
-                <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
-            </div>
-            <div>
-                <a href="#" class="btn">View profile</a>
-            </div>
-        </div>
-
-    </div>  -->
-                <form action="/Service/ViewProfile" method="get">
+        </div>  -->
+                </form>
+                <!-- <form action="/Service/ViewProfile" method="get"> -->
+                <form action="/Maid/MaidProfile" method="get">
                     <div class="searchresults">
                         @{
-                            //string[,] WData = (string[,])ViewData["workerData"];
-                            //byte[][] Wphoto = (byte[][])ViewData["workerPhoto"];
+                            string[,] BData = (string[,])ViewData["BworkerData"];
+                            //byte[][] Bphoto = (byte[][])ViewData["BworkerPhoto"];
                         }
-                        @for (int i = 0; i < Convert.ToInt32(ViewData["cnt_row"]); i++)
+                        @for (int i = 0; i < Convert.ToInt32(ViewData["Bcnt_row"]); i++)
                         {
-                            string imgsrc = Convert.ToBase64String(@Wphoto[i]);
+                            //string imgsrc = Convert.ToBase64String(@Wphoto[i]);
                             //System.Diagnostics.Debug.WriteLine(imgsrc);
                             //System.Diagnostics.Debug.WriteLine("-----------------------------------------------");
                             //imgsrc = "data:image/png;base64," + imgsrc;
@@ -385,7 +412,7 @@
 
                                 <div class="lower-box">
                                     <div>
-                                        <h3>@WData[i, 1]</h3>
+                                        <h3>@BData[i, 1]</h3>
                                         <span class="fa fa-star checked"></span>
                                         <span class="fa fa-star checked"></span>
                                         <span class="fa fa-star checked"></span>
@@ -394,14 +421,14 @@
 
                                     </div>
                                     <div>
-                                        <h4 class="category">Rating: <span class="user-input"> @WData[i, 2] / 5.00 </span></h4>
+                                        <h4 class="category">Rating: <span class="user-input"> @BData[i, 2] / 5.00 </span></h4>
                                     </div>
                                     <div>
-                                        <h4 class="category">Experience: <span class="user-input"> @WData[i, 3] months </span></h4>
+                                        <h4 class="category">Experience: <span class="user-input"> @BData[i, 3] months </span></h4>
                                     </div>
                                     <div>
-                                        <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@WData[i, 0]">View profile</a>  -->
-                                        <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@WData[i, 0]">View profile</button>
+                                        <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@BData[i, 0]">View profile</a>  -->
+                                        <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@BData[i, 0]">View profile</button>
                                     </div>
                                 </div>
 
@@ -419,32 +446,37 @@
             </div>
 
             <div id="elderlycare" data-tab-content>
-                <div class="experiencebox" style="margin:30px auto;width:120px;">
-                    <select class="input-lg form-control" id="paperSelect">
-                        <option value="0">Sort By</option>
-                        <option value="1" id="sortbyname">Name</option>
-                        <option value="2" id="sortbyexperience">Experience</option>
+                <form action="/Service/SearchingFull" method="get">
+                    <input type="hidden" name="type" value="elderlycare" />
+                    <div class="experiencebox" style="width:120px;">
+                        <select class="input-lg form-control" id="paperSelect" name="sortby">
+                            <option value="Name" id="sortbyname">Name</option>
+                            <option value="experience" id="sortbyexperience">Experience</option>
+                            <option value="rating" id="sortbyrating">Rating</option>
 
-                    </select>
 
-                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                        </select>
 
-                </div>
+                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
 
-                <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
+                    </div>
 
-                    <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>
+                    <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
 
-                </div>
-                <form action="/Service/ViewProfile" method="get">
+                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
+                        <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                    </div>
+                </form>
+                <!-- <form action="/Service/ViewProfile" method="get"> -->
+                <form action="/Maid/MaidProfile" method="get">
                     <div class="searchresults">
                         @{
-                            //string[,] WData = (string[,])ViewData["workerData"];
-                            //byte[][] Wphoto = (byte[][])ViewData["workerPhoto"];
+                            string[,] EData = (string[,])ViewData["EworkerData"];
+                            //byte[][] Ephoto = (byte[][])ViewData["EworkerPhoto"];
                         }
-                        @for (int i = 0; i < Convert.ToInt32(ViewData["cnt_row"]); i++)
+                        @for (int i = 0; i < Convert.ToInt32(ViewData["Ecnt_row"]); i++)
                         {
-                            string imgsrc = Convert.ToBase64String(@Wphoto[i]);
+                            //string imgsrc = Convert.ToBase64String(@Wphoto[i]);
                             //System.Diagnostics.Debug.WriteLine(imgsrc);
                             //System.Diagnostics.Debug.WriteLine("-----------------------------------------------");
                             //imgsrc = "data:image/png;base64," + imgsrc;
@@ -462,7 +494,7 @@
 
                                 <div class="lower-box">
                                     <div>
-                                        <h3>@WData[i, 1]</h3>
+                                        <h3>@EData[i, 1]</h3>
                                         <span class="fa fa-star checked"></span>
                                         <span class="fa fa-star checked"></span>
                                         <span class="fa fa-star checked"></span>
@@ -471,14 +503,14 @@
 
                                     </div>
                                     <div>
-                                        <h4 class="category">Rating: <span class="user-input"> @WData[i, 2] / 5.00 </span></h4>
+                                        <h4 class="category">Rating: <span class="user-input"> @EData[i, 2] / 5.00 </span></h4>
                                     </div>
                                     <div>
-                                        <h4 class="category">Experience: <span class="user-input"> @WData[i, 3] months </span></h4>
+                                        <h4 class="category">Experience: <span class="user-input"> @EData[i, 3] months </span></h4>
                                     </div>
                                     <div>
-                                        <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@WData[i, 0]">View profile</a>  -->
-                                        <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@WData[i, 0]">View profile</button>
+                                        <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@EData[i, 0]">View profile</a>  -->
+                                        <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@EData[i, 0]">View profile</button>
                                     </div>
                                 </div>
 
@@ -493,8 +525,8 @@
                     </div>
                 </form>
 
-</div>
             </div>
+        </div>
     </div>
     <script src="~/Scripts/JS/timerscript.js"></script>
     <script>
