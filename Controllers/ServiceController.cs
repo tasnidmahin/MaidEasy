@@ -13,6 +13,7 @@ namespace MaidEasy.Controllers
         // GET: Service
         public ActionResult Index()
         {
+            ViewData["tab"] = "temporary";
             return View();
         }
 
@@ -20,6 +21,7 @@ namespace MaidEasy.Controllers
         {
             //if(Session["username"] == null) return RedirectToAction("Index", "Home");
             //if(Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
+            ViewData["tab"] = "temporary";
             return View();
         }
 
@@ -74,8 +76,8 @@ namespace MaidEasy.Controllers
             int end = convert(endTime);
             double time = (end - start) / 2.0;
             Session["SearchTimeForWorker"] = time;
-            Session["startTime"] = startTime;       Session["endTime"] = endTime;
-            Session["start"] = start;               Session["end"] = end;
+            Session["startTime"] = startTime; Session["endTime"] = endTime;
+            Session["start"] = start; Session["end"] = end;
 
             string status = "";
             for (int i1 = start; i1 <= end; i1++) status += "0";
@@ -131,13 +133,121 @@ namespace MaidEasy.Controllers
             }
             table.Close();
 
-            ViewData["workerData"] = data;
-            ViewData["workerPhoto"] = photo;
+            Session["WData"] = data;
+            Session["WPhoto"] = photo;
+            Session["tab"] = "temporary";
 
-            ViewData["cnt_row"] = count;
+            Session["Wcnt_row"] = count;
 
             return View("~/Views/Service/Service.cshtml");
         }
+
+
+
+        [HttpGet]
+        public ActionResult SearchingFull()
+        {
+            var t = Request["type"].ToString();
+            var sortby = Request["sortby"].ToString();
+            int type = findType(t);
+            int thana = Int32.Parse(Session["thanaID"].ToString());
+
+            string sql = "SELECT count(WorkerId) from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(Area, " + (thana + 1) + ", 1) = '1' ;";
+
+
+            DBHelper db = DBHelper.getDB();
+            var table = db.getData(sql);
+            table.Read();
+            int count = Int32.Parse(table.GetString(0));
+            table.Close();
+
+
+            System.Diagnostics.Debug.WriteLine("---------------SEARCHING FULL-------------------------------------");
+            System.Diagnostics.Debug.WriteLine(count);
+            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+
+
+
+
+            sql = "SELECT WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(Area, " + (thana + 1) + ", 1) = '1' ORDER BY " + sortby + ";";
+
+            if (t.Equals("permanent"))
+            {
+                string[,] Pdata = new string[count, 4];
+                byte[][] Pphoto = new byte[count][];
+
+
+                table = db.getData(sql);
+                int i = 0;
+                while (table.Read())
+                {
+                    Pdata[i, 0] = table.GetString(0);
+                    Pdata[i, 1] = table.GetString(1);
+                    Pdata[i, 2] = table.GetString(2);
+                    Pdata[i, 3] = table.GetString(3);
+                    //Pphoto[i] = Encoding.ASCII.GetBytes(table.GetString(4));
+                    i++;
+                }
+                table.Close();
+                Session["PworkerData"] = Pdata;
+                Session["PworkerPhoto"] = Pphoto;
+
+                Session["Pcnt_row"] = count;
+                Session["tab"] = "permanent";
+            }
+            else if (t.Equals("babycare"))
+            {
+                string[,] Bdata = new string[count, 4];
+                byte[][] Bphoto = new byte[count][];
+
+
+                table = db.getData(sql);
+                int i = 0;
+                while (table.Read())
+                {
+                    Bdata[i, 0] = table.GetString(0);
+                    Bdata[i, 1] = table.GetString(1);
+                    Bdata[i, 2] = table.GetString(2);
+                    Bdata[i, 3] = table.GetString(3);
+                    //Pphoto[i] = Encoding.ASCII.GetBytes(table.GetString(4));
+                    i++;
+                }
+                table.Close();
+                Session["BworkerData"] = Bdata;
+                Session["BworkerPhoto"] = Bphoto;
+
+                Session["Bcnt_row"] = count;
+                Session["tab"] = "babycare";
+            }
+            else
+            {
+                string[,] Edata = new string[count, 4];
+                byte[][] Ephoto = new byte[count][];
+
+
+                table = db.getData(sql);
+                int i = 0;
+                while (table.Read())
+                {
+                    Edata[i, 0] = table.GetString(0);
+                    Edata[i, 1] = table.GetString(1);
+                    Edata[i, 2] = table.GetString(2);
+                    Edata[i, 3] = table.GetString(3);
+                    //Pphoto[i] = Encoding.ASCII.GetBytes(table.GetString(4));
+                    i++;
+                }
+                table.Close();
+                Session["EworkerData"] = Edata;
+                Session["EworkerPhoto"] = Ephoto;
+
+                Session["Ecnt_row"] = count;
+                Session["tab"] = "elderlycare";
+            }
+            return View("~/Views/Service/Service.cshtml");
+        }
+
+
+
 
 
         /*[HttpGet]
@@ -164,5 +274,7 @@ namespace MaidEasy.Controllers
 
             return View("~/Views/Maid/MaidProfile.cshtml");
         }*/
+
+
     }
 }
