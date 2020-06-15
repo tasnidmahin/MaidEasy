@@ -133,11 +133,11 @@ namespace MaidEasy.Controllers
             }
             table.Close();
 
-            ViewData["workerData"] = data;
-            ViewData["workerPhoto"] = photo;
-            ViewData["tab"] = "temporary";
+            Session["WData"] = data;
+            Session["WPhoto"] = photo;
+            Session["tab"] = "temporary";
 
-            ViewData["cnt_row"] = count;
+            Session["Wcnt_row"] = count;
 
             return View("~/Views/Service/Service.cshtml");
         }
@@ -189,11 +189,11 @@ namespace MaidEasy.Controllers
                     i++;
                 }
                 table.Close();
-                ViewData["PworkerData"] = Pdata;
-                ViewData["PworkerPhoto"] = Pphoto;
+                Session["PworkerData"] = Pdata;
+                Session["PworkerPhoto"] = Pphoto;
 
-                ViewData["Pcnt_row"] = count;
-                ViewData["tab"] = "permanent";
+                Session["Pcnt_row"] = count;
+                Session["tab"] = "permanent";
             }
             else if (t.Equals("babycare"))
             {
@@ -213,11 +213,11 @@ namespace MaidEasy.Controllers
                     i++;
                 }
                 table.Close();
-                ViewData["BworkerData"] = Bdata;
-                ViewData["BworkerPhoto"] = Bphoto;
+                Session["BworkerData"] = Bdata;
+                Session["BworkerPhoto"] = Bphoto;
 
-                ViewData["Bcnt_row"] = count;
-                ViewData["tab"] = "babycare";
+                Session["Bcnt_row"] = count;
+                Session["tab"] = "babycare";
             }
             else
             {
@@ -237,11 +237,11 @@ namespace MaidEasy.Controllers
                     i++;
                 }
                 table.Close();
-                ViewData["EworkerData"] = Edata;
-                ViewData["EworkerPhoto"] = Ephoto;
+                Session["EworkerData"] = Edata;
+                Session["EworkerPhoto"] = Ephoto;
 
-                ViewData["Ecnt_row"] = count;
-                ViewData["tab"] = "elderlycare";
+                Session["Ecnt_row"] = count;
+                Session["tab"] = "elderlycare";
             }
             return View("~/Views/Service/Service.cshtml");
         }

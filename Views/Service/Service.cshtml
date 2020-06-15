@@ -169,10 +169,10 @@
                     <div class="searchresults">
 
                         @{
-                            string[,] WData = (string[,])ViewData["workerData"];
-                            byte[][] Wphoto = (byte[][])ViewData["workerPhoto"];
+                            string[,] WData = (string[,])Session["WData"];
+                            byte[][] Wphoto = (byte[][])Session["Wphoto"];
                         }
-                        @for (int i = 0; i < Convert.ToInt32(ViewData["cnt_row"]); i++)
+                        @for (int i = 0; i < Convert.ToInt32(Session["Wcnt_row"]); i++)
                         {
                             string imgsrc = Convert.ToBase64String(@Wphoto[i]);
                             //System.Diagnostics.Debug.WriteLine(imgsrc);
@@ -278,10 +278,10 @@
                 <form action="/Maid/MaidProfile" method="get">
                     <div class="searchresults">
                         @{
-                            string[,] PData = (string[,])ViewData["PworkerData"];
-                            byte[][] Pphoto = (byte[][])ViewData["PworkerPhoto"];
+                            string[,] PData = (string[,])Session["PworkerData"];
+                            byte[][] Pphoto = (byte[][])Session["PworkerPhoto"];
                         }
-                        @for (int i = 0; i < Convert.ToInt32(ViewData["Pcnt_row"]); i++)
+                        @for (int i = 0; i < Convert.ToInt32(Session["Pcnt_row"]); i++)
                         {
                             //string imgsrc = Convert.ToBase64String(@Pphoto[i]);
                             //System.Diagnostics.Debug.WriteLine(imgsrc);
@@ -389,10 +389,10 @@
                 <form action="/Maid/MaidProfile" method="get">
                     <div class="searchresults">
                         @{
-                            string[,] BData = (string[,])ViewData["BworkerData"];
-                            //byte[][] Bphoto = (byte[][])ViewData["BworkerPhoto"];
+                            string[,] BData = (string[,])Session["BworkerData"];
+                            //byte[][] Bphoto = (byte[][])Session["BworkerPhoto"];
                         }
-                        @for (int i = 0; i < Convert.ToInt32(ViewData["Bcnt_row"]); i++)
+                        @for (int i = 0; i < Convert.ToInt32(Session["Bcnt_row"]); i++)
                         {
                             //string imgsrc = Convert.ToBase64String(@Wphoto[i]);
                             //System.Diagnostics.Debug.WriteLine(imgsrc);
@@ -471,10 +471,10 @@
                 <form action="/Maid/MaidProfile" method="get">
                     <div class="searchresults">
                         @{
-                            string[,] EData = (string[,])ViewData["EworkerData"];
-                            //byte[][] Ephoto = (byte[][])ViewData["EworkerPhoto"];
+                            string[,] EData = (string[,])Session["EworkerData"];
+                            //byte[][] Ephoto = (byte[][])Session["EworkerPhoto"];
                         }
-                        @for (int i = 0; i < Convert.ToInt32(ViewData["Ecnt_row"]); i++)
+                        @for (int i = 0; i < Convert.ToInt32(Session["Ecnt_row"]); i++)
                         {
                             //string imgsrc = Convert.ToBase64String(@Wphoto[i]);
                             //System.Diagnostics.Debug.WriteLine(imgsrc);
