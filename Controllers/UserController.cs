@@ -157,7 +157,19 @@ namespace MaidEasy.Controllers
             DBHelper db = DBHelper.getDB();
             string sql = "INSERT into WorkerReview (WorkerId, rating , username , description )VALUES( '" + wID + " ', ' " + rating + "', '" + Session["username"] + "', '" + comment + " ');";
             db.setData(sql);
-            return View("~/Views/User/user_profile.cshtml");
+            sql = "SELECT sum(rating),COUNT(Id) from workerreview WHERE WorkerId = '" + wID + "' ";
+            var table = db.getData(sql);
+            table.Read();
+            double rat = Convert.ToDouble(table.GetString(0));
+            int c = Int32.Parse(table.GetString(1));
+            table.Close();
+
+            rat = rat / c;
+
+            sql = "UPDATE Worker SET rating  = '" + rat + "' where WorkerId = '" + wID + "'";
+            db.setData(sql);
+            //return View("~/Views/User/user_profile.cshtml");
+            return RedirectToAction("user_profile", "User");
         }
     }
 }
