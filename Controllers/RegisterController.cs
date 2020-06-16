@@ -1,6 +1,7 @@
 ﻿using MaidEasy.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -82,7 +83,7 @@ namespace MaidEasy.Controllers
         }
 
         [HttpPost]
-        public ActionResult CheckInfo(SignupModel signupModel)
+        public ActionResult CheckInfo(HttpPostedFileBase file)
         {
             //get info from form in signup html
             var user = Request["Username"];
@@ -94,6 +95,9 @@ namespace MaidEasy.Controllers
             var conpass = Request["confirmPassword"];
             var thana = Request["thana"];
             string thanastring = getThanaString(thana);
+
+            //File f = file;
+            TempData["img"] = file;
 
             TempData["username"] = user;
             TempData["name"] = name;
