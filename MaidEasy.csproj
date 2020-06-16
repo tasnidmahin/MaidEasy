@@ -236,6 +236,9 @@
     <Content Include="Views\Admin\Worklist.cshtml" />
     <Content Include="Views\Admin\Edit_work.cshtml" />
     <Content Include="Views\Admin\Thanalist.cshtml" />
+    <Content Include="Views\Admin\Edit_thanalist.cshtml" />
+    <Content Include="Views\Admin\Edit_admin.cshtml" />
+    <Content Include="Views\Admin\Add_admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

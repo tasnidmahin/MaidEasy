@@ -45,5 +45,19 @@ namespace MaidEasy.Controllers
         {
             return View();
         }
+        public ActionResult Edit_thanalist()
+        {
+            return View();
+        }
+        public ActionResult Edit_admin()
+        {
+            return View();
+        }
+        public ActionResult Add_admin()
+        {
+            return View();
+        }
+
     }
+
 }

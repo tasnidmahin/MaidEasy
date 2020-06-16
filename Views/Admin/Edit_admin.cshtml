@@ -1,8 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Edit_work";
+    ViewBag.Title = "Edit_admin";
      Layout = null;
 }
+
 
 
 <!DOCTYPE html>
@@ -27,11 +28,11 @@
 <body>
 
     <div style="text-align:center;margin-top:80px;">
-        
+
         <form>
             <div class="form-group">
                 <div class="col-md-4 mb-3" style="margin:auto;">
-                    <label for="validationServer01">Work</label>
+                    <label for="validationServer01">Username</label>
                     <input type="text" class="form-control is-valid" id="validationServer01" value="Washing" required>
                     <div class="valid-feedback">
                         Looks good!
@@ -39,8 +40,16 @@
 
                 </div>
                 <div class="col-md-4 mb-3" style="margin:auto;">
-                    <label for="validationServer01">Work Rate</label>
+                    <label for="validationServer01">Old Password</label>
                     <input type="text" class="form-control is-valid" id="validationServer01" value="10,000" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+
+                </div>
+                <div class="col-md-4 mb-3" style="margin:auto;">
+                    <label for="validationServer01">New Password</label>
+                    <input type="text" class="form-control is-valid" id="validationServer01" value="10,000">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -52,10 +61,12 @@
             <button class="btn btn-primary" type="submit">Delete</button>
 
         </form>
-        </div>
-    
+    </div>
+
 
 </body>
 
 </html>
+
+
 
