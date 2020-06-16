@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Hire";
-     Layout = null;
+    Layout = null;
 }
 
 
@@ -47,71 +47,56 @@
     <div class="area">
         <form action="/Maid/Booking" method="get">
 
-            <div class="card-box">
-                <div class="upper-box">
-                    <h1>
-                        Select the services you want
-                    </h1>
-                </div>
-                <div class="choices">
-                    @{
-                        string[,] WData = (string[,])ViewData["workList"];
-                    }
-                    @for (int i = 0; i < Convert.ToInt32(Session["work_row"]); i++)
-                    {
-                        <label class="container">
-                            @WData[i, 0]
+            @{
+                string[] data = (string[])Session["CurWorker"];
+                string s = data[1];
+                if (s[0].Equals('1'))
+                {
+                    <div class="card-box">
+                        <div class="upper-box">
+                            <h1>
+                                Select the services you want
+                            </h1>
+                        </div>
+                        <div class="choices">
                             @{
-                                var dynamicId = "check_" + i;
-                                var dId = "box_" + i;
+                                string[,] WData = (string[,])ViewData["workList"];
                             }
+                            @for (int i = 0; i < Convert.ToInt32(Session["work_row"]); i++)
+                            {
+                                <label class="container">
+                                    @WData[i, 0]
+                                    @{
+                                        var dynamicId = "check_" + i;
+                                        var dId = "box_" + i;
+                                    }
 
-                            <input type="checkbox" id="@dynamicId" onclick="myFunction('@dId' ,'@dynamicId' , '@WData[i , 0]', @Session["SearchTimeForWorker"], @WData[i , 1] )">
-                            <input type="hidden" id="@dId" name="@dId" />
-                            <span class="checkmark"></span>
-                        </label>
+                                    <input type="checkbox" id="@dynamicId" onclick="myFunction('@dId' ,'@dynamicId' , '@WData[i, 0]', @Session["SearchTimeForWorker"], @WData[i, 1] )">
+                                    <input type="hidden" id="@dId" name="@dId" />
+                                    <span class="checkmark"></span>
+                                </label>
 
-                        System.Diagnostics.Debug.WriteLine("--------------------------------");
-                        System.Diagnostics.Debug.WriteLine(@Int32.Parse(WData[i, 1]));
-                        System.Diagnostics.Debug.WriteLine("--------------------------------");
-
-
-                    }
-
-                    <!--<label class="container">
-                Washing Clothes
-                <input type="checkbox" id="myCheck1" onclick="myFunction1(@Session["SearchTimeForWorker"])">
-                <input type="hidden" id="check2" name="check2" />
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="container">
-                Home Cleaning
-                <input type="checkbox" id="myCheck2" onclick="myFunction2(@Session["SearchTimeForWorker"])">
-                <input type="hidden" id="check3" name="check3" />
-                <span class="checkmark"></span>
-            </label>    -->
-
-                </div>
+                                            System.Diagnostics.Debug.WriteLine("--------------------------------");
+                                            System.Diagnostics.Debug.WriteLine(@Int32.Parse(WData[i, 1]));
+                                            System.Diagnostics.Debug.WriteLine("--------------------------------");
 
 
-
-                <!-- <div class="Salary">
-
-            <div class="salary_tag"><strong>Salary</strong></div>
-            <div class="salary_amount"><strong>BDT </strong><strong id=salary></strong></div>
-
-        </div>-->
+                                        }
+                        </div>
 
 
+                        <!-- <div class="Salary">
+
+                        <div class="salary_tag"><strong>Salary</strong></div>
+                        <div class="salary_amount"><strong>BDT </strong><strong id=salary></strong></div>
+
+                    </div>-->
 
 
+                    </div>
+                                        }
+            }
 
-
-
-
-
-            </div>
             <!--     </div>  -->
 
             <div class="card-box1">
@@ -159,6 +144,30 @@
 
         </form>
 
+        @{ 
+
+            if (s[1].Equals('1'))
+            {
+                <script>
+                    document.getElementById("salary").innerHTML = 5000;
+                </script>
+
+            }
+            if (s[2].Equals('1'))
+            {
+                <script>
+                    document.getElementById("salary").innerHTML = 8000;
+                </script>
+
+            }
+            if (s[3].Equals('1'))
+            {
+                <script>
+                    document.getElementById("salary").innerHTML = 7000;
+                </script>
+
+                }
+        }
 
     </div>
 
@@ -167,13 +176,12 @@
 
     <!--     </div>  -->
 
-
-
     <script src="~/Scripts/JS/hire.js"></script>
     <script src="~/Scripts/JS/selectbox.js"></script>
 
 </body>
+
 @{
-    Html.RenderPartial("footer");
+    //Html.RenderPartial("footer");
 }
 </html>

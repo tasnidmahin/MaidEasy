@@ -33,3 +33,4 @@ function myFunction(dID, element_id , value , t,  sal) {
 
     document.getElementById("sal").setAttribute("value", sum);
 }
+
