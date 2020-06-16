@@ -47,7 +47,7 @@ namespace MaidEasy.Controllers
             table = db.getData(sql);
 
             int i = 0;
-            while(table.Read())
+            while (table.Read())
             {
                 feedback[i, 0] = table.GetString(0);
                 feedback[i, 1] = table.GetString(1);
@@ -73,7 +73,7 @@ namespace MaidEasy.Controllers
             /*System.Diagnostics.Debug.WriteLine("--------------------------------");
             System.Diagnostics.Debug.WriteLine("--------------------------------");*/
 
-            string[,] data = new string[count , 2];
+            string[,] data = new string[count, 2];
 
             sql = "SELECT Name,UnitPrice from work";
             table = db.getData(sql);
@@ -95,7 +95,7 @@ namespace MaidEasy.Controllers
         private string getEndMonth(string SMonth, int conlen)
         {
             string m = "", y = "";
-            for(int i=0;i<2;i++) m += SMonth[i];
+            for (int i = 0; i < 2; i++) m += SMonth[i];
             for (int i = 3; i < 7; i++) y += SMonth[i];
 
             /*System.Diagnostics.Debug.WriteLine("---------------m y-----------------");
@@ -105,9 +105,9 @@ namespace MaidEasy.Controllers
             int mm = Int32.Parse(m);
             int yy = Int32.Parse(y);
             mm += conlen;
-            if(mm>12)
+            if (mm > 12)
             {
-                mm -= 12;   yy++;
+                mm -= 12; yy++;
             }
             string ret = "";
             if (mm < 10) ret = "0";
@@ -131,7 +131,7 @@ namespace MaidEasy.Controllers
             StringBuilder sb = new StringBuilder();
             sb.Append(status);
 
-            for(int i=start;i<=end;i++)
+            for (int i = start; i <= end; i++)
             {
                 sb[i] = '1';
             }
@@ -142,6 +142,17 @@ namespace MaidEasy.Controllers
         [HttpGet]
         public ActionResult Booking()
         {
+            var wData = (string[])Session["CurWorker"];
+            string workerType = wData[1];
+
+            if (workerType[0].Equals('0'))
+            {
+                Session["salary"] = Request["salary"].ToString();
+                Session["conLen"] = Int32.Parse(Request["con_length"].ToString());
+                return RedirectToAction("BookingFull", "Maid");
+            }
+
+
             var salary = Request["salary"].ToString();
             var conLen = Int32.Parse(Request["con_length"].ToString());
             int cnt = Int32.Parse(Session["work_row"].ToString());
@@ -149,14 +160,14 @@ namespace MaidEasy.Controllers
             //var w1 = Request["checked_value"].ToString();
             //var w2 = Request["check2"].ToString();
             //var w3 = Request["check3"].ToString();
-           /* System.Diagnostics.Debug.WriteLine("--------------Booking()salary, con len, worklist------------------");
-            System.Diagnostics.Debug.WriteLine(salary);
-            System.Diagnostics.Debug.WriteLine(conLen);
-            //System.Diagnostics.Debug.WriteLine(cnt);
-            //System.Diagnostics.Debug.WriteLine(w2);
-            //System.Diagnostics.Debug.WriteLine(w3);
-            System.Diagnostics.Debug.WriteLine("--------------------------------");*/
-            for (int i=0;i<cnt;i++)
+            /* System.Diagnostics.Debug.WriteLine("--------------Booking()salary, con len, worklist------------------");
+             System.Diagnostics.Debug.WriteLine(salary);
+             System.Diagnostics.Debug.WriteLine(conLen);
+             //System.Diagnostics.Debug.WriteLine(cnt);
+             //System.Diagnostics.Debug.WriteLine(w2);
+             //System.Diagnostics.Debug.WriteLine(w3);
+             System.Diagnostics.Debug.WriteLine("--------------------------------");*/
+            for (int i = 0; i < cnt; i++)
             {
                 var nm = "box_" + i;
                 System.Diagnostics.Debug.WriteLine(Request[nm].ToString());
@@ -175,7 +186,6 @@ namespace MaidEasy.Controllers
             System.Diagnostics.Debug.WriteLine(EMonth);
             System.Diagnostics.Debug.WriteLine("--------------------------------");
 
-            var wData = (string[])Session["CurWorker"];
             var wID = wData[4];
             var uID = Int32.Parse(Session["userID"].ToString());
             int id = uID;
@@ -204,6 +214,52 @@ namespace MaidEasy.Controllers
             Session.Remove("endTime");
             Session.Remove("SearchTimeForWorker");
             //return View("~/Views/User/hired_workers_profile.cshtml");
+            return RedirectToAction("hired_workers_profile", "User");
+        }
+
+
+        public ActionResult BookingFull()
+        {
+            var wData = (string[])Session["CurWorker"];
+            var salary = Session["salary"];
+            var conLen = Int32.Parse(Session["conLen"].ToString());
+
+            System.Diagnostics.Debug.WriteLine("---------------S A L A R Y-----------------");
+            System.Diagnostics.Debug.WriteLine(salary);
+            System.Diagnostics.Debug.WriteLine(conLen);
+            System.Diagnostics.Debug.WriteLine("--------------------------------");
+            string worklist = "";
+
+            string SMonth = DateTime.Now.ToString("MM");
+            string SYear = DateTime.Now.Year.ToString();
+            SMonth = SMonth + "/" + SYear;
+            string EMonth = getEndMonth(SMonth, conLen);
+
+            var wID = wData[4];
+            var uID = Int32.Parse(Session["userID"].ToString());
+            int id = uID;
+            var STime = "";
+            var ETime = "";
+
+            DBHelper db = DBHelper.getDB();
+            string sql = "SELECT Name from Worker where WorkerId = ' " + wID + "'";
+            var table = db.getData(sql);
+            table.Read();
+            string WName = table.GetString(0);
+            table.Close();
+
+            sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + " ', ' " + uID + " ', ' " + SMonth + " ', ' " + EMonth + " ', ' " + STime + " ', ' " + ETime + " ', ' " + salary + "', '" + worklist + " ');";
+            db.setData(sql);
+
+            string status = "";
+            for (int i = 0; i < 25; i++) status += "1";
+            sql = "UPDATE Worker SET status  = '" + status + "' where WorkerId = '" + wID + "'";
+            db.setData(sql);
+
+            Session.Remove("work_row");
+            Session.Remove("start");
+            Session.Remove("end");
+            Session.Remove("CurWorker");
             return RedirectToAction("hired_workers_profile", "User");
         }
     }
