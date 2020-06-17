@@ -27,7 +27,7 @@
             <div class="header">
                 <h2>Create Account</h2>
             </div>
-            <form id="form" action="/Register/CheckInfo" class="form" autocomplete="off" method="post">
+            <form id="form" action="/Register/CheckInfo" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
                 <!--     <form id="form" action="javascript:void(0)" class="form" autocomplete="off" method="post">-->
                 <div class="form-control">
                     <label for="username">Username</label>
@@ -93,7 +93,7 @@
 
                 <div class="form-control">
                     <label for="username">Enter Profile Image</label>
-                    <input id="profileimage" type="file" accept='image/*' name="profileimage" value="@TempData["img"]">
+                    <input id="file" type="file" accept='image/*' name="file" value="@TempData["img"]">
 
 
                 </div>

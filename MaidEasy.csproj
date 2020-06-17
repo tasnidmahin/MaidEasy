@@ -168,6 +168,7 @@
     <Content Include="Content\hired_workers_profile.css" />
     <Content Include="Content\Images\sample_profile.jpg" />
     <Content Include="Content\Thanalist.css" />
+    <Content Include="Content\Users\default.jpg" />
     <Content Include="Content\user_profile.css" />
     <Content Include="Content\Worker.css" />
     <Content Include="Content\worklist.css" />
@@ -239,6 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Workers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
