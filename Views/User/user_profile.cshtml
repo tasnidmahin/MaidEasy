@@ -36,7 +36,15 @@
 
         <div class="upper-box">
             <div class="image-box">
-                <img src="~/Content/Images/profile.jpg" />
+                @{
+                    string source = "/Content/Users/";
+                    source = source + ViewData["image"].ToString();
+
+                }
+                <!--  <img src="~/Content/Images/profile.jpg" /> -->
+                <!-- <img src="~/Content/Users/Ami.PNG" /> -->
+                <img src="@source" id="myImage" name="myImage" />
+
             </div>
         </div>
 
