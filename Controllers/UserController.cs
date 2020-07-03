@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MaidEasy.Controllers
 {
@@ -51,7 +53,7 @@ namespace MaidEasy.Controllers
         {
             var id = Session["username"];
             DBHelper db = DBHelper.getDB();
-            string sql = "SELECT Name ,mobile ,PresentAddress,PermanentAddress,thana  from Users where username = '" + id + "'";
+            string sql = "SELECT Name ,mobile ,PresentAddress,PermanentAddress,thana,image  from Users where username = '" + id + "'";
             var table = db.getData(sql);
             table.Read();
             ViewData["Name"]             =  table.GetString(0);
@@ -59,13 +61,15 @@ namespace MaidEasy.Controllers
             ViewData["PresentAddress"]   =  table.GetString(2);
             ViewData["PermanentAddress"] =  table.GetString(3);
             string s                     =  table.GetString(4);
+            ViewData["image"]            =  table.GetString(5);
             table.Close();
 
             /*System.Diagnostics.Debug.WriteLine("--------thana id------------");
-            System.Diagnostics.Debug.WriteLine(t);
+            System.Diagnostics.Debug.WriteLine(tttt);
             System.Diagnostics.Debug.WriteLine("--------------------");*/
 
             ViewData["thana"] = getThana(s);
+
             return View();
         }
 
@@ -157,7 +161,19 @@ namespace MaidEasy.Controllers
             DBHelper db = DBHelper.getDB();
             string sql = "INSERT into WorkerReview (WorkerId, rating , username , description )VALUES( '" + wID + " ', ' " + rating + "', '" + Session["username"] + "', '" + comment + " ');";
             db.setData(sql);
-            return View("~/Views/User/user_profile.cshtml");
+            sql = "SELECT sum(rating),COUNT(Id) from workerreview WHERE WorkerId = '" + wID + "' ";
+            var table = db.getData(sql);
+            table.Read();
+            double rat = Convert.ToDouble(table.GetString(0));
+            int c = Int32.Parse(table.GetString(1));
+            table.Close();
+
+            rat = rat / c;
+
+            sql = "UPDATE Worker SET rating  = '" + rat + "' where WorkerId = '" + wID + "'";
+            db.setData(sql);
+            //return View("~/Views/User/user_profile.cshtml");
+            return RedirectToAction("user_profile", "User");
         }
     }
 }

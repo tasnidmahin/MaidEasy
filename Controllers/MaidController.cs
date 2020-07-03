@@ -52,6 +52,7 @@ namespace MaidEasy.Controllers
                 feedback[i, 0] = table.GetString(0);
                 feedback[i, 1] = table.GetString(1);
                 feedback[i, 2] = table.GetString(2);
+                i++;
             }
             table.Close();
 

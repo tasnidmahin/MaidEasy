@@ -1,6 +1,7 @@
 ﻿using MaidEasy.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -82,7 +83,7 @@ namespace MaidEasy.Controllers
         }
 
         [HttpPost]
-        public ActionResult CheckInfo(SignupModel signupModel)
+        public ActionResult CheckInfo(HttpPostedFileBase file)
         {
             //get info from form in signup html
             var user = Request["Username"];
@@ -94,6 +95,19 @@ namespace MaidEasy.Controllers
             var conpass = Request["confirmPassword"];
             var thana = Request["thana"];
             string thanastring = getThanaString(thana);
+
+            //string path = Path.Combine(Server.MapPath("~/App_Data/Photo/User/"), user.ToString()).ToString();
+            //string path = Path.Combine(Server.MapPath("~/App_Data/Photo/User/"), user.ToString()).ToString();
+            //file.SaveAs(path);
+
+            //var filename = Path.GetFileNameWithoutExtension(file.FileName) + Guid.NewGuid() + Path.GetExtension(file.FileName);
+            //var path = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
+            //System.IO.File.Move(fileName, f);
+            //file.SaveAs(path);
+
+
+
+            Session["img"] = file;
 
             TempData["username"] = user;
             TempData["name"] = name;
@@ -175,25 +189,79 @@ namespace MaidEasy.Controllers
             return true;
         }
 
+        private string ReplaceFileName(string f, string name)
+        {
+            string s = "";
+            int l = f.Length,v = 0;
+            for (int i = 0; i < l; i++)
+            {
+                if (f[i].Equals('.')) v = 1;
+                if(v == 1)s += f[i];
+            }
+            System.Diagnostics.Debug.WriteLine("-----------SSSSSSSSSSSSSS---------");
+            System.Diagnostics.Debug.WriteLine(s);
+            System.Diagnostics.Debug.WriteLine("--------------------");
+            System.Diagnostics.Debug.WriteLine("---------NAME-----------");
+            System.Diagnostics.Debug.WriteLine(name);
+            System.Diagnostics.Debug.WriteLine("--------------------");
+            name = name + s;
+            System.Diagnostics.Debug.WriteLine("-------NNNNNNNNNNNNNNNNNNNNNNNNN-------------");
+            System.Diagnostics.Debug.WriteLine(name);
+            System.Diagnostics.Debug.WriteLine("--------------------");
+            return name;
+        }
 
         [HttpGet]
         public ActionResult AddUser()
         {
-
+            Session["username"] = TempData["username"];
+            string image = "default.jpg";
             DBHelper db = DBHelper.getDB();
             //string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('" + TempData["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + " ');" ;
-            string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress , thana ) VALUES('" + TempData["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + "', '" + TempData["thanastring"] + " ');" ;
-            db.setData(sql);
+            //string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress , thana ) VALUES('" + Session["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + "', '" + TempData["thanastring"] + " ');" ;
 
 
             //System.Diagnostics.Debug.WriteLine("--------------------");
             //System.Diagnostics.Debug.WriteLine(ViewData["phoneNumber"]);
             //System.Diagnostics.Debug.WriteLine(TempData["username"]);
             
+            if(Session["img"] != null)
+            {
+                HttpPostedFileBase file = (HttpPostedFileBase) Session["img"];
+                //var fileName = Path.GetFileName(file.FileName);
+                //var fileName = file.FileName.ToString();
+                //var f = ReplaceFileName(fileName, Session["username"].ToString());
+                //var filename = Path.GetFileNameWithoutExtension(file.FileName.ToString()) + Guid.NewGuid() + Path.GetExtension(file.FileName);
+                /*System.Diagnostics.Debug.WriteLine("--------------------");
+                System.Diagnostics.Debug.WriteLine(filename);
+                System.Diagnostics.Debug.WriteLine("--------------------");
+                var path = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
+                //System.IO.File.Move(fileName, f);
+                file.SaveAs(path);
+                image = filename;*/
 
-            Session["username"] = TempData["username"];
 
-            TempData["username"] = null;
+                //var filename = Path.GetFileNameWithoutExtension(fileName) + Guid.NewGuid() + Path.GetExtension(file.FileName);
+                //var fullpath = Server.MapPath("~/Content/Users/") + filename;
+                //var fullpath = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
+                //file.SaveAs(fullpath);
+                //System.Diagnostics.Debug.WriteLine((HttpPostedFileBase)Session["img"]).FileName);
+                //var filename = Path.GetFileNameWithoutExtension(file.FileName) + Guid.NewGuid() + Path.GetExtension(file.FileName);
+                var filename = Session["username"].ToString() + Path.GetExtension(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
+                //System.IO.File.Move(fileName, f);
+                
+                file.SaveAs(path);
+
+
+                image = filename;
+
+                //HttpPostedFileBase file = (HttpPostedFileBase)Session["img"];
+                /*string path = Path.Combine(Server.MapPath("~/App_Data/Photo/User/"), Session["username"].ToString()).ToString();
+                file.SaveAs(path);*/
+            }
+            string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress,image  , thana ) VALUES('" + Session["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + "', '" + image + "', '" + TempData["thanastring"] + " ');";
+            db.setData(sql);
 
             return RedirectToAction("Index", "Home");
         }
