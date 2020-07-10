@@ -263,5 +263,9 @@ namespace MaidEasy.Controllers
             Session.Remove("CurWorker");
             return RedirectToAction("hired_workers_profile", "User");
         }
+        public ActionResult Hire_new()
+        {
+            return View();
+        }
     }
 }

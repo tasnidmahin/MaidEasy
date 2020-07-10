@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Hire_new";
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/hirenew.css">
+
+</head>
+@{
+   Html.RenderPartial("Header");
+}
+<body>
+
+    <div class="container spaces">
+        <div class="card" style="width:40rem;">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1"> <h3>Select Services</h3></label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="myCheck" onclick="myFunction()">
+                            <label class="form-check-label" for="defaultCheck1">
+                                cooking
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="myCheck1" onclick="myFunction1()">
+                            <label class="form-check-label" for="defaultCheck2">
+                                washing Clothes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="myCheck2" onclick="myFunction2()">
+                            <label class="form-check-label" for="defaultCheck2">
+                                Cleaning
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"><h3>Select length of contract</h3></label>
+                        <br>
+                        <select class="selectpicker show-tick" data-style="btn-info" title="Months" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1"><h3>Salary</h3></label>
+
+                        <input type="text" class="form-control col-md-3" value="" id="salary" placeholder="BDT">
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!--for select-box-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+    <script src="~/Scripts/JS/hire.js"></script>
+</body>
+
+@{
+    Html.RenderPartial("footer");
+}
+</html>

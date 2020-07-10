@@ -74,7 +74,7 @@
     background: #138faf;
 }
 
-h1 {
+h3 {
     color: #fff;
     margin: 0;
     padding: 0;
@@ -141,9 +141,13 @@ strong {
 }
 
 
-
+.invalid-feedback{
+    border-style:solid;
+    border-radius:5px;
+    border-width:2px;
+    width:70%;
+}
 /*----------------check-box-----------------------------------*/
-
 /* Customize the label (the container) */
 .container {
     display: block;

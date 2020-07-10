@@ -170,6 +170,7 @@
     <Content Include="Content\Images\sample_profile.jpg" />
     <Content Include="Content\Thanalist.css" />
     <Content Include="Content\Users\default.jpg" />
+    <Content Include="Content\Users\hirenew.css" />
     <Content Include="Content\user_profile.css" />
     <Content Include="Content\Worker.css" />
     <Content Include="Content\worklist.css" />
@@ -193,6 +194,7 @@
     <Content Include="Scripts\JS\editprofilescript.js" />
     <Content Include="Scripts\JS\Header.js" />
     <Content Include="Scripts\JS\hire.js" />
+    <Content Include="Scripts\JS\hirenew.js" />
     <Content Include="Scripts\JS\index.js" />
     <Content Include="Scripts\JS\selectbox.js" />
     <Content Include="Scripts\JS\signupscript.js" />
@@ -241,6 +243,7 @@
     <Content Include="Views\Admin\Edit_thanalist.cshtml" />
     <Content Include="Views\Admin\Edit_admin.cshtml" />
     <Content Include="Views\Admin\Add_admin.cshtml" />
+    <Content Include="Views\Maid\Hire_new.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

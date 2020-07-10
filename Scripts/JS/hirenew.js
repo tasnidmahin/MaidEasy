@@ -2,18 +2,6 @@
 
 
 
-$(document).ready(function () {
-    $('#checkBtn').click(function () {
-        checked = $("input[type=checkbox]:checked").length;
-
-        if (!checked) {
-            // alert("You must check at least one checkbox.");
-            document.getElementById("invalid-message").style.display ="block";
-            return false;
-        }
-
-    });
-});
 
 
 
@@ -21,7 +9,7 @@ $(document).ready(function () {
 var sum = 0;
 
 
-function myFunction(dID, element_id , value , t,  sal) {
+function myFunction(dID, element_id, value, t, sal) {
 
 
     console.log(value);

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -20,12 +20,12 @@
         @if(Session["username"]!=null)
 
         {
-        <div class="dropdown">
-            <button class="dropbtn">
+        <div class="dropdown-header">
+            <button class="dropbtn-header">
                 @Session["username"]
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
+            <div class="dropdown-header-content">
                 <a href="@Url.Action("user_profile", "User")">Profile</a>
                 <a href="#">Link 2</a>
                 <a href="@Url.Action("Logout", "Register")">logout</a>
