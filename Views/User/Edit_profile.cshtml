@@ -33,9 +33,15 @@
                 <h2>Edit Profile</h2>
             </div>
             <div id="user-photo-wrapper">
-                <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image">
+                @{
+                    string source = "/Content/Users/";
+                    source = source + TempData["image"].ToString();
+
+                }
+                <!-- <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image"> -->
+                <img id="user-photo" src="@source" alt="user profile image">
             </div>
-            <form id="form" action="/Register/getEditProfileData" class="form" autocomplete="off" method="post">
+            <form id="form" action="/Register/getEditProfileData" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
                 <!--     <form id="form" action="javascript:void(0)" class="form" autocomplete="off" method="post">-->
                 <div class="form-control">
                     <label for="username">Username</label> <br />
@@ -107,8 +113,8 @@
                 </div>
 
                 <div class="form-control">
-                    <label for="username">Enter Profile Image</label>
-                    <input id="profileimage" type="file" name="profileimage">
+                    <label for="profileimage">Enter Profile Image</label>
+                    <input id="profileimage" type="file" accept='image/*' name="file" >
 
 
                 </div>

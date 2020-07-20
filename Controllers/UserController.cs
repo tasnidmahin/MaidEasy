@@ -144,6 +144,7 @@ namespace MaidEasy.Controllers
             TempData["EpresentAddress"] =    table.GetString(2);
             TempData["EpermanentAddress"] =  table.GetString(3);
             string s =             table.GetString(4);
+            TempData["image"] = table.GetString(5);
             table.Close();
 
             TempData["Ethana"] = getThana(s);

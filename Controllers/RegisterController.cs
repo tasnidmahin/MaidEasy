@@ -189,7 +189,7 @@ namespace MaidEasy.Controllers
             return true;
         }
 
-        private string ReplaceFileName(string f, string name)
+        /*private string ReplaceFileName(string f, string name)
         {
             string s = "";
             int l = f.Length,v = 0;
@@ -209,7 +209,7 @@ namespace MaidEasy.Controllers
             System.Diagnostics.Debug.WriteLine(name);
             System.Diagnostics.Debug.WriteLine("--------------------");
             return name;
-        }
+        }*/
 
         [HttpGet]
         public ActionResult AddUser()
@@ -311,7 +311,7 @@ namespace MaidEasy.Controllers
         }
 
         [HttpPost]
-        public ActionResult getEditProfileData()
+        public ActionResult getEditProfileData(HttpPostedFileBase file)
         {
             var name = Request["name"];
             var phone = Request["Phone"];
@@ -321,6 +321,8 @@ namespace MaidEasy.Controllers
             var Npass = Request["newPassword"];
             var conpass = Request["confirmPassword"];
             var thana = Request["thana"];
+            var profileimage = Request["profileimage"];
+            Session["profileimage"] = file; // name of file field
 
 
             TempData["Ename"] = Request["name"];
@@ -331,7 +333,19 @@ namespace MaidEasy.Controllers
             TempData["Enewpass"] = Request["newPassword"];
             TempData["Econpass"] = Request["confirmPassword"];
             TempData["Ethana"] = Request["thana"];
+            TempData["profileimage"] = "default.jpg";
 
+
+
+            /*if (Session["profileimage"] != null)
+            {
+                var filename = Session["username"].ToString() + Path.GetExtension(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
+                file.SaveAs(path);
+
+                TempData["profileimage"] = filename;
+
+            }*/
 
             string sql = "SELECT password from Users where username = '" + Session["username"] + "'";
 
@@ -358,10 +372,31 @@ namespace MaidEasy.Controllers
             System.Diagnostics.Debug.WriteLine("--------SAVE   EDIT------------");
             var p = hash(TempData["Enewpass"].ToString());
             var thana = getThanaString(TempData["Ethana"].ToString());
-            //string sql = "UPDATE Users SET Name  = '" + TempData["Ename"] + "' where username  = '" + Session["username"] + "'";
-            string sql = "UPDATE Users SET Name  = '" + TempData["Ename"] + "', password = '" + p + "', mobile = '" + TempData["Ephone"] + "', PresentAddress  = '" + TempData["EpresentAddress"] + "', PermanentAddress = '" + TempData["EpermanentAddress"] + "', thana  = '" + thana + "' where username  = '" + Session["username"] + "'";
-            DBHelper db = DBHelper.getDB();
-            db.setData(sql);
+
+            string sql;
+            DBHelper db;
+
+            if (Session["profileimage"] != null)
+            {
+                HttpPostedFileBase file = (HttpPostedFileBase)Session["profileimage"];
+                var filename = Session["username"].ToString() + Path.GetExtension(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
+                file.SaveAs(path);
+
+                TempData["profileimage"] = filename;
+
+                sql = "UPDATE Users SET Name  = '" + TempData["Ename"] + "', password = '" + p + "', mobile = '" + TempData["Ephone"] + "', image = '" + TempData["profileimage"] + "', PresentAddress  = '" + TempData["EpresentAddress"] + "', PermanentAddress = '" + TempData["EpermanentAddress"] + "', thana  = '" + thana + "' where username  = '" + Session["username"] + "'";
+                db = DBHelper.getDB();
+                db.setData(sql);
+
+            }
+            else
+            {
+                sql = "UPDATE Users SET Name  = '" + TempData["Ename"] + "', password = '" + p + "', mobile = '" + TempData["Ephone"] + "', PresentAddress  = '" + TempData["EpresentAddress"] + "', PermanentAddress = '" + TempData["EpermanentAddress"] + "', thana  = '" + thana + "' where username  = '" + Session["username"] + "'";
+                db = DBHelper.getDB();
+                db.setData(sql);
+            }
+
             return RedirectToAction("user_profile", "User");
         }
 
