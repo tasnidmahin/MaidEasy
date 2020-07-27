@@ -15,49 +15,40 @@ namespace MaidEasy.Controllers
             db.DBConnection();
             string Date = DateTime.Now.ToString("dd");
             string Month = DateTime.Now.ToString("MM");
-            if(Date.Equals("28"))
+
+            if (Date.Equals("01"))
             {
-                string sql = "SELECT COUNT(DISTINCT WorkerId) from contracts WHERE status = 'current'";
+                string sql = "SELECT updateStatus from worker LIMIT 1";
                 var table = db.getData(sql);
                 table.Read();
-                int count = Int32.Parse(table.GetString(0));
+                string status = table.GetString(0);
                 table.Close();
-                if(count>0)
+                if (status.Equals("pending"))
                 {
-                    int[] wID = new int[count];
-                    sql = "SELECT DISTINCT WorkerId from contracts WHERE status = 'current'";
-                    table = db.getData(sql);
-                    int i = 0;
-                    while(table.Read())
-                    {
-                        wID[i] = Int32.Parse(table.GetString(0));
-                        System.Diagnostics.Debug.WriteLine("---------H O M E-----------");
-                        System.Diagnostics.Debug.WriteLine(wID[i]);
-                        System.Diagnostics.Debug.WriteLine("------------------------------");
-                        i++;
-                    }
-                    table.Close();
-
-
-                    sql = "UPDATE Worker SET experience = experience +1 WHERE WorkerId IN (";
-                    for(i=0;i<count;i++)
-                    {
-                        if (i != 0) sql += ", ";
-                        sql += wID[i];
-                    }
-                    sql += ")";
-                    System.Diagnostics.Debug.WriteLine(sql);
+                    string Year = DateTime.Now.ToString("yyyy");
+                    Year = Month + "/" + Year;
+                    sql = "UPDATE Contracts SET status = 'previous' WHERE EndMonth = '" + Year + "'";
+                    db.setData(sql);
+                    sql = "UPDATE Worker SET experience = experience +1 ";
+                    db.setData(sql);
+                    sql = "UPDATE Worker SET updateStatus  = 'updated'";
                     db.setData(sql);
                 }
             }
-            else if(Date.Equals("01"))
+            else if (Date.Equals("02"))
             {
-                string Year = DateTime.Now.ToString("yyyy");
-                Year = Month + "/" + Year;
-                string sql = "UPDATE Contracts SET status = 'previous' WHERE EndMonth = '" + Year + "'";
-                db.setData(sql);
+                string sql = "SELECT updateStatus from worker LIMIT 1";
+                var table = db.getData(sql);
+                table.Read();
+                string status = table.GetString(0);
+                table.Close();
+                if (status.Equals("updated"))
+                {
+                    sql = "UPDATE Worker SET updateStatus  = 'pending'";
+                    db.setData(sql);
+                }
             }
-            return View();
+                return View();
         }
 
         public ActionResult About()

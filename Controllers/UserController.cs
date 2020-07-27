@@ -83,7 +83,8 @@ namespace MaidEasy.Controllers
             int cnt1 = Int32.Parse(table.GetString(0));
             table.Close();
             string[,] data1 = new string[cnt1, 8];
-            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, WorkerId  from Contracts where UserId = '" + id + "' and status = 'current'";
+            //sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, WorkerId  from Contracts where UserId = '" + id + "' and status = 'current'";
+            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, WorkerId  from Contracts where UserId = '" + id + "' and (status = 'current' or status = 'updated') ";
             table = db.getData(sql);
             int i = 0;
             while(table.Read())
