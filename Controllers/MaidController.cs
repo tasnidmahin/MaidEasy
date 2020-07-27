@@ -28,12 +28,13 @@ namespace MaidEasy.Controllers
             DBHelper db = DBHelper.getDB();
             var table = db.getData(sql);
             table.Read();
-            string[] data = new string[5];
+            string[] data = new string[6];
             data[0] = table.GetString(0);
             data[1] = table.GetString(1);
             data[2] = table.GetString(2);
             data[3] = table.GetString(3);
             data[4] = id;
+            data[5] = table.GetString(4);
             table.Close();
 
             //sql for feedback info

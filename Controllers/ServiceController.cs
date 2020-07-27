@@ -100,14 +100,13 @@ namespace MaidEasy.Controllers
             int count = Int32.Parse(table.GetString(0));
             table.Close();
 
-            System.Diagnostics.Debug.WriteLine("----------------SEARCHING(time span, start, end)------------------------------------");
+            /*System.Diagnostics.Debug.WriteLine("----------------SEARCHING(time span, start, end)------------------------------------");
             System.Diagnostics.Debug.WriteLine(Session["SearchTimeForWorker"]);
             System.Diagnostics.Debug.WriteLine(start);
             System.Diagnostics.Debug.WriteLine(end);
-            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
+            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");*/
 
-            string[,] data = new string[count, 4];
-            byte[][] photo = new byte[count][];
+            string[,] data = new string[count, 5];
             //sql for data of workers
             //sql = "SELECT WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "';";
             sql = "SELECT WorkerId,Name,rating,experience,image from Worker where SUBSTRING(type, " + (type + 1) + ", 1) = '1' and SUBSTRING(status," + (start + 1) + "," + (end - start + 1) + ") = '" + status + "' and SUBSTRING(Area, " + (thana + 1) + ", 1) = '1' ORDER BY " + sortby + ";";
@@ -122,19 +121,22 @@ namespace MaidEasy.Controllers
                 System.Diagnostics.Debug.WriteLine(table.GetString(1));
                 System.Diagnostics.Debug.WriteLine(table.GetString(2));
                 System.Diagnostics.Debug.WriteLine(table.GetString(3));
+                System.Diagnostics.Debug.WriteLine(table[4]);
                 System.Diagnostics.Debug.WriteLine("----------------------------------------------------");*/
                 data[i, 0] = table.GetString(0);
                 data[i, 1] = table.GetString(1);
                 data[i, 2] = table.GetString(2);
                 data[i, 3] = table.GetString(3);
-                photo[i] = Encoding.ASCII.GetBytes(table.GetString(4));
+                
+
+                if(table[4] != DBNull.Value) data[i, 4] = table.GetString(4);
+                else data[i, 4] = "defaultmaid.png";
                 //Array.Copy(photo[i], Encoding.ASCII.GetBytes(table.GetString(4)), 1294967295);
                 i++;
             }
             table.Close();
 
             Session["WData"] = data;
-            Session["WPhoto"] = photo;
             Session["tab"] = "temporary";
 
             Session["Wcnt_row"] = count;

@@ -14,7 +14,7 @@ create table Worker(
 	joinDate VARCHAR(30) NOT NULL,
 	updateStatus VARCHAR(30) NOT NULL,
 	rating DOUBLE(10,2) DEFAULT 0,
-	image LONGBLOB,
+	image VARCHAR(80),
 	status VARCHAR(25) DEFAULT '0000000000000000000000000',
 	gender VARCHAR(15) NOT NULL
 )

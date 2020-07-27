@@ -56,6 +56,8 @@
                     String[] spearator = { "\n" };
                     String[] strlist = work.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
                     int Wcnt = strlist.Length;
+                    string imgsrc = "/Content/Workers/";
+                    imgsrc = imgsrc + data1[i, 8];
 
                     <div class="card-box">
 
@@ -64,7 +66,7 @@
                         <div class="upper-box">
                             <!--   <div class="time"><h2>Current Worker</h2></div>-->
                             <div class="image-box">
-                                <img src="~/Content/Images/profile.jpg" />
+                                <img src="@imgsrc" />
                             </div>
                         </div>
 
@@ -139,6 +141,8 @@
                     String[] spearator = { "\n" };
                     String[] strlist = work.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
                     int Wcnt = strlist.Length;
+                    string imgsrc = "/Content/Workers/";
+                    imgsrc = imgsrc + data2[i, 8];
                     <div class="card-box extra">
 
 
@@ -146,7 +150,7 @@
                         <div class="upper-box">
                             <!-- <div class="time"><h2>Previous Worker</h2></div> -->
                             <div class="image-box">
-                                <img src="~/Content/Images/profile.jpg" />
+                                <img src="@imgsrc" />
                             </div>
                         </div>
 

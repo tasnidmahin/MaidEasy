@@ -56,10 +56,13 @@
                                 type += "Eldery Care ";
                             }
                             double rat = Convert.ToDouble(data[2]);
+                            string imgsrc = "/Content/Workers/";
+                            imgsrc = imgsrc + data[5];
                         }
 
                         <div id="user-photo-wrapper">
-                            <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image">
+                            <!-- <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image"> -->
+                            <img id="user-photo" src="@imgsrc" alt="user profile image">
                         </div>
 
 

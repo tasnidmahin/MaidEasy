@@ -82,9 +82,9 @@ namespace MaidEasy.Controllers
             table.Read();
             int cnt1 = Int32.Parse(table.GetString(0));
             table.Close();
-            string[,] data1 = new string[cnt1, 8];
+            string[,] data1 = new string[cnt1, 9];
             //sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, WorkerId  from Contracts where UserId = '" + id + "' and status = 'current'";
-            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, WorkerId  from Contracts where UserId = '" + id + "' and (status = 'current' or status = 'updated') ";
+            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, Worker.WorkerId,image  from Contracts JOIN Worker ON Contracts.WorkerId = Worker.WorkerId where UserId = '" + id + "' and Contracts.status = 'current' ";
             table = db.getData(sql);
             int i = 0;
             while(table.Read())
@@ -97,6 +97,7 @@ namespace MaidEasy.Controllers
                 data1[i, 5] = table.GetString(5);
                 data1[i, 6] = table.GetString(6);
                 data1[i, 7] = table.GetString(7);
+                data1[i, 8] = table.GetString(8);
                 i++;
             }
             table.Close();
@@ -107,8 +108,9 @@ namespace MaidEasy.Controllers
             table.Read();
             int cnt2 = Int32.Parse(table.GetString(0));
             table.Close();
-            string[,] data2 = new string[cnt2, 8];
-            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, WorkerId from Contracts where UserId = '" + id + "' and status = 'previous'";
+            string[,] data2 = new string[cnt2, 9];
+            //sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, WorkerId from Contracts where UserId = '" + id + "' and status = 'previous'";
+            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, Worker.WorkerId,image  from Contracts JOIN Worker ON Contracts.WorkerId = Worker.WorkerId where UserId = '" + id + "' and Contracts.status = 'previous' ";
             table = db.getData(sql);
             i = 0;
             while (table.Read())
@@ -121,6 +123,7 @@ namespace MaidEasy.Controllers
                 data2[i, 5] = table.GetString(5);
                 data2[i, 6] = table.GetString(6);
                 data2[i, 7] = table.GetString(7);
+                data2[i, 8] = table.GetString(8);
                 i++;
             }
             table.Close();
