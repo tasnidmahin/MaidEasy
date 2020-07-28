@@ -70,8 +70,7 @@ namespace MaidEasy.Controllers
             var startTime = Request["startTime"].ToString();
             var endTime = Request["endTime"].ToString();
 
-            TempData["startTime"] = startTime;
-            TempData["endTime"] = endTime;
+            Session["sortby"] = sortby;
 
             System.Diagnostics.Debug.WriteLine("--------------");
             System.Diagnostics.Debug.WriteLine(endTime);
@@ -183,8 +182,8 @@ namespace MaidEasy.Controllers
 
             if (t.Equals("permanent"))
             {
-                string[,] Pdata = new string[count, 4];
-                byte[][] Pphoto = new byte[count][];
+                string[,] Pdata = new string[count, 5];
+                Session["Psortby"] = sortby;
 
 
                 table = db.getData(sql);
@@ -195,21 +194,20 @@ namespace MaidEasy.Controllers
                     Pdata[i, 1] = table.GetString(1);
                     Pdata[i, 2] = table.GetString(2);
                     Pdata[i, 3] = table.GetString(3);
-                    //Pphoto[i] = Encoding.ASCII.GetBytes(table.GetString(4));
+                    Pdata[i, 4] = table.GetString(4);
+
                     i++;
                 }
                 table.Close();
                 Session["PworkerData"] = Pdata;
-                Session["PworkerPhoto"] = Pphoto;
 
                 Session["Pcnt_row"] = count;
                 Session["tab"] = "permanent";
             }
             else if (t.Equals("babycare"))
             {
-                string[,] Bdata = new string[count, 4];
-                byte[][] Bphoto = new byte[count][];
-
+                string[,] Bdata = new string[count, 5];
+                Session["Bsortby"] = sortby;
 
                 table = db.getData(sql);
                 int i = 0;
@@ -219,21 +217,19 @@ namespace MaidEasy.Controllers
                     Bdata[i, 1] = table.GetString(1);
                     Bdata[i, 2] = table.GetString(2);
                     Bdata[i, 3] = table.GetString(3);
-                    //Pphoto[i] = Encoding.ASCII.GetBytes(table.GetString(4));
+                    Bdata[i, 4] = table.GetString(4);
                     i++;
                 }
                 table.Close();
                 Session["BworkerData"] = Bdata;
-                Session["BworkerPhoto"] = Bphoto;
 
                 Session["Bcnt_row"] = count;
                 Session["tab"] = "babycare";
             }
             else
             {
-                string[,] Edata = new string[count, 4];
-                byte[][] Ephoto = new byte[count][];
-
+                string[,] Edata = new string[count, 5];
+                Session["Esortby"] = sortby;
 
                 table = db.getData(sql);
                 int i = 0;
@@ -243,12 +239,11 @@ namespace MaidEasy.Controllers
                     Edata[i, 1] = table.GetString(1);
                     Edata[i, 2] = table.GetString(2);
                     Edata[i, 3] = table.GetString(3);
-                    //Pphoto[i] = Encoding.ASCII.GetBytes(table.GetString(4));
+                    Edata[i, 4] = table.GetString(4);
                     i++;
                 }
                 table.Close();
                 Session["EworkerData"] = Edata;
-                Session["EworkerPhoto"] = Ephoto;
 
                 Session["Ecnt_row"] = count;
                 Session["tab"] = "elderlycare";
