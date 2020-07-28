@@ -84,31 +84,31 @@
                             <div class="col-md-2"> -->
                                 <h5>Starting Time</h5>
                                 <div class="experiencebox" style="padding-left: 10px;">
-                                    <select name="startTime" id="main_menu" class="input-lg form-control" required>
-                                        <option value=""> </option>
-                                        <option value="6">6:00 AM</option>
-                                        <option value="6:30">6:30 AM</option>
-                                        <option value="7">7:00 AM</option>
-                                        <option value="7:30">7:30 AM</option>
-                                        <option value="8">8:00 AM</option>
-                                        <option value="8:30">8:30 AM</option>
-                                        <option value="9">9:00 AM</option>
-                                        <option value="9:30">9:30 AM</option>
-                                        <option value="10">10:00 AM</option>
-                                        <option value="10:30">10:30 AM</option>
-                                        <option value="11">11:00 AM</option>
-                                        <option value="11:30">11:30 AM</option>
-                                        <option value="12">12:00 PM</option>
-                                        <option value="12:30">12:30 PM</option>
-                                        <option value="1">1:00 PM</option>
-                                        <option value="1:30">1:30  PM</option>
-                                        <option value="2">2:00  PM</option>
-                                        <option value="2:30">2:30  PM</option>
-                                        <option value="3">3:00  PM</option>
-                                        <option value="3:30">3:30  PM</option>
-                                        <option value="4">4:00  PM</option>
-                                        <option value="4:30">4:30  PM</option>
-                                        <option value="5">5:00  PM</option>
+                                    <select name="startTime" id="main_menu" class="input-lg form-control" required> 
+                                    <option value=""> </option>
+                                    <option value="6">6:00 AM</option>
+                                    <option value="6:30">6:30 AM</option>
+                                    <option value="7">7:00 AM</option>
+                                    <option value="7:30">7:30 AM</option>
+                                    <option value="8">8:00 AM</option>
+                                    <option value="8:30">8:30 AM</option>
+                                    <option value="9">9:00 AM</option>
+                                    <option value="9:30">9:30 AM</option>
+                                    <option value="10">10:00 AM</option>
+                                    <option value="10:30">10:30 AM</option>
+                                    <option value="11">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="1">1:00 PM</option>
+                                    <option value="1:30">1:30  PM</option>
+                                    <option value="2">2:00  PM</option>
+                                    <option value="2:30">2:30  PM</option>
+                                    <option value="3">3:00  PM</option>
+                                    <option value="3:30">3:30  PM</option>
+                                    <option value="4">4:00  PM</option>
+                                    <option value="4:30">4:30  PM</option>
+                                    <option value="5">5:00  PM</option>
                                     </select>
                                     <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
                                 </div>
@@ -529,10 +529,31 @@
     </div>
     <script src="~/Scripts/JS/timerscript.js"></script>
     <script>
-        //document.getElementById("WImage").src = "data:image/png;base64," + "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
-        document.getElementById("WImage").src = "data:image/png;base64," + imgsrc;
-        document.getElementById("WImage").alt = "Red dot";
+        $(document).ready(function(){
+            $('#main_menu').val("@TempData["startTime"]");
+        });  
+        $(document).ready(function(){
+            $('#sub_menu').val("@TempData["endTime"]");
+        });    
+
+
+        $('#myTab a').click(function(e) {
+          e.preventDefault();
+          $(this).tab('show');
+        });
+
+        // store the currently selected tab in the hash value
+        $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+          var id = $(e.target).attr("href").substr(1);
+          window.location.hash = id;
+        });
+
+        // on load of the page: switch to the currently selected tab
+        var hash = window.location.hash;
+        $('#myTab a[href="' + hash + '"]').tab('show');    
     </script>
+
+
   
     @{
         Html.RenderPartial("footer");

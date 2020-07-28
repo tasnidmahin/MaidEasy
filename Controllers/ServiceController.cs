@@ -19,8 +19,8 @@ namespace MaidEasy.Controllers
 
         public ActionResult Service()
         {
-            //if(Session["username"] == null) return RedirectToAction("Index", "Home");
-            //if(Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
+            if(Session["username"] == null) return RedirectToAction("Index", "Home");
+            if(Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             ViewData["tab"] = "temporary";
             return View();
         }
@@ -69,6 +69,14 @@ namespace MaidEasy.Controllers
             var sortby = Request["sortby"].ToString();
             var startTime = Request["startTime"].ToString();
             var endTime = Request["endTime"].ToString();
+
+            TempData["startTime"] = startTime;
+            TempData["endTime"] = endTime;
+
+            System.Diagnostics.Debug.WriteLine("--------------");
+            System.Diagnostics.Debug.WriteLine(endTime);
+            System.Diagnostics.Debug.WriteLine("--------------");
+
 
             int type = findType(t);
 

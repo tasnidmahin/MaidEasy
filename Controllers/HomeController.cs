@@ -11,6 +11,8 @@ namespace MaidEasy.Controllers
     {
         public ActionResult Index()
         {
+            Console.WriteLine("Mahin");
+
             DBHelper db = DBHelper.getDB();
             db.DBConnection();
             string Date = DateTime.Now.ToString("dd");
@@ -48,7 +50,7 @@ namespace MaidEasy.Controllers
                     db.setData(sql);
                 }
             }
-                return View();
+            return View();
         }
 
         public ActionResult About()

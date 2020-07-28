@@ -19,6 +19,8 @@ namespace MaidEasy.Controllers
 
         public ActionResult MaidProfile()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             var id = Request["maid"].ToString();
             //System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
             //System.Diagnostics.Debug.WriteLine(id);
@@ -64,6 +66,8 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Hire()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             string sql = "SELECT COUNT(WorkId) from work";
             DBHelper db = DBHelper.getDB();
             var table = db.getData(sql);

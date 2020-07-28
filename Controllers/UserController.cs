@@ -19,6 +19,8 @@ namespace MaidEasy.Controllers
         [HttpPost]
         public ActionResult feedback()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             int id = Int32.Parse(Request["maid"].ToString());
             ViewData["maid"] = id;
             DBHelper db = DBHelper.getDB();
@@ -51,6 +53,8 @@ namespace MaidEasy.Controllers
         [HttpGet]
         public ActionResult user_profile()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             var id = Session["username"];
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT Name ,mobile ,PresentAddress,PermanentAddress,thana,image  from Users where username = '" + id + "'";
@@ -75,6 +79,8 @@ namespace MaidEasy.Controllers
 
         public ActionResult hired_workers_profile()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             DBHelper db = DBHelper.getDB();
             int id = Int32.Parse(Session["userID"].ToString());
             string sql = "SELECT count(WorkerId) from Contracts where UserId = '" + id + "' and status = 'current'";
@@ -135,6 +141,8 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Edit_profile()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             if (TempData["message"] != null) //It will true when Password not match with DB password 
                 ViewBag.Error = TempData["message"].ToString();
 
