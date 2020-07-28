@@ -3,7 +3,9 @@
     ViewBag.Title = "Admin_home";
     Layout = null;
 }
-
+@{
+    Html.RenderPartial("Header");
+}
 
 <!DOCTYPE html>
 <html>
@@ -28,7 +30,7 @@
             <h2>WORKERS</h2>
 
         </div>
-        
+
         <div class="column1">
             <img src="~/Content/Images/location.svg" class="icon1">
             <h2 style=" margin-top: 13px;">THANA</h2>
