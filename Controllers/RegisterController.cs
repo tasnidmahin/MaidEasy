@@ -96,9 +96,7 @@ namespace MaidEasy.Controllers
             var thana = Request["thana"];
             string thanastring = getThanaString(thana);
 
-            //string path = Path.Combine(Server.MapPath("~/App_Data/Photo/User/"), user.ToString()).ToString();
-            //string path = Path.Combine(Server.MapPath("~/App_Data/Photo/User/"), user.ToString()).ToString();
-            //file.SaveAs(path);
+
 
             //var filename = Path.GetFileNameWithoutExtension(file.FileName) + Guid.NewGuid() + Path.GetExtension(file.FileName);
             //var path = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
@@ -275,7 +273,7 @@ namespace MaidEasy.Controllers
             TempData["user"] = user;
             TempData["pass"] = pass;
 
-            string sql = "SELECT count(UserId),password,thana,UserId from Users where username = '" + user + "'";
+            string sql = "SELECT count(UserId),password,thana,UserId,type from Users where username = '" + user + "'";
 
             DBHelper db = DBHelper.getDB();
             var table = db.getData(sql);
@@ -299,11 +297,13 @@ namespace MaidEasy.Controllers
             var thanaS = table.GetString(2);
             var thana = getThanaID(thanaS);
             var uID = table.GetString(3);
+            var uType = table.GetString(4);
             table.Close();
 
             Session["thanaID"] = thana;
             Session["username"] = user;
             Session["userID"] = uID;
+            Session["uType"] = uType;
             TempData["user"] = null;
             TempData["pass"] = null;
 

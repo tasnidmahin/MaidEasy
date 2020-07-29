@@ -11,10 +11,9 @@ namespace MaidEasy.Controllers
     {
         public ActionResult Index()
         {
-            Console.WriteLine("Mahin");
-
             DBHelper db = DBHelper.getDB();
             db.DBConnection();
+
             string Date = DateTime.Now.ToString("dd");
             string Month = DateTime.Now.ToString("MM");
 
@@ -50,6 +49,23 @@ namespace MaidEasy.Controllers
                     db.setData(sql);
                 }
             }
+
+
+            string uType = "general";
+            if (Session["username"] != null)
+            {
+                string sql = "SELECT type from Users where username = '" + Session["username"] + "'";
+                var table = db.getData(sql);
+                table.Read();
+                uType = table.GetString(0);
+                table.Close();
+            }
+
+            if (uType.Equals("admin") || uType.Equals("super"))
+            {
+                return RedirectToAction("Admin_home", "Admin");
+            }
+
             return View();
         }
 

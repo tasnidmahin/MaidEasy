@@ -23,6 +23,7 @@ create table Users(
 	UserId INT(20) AUTO_INCREMENT PRIMARY KEY,
 	username VARCHAR(70) NOT NULL UNIQUE,
 	password VARCHAR(100) NOT NULL,
+	type VARCHAR(20) NOT NULL DEFAULT 'general',
 	Name VARCHAR(30) NOT NULL,
 	mobile VARCHAR(15) NOT NULL,
 	PresentAddress VARCHAR(100) NOT NULL,

@@ -1,10 +1,12 @@
 ﻿
 @{
     ViewBag.Title = "Edit_worker";
-     Layout = null;
+    Layout = null;
 }
 
-
+@{
+    Html.RenderPartial("Header");
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +16,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-    <title> Edit Profile </title>
-    <link href="~/Content/edit_worker.css" rel="stylesheet"/>
+    <title> Edit Worker </title>
+    <link href="~/Content/edit_worker.css" rel="stylesheet" />
 
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
@@ -27,7 +29,7 @@
 
 <body>
     <div class="area">
-        <div class="row"style="margin-bottom:40px;">
+        <div class="row" style="margin-bottom:40px;">
             <div class="col-md-3 rounded-left columnstyle">
                 <div id="user-photo-wrapper">
                     <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image">
@@ -55,15 +57,15 @@
                 </div>
 
                 <!--  <div style="margin-top:20px;">
-        <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
-            <option>Temporary</option>
-            <option>Permanent</option>
-            <option>Elderly Care</option>
-            <option>Baby Care</option>
+                    <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
+                        <option>Temporary</option>
+                        <option>Permanent</option>
+                        <option>Elderly Care</option>
+                        <option>Baby Care</option>
 
 
-        </select>
-    </div>-->
+                    </select>
+                </div>-->
 
                 <label for="Father's Name"><b>Work Type</b></label>
                 <div class="choices">
@@ -93,9 +95,9 @@
 
                 </div>
                 <!--  </div>
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-8"> -->
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-8"> -->
                 <label for="Father's Name"><b>Work Area</b></label>
                 <br>
                 <div style="margin-bottom:20px;">
@@ -147,7 +149,7 @@
                 </div>
                 <div style="text-align:center;">
                     <button type="button" style="margin-right: 40px;" class="btn btn-outline-dark collapsible">Delete</button>
-                    <button type="button" class="btn btn-outline-dark collapsible">Edit</button>
+                    <button type="button" class="btn btn-outline-dark collapsible">Save</button>
                 </div>
 
 
@@ -164,7 +166,7 @@
 
 
 
-   
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

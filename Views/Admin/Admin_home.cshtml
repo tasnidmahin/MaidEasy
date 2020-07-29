@@ -3,7 +3,9 @@
     ViewBag.Title = "Admin_home";
     Layout = null;
 }
-
+@{
+    Html.RenderPartial("Header");
+}
 
 <!DOCTYPE html>
 <html>
@@ -25,13 +27,18 @@
   flex-wrap: wrap;justify-content:center; ">
         <div class="column">
             <img src="~/Content/Images/staff.svg" class="icon">
-            <h2>WORKERS</h2>
+            <br /> <br /> 
+            <h2>
+                <a href="@Url.Action("WorkerList", "Admin")">WORKERS</a>
+            </h2>
 
         </div>
-        
+
         <div class="column1">
             <img src="~/Content/Images/location.svg" class="icon1">
-            <h2 style=" margin-top: 13px;">THANA</h2>
+            <h2 style=" margin-top: 13px;">
+                <a href="@Url.Action("Thanalist", "Admin")">Thana</a>
+            </h2>
 
 
         </div>
@@ -40,14 +47,18 @@
   flex-wrap: wrap;justify-content:center; ">
         <div class="column">
             <img src="~/Content/Images/user-plus-solid.svg" class="icon">
-            <h2>ADD ADMIN</h2>
+            <h2>
+                <a href="@Url.Action("Add_admin", "Admin")">Users</a>
+            </h2>
 
         </div>
 
         <div class="column">
             <img src="~/Content/Images/maidicon.svg" class="icon" style="height: 140px;
     margin-left: 70px;">
-            <h2 style="margin-top: 10px;">WORK</h2>
+            <h2 style="margin-top: 10px;">
+                <a href="@Url.Action("Worklist", "Admin")">Works</a>
+            </h2>
 
         </div>
 

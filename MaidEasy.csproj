@@ -123,6 +123,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminWorkerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaidController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -238,10 +239,6 @@
     <Content Include="Views\User\user_profile.cshtml" />
     <Content Include="Views\User\Edit_profile.cshtml" />
     <Content Include="Views\Admin\Admin_home.cshtml" />
-    <Content Include="Views\Admin\Admin_login.cshtml" />
-    <Content Include="Views\Admin\Add_worker.cshtml" />
-    <Content Include="Views\Admin\Worker.cshtml" />
-    <Content Include="Views\Admin\Edit_worker.cshtml" />
     <Content Include="Views\Admin\Worklist.cshtml" />
     <Content Include="Views\Admin\Edit_work.cshtml" />
     <Content Include="Views\Admin\Thanalist.cshtml" />
@@ -249,6 +246,9 @@
     <Content Include="Views\Admin\Edit_admin.cshtml" />
     <Content Include="Views\Admin\Add_admin.cshtml" />
     <Content Include="Views\Maid\Hire_new.cshtml" />
+    <Content Include="Views\AdminWorker\Add_worker.cshtml" />
+    <Content Include="Views\AdminWorker\Edit_worker.cshtml" />
+    <Content Include="Views\AdminWorker\WorkerList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
