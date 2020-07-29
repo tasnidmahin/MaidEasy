@@ -96,9 +96,7 @@ namespace MaidEasy.Controllers
             var thana = Request["thana"];
             string thanastring = getThanaString(thana);
 
-            //string path = Path.Combine(Server.MapPath("~/App_Data/Photo/User/"), user.ToString()).ToString();
-            //string path = Path.Combine(Server.MapPath("~/App_Data/Photo/User/"), user.ToString()).ToString();
-            //file.SaveAs(path);
+
 
             //var filename = Path.GetFileNameWithoutExtension(file.FileName) + Guid.NewGuid() + Path.GetExtension(file.FileName);
             //var path = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
