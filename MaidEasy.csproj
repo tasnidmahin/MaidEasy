@@ -153,9 +153,14 @@
     <Content Include="Content\feedback.css" />
     <Content Include="Content\footer.css" />
     <Content Include="Content\Header.css" />
+    <Content Include="Content\homepage.css" />
+    <Content Include="Content\Images\1stslide.jpg" />
+    <Content Include="Content\Images\2ndslide.jpg" />
+    <Content Include="Content\Images\3rdslide.jpg" />
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\bgadmin.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
+    <Content Include="Content\Images\im1.jpg" />
     <Content Include="Content\Images\profile.jpg" />
     <Content Include="Content\Images\staff.svg" />
     <Content Include="Content\login.css" />
