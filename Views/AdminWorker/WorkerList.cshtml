@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "WorkerList";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <title> Worker List</title>
+    <link href="~/Content/Worker.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div style="margin-top: 80px;">
+
+        <div style="text-align: center;">
+            <button type="button" class="collapsible">Add Worker</button>
+        </div>
+
+        <div class="container">
+            <input class="form-control mb-4" id="tableSearch" type="text"
+                   placeholder="Type something to search list items">
+
+            <table class="table table-bordered table-striped tablestyle" id="myTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Worker ID</th>
+                        <th onclick="sortTable(1)">Name</th>
+                        <th>Gender</th>
+                        <th>Area</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Experience</th>
+                        <th>Rating</th>
+
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    <tr>
+                        <td>1</td>
+                        <td>Doe</td>
+                        <td>Male</td>
+                        <td>Gulshan</td>
+                        <td>Temporary</td>
+                        <td>000101010</td>
+                        <td>3 years</td>
+                        <td>3.5</td>
+                        <td class="middle"><button type="button" class="btn btn-outline-dark">View Profile</button></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Doe</td>
+                        <td>Male</td>
+                        <td>Gulshan</td>
+                        <td>Temporary</td>
+                        <td>000101010</td>
+                        <td>3 years</td>
+                        <td>3.5</td>
+                        <td class="middle"><button type="button" class="btn btn-outline-dark">View Profile</button></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Doe</td>
+                        <td>Male</td>
+                        <td>Gulshan</td>
+                        <td>Temporary</td>
+                        <td>000101010</td>
+                        <td>3 years</td>
+                        <td>3.5</td>
+                        <td class="middle"><button type="button" class="btn btn-outline-dark">View Profile</button></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Doe michael</td>
+                        <td>Male</td>
+                        <td>Gulshan</td>
+                        <td>Temporary</td>
+                        <td>000101010</td>
+                        <td>3 years</td>
+                        <td>3.5</td>
+                        <td class="middle"><button type="button" class="btn btn-outline-dark">View Profile</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="~/Scripts/JS/Worker.js"></script>
+</body>
+</html>
+
