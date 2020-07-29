@@ -3,6 +3,9 @@
     ViewBag.Title = "WorkerList";
     Layout = null;
 }
+@{
+   // Html.RenderPartial("Header");
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,11 +24,12 @@
 
 </head>
 
+
 <body>
     <div style="margin-top: 80px;">
 
         <div style="text-align: center;">
-            <button type="button" class="collapsible">Add Worker</button>
+            <a href="@Url.Action("Add_worker", "AdminWorker")"> <button type="button" class="collapsible">Add Worker</button> </a>
         </div>
 
         <div class="container">
@@ -51,39 +55,6 @@
                     <tr>
                         <td>1</td>
                         <td>Doe</td>
-                        <td>Male</td>
-                        <td>Gulshan</td>
-                        <td>Temporary</td>
-                        <td>000101010</td>
-                        <td>3 years</td>
-                        <td>3.5</td>
-                        <td class="middle"><button type="button" class="btn btn-outline-dark">View Profile</button></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Doe</td>
-                        <td>Male</td>
-                        <td>Gulshan</td>
-                        <td>Temporary</td>
-                        <td>000101010</td>
-                        <td>3 years</td>
-                        <td>3.5</td>
-                        <td class="middle"><button type="button" class="btn btn-outline-dark">View Profile</button></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Doe</td>
-                        <td>Male</td>
-                        <td>Gulshan</td>
-                        <td>Temporary</td>
-                        <td>000101010</td>
-                        <td>3 years</td>
-                        <td>3.5</td>
-                        <td class="middle"><button type="button" class="btn btn-outline-dark">View Profile</button></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Doe michael</td>
                         <td>Male</td>
                         <td>Gulshan</td>
                         <td>Temporary</td>

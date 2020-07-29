@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaidEasy.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +16,31 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Admin_home()
         {
+            /*if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");*/
             return View();
         }
         public ActionResult Admin_login()
+        {
+            return View();
+        }
+        public ActionResult Add_worker()
+        {
+            return View();
+        }
+        public ActionResult WorkerList()
+        {
+            DBHelper db = DBHelper.getDB();
+            string sql = "select WorkerId,Name,gender,Area,type,status,experience,rating from Worker";
+            var table = db.getData(sql);
+            while(table.Read())
+            {
+
+            }
+            table.Close();
+            return RedirectToAction("WorkerList", "AdminWorker");
+        }
+        public ActionResult Edit_Worker()
         {
             return View();
         }
