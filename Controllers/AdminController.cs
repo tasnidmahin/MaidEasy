@@ -21,18 +21,6 @@ namespace MaidEasy.Controllers
         {
             return View();
         }
-        public ActionResult Add_worker()
-        {
-            return View();
-        }
-        public ActionResult Worker()
-        {
-            return View();
-        }
-        public ActionResult Edit_Worker()
-        {
-            return View();
-        }
         public ActionResult Worklist()
         {
             return View();
