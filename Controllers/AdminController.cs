@@ -31,13 +31,44 @@ namespace MaidEasy.Controllers
         public ActionResult WorkerList()
         {
             DBHelper db = DBHelper.getDB();
-            string sql = "select WorkerId,Name,gender,Area,type,status,experience,rating from Worker";
+            string sql = "SELECT count(WorkerId) FROM worker";
             var table = db.getData(sql);
-            while(table.Read())
-            {
+            table.Read();
+            int count = Int32.Parse(table.GetString(0));
+            table.Close();
 
+
+            string[,] data = new string[count, 8];
+            sql = "select WorkerId,Name,gender,Area,type,status,experience,rating from Worker";
+            table = db.getData(sql);
+            int i = 0;
+            while (table.Read())
+            {
+                data[i, 0] = table.GetString(0);
+                data[i, 1] = table.GetString(1);
+                data[i, 2] = table.GetString(2);
+                data[i, 3] = table.GetString(3);
+                data[i, 4] = table.GetString(4);
+                data[i, 5] = table.GetString(5);
+                data[i, 6] = table.GetString(6);
+                data[i, 7] = table.GetString(7);
+
+                i++;
             }
             table.Close();
+            i = 0;
+            while (i<count)
+            {
+                System.Diagnostics.Debug.WriteLine("--I--");
+                System.Diagnostics.Debug.WriteLine(i);
+                System.Diagnostics.Debug.WriteLine("----");
+                data[i, 3] = getThanaList(data[i, 3]);
+                i++;
+            }
+
+            System.Diagnostics.Debug.WriteLine("---------END Worker info-----------");
+            Session["WorkerList"] = data;
+            Session["WorkerList_Count"] = count;
             return RedirectToAction("WorkerList", "AdminWorker");
         }
         public ActionResult Edit_Worker()
@@ -69,6 +100,32 @@ namespace MaidEasy.Controllers
             return View();
         }
 
+        private string getThanaList(string thanaString)
+        {
+            System.Diagnostics.Debug.WriteLine("THANA");
+            System.Diagnostics.Debug.WriteLine(thanaString);
+            System.Diagnostics.Debug.WriteLine("THANA");
+            string ret = "", sql;
+            DBHelper db = DBHelper.getDB();
+            int length = thanaString.Length, i = 0,ind = 0;
+            while(i<length)
+            {
+                if(thanaString[i] == '1')
+                {
+                    sql = "select Name from Thana where ThanaId = '" + (i + 1) + "' ";
+                    var table = db.getData(sql);
+                    table.Read();
+                    string tName = table.GetString(0);
+                    if (ind != 0) ret += ",\n";
+                    else ind = 1;
+                    ret += tName;
+                    System.Diagnostics.Debug.WriteLine(table[0]);
+                    table.Close();
+                }
+                i++;
+            }
+            return ret;
+        }
     }
 
 }
