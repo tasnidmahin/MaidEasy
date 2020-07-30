@@ -49,12 +49,17 @@ h5 {
     height: 80px;
     text-align: center;
 }
-
-    .text-box:hover {
-        background-color: #0F93FE;
-        opacity: 0.8;
-        cursor: pointer;
-    }
+.carousel-caption{
+    z-index:auto;
+}
+.carousel-indicators{
+    z-index:auto;
+}
+.text-box:hover {
+    background-color: #0F93FE;
+    opacity: 0.8;
+    cursor: pointer;
+}
 
     .text-box h4 {
         padding: 20px 0;

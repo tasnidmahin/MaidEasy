@@ -3,13 +3,14 @@
     background: #000;
     /* font-family: 'Helvetica Neue', sans-serif; */
 }
-/*
-.box{
-    margin-top:60px;
+
+.box {
+    /*margin-top:60px;*/
+    height:800px;
 }
 
-    */
-.no-display {
+    
+    .no-display {
     display: none;
 }
 
