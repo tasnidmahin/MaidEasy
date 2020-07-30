@@ -59,10 +59,8 @@ namespace MaidEasy.Controllers
             i = 0;
             while (i<count)
             {
-                System.Diagnostics.Debug.WriteLine("--I--");
-                System.Diagnostics.Debug.WriteLine(i);
-                System.Diagnostics.Debug.WriteLine("----");
                 data[i, 3] = getThanaList(data[i, 3]);
+                data[i, 4] = getWorkerTypeList(data[i, 4]);
                 i++;
             }
 
@@ -102,9 +100,6 @@ namespace MaidEasy.Controllers
 
         private string getThanaList(string thanaString)
         {
-            System.Diagnostics.Debug.WriteLine("THANA");
-            System.Diagnostics.Debug.WriteLine(thanaString);
-            System.Diagnostics.Debug.WriteLine("THANA");
             string ret = "", sql;
             DBHelper db = DBHelper.getDB();
             int length = thanaString.Length, i = 0,ind = 0;
@@ -119,8 +114,28 @@ namespace MaidEasy.Controllers
                     if (ind != 0) ret += ",\n";
                     else ind = 1;
                     ret += tName;
-                    System.Diagnostics.Debug.WriteLine(table[0]);
+                    //System.Diagnostics.Debug.WriteLine(table[0]);
                     table.Close();
+                }
+                i++;
+            }
+            return ret;
+        }
+
+        private string getWorkerTypeList(string typeString)
+        {
+            string ret = "";
+            int length = typeString.Length, i = 0, ind = 0;
+            while (i < length)
+            {
+                if (typeString[i] == '1')
+                {
+                    if (ind != 0) ret += ",\n";
+                    else ind = 1;
+                    if (i == 0) ret += "temporary";
+                    else if (i == 1) ret += "permanent";
+                    else if (i == 2) ret += "babycare";
+                    else ret += "elderlycare";
                 }
                 i++;
             }
