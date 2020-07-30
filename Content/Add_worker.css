@@ -30,11 +30,12 @@ h2 {
 
 input[type=text], input[type=password] {
     width: 350px;
-    padding: 15px;
+    padding: 10px;
     /* margin: 5px 0 22px 0; */
     display: block;
     border: none;
     background: #f1f1f1;
+    border-radius:7px;
 }
 
 label {
@@ -199,8 +200,13 @@ label {
 */
 
 /* thana select box css */
-
-
+.borderbtm {
+    border-bottom: 15px solid black;
+}
+.custom-file{
+    width:350px;
+    z-index:0;
+}
 .collapsible {
     cursor: pointer;
     padding: 18px;
@@ -209,9 +215,10 @@ label {
     text-align: center;
     outline: none;
     font-size: 18px;
-    background-color:#fff;
+    background-color: #fff;
 }
 
     .collapsible:focus {
         outline: none;
     }
+
