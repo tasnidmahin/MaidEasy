@@ -70,14 +70,17 @@
 
 
 
-        <a href="@Url.Action("hired_workers_profile", "User")"> <button type="button" class="hw_button">Hired Workers</button> </a>
+        @if (Session["uType"].ToString() == "general")
+        { 
+            <a href="@Url.Action("hired_workers_profile", "User")"> <button type="button" class="hw_button">Hired Workers</button> </a> 
+        }
 
         <br>
 
         <div style="text-align:center;padding-top:40px;">
-            <a href="@Url.Action("Edit_profile", "User")"> <button type="button"  class="hw_button1">Edit Profile</button> </a>
+            <a href="@Url.Action("Edit_profile", "User")"> <button type="button" class="hw_button1">Edit Profile</button> </a>
 
-</div>
+        </div>
 
 
     </div>
