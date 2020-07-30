@@ -4,6 +4,7 @@ const name = document.getElementById('name');
 const phone = document.getElementById('Phoneno');
 const presentaddress = document.getElementById('presentaddress');
 const permanentaddress = document.getElementById('permanentaddress');
+const oldpassword = document.getElementById('oldpassword');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 const thana = document.getElementById('thana');
@@ -32,6 +33,7 @@ function checkInputs() {
 	const phoneValue = phone.value.trim();
 	const presentaddressValue = presentaddress.value.trim();
 	const permanentaddressValue = permanentaddress.value.trim();
+	const oldpasswordValue = oldpassword.value.trim();
 	const passwordValue = password.value.trim();
 	const password2Value = password2.value.trim();
 	const thanaValue = thana.value.trim();
@@ -94,7 +96,12 @@ function checkInputs() {
 		setSuccessFor(email);
 	} */
 
-
+	if (oldpasswordValue === '') {
+		setErrorFor(oldpassword, 'Password cannot be blank');
+		return;
+	} else {
+		setSuccessFor(oldpassword);
+	}
 	if (passwordValue === '') {
 		setErrorFor(password, 'Password cannot be blank');
 		return;
