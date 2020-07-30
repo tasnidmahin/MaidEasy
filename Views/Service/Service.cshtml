@@ -63,54 +63,59 @@
                 <form action="/Service/Searching" method="get">
                     <input type="hidden" name="type" value="temporary" />
                     <div class="container-fluid " style="top:20%;">
-                        <div class="row">
-                            <div class="col-md-4" style="padding-left:140px;">
-                                <h5 style="position: relative;padding-left: 20px;">Sort By</h5>
-                                <div class="experiencebox" style="width:120px;">
-                                    <select class="input-lg form-control" id="paperSelect" name="sortby">
-                                        <option value="Name" id="sortbyname">Name</option>
-                                        <option value="experience" id="sortbyexperience">Experience</option>
-                                        <option value="rating" id="sortbyrating">Rating</option>
+                        <div class="d-flex justify-content-around row">
+                            
+                                <div>
+                                    <h5 style="position: relative;padding-left: 20px;">Sort By</h5>
+                                    <div class="experiencebox" style="width:120px;">
+                                        <select class="input-lg form-control" id="paperSelect" name="sortby">
+                                            <option value="Name" id="sortbyname">Name</option>
+                                            <option value="experience" id="sortbyexperience">Experience</option>
+                                            <option value="rating" id="sortbyrating">Rating</option>
 
 
-                                    </select>
+                                        </select>
 
-                                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4" style="padding-left:50px;">
+                            
+                            
                                 <!--    <div class="row">
                             <div class="col-md-2"> -->
+                               
+                                <div>
                                 <h5>Starting Time</h5>
                                 <div class="experiencebox" style="padding-left: 10px;">
-                                    <select name="startTime" id="main_menu" class="input-lg form-control" required> 
-                                    <option value=""> </option>
-                                    <option value="6">6:00 AM</option>
-                                    <option value="6:30">6:30 AM</option>
-                                    <option value="7">7:00 AM</option>
-                                    <option value="7:30">7:30 AM</option>
-                                    <option value="8">8:00 AM</option>
-                                    <option value="8:30">8:30 AM</option>
-                                    <option value="9">9:00 AM</option>
-                                    <option value="9:30">9:30 AM</option>
-                                    <option value="10">10:00 AM</option>
-                                    <option value="10:30">10:30 AM</option>
-                                    <option value="11">11:00 AM</option>
-                                    <option value="11:30">11:30 AM</option>
-                                    <option value="12">12:00 PM</option>
-                                    <option value="12:30">12:30 PM</option>
-                                    <option value="1">1:00 PM</option>
-                                    <option value="1:30">1:30  PM</option>
-                                    <option value="2">2:00  PM</option>
-                                    <option value="2:30">2:30  PM</option>
-                                    <option value="3">3:00  PM</option>
-                                    <option value="3:30">3:30  PM</option>
-                                    <option value="4">4:00  PM</option>
-                                    <option value="4:30">4:30  PM</option>
-                                    <option value="5">5:00  PM</option>
+                                    <select name="startTime" id="main_menu" class="input-lg form-control" required>
+                                        <option value=""> </option>
+                                        <option value="6">6:00 AM</option>
+                                        <option value="6:30">6:30 AM</option>
+                                        <option value="7">7:00 AM</option>
+                                        <option value="7:30">7:30 AM</option>
+                                        <option value="8">8:00 AM</option>
+                                        <option value="8:30">8:30 AM</option>
+                                        <option value="9">9:00 AM</option>
+                                        <option value="9:30">9:30 AM</option>
+                                        <option value="10">10:00 AM</option>
+                                        <option value="10:30">10:30 AM</option>
+                                        <option value="11">11:00 AM</option>
+                                        <option value="11:30">11:30 AM</option>
+                                        <option value="12">12:00 PM</option>
+                                        <option value="12:30">12:30 PM</option>
+                                        <option value="1">1:00 PM</option>
+                                        <option value="1:30">1:30  PM</option>
+                                        <option value="2">2:00  PM</option>
+                                        <option value="2:30">2:30  PM</option>
+                                        <option value="3">3:00  PM</option>
+                                        <option value="3:30">3:30  PM</option>
+                                        <option value="4">4:00  PM</option>
+                                        <option value="4:30">4:30  PM</option>
+                                        <option value="5">5:00  PM</option>
                                     </select>
                                     <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                </div>
                                 </div>
                                 <!-- </div> -->
                                 <!--  <div class="col-md-2" style="padding-left: 55px;">
@@ -127,9 +132,9 @@
                                     <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
                                 </div>
                             </div>  -->
-                            </div>
+                            
                             <!--  </div> -->
-                            <div class="col-md-4">
+                            <div>
                                 <!--  <div class="row">
 
                             <div class="col-md-2"> -->
@@ -158,14 +163,15 @@
 
                             </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
+                        <div class="container d-flex justify-content-center" style="padding-top:5%;">
 
                         <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>  -->
                         <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
 
                     </div>
+                    </div>
+                    
+                    
                 </form>
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
@@ -226,25 +232,25 @@
             <div id="permanent" data-tab-content>
                 <form action="/Service/SearchingFull" method="get">
                     <input type="hidden" name="type" value="permanent" />
-                    <div class="experiencebox" style="width:120px;">
-                        <select class="input-lg form-control" id="paperSelect_1" name="sortby">
-                            <option value="Name" id="sortbyname">Name</option>
-                            <option value="experience" id="sortbyexperience">Experience</option>
-                            <option value="rating" id="sortbyrating">Rating</option>
+                    <div class="d-flex  flex-column align-items-center" >
+                        <div class="experiencebox" style="width:120px; margin: 50px;">
+                            <select class="input-lg form-control" id="paperSelect_1" name="sortby">
+                                <option value="Name" id="sortbyname">Name</option>
+                                <option value="experience" id="sortbyexperience">Experience</option>
+                                <option value="rating" id="sortbyrating">Rating</option>
 
 
-                        </select>
+                            </select>
 
-                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                            <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
 
+                        </div>
+                        <div class="">
+
+                            <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
+                            <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                        </div>
                     </div>
-
-                    <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
-
-                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
-                        <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
-                    </div>
-
                     <!--    <div class="card-box">
 
                     <div class="upper-box">
@@ -336,25 +342,26 @@
             <div id="babycare" data-tab-content>
                 <form action="/Service/SearchingFull" method="get">
                     <input type="hidden" name="type" value="babycare" />
-                    <div class="experiencebox" style="width:120px;">
-                        <select class="input-lg form-control" id="paperSelect_2" name="sortby">
-                            <option value="Name" id="sortbyname">Name</option>
-                            <option value="experience" id="sortbyexperience">Experience</option>
-                            <option value="rating" id="sortbyrating">Rating</option>
+                    <div class="d-flex  flex-column align-items-center">
+                        <div class="experiencebox" style="width:120px;margin:50px;">
+                            <select class="input-lg form-control" id="paperSelect_2" name="sortby">
+                                <option value="Name" id="sortbyname">Name</option>
+                                <option value="experience" id="sortbyexperience">Experience</option>
+                                <option value="rating" id="sortbyrating">Rating</option>
 
 
-                        </select>
+                            </select>
 
-                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                            <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
 
+                        </div>
+
+                        <div class="">
+
+                            <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
+                            <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                        </div>
                     </div>
-
-                    <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
-
-                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
-                        <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
-                    </div>
-
                     <!--     <div class="card-box">
 
             <div class="upper-box">
@@ -447,7 +454,8 @@
             <div id="elderlycare" data-tab-content>
                 <form action="/Service/SearchingFull" method="get">
                     <input type="hidden" name="type" value="elderlycare" />
-                    <div class="experiencebox" style="width:120px;">
+                   <div class="d-flex  flex-column align-items-center">
+                    <div class="experiencebox" style="width:120px;margin:50px;">
                         <select class="input-lg form-control" id="paperSelect_3" name="sortby">
                             <option value="Name" id="sortbyname">Name</option>
                             <option value="experience" id="sortbyexperience">Experience</option>
@@ -460,11 +468,12 @@
 
                     </div>
 
-                    <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2">
+                    <div class="">
 
                         <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
                         <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
                     </div>
+                       </div>
                 </form>
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
