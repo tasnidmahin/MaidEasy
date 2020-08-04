@@ -27,147 +27,149 @@
 
 
 <body>
-    <div class="row" style="padding-top:100px;">
-        <div class="col-md-4 rounded-left columnstyle borderbtm">
-            <div style="text-align:center;">
-                <h2>Personal Information</h2>
+    <form id="form" action="/AdminWorker/CheckInfo" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
+        <div class="row" style="padding-top:100px;">
+            <div class="col-md-4 rounded-left columnstyle borderbtm">
+                <div style="text-align:center;">
+                    <h2>Personal Information</h2>
+                </div>
             </div>
-        </div>
-        <div class="col-md-7 rounded-right borderbtm" style="background-color: #264a96;padding:35px;padding-top:50px;">
-            <label for="Name"><b>Name</b></label>
-            <input type="text" placeholder="Name" name="name" required>
-            <label for="Father's Name"><b>Father's Name</b></label>
-            <input type="text" placeholder="Father's Name" name="fathername" required>
-            <label for="Father's Name"><b>Phone</b></label>
-            <input type="text" placeholder="phone no (+8801*********)" name="Phone">
-            <label for="Father's Name"><b>Present Address</b></label>
-            <input type="text" placeholder="Present Address" name="fathername" required>
-            <label for="Father's Name"><b>Permanent Address</b></label>
-            <input type="text" placeholder="Permanent Address" name="Phone" required>
-            <div style="margin-top:20px;margin-bottom: 20px;">
-                <select class="selectpicker" data-width="fit" title="Gender">
-                    <option>Male</option>
-                    <option>Female</option>
+            <div class="col-md-7 rounded-right borderbtm" style="background-color: #264a96;padding:35px;padding-top:50px;">
+                <label for="Name"><b>Name</b></label>
+                <input type="text" placeholder="Name" name="name" required>
+                <label for="Father's Name"><b>Father's Name</b></label>
+                <input type="text" placeholder="Father's Name" name="fathername" required>
+                <label for="Father's Name"><b>Phone</b></label>
+                <input type="text" placeholder="phone no (+8801*********)" name="Phone">
+                <label for="Father's Name"><b>Present Address</b></label>
+                <input type="text" placeholder="Present Address" name="fathername" required>
+                <label for="Father's Name"><b>Permanent Address</b></label>
+                <input type="text" placeholder="Permanent Address" name="Phone" required>
+                <div style="margin-top:20px;margin-bottom: 20px;">
+                    <select class="selectpicker" data-width="fit" title="Gender">
+                        <option>Male</option>
+                        <option>Female</option>
 
 
-                </select>
+                    </select>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose an Image</label>
+                </div>
+                <!--  <div style="margin-top:20px;">
+                    <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
+                        <option>Temporary</option>
+                        <option>Permanent</option>
+                        <option>Elderly Care</option>
+                        <option>Baby Care</option>
+
+
+                    </select>
+                </div>-->
+
             </div>
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Choose an Image</label>
-            </div>
-            <!--  <div style="margin-top:20px;">
-        <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
-            <option>Temporary</option>
-            <option>Permanent</option>
-            <option>Elderly Care</option>
-            <option>Baby Care</option>
-
-
-        </select>
-    </div>-->
-
-        </div>
 
 
 
 
-    </div>
-
-    <div class="row" style="margin-bottom:60px;">
-        <div class="col-md-4 rounded-left columnstyle">
-            <div style="    text-align: center;">
-                <h2>Work related information</h2>
-            </div>
         </div>
 
-
-        <div class="col-md-7 rounded-right" style="background-color: #264a96;padding:35px;">
-            <label for="Father's Name"><b>Work Type</b></label>
-            <div class="choices">
-                <label class="container">
-                    Temporary
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-
-                <label class="container">
-                    Permanent
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-
-                <label class="container">
-                    Elderly Care
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-
-                <label class="container">
-                    Baby Care
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-
+        <div class="row" style="margin-bottom:60px;">
+            <div class="col-md-4 rounded-left columnstyle">
+                <div style="    text-align: center;">
+                    <h2>Work related information</h2>
+                </div>
             </div>
-            <!--  </div>
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-8"> -->
-            <label for="Father's Name"><b>Work Area</b></label>
-            <br>
-            <div style="margin-bottom:20px;">
-                <select class="selectpicker" style="margin-bottom:20px;" data-width="fit" data-style="btn-info" data-live-search="true" multiple>
-                    <option>Adabar</option>
-                    <option>Azampur</option>
-                    <option>Badda</option>
-                    <option>Bangsal</option>
-                    <option>Bimanbandar</option>
-                    <option>Cantonment</option>
-                    <option>Chowkbazar</option>
-                    <option>Darus Salam</option>
-                    <option>Demra</option>
-                    <option>Dhanmondi</option>
-                    <option>Gendaria</option>
-                    <option>Gulshan</option>
-                    <option>Hazaribagh</option>
-                    <option>Kadamtali</option>
-                    <option>Kafrul</option>
-                    <option>Kalabagan</option>
-                    <option>Kamrangirchar</option>
-                    <option>Khilgaon</option>
-                    <option>Khilkhet</option>
-                    <option>Kotwali</option>
-                    <option>Lalbagh</option>
-                    <option>Mirpur</option>
-                    <option>Mohammadpur</option>
-                    <option>Motijheel</option>
-                    <option>New Market</option>
-                    <option>Pallabi</option>
-                    <option>Paltan</option>
-                    <option>Panthapath</option>
-                    <option>Ramna</option>
-                    <option>Rampura</option>
-                    <option>Sabujbagh</option>
-                    <option>Shah Ali</option>
-                    <option>Shahbag</option>
-                    <option>Sher-e-Bangla Nagar</option>
-                    <option>Shyampur</option>
-                    <option>Sutrapur</option>
-                    <option>Tejgaon Industrial Area</option>
-                    <option>Tejgaon</option>
-                    <option>Turag</option>
-                    <option>Uttar Khan</option>
-                    <option>Uttara</option>
-                    <option>Vatara</option>
 
-                </select>
+
+            <div class="col-md-7 rounded-right" style="background-color: #264a96;padding:35px;">
+                <label for="Father's Name"><b>Work Type</b></label>
+                <div class="choices">
+                    <label class="container">
+                        Temporary
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                        Permanent
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                        Elderly Care
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                        Baby Care
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+
+                </div>
+                <!--  </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-8"> -->
+                <label for="Father's Name"><b>Work Area</b></label>
+                <br>
+                <div style="margin-bottom:20px;">
+                    <select class="selectpicker" style="margin-bottom:20px;" data-width="fit" data-style="btn-info" data-live-search="true" multiple>
+                        <option>Adabar</option>
+                        <option>Azampur</option>
+                        <option>Badda</option>
+                        <option>Bangsal</option>
+                        <option>Bimanbandar</option>
+                        <option>Cantonment</option>
+                        <option>Chowkbazar</option>
+                        <option>Darus Salam</option>
+                        <option>Demra</option>
+                        <option>Dhanmondi</option>
+                        <option>Gendaria</option>
+                        <option>Gulshan</option>
+                        <option>Hazaribagh</option>
+                        <option>Kadamtali</option>
+                        <option>Kafrul</option>
+                        <option>Kalabagan</option>
+                        <option>Kamrangirchar</option>
+                        <option>Khilgaon</option>
+                        <option>Khilkhet</option>
+                        <option>Kotwali</option>
+                        <option>Lalbagh</option>
+                        <option>Mirpur</option>
+                        <option>Mohammadpur</option>
+                        <option>Motijheel</option>
+                        <option>New Market</option>
+                        <option>Pallabi</option>
+                        <option>Paltan</option>
+                        <option>Panthapath</option>
+                        <option>Ramna</option>
+                        <option>Rampura</option>
+                        <option>Sabujbagh</option>
+                        <option>Shah Ali</option>
+                        <option>Shahbag</option>
+                        <option>Sher-e-Bangla Nagar</option>
+                        <option>Shyampur</option>
+                        <option>Sutrapur</option>
+                        <option>Tejgaon Industrial Area</option>
+                        <option>Tejgaon</option>
+                        <option>Turag</option>
+                        <option>Uttar Khan</option>
+                        <option>Uttara</option>
+                        <option>Vatara</option>
+
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    <div style="text-align:center;">
-        <button type="button" class="btn btn-outline-dark collapsible">Submit</button>
-    </div>
+        <div style="text-align:center;">
+            <button type="button" class="btn btn-outline-dark collapsible">Submit</button>
+        </div>
+    </form>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
