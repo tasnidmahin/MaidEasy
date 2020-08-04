@@ -27,7 +27,7 @@
 
 
 <body>
-    <form id="form" action="/AdminWorker/CheckInfo" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
+    <form id="form" action="/AdminWorker/AddNewWorker" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
         <div class="row" style="padding-top:100px;">
             <div class="col-md-4 rounded-left columnstyle borderbtm">
                 <div style="text-align:center;">
@@ -42,11 +42,11 @@
                 <label for="Father's Name"><b>Phone</b></label>
                 <input type="text" placeholder="phone no (+8801*********)" name="Phone">
                 <label for="Father's Name"><b>Present Address</b></label>
-                <input type="text" placeholder="Present Address" name="fathername" required>
+                <input type="text" placeholder="Present Address" name="presentAddress" required>
                 <label for="Father's Name"><b>Permanent Address</b></label>
-                <input type="text" placeholder="Permanent Address" name="Phone" required>
+                <input type="text" placeholder="Permanent Address" name="permanentAddress" required>
                 <div style="margin-top:20px;margin-bottom: 20px;">
-                    <select class="selectpicker" data-width="fit" title="Gender">
+                    <select class="selectpicker" data-width="fit" title="Gender" name="gender">
                         <option>Male</option>
                         <option>Female</option>
 
@@ -54,7 +54,7 @@
                     </select>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile">
+                    <input type="file" class="custom-file-input" id="customFile" name="file">
                     <label class="custom-file-label" for="customFile">Choose an Image</label>
                 </div>
                 <!--  <div style="margin-top:20px;">

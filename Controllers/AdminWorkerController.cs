@@ -64,6 +64,17 @@ namespace MaidEasy.Controllers
             return View();
         }
 
+        public ActionResult AddNewWorker()
+        {
+            var name = Request["name"];
+            var fatherName = Request["fathername"];
+            var phone = Request["Phone"];
+            var presentAddress = Request["presentAddress"];
+            var permanentAddress = Request["permanentAddress"];
+            var gender = Request["gender"];
+            return View();
+        }
+
         private string getThanaList(string thanaString)
         {
             string ret = "", sql;
