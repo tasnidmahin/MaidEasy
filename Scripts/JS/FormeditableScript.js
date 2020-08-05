@@ -1,22 +1,57 @@
 ﻿
 
 window.onload = function () {
-    document.getElementById("edit").addEventListener("click", function () {
-        document.getElementById("name").removeAttribute("readonly");
-        document.getElementById("father").removeAttribute("readonly");
-        document.getElementById("phone").removeAttribute("readonly");
 
-        document.getElementById("present").removeAttribute("readonly");
-        document.getElementById("permanent").removeAttribute("readonly");
-        document.getElementById("choicebox").style.display = "block";
-        document.getElementById("choicelist").style.display = "none";
-        document.getElementById("selectbox1").style.display = "block";
-        document.getElementById("selectbox2").style.display = "block";
-        document.getElementById("selectboxhide").style.display = "none";
-        document.getElementById("thanalist").style.display = "none";
-        console.log('done');
+
+ 
+
+    document.getElementById("edit").addEventListener("click", function () {
+
+     
+
+            document.getElementById("edit").innerHTML = "Save";
+
+            document.getElementById("name").removeAttribute("readonly");
+            document.getElementById("father").removeAttribute("readonly");
+            document.getElementById("phone").removeAttribute("readonly");
+
+            document.getElementById("present").removeAttribute("readonly");
+            document.getElementById("permanent").removeAttribute("readonly");
+            document.getElementById("choicebox").style.display = "block";
+            document.getElementById("choicelist").style.display = "none";
+            document.getElementById("selectbox1").style.display = "block";
+            document.getElementById("selectbox2").style.display = "block";
+            document.getElementById("selectboxhide").style.display = "none";
+            document.getElementById("thanalist").style.display = "none";
+            console.log('done');
+        
+
+    /* code for save button 
+        
+       
+            document.getElementById("edit").innerHTML = "Edit";
+            document.getElementById("name").readOnly = true;
+            document.getElementById("father").readOnly = true;
+            document.getElementById("phone").readOnly = true;
+
+            document.getElementById("present").readOnly = true;
+            document.getElementById("permanent").readOnly = true;
+            document.getElementById("choicebox").style.display = "none";
+            document.getElementById("choicelist").style.display = "block";
+            document.getElementById("selectbox1").style.display = "none";
+            document.getElementById("selectbox2").style.display = "none";
+            document.getElementById("selectboxhide").style.display = "block";
+            document.getElementById("thanalist").style.display = "block";
+            console.log('do');
+          
+        
+
+      */
+      
+        
 
     });
+   
 
 }
 
