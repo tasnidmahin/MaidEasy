@@ -7,15 +7,24 @@ body {
     background-color: #000;
 }
 .area{
-    margin-top:80px;
+    padding-top:80px;
+}
+
+#selectbox1{
+    display:none;
+}
+
+#selectboxhide {
+    display: block;
 }
 .autocomplete {
     /*the container must be positioned relative:*/
-    /position: relative;
-    display: inline-block;
+    /* position: relative;
+    display: inline-block;*/
 }
 
-.row {
+ .row 
+     {
     margin-right: 0px;
     margin-left: 0px;
 }
@@ -49,8 +58,26 @@ label {
 
 .choices {
     padding: 20px 50px 30px 0px;
+  
+}
+#choicebox{
+    display:none;
+}
+#choicelist {
+    display: block;
+    padding-left: 30px;
+    font-size: 1rem;
 }
 
+#selectbox2{
+    display:none;
+}
+
+#thanalist {
+    display: block;
+    padding-left: 30px;
+    font-size: 1rem;
+}
 .container {
     display: block;
     position: relative;
@@ -78,6 +105,7 @@ label {
     display: block;
     margin: auto;
     margin-top:20px;
+    margin-bottom:50px;
 }
 .checkmark {
     position: absolute;

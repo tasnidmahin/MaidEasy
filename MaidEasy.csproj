@@ -198,6 +198,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JS\collpasible.js" />
     <Content Include="Scripts\JS\editprofilescript.js" />
+    <Content Include="Scripts\JS\FormeditableScript.js" />
     <Content Include="Scripts\JS\Header.js" />
     <Content Include="Scripts\JS\hire.js" />
     <Content Include="Scripts\JS\hirenew.js" />

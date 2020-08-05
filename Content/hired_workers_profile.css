@@ -64,7 +64,7 @@
 
 .card-box {
     width: 400px;
-    height: 650px;
+    height: 700px;
     background: #FFFFFF;
     border-radius: 6px;
     /* position: absolute;*/
@@ -177,5 +177,5 @@
 
 li {
     white-space: nowrap;
-    margin-left: 80px;
+    margin-left: 1em;
 }

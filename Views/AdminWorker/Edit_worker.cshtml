@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <title> Edit Worker </title>
     <link href="~/Content/edit_worker.css" rel="stylesheet" />
-
+    <script src="~/Scripts/JS/FormeditableScript.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
@@ -34,41 +34,55 @@
                 <div id="user-photo-wrapper">
                     <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image">
                 </div>
-
+              
             </div>
             <div class="col-md-7 rounded-right" style="background-color:#e4e5e8;padding: 25px;padding-left:50px;">
+
                 <label for="Name"><b>Name</b></label>
-                <input type="text" placeholder="Name" name="name" value="Taqi" required>
+                <input id="name" type="text" placeholder="Name" name="name" value="Taqi" readonly required>
                 <label for="Father's Name"><b>Father's Name</b></label>
-                <input type="text" placeholder="Father's Name" name="fathername" value="Taqi" required>
+                <input id="father" type="text" placeholder="Father's Name" name="fathername" value="Taqi" readonly required>
                 <label for="Father's Name"><b>Phone</b></label>
-                <input type="text" placeholder="phone no (+8801*********)" name="Phone" value="Taqi">
+                <input id="phone" type="text" placeholder="phone no (+8801*********)" name="Phone" value="Taqi" readonly required>
                 <label for="Father's Name"><b>Present Address</b></label>
-                <input type="text" placeholder="Present Address" name="fathername" value="Taqi" required>
+                <input id="present" type="text" placeholder="Present Address" name="fathername" value="Taqi" readonly required>
                 <label for="Father's Name"><b>Permanent Address</b></label>
-                <input type="text" placeholder="Permanent Address" name="Phone" value="Taqi" required>
-                <div style="margin-top:20px;margin-bottom: 20px;">
+                <input id="permanent" type="text" placeholder="Permanent Address" name="Phone" value="Taqi" readonly required>
+
+
+                <div id="selectbox1" style="margin-top:20px;margin-bottom: 20px;">
+
                     <select class="selectpicker" data-width="fit" title="Gender">
                         <option>Male</option>
                         <option>Female</option>
 
 
                     </select>
+
                 </div>
-
+                <div id="selectboxhide" style="margin-bottom: 20px;">
+                    <label for="Father's Name"><b>Gender</b></label>
+                    <input type="text" value="Male" readonly>
+                </div>
                 <!--  <div style="margin-top:20px;">
-                    <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
-                        <option>Temporary</option>
-                        <option>Permanent</option>
-                        <option>Elderly Care</option>
-                        <option>Baby Care</option>
+        <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
+            <option>Temporary</option>
+            <option>Permanent</option>
+            <option>Elderly Care</option>
+            <option>Baby Care</option>
 
 
-                    </select>
-                </div>-->
+        </select>
+    </div>-->
 
                 <label for="Father's Name"><b>Work Type</b></label>
-                <div class="choices">
+                <div id="choicelist" class="choices">
+                    <ul>
+                        <li>Temporary</li>
+                    </ul>
+
+                </div>
+                <div id="choicebox" class="choices">
                     <label class="container">
                         Temporary
                         <input type="checkbox" checked="checked">
@@ -95,12 +109,19 @@
 
                 </div>
                 <!--  </div>
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-8"> -->
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8"> -->
                 <label for="Father's Name"><b>Work Area</b></label>
                 <br>
-                <div style="margin-bottom:20px;">
+                <div id="thanalist" class="choices">
+                    <ul>
+                        <li>Gulshan</li>
+                        <li>Badda</li>
+                    </ul>
+
+                </div>
+                <div id="selectbox2" style="margin-bottom:20px;">
                     <select class="selectpicker" style="margin-bottom:20px;" data-width="fit" data-style="btn-info" data-live-search="true" multiple>
                         <option>Adabar</option>
                         <option>Azampur</option>
@@ -147,9 +168,11 @@
 
                     </select>
                 </div>
+
                 <div style="text-align:center;">
-                    <button type="button" style="margin-right: 40px;" class="btn btn-outline-dark collapsible">Delete</button>
-                    <button type="button" class="btn btn-outline-dark collapsible">Save</button>
+                    <button id="edit" type="button" style="margin-right: 40px;"  class="btn btn-outline-dark collapsible">Edit</button>
+                    <button type="button" class="btn btn-outline-dark collapsible">Delete</button>
+
                 </div>
 
 
