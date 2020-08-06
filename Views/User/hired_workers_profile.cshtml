@@ -9,11 +9,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     <link href="~/Content/hired_workers_profile.css" rel="stylesheet"/>
 
     <title>Hired Workers Profile</title>
@@ -100,7 +98,7 @@
                             <h3 class="category">Amount:<span class="user-input">@data1[i, 5] BDT</span></h3>
                             <h3 class="category">
                                 Work-list:<span class="user-input"style="display:inline-block;">
-                                              <ul>
+                                              <ul style="padding-left:0px;">
                                                   
                                                   @for (int j = 0; j < Wcnt - 1; j++)
                                                   {
@@ -118,9 +116,9 @@
     <button type="button" id="hw_button">Give Feedback</button>
 
     </div> -->
-                    <button type="submit" class="btn btn-primary" name="maid" value="@data1[i, 7]">Give Feedback</button>
+                    <button type="submit" class="btn buttonprimary" name="maid" value="@data1[i, 7]">Give Feedback</button>
                     <br>
-                    <button class="btn btn-primary">View Profile</button>
+                    <button class="btn buttonprimary">View Profile</button>
                 </div>
                     <br />
                 }
@@ -170,13 +168,15 @@
                             <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
                             <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
                             <h3 class="category">
-                                Work-list:<span class="user-input">
-                                    @for (int j = 0; j < Wcnt - 1; j++)
-                                    {
-                                        <li>@strlist[j]</li>
-                                    }
+                                Work-list:<span class="user-input" style="display:inline-block;">
+    <ul style="padding-left:0px;">
+        @for (int j = 0; j < Wcnt - 1; j++)
+        {
+            <li>@strlist[j]</li>
+        }
 
-                                </span>
+    </ul>
+</span>
                             </h3>
 
 
@@ -186,8 +186,8 @@
 
 
 
-                    <button type="submit" class="btn btn-primary" name="maid" value="@data2[i, 7]">Give Feedback</button>
-                    <button  type="button" class="btn btn-outline-dark">Save</button>
+                    <button type="submit" class="btn buttonprimary" name="maid" value="@data2[i, 7]">Give Feedback</button>
+                    <button  type="button" class="btn buttonprimary">View Profile</button>
 
 
                 </div>

@@ -89,17 +89,17 @@
 
 .hw_button {
     color: #00ccff;
-   margin: 20px;
+    margin: 20px;
     border-radius: 20px;
     width: 150px;
     height: 60px;
     /* font-size: x-large;*/
     /* font-weight: bold; */
-    font-size: 22px;
+    font-size: 20px;
     background-color: #001a33;
     border-color: #00ccff;
-   /* border-width: thick;*/
-    font-family: "Helvetica","Arial","sans-serif";
+    /* border-width: thick;
+    font-family: "Helvetica","Arial","sans-serif";*/
 }
     .hw_button:hover {
         background-color: #fff;
