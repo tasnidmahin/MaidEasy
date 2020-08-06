@@ -51,27 +51,31 @@
                         <th> </th>
                     </tr>
                 </thead>
+                <form action="/AdminWorker/Edit_Worker" method="get">
 
-                @{
-                    string[,] WorkerList = (string[,])Session["WorkerList"];
-                }
-                @for (int i = 0; i < Convert.ToInt32(Session["WorkerList_Count"]); i++)
-                {
-                    <tbody id="myTable">
-                        <tr>
-                            <td>@WorkerList[i, 0]</td>
-                            <td>@WorkerList[i, 1]</td>
-                            <td>@WorkerList[i, 2]</td>
-                            <td>@WorkerList[i, 3]</td>
-                            <td>@WorkerList[i, 4]</td>
-                            <td>@WorkerList[i, 5]</td>
-                            <td>@WorkerList[i, 6]</td>
-                            <td>@WorkerList[i, 7]</td>
-                            <td class="middle"><button type="button" class="btn btn-outline-dark">View Profile</button></td>
-                        </tr>
-                    </tbody>
-                }
-                </table>
+                    @{
+                        string[,] WorkerList = (string[,])Session["WorkerList"];
+                    }
+                    @for (int i = 0; i < Convert.ToInt32(Session["WorkerList_Count"]); i++)
+                    {
+                        <tbody id="myTable">
+                            <tr>
+                                <td>@WorkerList[i, 0]</td>
+                                <td>@WorkerList[i, 1]</td>
+                                <td>@WorkerList[i, 2]</td>
+                                <td>@WorkerList[i, 3]</td>
+                                <td>@WorkerList[i, 4]</td>
+                                <td>@WorkerList[i, 5]</td>
+                                <td>@WorkerList[i, 6]</td>
+                                <td>@WorkerList[i, 7]</td>
+                                <td class="middle">
+                                    <button type="submit" class="btn btn-outline-dark" name="worker" value="@WorkerList[i, 0]">View Profile</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </form>
+            </table>
         </div>
     </div>
     <script src="~/Scripts/JS/Worker.js"></script>

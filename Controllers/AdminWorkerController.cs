@@ -61,6 +61,7 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Edit_Worker()
         {
+            var id = Request["worker"];
             return View();
         }
 
