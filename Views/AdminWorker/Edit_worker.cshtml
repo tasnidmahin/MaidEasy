@@ -29,40 +29,64 @@
 
 <body>
     <div class="area">
+        @{ 
+            string[] WorkerData = (string[])ViewData["WorkerData"];
+
+            string temp = WorkerData[6];
+            String[] spearator = { "\n" };
+            String[] typeList = temp.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
+            int TypeCnt = typeList.Length;
+
+
+            temp = WorkerData[7];
+            String[] areaList = temp.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
+            int areaCnt = areaList.Length;
+
+            string typeString = WorkerData[9];
+        }
         <div class="row" style="margin-bottom:40px;">
             <div class="col-md-3 rounded-left columnstyle">
                 <div id="user-photo-wrapper">
-                    <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image">
+                    <img id="user-photo" src="~/Content/Images/profile.jpg" alt="Worker profile image">
                 </div>
               
             </div>
             <div class="col-md-7 rounded-right" style="background-color:#e4e5e8;padding: 25px;padding-left:50px;">
 
                 <label for="Name"><b>Name</b></label>
-                <input id="name" type="text" placeholder="Name" name="name" value="Taqi" readonly required>
+                <input id="name" type="text" placeholder="Name" name="name" value="@WorkerData[0]" readonly required>
                 <label for="Father's Name"><b>Father's Name</b></label>
-                <input id="father" type="text" placeholder="Father's Name" name="fathername" value="Taqi" readonly required>
+                <input id="father" type="text" placeholder="Father's Name" name="fathername" value="@WorkerData[1]" readonly required>
                 <label for="Father's Name"><b>Phone</b></label>
-                <input id="phone" type="text" placeholder="phone no (+8801*********)" name="Phone" value="Taqi" readonly required>
+                <input id="phone" type="text" placeholder="phone no (+8801*********)" name="Phone" value="@WorkerData[2]" readonly required>
                 <label for="Father's Name"><b>Present Address</b></label>
-                <input id="present" type="text" placeholder="Present Address" name="fathername" value="Taqi" readonly required>
+                <input id="present" type="text" placeholder="Present Address" name="fathername" value="@WorkerData[3]" readonly required>
                 <label for="Father's Name"><b>Permanent Address</b></label>
-                <input id="permanent" type="text" placeholder="Permanent Address" name="Phone" value="Taqi" readonly required>
+                <input id="permanent" type="text" placeholder="Permanent Address" name="Phone" value="@WorkerData[4]" readonly required>
 
 
                 <div id="selectbox1" style="margin-top:20px;margin-bottom: 20px;">
 
                     <select class="selectpicker" data-width="fit" title="Gender">
-                        <option>Male</option>
-                        <option>Female</option>
-
+                        @{
+                            if (WorkerData[5].ToString().Equals("Male"))
+                            {
+                                <option selected="selected">Male</option>
+                                <option>Female</option>
+                            }
+                            else
+                            {
+                                <option>Male</option>
+                                <option selected="selected">Female</option>
+                            }
+                        }
 
                     </select>
 
                 </div>
                 <div id="selectboxhide" style="margin-bottom: 20px;">
-                    <label for="Father's Name"><b>Gender</b></label>
-                    <input type="text" value="Male" readonly>
+                    <label for="Gender"><b>Gender</b></label>
+                    <input type="text" value="@WorkerData[5]" readonly>
                 </div>
                 <!--  <div style="margin-top:20px;">
         <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
@@ -75,35 +99,78 @@
         </select>
     </div>-->
 
-                <label for="Father's Name"><b>Work Type</b></label>
+                <label for="Work Type"><b>Work Type</b></label>
                 <div id="choicelist" class="choices">
                     <ul>
-                        <li>Temporary</li>
+                        @{  for (int i = 0; i < TypeCnt; i++)
+                            {
+                                <li>@typeList[i]</li>
+                            }
+                        }
+
                     </ul>
 
                 </div>
                 <div id="choicebox" class="choices">
                     <label class="container">
                         Temporary
-                        <input type="checkbox" checked="checked">
+                        @{
+                            if (typeString[0] == '1') {
+                                <input type="checkbox" checked="checked">}
+                            else {
+                                <input type="checkbox" >
+                            }
+
+
+                        }
                         <span class="checkmark"></span>
                     </label>
 
                     <label class="container">
                         Permanent
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
+                        @{
+                            if (typeString[1] == '1')
+                            {
+                                <input type="checkbox" checked="checked">}
+                            else
+                            {
+                                <input type="checkbox">
+                            }
 
-                    <label class="container">
-                        Elderly Care
-                        <input type="checkbox">
+
+                        }
                         <span class="checkmark"></span>
                     </label>
 
                     <label class="container">
                         Baby Care
-                        <input type="checkbox">
+                        @{
+                            if (typeString[2] == '1')
+                            {
+                                <input type="checkbox" checked="checked">}
+                            else
+                            {
+                                <input type="checkbox">
+                            }
+
+
+                        }
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                        Elderly Care
+                        @{
+                            if (typeString[3] == '1')
+                            {
+                                <input type="checkbox" checked="checked">}
+                            else
+                            {
+                                <input type="checkbox">
+                            }
+
+
+                        }
                         <span class="checkmark"></span>
                     </label>
 

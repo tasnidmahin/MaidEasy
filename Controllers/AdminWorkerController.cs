@@ -62,6 +62,26 @@ namespace MaidEasy.Controllers
         public ActionResult Edit_Worker()
         {
             var id = Request["worker"];
+            string sql = "SELECT Name,fatherName,mobile,PresentAddress,PermanentAddress,gender,type,Area,image from worker where WorkerId = '" + id + "'";
+
+            DBHelper db = DBHelper.getDB();
+            var table = db.getData(sql);
+            table.Read();
+            string[] data = new string[10];
+            data[0] = table.GetString(0);
+            data[1] = table.GetString(1);
+            data[2] = table.GetString(2);
+            data[3] = table.GetString(3);
+            data[4] = table.GetString(4);
+            data[5] = table.GetString(5);
+            data[6] = table.GetString(6);
+            data[7] = table.GetString(7);
+            data[8] = table.GetString(8);
+            table.Close();
+
+            data[9] = data[6];
+            data[6] = getWorkerTypeList(data[6]);
+            ViewData["WorkerData"] = data;
             return View();
         }
 
