@@ -145,13 +145,13 @@
     .content {
         display: none;
     }
-.btn-primary {
+.buttonprimary {
     color: #77c1e4;
     margin: 20px;
     border-radius: 20px;
-    width: 150px;
+    width: 170px;
     height: 50px;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
     background-color: #001a33;
     border-color: #77c1e4;

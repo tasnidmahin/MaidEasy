@@ -7,62 +7,139 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <script src="~/Scripts/JS/Header.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- <script src="~/Scripts/JS/Header.js"></script>-->
     <link href="~/Content/Header.css" rel="stylesheet">
 
 </head>
 <body>
-    <div class="topnav" id="myTopnav">
-        @if (Session["username"] != null)
+    <!-- <div class="topnav" id="myTopnav">
+            @if (Session["username"] != null)
 
-        {
-            <div class="dropdown-header">
-                <button class="dropbtn-header">
-                    @Session["username"]
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-header-content">
-                    <a href="@Url.Action("user_profile", "User")">Profile</a>
-                    <a href="@Url.Action("Logout", "Register")">logout</a>
+            {
+                <div class="dropdown-header">
+                    <button class="dropbtn-header">
+                        @Session["username"]
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-header-content">
+                        <a href="@Url.Action("user_profile", "User")">Profile</a>
+                        <a href="@Url.Action("Logout", "Register")">logout</a>
+                    </div>
                 </div>
-            </div>
-        }
-        @if (Session["username"] == null)
-        {
-            <a href="@Url.Action("LogIn", "Register")" style="margin-right:20px;">Login</a>
-        }
+            }
+            @if (Session["username"] == null)
+            {
+                <a href="@Url.Action("LogIn", "Register")" style="margin-right:20px;">Login</a>
+            }
 
-        @if (Session["uType"] != null)
-        {
-            if (Session["uType"].ToString() == "general")
+            @if (Session["uType"] != null)
+            {
+                if (Session["uType"].ToString() == "general")
+                {
+                    <a href="@Url.Action("Index", "Home")">Home</a>
+                    <a href="@Url.Action("Service", "Service")">Service</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#about">About</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Admin_home", "Admin")">Home</a>
+                }
+            }
+            else
             {
                 <a href="@Url.Action("Index", "Home")">Home</a>
                 <a href="@Url.Action("Service", "Service")">Service</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
             }
-            else
-            {
-                <a href="@Url.Action("Admin_home", "Admin")">Home</a>
-            }
-        }
-        else
-        {
-            <a href="@Url.Action("Index", "Home")">Home</a>
-            <a href="@Url.Action("Service", "Service")">Service</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-        }
 
 
-        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+    -->
+     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+         <a class="navbar-brand" href="#">Navbar</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+         </button>
 
+         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                 @if (Session["uType"] != null)
+                 {
+                     if (Session["uType"].ToString() == "general")
+                     {
+                         <li class="nav-item">
+                             <a class="nav-link" href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="@Url.Action("Service", "Service")">Service</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">Contact</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">About</a>
+                         </li>
+                     }
 
+                     else
+                     {
+                         <li class="nav-item">
+                             <a class="nav-link" href="@Url.Action("Admin_home", "Admin")">Home</a>
+                         </li>
+                     }
+                 }
+                 else
+                 {
+                     <li class="nav-item">
+                         <a class="nav-link" href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="@Url.Action("Service", "Service")">Service</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="#">Contact</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="#">About</a>
+                     </li>
+
+                 }
+                 @if (Session["username"] != null)
+
+                 {
+                     <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             @Session["username"]
+                         </a>
+                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                             <a class="dropdown-item" href="@Url.Action("user_profile", "User")">Profile</a>
+                             <a class="dropdown-item" href="@Url.Action("Logout", "Register")">Log Out</a>
+
+                         </div>
+                     </li>
+                 }
+                 @if (Session["username"] == null)
+                 {
+                     <li class="nav-item">
+                         <a class="nav-link" href="@Url.Action("LogIn", "Register")">Log In</a>
+                     </li>
+                 }
+             </ul>
+
+         </div>
+     </nav>  
+
+  
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
 

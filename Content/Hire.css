@@ -75,7 +75,7 @@
 }
 
 h3 {
-    color: #fff;
+    color: #fff !important;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -152,8 +152,8 @@ strong {
 .container {
     display: block;
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
+    padding-left: 35px !important;
+    margin-bottom: 12px !important;
     cursor: pointer;
     font-size: 22px;
     user-select: none;
