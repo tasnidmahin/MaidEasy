@@ -29,7 +29,7 @@
 
 <body>
     <div class="area">
-        @{ 
+        @{
             string[] WorkerData = (string[])ViewData["WorkerData"];
 
             string temp = WorkerData[6];
@@ -49,7 +49,7 @@
                 <div id="user-photo-wrapper">
                     <img id="user-photo" src="~/Content/Images/profile.jpg" alt="Worker profile image">
                 </div>
-              
+
             </div>
             <div class="col-md-7 rounded-right" style="background-color:#e4e5e8;padding: 25px;padding-left:50px;">
 
@@ -89,20 +89,20 @@
                     <input type="text" value="@WorkerData[5]" readonly>
                 </div>
                 <!--  <div style="margin-top:20px;">
-        <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
-            <option>Temporary</option>
-            <option>Permanent</option>
-            <option>Elderly Care</option>
-            <option>Baby Care</option>
+                    <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
+                        <option>Temporary</option>
+                        <option>Permanent</option>
+                        <option>Elderly Care</option>
+                        <option>Baby Care</option>
 
 
-        </select>
-    </div>-->
+                    </select>
+                </div>-->
 
                 <label for="Work Type"><b>Work Type</b></label>
                 <div id="choicelist" class="choices">
                     <ul>
-                        @{  for (int i = 0; i < TypeCnt; i++)
+                        @{ for (int i = 0; i < TypeCnt; i++)
                             {
                                 <li>@typeList[i]</li>
                             }
@@ -115,10 +115,12 @@
                     <label class="container">
                         Temporary
                         @{
-                            if (typeString[0] == '1') {
+                            if (typeString[0] == '1')
+                            {
                                 <input type="checkbox" checked="checked">}
-                            else {
-                                <input type="checkbox" >
+                            else
+                            {
+                                <input type="checkbox">
                             }
 
 
@@ -176,9 +178,9 @@
 
                 </div>
                 <!--  </div>
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-8"> -->
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-8"> -->
                 <label for="Father's Name"><b>Work Area</b></label>
                 <br>
                 <div id="thanalist" class="choices">
@@ -237,7 +239,7 @@
                 </div>
 
                 <div style="text-align:center;">
-                    <button id="edit" type="button" style="margin-right: 40px;"  class="btn btn-outline-dark collapsible">Edit</button>
+                    <button id="edit" type="button" style="margin-right: 40px;" class="btn btn-outline-dark collapsible">Edit</button>
                     <button type="button" class="btn btn-outline-dark collapsible">Delete</button>
 
                 </div>
