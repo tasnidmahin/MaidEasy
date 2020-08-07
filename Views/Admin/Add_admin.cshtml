@@ -62,30 +62,66 @@
             <input class="form-control" id="tableSearch" type="text"
                    placeholder="Type something to search list items">
         </div>
+       <div  class="table-responsive">
         <table class="table table-bordered table-striped table-sm" style="margin:auto;" id="myTable">
-            <thead>
+            <thead class="thead-dark">
                 <tr>
-                    <th onclick="sortTable(0)">Thana ID</th>
-                    <th onclick="sortTable(1)">Thana Name</th>
+                    <th onclick="sortTable(0)">User ID</th>
+                    <th onclick="sortTable(1)">User Name</th>
+                    <th onclick="sortTable(2)">Full Name</th>
+                    <th onclick="sortTable(3)">Mobile</th>
+                    <th onclick="sortTable(4)">Thana</th>
+                    <th>Action</th>
 
 
 
-                    <th> </th>
+
+
+                   
                 </tr>
             </thead>
             <tbody id="myTable">
                 <tr>
                     <td>1</td>
                     <td>Toe</td>
+                    <td>Toe</td>
+                    <td>01781264784</td>
+                    <td>Toe</td>
 
-                    <td class="middle"><button type="button" class="btn btn-outline-dark">Delete</button></td>
+
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary  btn-sm  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">View Profile</a>
+                                <a class="dropdown-item" href="#">Make Admin</a>
+                                <a class="dropdown-item" href="#">Block</a>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>Doe</td>
+                    <td>Toe</td>
+                    <td>Toe</td>
+                    <td>01781264784</td>
+                    <td>Toe</td>
 
 
-                    <td class="middle"><button type="button" class="btn btn-outline-dark">Delete</button></td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary  btn-sm  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">View Profile</a>
+                                <a class="dropdown-item" href="#">Make Admin</a>
+                                <a class="dropdown-item" href="#">Block</a>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>1</td>
@@ -103,6 +139,7 @@
                 </tr>
             </tbody>
         </table>
+           </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
