@@ -2,12 +2,15 @@
     box-sizing: border-box;
 }
 
+.dropdown-menu{
+    z-index:1999;
+}
 body {
     padding: 0;
     background-color: #000;
 }
 .area{
-    padding-top:80px;
+    padding-top:150px;
 }
 
 #selectbox1{
