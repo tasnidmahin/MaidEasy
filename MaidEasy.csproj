@@ -245,7 +245,7 @@
     <Content Include="Views\Admin\Thanalist.cshtml" />
     <Content Include="Views\Admin\Edit_thanalist.cshtml" />
     <Content Include="Views\Admin\Edit_admin.cshtml" />
-    <Content Include="Views\Admin\Add_admin.cshtml" />
+    <Content Include="Views\Admin\UserLIst.cshtml" />
     <Content Include="Views\Maid\Hire_new.cshtml" />
     <Content Include="Views\AdminWorker\Add_worker.cshtml" />
     <Content Include="Views\AdminWorker\Edit_worker.cshtml" />
