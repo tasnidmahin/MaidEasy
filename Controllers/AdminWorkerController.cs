@@ -81,6 +81,19 @@ namespace MaidEasy.Controllers
 
             data[9] = data[6];
             data[6] = getWorkerTypeList(data[6]);
+
+            int cnt = data[7].Length;
+            sql = "SELECT Name from thana";
+            string[] thanaList = new string[cnt];
+            int i = 0;
+            table = db.getData(sql);
+            while (table.Read())
+            {
+                thanaList[i++] = table.GetString(0);
+            }
+            table.Close();
+
+            ViewData["thanaList"] = thanaList;
             ViewData["WorkerData"] = data;
             return View();
         }

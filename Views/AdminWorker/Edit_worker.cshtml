@@ -31,6 +31,7 @@
     <div class="area">
         @{
             string[] WorkerData = (string[])ViewData["WorkerData"];
+            string[] thanaList = (string[])ViewData["thanaList"];
 
             string temp = WorkerData[6];
             String[] spearator = { "\n" };
@@ -39,10 +40,11 @@
 
 
             temp = WorkerData[7];
-            String[] areaList = temp.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
-            int areaCnt = areaList.Length;
+            //String[] areaList = temp.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
+            int areaCnt = temp.Length;
 
             string typeString = WorkerData[9];
+            string areaString = temp;
         }
         <div class="row" style="margin-bottom:80px;">
             <div class="col-md-3 rounded-left columnstyle">
@@ -185,55 +187,33 @@
                 <br>
                 <div id="thanalist" class="choices">
                     <ul>
-                        <li>Gulshan</li>
-                        <li>Badda</li>
+                        @{ 
+                            for(int i=0;i<areaCnt;i++)
+                            {
+                                if(areaString[i] == '1')
+                                {
+                                    <li> @thanaList[i]</li>
+                                }
+                            }
+                        }
                     </ul>
 
                 </div>
                 <div id="selectbox2" style="margin-bottom:20px;">
                     <select class="selectpicker" style="margin-bottom:20px;" data-width="fit" data-style="btn-info" data-live-search="true" multiple>
-                        <option>Adabar</option>
-                        <option>Azampur</option>
-                        <option>Badda</option>
-                        <option>Bangsal</option>
-                        <option selected="selected">Bimanbandar</option>
-                        <option>Cantonment</option>
-                        <option>Chowkbazar</option>
-                        <option>Darus Salam</option>
-                        <option>Demra</option>
-                        <option>Dhanmondi</option>
-                        <option>Gendaria</option>
-                        <option>Gulshan</option>
-                        <option>Hazaribagh</option>
-                        <option>Kadamtali</option>
-                        <option>Kafrul</option>
-                        <option>Kalabagan</option>
-                        <option>Kamrangirchar</option>
-                        <option>Khilgaon</option>
-                        <option>Khilkhet</option>
-                        <option>Kotwali</option>
-                        <option>Lalbagh</option>
-                        <option>Mirpur</option>
-                        <option>Mohammadpur</option>
-                        <option>Motijheel</option>
-                        <option>New Market</option>
-                        <option>Pallabi</option>
-                        <option>Paltan</option>
-                        <option>Panthapath</option>
-                        <option>Ramna</option>
-                        <option>Rampura</option>
-                        <option>Sabujbagh</option>
-                        <option>Shah Ali</option>
-                        <option>Shahbag</option>
-                        <option>Sher-e-Bangla Nagar</option>
-                        <option>Shyampur</option>
-                        <option>Sutrapur</option>
-                        <option>Tejgaon Industrial Area</option>
-                        <option>Tejgaon</option>
-                        <option>Turag</option>
-                        <option>Uttar Khan</option>
-                        <option>Uttara</option>
-                        <option>Vatara</option>
+                        @{
+                            for (int i = 0; i < areaCnt; i++)
+                            {
+                                if (areaString[i] == '1')
+                                {
+                                    <option selected="selected">@thanaList[i]</option>
+                                }
+                                else
+                                {
+                                    <option >@thanaList[i]</option>
+                                }
+                            }
+                        }
 
                     </select>
                 </div>
