@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -126,9 +127,16 @@ namespace MaidEasy.Controllers
             bool elderlyCareType = (Request["elderlyCareType"] == "on") ? true : false;
 
             var area = Request["area"];
+            var thana = getThanaString(area);
+            var type = getTypeString(temporaryType, permanentType, babyCareType, elderlyCareType);
+
+
+            string sql = "UPDATE worker set Name = '" + name + "', fatherName = '" + fathername + "', mobile = '" + Phone + "', PresentAddress = '" + PresentAddress + "', PermanentAddress = '" + PermanentAddress + "', gender = '" + gender + "', type = '" + type + "', Area = '" + thana + "' where WorkerId = '" + Session["workerID"] + "'";
+            DBHelper db = DBHelper.getDB();
+            db.setData(sql);
 
             System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
-            System.Diagnostics.Debug.WriteLine(area);
+            System.Diagnostics.Debug.WriteLine(thana);
             System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
             return RedirectToAction("Edit_Worker", "AdminWorker");
         }
@@ -173,6 +181,66 @@ namespace MaidEasy.Controllers
                 }
                 i++;
             }
+            return ret;
+        }
+
+        private string getThanaString(string list)
+        {
+            string ret = "";
+            String[] spearator = { "," };
+            String[] areaList = list.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
+            int sz = areaList.Length;
+            int[] IDs = new int[sz];
+
+
+
+            DBHelper db = DBHelper.getDB();
+            for(int i=0;i<sz;i++)
+            {
+                string name = areaList[i];
+                string Sql = "SELECT ThanaId from thana WHERE Name = '" + name + "' ";
+                var Table = db.getData(Sql);
+                Table.Read();
+                int a = Int32.Parse(Table.GetString(0));
+                IDs[i] = a;
+                Table.Close();
+            }
+
+
+
+            string sql = "SELECT MAX(ThanaId) from thana";
+            var table = db.getData(sql);
+            table.Read();
+            int cnt = Int32.Parse(table.GetString(0));
+            table.Close();
+
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0,j=0; i < cnt; i++)
+            {
+                if(j<sz && IDs[j] == i+1)
+                {
+                    builder.Append("1");
+                    j++;
+                }
+                else builder.Append("0");
+            }
+            ret = builder.ToString();
+            return ret;
+        }
+
+        private string getTypeString(bool a, bool b, bool c, bool d)
+        {
+            StringBuilder builder = new StringBuilder();
+            if (a) builder.Append("1");
+            else builder.Append("0");
+            if (b) builder.Append("1");
+            else builder.Append("0");
+            if (c) builder.Append("1");
+            else builder.Append("0");
+            if (d) builder.Append("1");
+            else builder.Append("0");
+
+            string ret = builder.ToString();
             return ret;
         }
     }

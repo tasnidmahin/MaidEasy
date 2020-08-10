@@ -56,7 +56,7 @@ namespace MaidEasy.Controllers
         {
             return View();
         }
-        public ActionResult Add_admin()
+        public ActionResult UserList()
         {
             return View();
         }
