@@ -258,3 +258,12 @@ label {
     .collapsible:focus {
         outline: none;
     }
+
+
+#save {
+    display: none ;
+}
+
+#edit {
+    display: block ;
+}

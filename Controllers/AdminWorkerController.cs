@@ -61,7 +61,9 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Edit_Worker()
         {
-            var id = Request["worker"];
+            if (Request["workerID"] != null) Session["workerID"] = Request["workerID"];
+
+            var id = Session["workerID"];
             string sql = "SELECT Name,fatherName,mobile,PresentAddress,PermanentAddress,gender,type,Area,image from worker where WorkerId = '" + id + "'";
 
             DBHelper db = DBHelper.getDB();
@@ -109,6 +111,14 @@ namespace MaidEasy.Controllers
             return View();
         }
 
+        public ActionResult SaveWorkerData()
+        {
+            var name = Request["name"];
+            System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
+            System.Diagnostics.Debug.WriteLine(name);
+            System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
+            return RedirectToAction("Edit_Worker", "AdminWorker");
+        }
         private string getThanaList(string thanaString)
         {
             string ret = "", sql;
