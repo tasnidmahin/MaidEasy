@@ -1,4 +1,11 @@
-﻿// Filter table
+﻿
+document.getElementById("makeadmin").addEventListener("click", function () {
+    document.getElementById("makeadmin").innerHTML = "Remove";
+    //console.log('here');
+
+});
+
+// Filter table
 
 $(document).ready(function () {
     $("#tableSearch").on("keyup", function () {
