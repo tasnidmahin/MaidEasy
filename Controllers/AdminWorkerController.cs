@@ -114,8 +114,21 @@ namespace MaidEasy.Controllers
         public ActionResult SaveWorkerData()
         {
             var name = Request["name"];
+            var fathername = Request["fathername"];
+            var Phone = Request["Phone"];
+            var PresentAddress = Request["PresentAddress"];
+            var PermanentAddress = Request["PermanentAddress"];
+            //var gender = gender.Items[gender.SelectedIndex].Text;
+            var gender = Request["gender"];
+            bool temporaryType = (Request["temporaryType"] == "on") ? true : false;
+            bool permanentType = (Request["permanentType"] == "on") ? true : false;
+            bool babyCareType = (Request["babyCareType"] == "on") ? true : false;
+            bool elderlyCareType = (Request["elderlyCareType"] == "on") ? true : false;
+
+            var area = Request["area"];
+
             System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
-            System.Diagnostics.Debug.WriteLine(name);
+            System.Diagnostics.Debug.WriteLine(area);
             System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
             return RedirectToAction("Edit_Worker", "AdminWorker");
         }
