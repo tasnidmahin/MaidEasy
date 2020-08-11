@@ -262,5 +262,14 @@ namespace MaidEasy.Controllers
             string ret = builder.ToString();
             return ret;
         }
+
+        public ActionResult DeleteWorker()
+        {
+            DBHelper db = DBHelper.getDB();
+            string sql = "DELETE from worker where WorkerId = '" + Session["workerID"] + "' ";
+            db.setData(sql);
+            Session.Remove("workerID");
+            return RedirectToAction("WorkerList", "AdminWorker");
+        }
     }
 }
