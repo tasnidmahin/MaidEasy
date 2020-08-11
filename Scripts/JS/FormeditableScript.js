@@ -44,6 +44,7 @@ window.onload = function () {
 
             document.getElementById("edit").style.display = "none";
             document.getElementById("save").style.display = "block";
+            document.getElementById("file").style.display = "block";
             console.log('done');
         //}
 

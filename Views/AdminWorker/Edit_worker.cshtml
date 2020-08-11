@@ -51,13 +51,15 @@
             source = source + WorkerData[8].ToString();
 
         }
-        <form action="/AdminWorker/SaveWorkerData" method="get">
+        <form action="/AdminWorker/SaveWorkerData" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
         <!-- <form  onsubmit="return false"> -->
         <div class="row" style="margin-bottom:80px;">
             <div class="col-md-3 rounded-left columnstyle">
                 <div id="user-photo-wrapper">
-                    <img id="user-photo" src="@source" alt="Worker profile image">
+                    <img id="user-photo" src="@source" alt="Worker profile image" >
                 </div>
+                <input type="hidden" name="img" value="@WorkerData[8].ToString()" />
+                <input id="file" type="file" accept='image/*' name="file" >
 
             </div>
             <div class="col-md-7 rounded-right" style="background-color:#e4e5e8;padding: 25px;padding-left:50px;">

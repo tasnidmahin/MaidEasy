@@ -1,6 +1,7 @@
 ﻿using MaidEasy.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -112,7 +113,8 @@ namespace MaidEasy.Controllers
             return View();
         }
 
-        public ActionResult SaveWorkerData()
+        [HttpPost]
+        public ActionResult SaveWorkerData(HttpPostedFileBase file)
         {
             var name = Request["name"];
             var fathername = Request["fathername"];
@@ -120,6 +122,7 @@ namespace MaidEasy.Controllers
             var PresentAddress = Request["PresentAddress"];
             var PermanentAddress = Request["PermanentAddress"];
             //var gender = gender.Items[gender.SelectedIndex].Text;
+            Session["tempImage"] = file;
             var gender = Request["gender"];
             bool temporaryType = (Request["temporaryType"] == "on") ? true : false;
             bool permanentType = (Request["permanentType"] == "on") ? true : false;
@@ -129,14 +132,30 @@ namespace MaidEasy.Controllers
             var area = Request["area"];
             var thana = getThanaString(area);
             var type = getTypeString(temporaryType, permanentType, babyCareType, elderlyCareType);
+            //var img = "defaultmaid.png";
+            var img = Request["img"]; ;
 
+            System.Diagnostics.Debug.WriteLine("-----TEN-------------------------------");
+            System.Diagnostics.Debug.WriteLine(img);
+            System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
 
-            string sql = "UPDATE worker set Name = '" + name + "', fatherName = '" + fathername + "', mobile = '" + Phone + "', PresentAddress = '" + PresentAddress + "', PermanentAddress = '" + PermanentAddress + "', gender = '" + gender + "', type = '" + type + "', Area = '" + thana + "' where WorkerId = '" + Session["workerID"] + "'";
+            if (Session["tempImage"] != null)
+            {
+                Session.Remove("tempImage");
+
+                var filename = Session["workerID"].ToString() + Path.GetExtension(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/Workers/"), filename);
+                file.SaveAs(path);
+
+                img = filename;
+            }
+
+            string sql = "UPDATE worker set Name = '" + name + "', fatherName = '" + fathername + "', mobile = '" + Phone + "', PresentAddress = '" + PresentAddress + "', PermanentAddress = '" + PermanentAddress + "', gender = '" + gender + "', type = '" + type + "', Area = '" + thana + "', image = '" + img + "' where WorkerId = '" + Session["workerID"] + "'";
             DBHelper db = DBHelper.getDB();
             db.setData(sql);
 
             System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
-            System.Diagnostics.Debug.WriteLine(thana);
+            System.Diagnostics.Debug.WriteLine(name);
             System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
             return RedirectToAction("Edit_Worker", "AdminWorker");
         }

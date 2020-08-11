@@ -267,3 +267,7 @@ label {
 #edit {
     display: block ;
 }
+
+#file {
+    display: none;
+}
