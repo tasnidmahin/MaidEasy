@@ -1,4 +1,5 @@
-﻿// Filter table
+﻿
+// Filter table
 
 $(document).ready(function () {
     $("#tableSearch").on("keyup", function () {
