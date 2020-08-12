@@ -61,79 +61,82 @@
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
         </div>
     -->
-     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-         <a class="navbar-brand" href="#">Navbar</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
-         </button>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 
-         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                 @if (Session["uType"] != null)
-                 {
-                     if (Session["uType"].ToString() == "general")
-                     {
-                         <li class="nav-item">
-                             <a class="nav-link" href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a>
-                         </li>
-                         <li class="nav-item">
-                             <a class="nav-link" href="@Url.Action("Service", "Service")">Service</a>
-                         </li>
-                         <li class="nav-item">
-                             <a class="nav-link" href="#">Contact</a>
-                         </li>
-                         <li class="nav-item">
-                             <a class="nav-link" href="#">About</a>
-                         </li>
-                     }
+        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+        <img src="~/Content/Images/logonew.png" class="logo">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
 
-                     else
-                     {
-                         <li class="nav-item">
-                             <a class="nav-link" href="@Url.Action("Admin_home", "Admin")">Home</a>
-                         </li>
-                     }
-                 }
-                 else
-                 {
-                     <li class="nav-item">
-                         <a class="nav-link" href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="@Url.Action("Service", "Service")">Service</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#">Contact</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#">About</a>
-                     </li>
+        </button>
 
-                 }
-                 @if (Session["username"] != null)
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                @if (Session["uType"] != null)
+                {
+                    if (Session["uType"].ToString() == "general")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Service", "Service")">Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    }
 
-                 {
-                     <li class="nav-item dropdown">
-                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             @Session["username"]
-                         </a>
-                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                             <a class="dropdown-item" href="@Url.Action("user_profile", "User")">Profile</a>
-                             <a class="dropdown-item" href="@Url.Action("Logout", "Register")">Log Out</a>
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Admin_home", "Admin")">Home</a>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Service", "Service")">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
 
-                         </div>
-                     </li>
-                 }
-                 @if (Session["username"] == null)
-                 {
-                     <li class="nav-item">
-                         <a class="nav-link" href="@Url.Action("LogIn", "Register")">Log In</a>
-                     </li>
-                 }
-             </ul>
+                }
+                @if (Session["username"] != null)
 
-         </div>
-     </nav>  
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @Session["username"]
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="@Url.Action("user_profile", "User")">Profile</a>
+                            <a class="dropdown-item" href="@Url.Action("Logout", "Register")">Log Out</a>
+
+                        </div>
+                    </li>
+                }
+                @if (Session["username"] == null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("LogIn", "Register")">Log In</a>
+                    </li>
+                }
+            </ul>
+
+        </div>
+    </nav>  
 
   
 
