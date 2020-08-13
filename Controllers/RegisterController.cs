@@ -86,7 +86,19 @@ namespace MaidEasy.Controllers
         public ActionResult CheckInfo(HttpPostedFileBase file)
         {
             //get info from form in signup html
-            var user = Request["Username"];
+            SignupModel signup = new SignupModel();
+            signup.Username         = Request["Username"];
+            signup.Name             = Request["Name"];
+            signup.PhoneNo          = Request["Phone"];
+            signup.PresentAddress   = Request["presentAddress"];
+            signup.thana            = Request["thana"];
+            signup.thana            = getThanaString(signup.thana);
+            signup.PermanentAddress = Request["permanentAddress"];
+            signup.Password         = Request["signUpPassword"];
+            signup.ConfirmPassword  = Request["confirmPassword"];
+
+
+            /*var user = Request["Username"];
             var name = Request["Name"];
             var phone = Request["Phone"];
             var presentAddress = Request["presentAddress"];
@@ -94,7 +106,7 @@ namespace MaidEasy.Controllers
             var pass = Request["signUpPassword"];
             var conpass = Request["confirmPassword"];
             var thana = Request["thana"];
-            string thanastring = getThanaString(thana);
+            string thanastring = getThanaString(thana);*/
 
 
 
@@ -107,20 +119,20 @@ namespace MaidEasy.Controllers
 
             Session["img"] = file;
 
-            TempData["username"] = user;
-            TempData["name"] = name;
-            TempData["phone"] = phone;
-            TempData["presentAddress"] = presentAddress;
-            TempData["permanentAddress"] = permanentAddress;
-            TempData["pass"] = pass;
-            TempData["conpass"] = conpass;
-            TempData["thana"] = thana;
-            TempData["thanastring"] = thanastring;
+            TempData["username"]            = signup.Username;
+            TempData["name"]                = signup.Name;
+            TempData["phone"]               = signup.PhoneNo;
+            TempData["presentAddress"]      = signup.PresentAddress;
+            TempData["permanentAddress"]    = signup.PermanentAddress;
+            TempData["pass"]                = signup.Password;
+            TempData["conpass"]             = signup.ConfirmPassword;
+            TempData["thana"]               = Request["thana"];
+            TempData["thanastring"]         = signup.thana;
 
 
 
             DBHelper db = DBHelper.getDB();
-            string sql = "SELECT count(UserId) from users where username = '" + user + "'" ;
+            string sql = "SELECT count(UserId) from users where username = '" + signup.Username + "'" ;
 
             var table = db.getData(sql);
             table.Read();
@@ -141,9 +153,9 @@ namespace MaidEasy.Controllers
                 TempData["message"] = "Phone No allready used";
                 return RedirectToAction("SignUp", "Register");
             }*/
-            pass = hash(pass);
-            TempData["pass"] = pass;
-            ViewData["phoneNumber"] = phone;
+            signup.Password = hash(signup.Password);
+            TempData["pass"] = signup.Password;
+            ViewData["phoneNumber"] = signup.PhoneNo;
             ViewData["codeverify"] = 1;
 
             return View("~/Views/Register/VerificationCode.cshtml");
