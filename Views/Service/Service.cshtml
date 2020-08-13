@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="~/Scripts/JS/tabscript.js" defer></script>
+    <!--  <script src="~/Scripts/JS/tabscript.js" defer></script>-->
 
     <link href="~/Content/service.css" rel="stylesheet">
     <link href="~/Content/profilecard.css" rel="stylesheet">
@@ -30,62 +30,70 @@
 }
 <body>
     <div class="box">
-         <ul class="tabs" id="myTab">
-
-        <li data-tab-target="#temporary" class="active tab">Temporary</li>
-        <li data-tab-target="#permanent" class="tab">Permanent</li>
-        <li data-tab-target="#babycare" class="tab">Baby care</li>
-        <li data-tab-target="#elderlycare" class="tab">Elderly care</li>
-
-        </ul>   
+        <div class="container">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Temporary</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Permanent</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Baby Care</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="elderly-tab" data-toggle="tab" href="#elderly" role="tab" aria-controls="elderly" aria-selected="false">Elderly Care</a>
+                </li>
+            </ul>
+        </div>
         <!-- <ul class="tabs" id="myTab">
-        <li class="active"><a href="#temporary">Temporary</a></li>
-        <li><a href="#permanent">Permanent</a></li>
-        <li><a href="#babycare">Baby care</a></li>
-        <li><a href="#elderlycare">Elderly care</a></li>
-    </ul> -->
+            <li class="active"><a href="#temporary">Temporary</a></li>
+            <li><a href="#permanent">Permanent</a></li>
+            <li><a href="#babycare">Baby care</a></li>
+            <li><a href="#elderlycare">Elderly care</a></li>
+        </ul> -->
         <!-- <div class="tab-content">
-        <div class="tab-pane active" id="home">home</div>
-        <div class="tab-pane" id="profile">profile</div>
-        <div class="tab-pane" id="messages">messages</div>
-        <div class="tab-pane" id="settings">settings</div>
-    </div>-->
+            <div class="tab-pane active" id="home">home</div>
+            <div class="tab-pane" id="profile">profile</div>
+            <div class="tab-pane" id="messages">messages</div>
+            <div class="tab-pane" id="settings">settings</div>
+        </div>-->
 
 
 
 
 
-        <div class="tab-content">
+        <div class="tab-content" id="myTabContent">
 
 
-            <div id="temporary" data-tab-content class="active">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <br>
                 <form action="/Service/Searching" method="get">
                     <input type="hidden" name="type" value="temporary" />
                     <div class="container-fluid " style="top:20%;">
                         <div class="d-flex justify-content-around row">
-                            
-                                <div>
-                                    <h5 style="position: relative;padding-left: 20px;">Sort By</h5>
-                                    <div class="experiencebox" style="width:120px;">
-                                        <select class="input-lg form-control" id="paperSelect" name="sortby" required>
-                                            <option value="Name" id="sortbyname">Name</option>
-                                            <option value="experience" id="sortbyexperience">Experience</option>
-                                            <option value="rating" id="sortbyrating">Rating</option>
+
+                            <div>
+                                <h5 style="position: relative;padding-left: 20px;">Sort By</h5>
+                                <div class="experiencebox" style="width:120px;">
+                                    <select class="input-lg form-control" id="paperSelect" name="sortby" required>
+                                        <option value="Name" id="sortbyname">Name</option>
+                                        <option value="experience" id="sortbyexperience">Experience</option>
+                                        <option value="rating" id="sortbyrating">Rating</option>
 
 
-                                        </select>
+                                    </select>
 
-                                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
 
-                                    </div>
                                 </div>
-                            
-                            
-                                <!--    <div class="row">
+                            </div>
+
+
+                            <!--    <div class="row">
                             <div class="col-md-2"> -->
-                               
-                                <div>
+
+                            <div>
                                 <h5>Starting Time</h5>
                                 <div class="experiencebox" style="padding-left: 10px;">
                                     <select name="startTime" id="main_menu" class="input-lg form-control" required>
@@ -116,9 +124,9 @@
                                     </select>
                                     <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
                                 </div>
-                                </div>
-                                <!-- </div> -->
-                                <!--  <div class="col-md-2" style="padding-left: 55px;">
+                            </div>
+                            <!-- </div> -->
+                            <!--  <div class="col-md-2" style="padding-left: 55px;">
 
                                 <h5>Time</h5>
 
@@ -132,12 +140,11 @@
                                     <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
                                 </div>
                             </div>  -->
-                            
                             <!--  </div> -->
                             <div>
                                 <!--  <div class="row">
 
-                            <div class="col-md-2"> -->
+                                <div class="col-md-2"> -->
                                 <h5>Ending Time</h5>
 
                                 <div class="experiencebox" style="padding-left: 10px;">
@@ -147,16 +154,16 @@
                                 </div>
                                 <!--  </div> -->
                                 <!-- <div class="col-md-2" style="padding-left:55px;">
-                                <h5>Time</h5>
-                                <div class="experiencebox" style="position: relative;">
-                                    <select name="car" id="main_menu" class="input-lg form-control">
+                                    <h5>Time</h5>
+                                    <div class="experiencebox" style="position: relative;">
+                                        <select name="car" id="main_menu" class="input-lg form-control">
 
-                                        <option value="am">a.m.</option>
-                                        <option value="pm">p.m.</option>
-                                    </select>
-                                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-                                </div>
-                            </div> -->
+                                            <option value="am">a.m.</option>
+                                            <option value="pm">p.m.</option>
+                                        </select>
+                                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                    </div>
+                                </div> -->
                                 <!-- </div> -->
 
 
@@ -165,17 +172,19 @@
                         </div>
                         <div class="container d-flex justify-content-center" style="padding-top:5%;">
 
-                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>  -->
-                        <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                            <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>  -->
+                            <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
 
+                        </div>
                     </div>
-                    </div>
-                    
-                    
+
+
                 </form>
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
                     <div class="searchresults">
+
+
 
                         @{
                             string[,] WData = (string[,])Session["WData"];
@@ -213,6 +222,7 @@
                                     </div>
                                     <div>
                                         <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@WData[i, 0]">View profile</a>  -->
+
                                         <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@WData[i, 0]">View profile</button>
                                     </div>
                                 </div>
@@ -229,10 +239,10 @@
                 </form>
 
             </div>
-            <div id="permanent" data-tab-content>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <form action="/Service/SearchingFull" method="get">
                     <input type="hidden" name="type" value="permanent" />
-                    <div class="d-flex  flex-column align-items-center" >
+                    <div class="d-flex  flex-column align-items-center">
                         <div class="experiencebox" style="width:120px; margin: 50px;">
                             <select class="input-lg form-control" id="paperSelect_1" name="sortby" required>
                                 <option value="Name" id="sortbyname">Name</option>
@@ -253,31 +263,31 @@
                     </div>
                     <!--    <div class="card-box">
 
-                    <div class="upper-box">
-                        <div class="image-box">
-                            <img src="~/Content/Images/profile.jpg" />
+                        <div class="upper-box">
+                            <div class="image-box">
+                                <img src="~/Content/Images/profile.jpg" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="lower-box">
-                        <div>
-                            <h3>Alaina Wick</h3>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
+                        <div class="lower-box">
+                            <div>
+                                <h3>Alaina Wick</h3>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
 
+                            </div>
+                            <div>
+                                <h4 class="category">Favorite Country: <span class="user-input">Thailand</span></h4>
+                            </div>
+                            <div>
+                                <a href="#" class="btn">View profile</a>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="category">Favorite Country: <span class="user-input">Thailand</span></h4>
-                        </div>
-                        <div>
-                            <a href="#" class="btn">View profile</a>
-                        </div>
-                    </div>
 
-                </div>  -->
+                    </div>  -->
                 </form>
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
@@ -322,6 +332,12 @@
                                     </div>
                                     <div>
 
+
+
+
+
+
+
                                         <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@PData[i, 0]">View profile</a>  -->
                                         <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@PData[i, 0]">View profile</button>
                                     </div>
@@ -339,7 +355,7 @@
                 </form>
 
             </div>
-            <div id="babycare" data-tab-content>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                 <form action="/Service/SearchingFull" method="get">
                     <input type="hidden" name="type" value="babycare" />
                     <div class="d-flex  flex-column align-items-center">
@@ -358,38 +374,40 @@
 
                         <div class="">
 
+
+
                             <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
                             <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
                         </div>
                     </div>
                     <!--     <div class="card-box">
 
-            <div class="upper-box">
-                <div class="image-box">
-                    <img src="~/Content/Images/profile.jpg" />
-                </div>
-            </div>
+                        <div class="upper-box">
+                            <div class="image-box">
+                                <img src="~/Content/Images/profile.jpg" />
+                            </div>
+                        </div>
 
-            <div class="lower-box">
-                <div>
-                    <h3>Alaina Wick</h3>
-                    <h4>3 year experience</h4>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                        <div class="lower-box">
+                            <div>
+                                <h3>Alaina Wick</h3>
+                                <h4>3 year experience</h4>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
 
-                </div>
-                <div>
-                    <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
-                </div>
-                <div>
-                    <a href="#" class="btn">View profile</a>
-                </div>
-            </div>
+                            </div>
+                            <div>
+                                <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
+                            </div>
+                            <div>
+                                <a href="#" class="btn">View profile</a>
+                            </div>
+                        </div>
 
-        </div>  -->
+                    </div>  -->
                 </form>
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
@@ -430,9 +448,10 @@
                                         <h4 class="category">Rating: <span class="user-input"> @BData[i, 2] / 5.00 </span></h4>
                                     </div>
                                     <div>
-                                        <h4 class="category">Experience: <span class="user-input"> @BData[i, 3] months </span></h4>
+                                        <h4 class="category">Experience: <span class="user-input">3] months </span></h4>
                                     </div>
                                     <div>
+
                                         <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@BData[i, 0]">View profile</a>  -->
                                         <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@BData[i, 0]">View profile</button>
                                     </div>
@@ -451,33 +470,36 @@
 
             </div>
 
-            <div id="elderlycare" data-tab-content>
+            <div class="tab-pane fade" id="elderly" role="tabpanel" aria-labelledby="elderly-tab">
                 <form action="/Service/SearchingFull" method="get">
                     <input type="hidden" name="type" value="elderlycare" />
-                   <div class="d-flex  flex-column align-items-center">
-                    <div class="experiencebox" style="width:120px;margin:50px;">
-                        <select class="input-lg form-control" id="paperSelect_3" name="sortby" required>
-                            <option value="Name" id="sortbyname">Name</option>
-                            <option value="experience" id="sortbyexperience">Experience</option>
-                            <option value="rating" id="sortbyrating">Rating</option>
+                    <div class="d-flex  flex-column align-items-center">
+                        <div class="experiencebox" style="width:120px;margin:50px;">
+                            <select class="input-lg form-control" id="paperSelect_3" name="sortby" required>
+                                <option value="Name" id="sortbyname">Name</option>
+                                <option value="experience" id="sortbyexperience">Experience</option>
+                                <option value="rating" id="sortbyrating">Rating</option>
 
 
-                        </select>
+                            </select>
 
-                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                            <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
 
+                        </div>
+
+                        <div class="">
+
+
+
+                            <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
+                            <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                        </div>
                     </div>
-
-                    <div class="">
-
-                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
-                        <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
-                    </div>
-                       </div>
                 </form>
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
                     <div class="searchresults">
+
                         @{
                             string[,] EData = (string[,])Session["EworkerData"];
                         }
@@ -513,9 +535,10 @@
                                         <h4 class="category">Rating: <span class="user-input"> @EData[i, 2] / 5.00 </span></h4>
                                     </div>
                                     <div>
-                                        <h4 class="category">Experience: <span class="user-input"> @EData[i, 3] months </span></h4>
+                                        <h4 class="category">Experience: <span class="user-input">3] months </span></h4>
                                     </div>
                                     <div>
+
                                         <!-- <a href="@Url.Action("ViewProfile", "Service")" class="btn" name="link" value="@EData[i, 0]">View profile</a>  -->
                                         <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@EData[i, 0]">View profile</button>
                                     </div>
@@ -536,6 +559,7 @@
         </div>
     </div>
     <script src="~/Scripts/JS/timerscript.js"></script>
+    <script src="~/Scripts/JS/tabscript.js"></script>
     <script>
         $(document).ready(function(){
             $('#main_menu').val("@Session["startTime"]");
@@ -543,10 +567,10 @@
             $('#paperSelect_1').val("@Session["Psortby"]");
             $('#paperSelect_2').val("@Session["Bsortby"]");
             $('#paperSelect_3').val("@Session["Esortby"]");
-        });  
+        });
         $(document).ready(function(){
             $('#sub_menu').val("@Session["endTime"]");
-        });    
+        });
 
 
         /*$('#myTab a').click(function(e) {
@@ -562,11 +586,11 @@
 
         // on load of the page: switch to the currently selected tab
         var hash = window.location.hash;
-        $('#myTab a[href="' + hash + '"]').tab('show');  */  
+        $('#myTab a[href="' + hash + '"]').tab('show');  */
     </script>
 
 
-  
+
     @{
         Html.RenderPartial("footer");
     }

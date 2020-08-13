@@ -162,6 +162,10 @@
     <Content Include="Content\Images\bgadmin.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\im1.jpg" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\logo2.png" />
+    <Content Include="Content\Images\logo3.png" />
+    <Content Include="Content\Images\logonew.png" />
     <Content Include="Content\Images\profile.jpg" />
     <Content Include="Content\Images\staff.svg" />
     <Content Include="Content\login.css" />

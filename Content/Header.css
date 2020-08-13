@@ -28,7 +28,10 @@ body {
     }
 
 
-
+.logo{
+    height:50px;
+    width:120px;
+}
 
 /* {
     padding: 0;
