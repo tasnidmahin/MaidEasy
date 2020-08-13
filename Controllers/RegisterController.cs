@@ -279,13 +279,18 @@ namespace MaidEasy.Controllers
 
         public ActionResult VerifyUser()
         {
-            var user = Request["Username"];
-            var pass = Request["loginpassword"];
+            LogInModel login = new LogInModel();
+            login.Username = Request["Username"];
+            login.Password = Request["loginpassword"];
 
-            TempData["user"] = user;
-            TempData["pass"] = pass;
 
-            string sql = "SELECT count(UserId),password,thana,UserId,type from Users where username = '" + user + "'";
+            /*var user = Request["Username"];
+            var pass = Request["loginpassword"];*/
+
+            TempData["user"] = login.Username;
+            TempData["pass"] = login.Password;
+
+            string sql = "SELECT count(UserId),password,thana,UserId,type from Users where username = '" + login.Username + "'";
 
             DBHelper db = DBHelper.getDB();
             var table = db.getData(sql);
@@ -300,7 +305,7 @@ namespace MaidEasy.Controllers
 
             var p = table.GetString(1);
 
-            if(!checkPassword(p, pass))
+            if(!checkPassword(p, login.Password))
             {
                 TempData["message"] = "Password did not match";
                 table.Close();
@@ -313,7 +318,7 @@ namespace MaidEasy.Controllers
             table.Close();
 
             Session["thanaID"] = thana;
-            Session["username"] = user;
+            Session["username"] = login.Username;
             Session["userID"] = uID;
             Session["uType"] = uType;
             TempData["user"] = null;
