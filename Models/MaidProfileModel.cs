@@ -8,5 +8,6 @@ namespace MaidEasy.Models
     //
     public class MaidProfileModel
     {
+
     }
 }
