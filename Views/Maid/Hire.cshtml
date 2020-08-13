@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,146 +20,132 @@
     <!--  <link href="~/Content/selectbox.css" rel="stylesheet">-->
 
     <title>Hire</title>
+    @{
+        Html.RenderPartial("Header");
+    }
 
-
+   
 </head>
-@{
-    Html.RenderPartial("Header");
-} 
 
 
 <body>
 
 
 
-    <!--  <div class="head-box">
-
-        <div class="hire">
-            <header>
-                <h2>Select the services you want</h2>
-            </header>
-            <span> <br> Select one or multiple at the basis of your needs. </span> <hr>
-
-        </div>
 
 
-    </div>   -->
-    <!--     <div class="parallax"> -->
     <div class="area">
         <form action="/Maid/Booking" method="get">
 
-            @{
-                string[] data = (string[])Session["CurWorker"];
-                string s = data[1];
-                if (s[0].Equals('1'))
-                {
-                    <div class="card-box">
+            <div class="row">
+                <div class="col-md-7">
+                    
+                    @{
+                        string[] data = (string[])Session["CurWorker"];
+                        string s = data[1];
+                        if (s[0].Equals('1'))
+                        {
+
+                            <div class="card-box">
+                                <div class="upper-box">
+                                    <h3>
+                                        Select the services you want
+                                    </h3>
+                                </div>
+                                <div class="choices">
+                                    @{
+                                        string[,] WData = (string[,])ViewData["workList"];
+                                    }
+                                    @for (int i = 0; i < Convert.ToInt32(Session["work_row"]); i++)
+                                    {
+                                        <label class="container">
+                                            @WData[i, 0]
+                                            @{
+                                                var dynamicId = "check_" + i;
+                                                var dId = "box_" + i;
+                                            }
+
+                                            <input type="checkbox" id="@dynamicId" onclick="myFunction('@dId' ,'@dynamicId' , '@WData[i, 0]', @Session["SearchTimeForWorker"], @WData[i, 1] )">
+                                            <input type="hidden" id="@dId" name="@dId" />
+                                            <span class="checkmark"></span>
+                                        </label>
+
+                                        System.Diagnostics.Debug.WriteLine("--------------------------------");
+                                        System.Diagnostics.Debug.WriteLine(@Int32.Parse(WData[i, 1]));
+                                        System.Diagnostics.Debug.WriteLine("--------------------------------");
+
+
+                                    }
+                                    <div class="invalid-feedback" id="invalid-message">
+                                        Please select an option
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        }
+                    }
+
+                </div>
+                <div class="col-md-5">
+                    <div class="card-box1">
                         <div class="upper-box">
-                            <h3>
-                                Select the services you want
+                            <h3 style="padding-top: 22px;">
+                                Select the length of your contract
                             </h3>
                         </div>
-                        <div class="choices">
-                            @{
-                                string[,] WData = (string[,])ViewData["workList"];
-                            }
-                            @for (int i = 0; i < Convert.ToInt32(Session["work_row"]); i++)
-                            {
-                                <label class="container">
-                                    @WData[i, 0]
-                                    @{
-                                        var dynamicId = "check_" + i;
-                                        var dId = "box_" + i;
-                                    }
-
-                                    <input type="checkbox" id="@dynamicId" onclick="myFunction('@dId' ,'@dynamicId' , '@WData[i, 0]', @Session["SearchTimeForWorker"], @WData[i, 1] )">
-                                    <input type="hidden" id="@dId" name="@dId" />
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                System.Diagnostics.Debug.WriteLine("--------------------------------");
-                                System.Diagnostics.Debug.WriteLine(@Int32.Parse(WData[i, 1]));
-                                System.Diagnostics.Debug.WriteLine("--------------------------------");
-
-
-                            }
-                            <div class="invalid-feedback" id="invalid-message">
-                                Please select an option
+                        <div class="choices1">
+                            <!--  <div class="custom-select" style="width:200px;">
+                                <select name="con_length">
+                                    <option value="0">Months</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div> -->
+                            <div class="form-group">
+                                <select name="con_length" class="selectpicker show-tick" data-style="btn-info" title="Months" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
                             </div>
                         </div>
-
-                        <!--  <div class="alert alert-danger col-md-6" role="alert">
-                                                   Please select one option
-                                                </div>
-                                                <!-- <div class="Salary">
-
-                            <div class="salary_tag"><strong>Salary</strong></div>
-                            <div class="salary_amount"><strong>BDT </strong><strong id=salary></strong></div>
-
-                        </div>-->
-
-
                     </div>
-                }
-            }
-
-            <!--     </div>  -->
-
-            <div class="card-box1">
-                <div class="upper-box">
-                    <h3 style="padding-top: 22px;">
-                        Select the length of your contract
-                    </h3>
-                </div>
-                <div class="choices1">
-                    <!--  <div class="custom-select" style="width:200px;">
-                        <select name="con_length">
-                            <option value="0">Months</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-                    </div> -->
-                    <div class="form-group">
-                        <select name="con_length" class="selectpicker show-tick" data-style="btn-info" title="Months" required>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-</div>
+                    <div class="card-box2">
+                        <div class="upper-box">
+                            <h3 style="padding-top: 25px;">
+                                Salary (BDT)
+                            </h3>
+                        </div>
+                        <div class="Salary">
+                            <div class="salary_amount"><strong id=salary></strong></div>
+                            <input type="hidden" id="sal" name="salary" />
+                        </div>
                     </div>
-            </div>
-            <div class="card-box2">
-                <div class="upper-box">
-                    <h3 style="padding-top: 25px;">
-                        Salary (BDT)
-                    </h3>
                 </div>
-                <div class="Salary">
-                    <div class="salary_amount"><strong id=salary></strong></div>
-                    <input type="hidden" id="sal" name="salary" />
-                </div>
+                <!-- <input type="hidden" id="checked_value" name="checked_value" /> -->
             </div>
-            <!-- <input type="hidden" id="checked_value" name="checked_value" /> -->
-
             <button id="checkBtn" type="submit" class="btn btn-primary">Hire</button>
 
         </form>
@@ -196,15 +182,15 @@
 
 
 
+    <script src="~/Scripts/JS/hire.js"></script>
 
-   
     <!--for select-box-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
 
-    <!--  <script src="~/Scripts/JS/selectbox.js"></script>    </div>  -->
+    <!--  <script src="~/Scripts/JS/selectbox.js"></script>  -->
 
-    <script src="~/Scripts/JS/hire.js"></script>
+
 
 
 </body>
