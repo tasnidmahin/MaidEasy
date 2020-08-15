@@ -55,8 +55,8 @@
             <!-- <form  onsubmit="return false"> -->
             <div class="row" style="margin-bottom:80px;">
                 <div class="col-md-3 rounded-left columnstyle">
-                    <div id="user-photo-wrapper">
-                        <img id="user-photo" src="@source" alt="Worker profile image">
+                    <div id="user-photo-wrapper" style="text-align:center;">
+                        <img class="rounded mx-auto d-block" id="user-photo" src="@source" alt="Worker profile image">
                     </div>
                     <input type="hidden" name="img" value="@WorkerData[8].ToString()" />
                     <input id="file" type="file" accept='image/*' name="file">
