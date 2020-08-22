@@ -112,7 +112,7 @@
     height: 60px;
     /* font-size: x-large;*/
     /* font-weight: bold; */
-    font-size: 22px;
+    font-size: 20px;
     background-color: #000;
     border-color: #00ccff;
     /* border-width: thick;*/
@@ -122,12 +122,15 @@
         background-color: #fff;
         
     }
-.category {
-    font-weight: 600;
-    font-size: 20px;
-    margin-bottom: 30px;
-    text-align:left;
-}
+    .hw_button1:focus{
+        outline:none;
+    }
+    .category {
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 30px;
+        text-align: left;
+    }
 
 #user-data {
     margin-top: 50px;

@@ -28,104 +28,111 @@
 
 <body>
     <div class="area">
-        <div class="containerno">
-            <div class="header">
-                <h2>Edit Profile</h2>
+        <div class="row no-gutters">
+            <div class="col-md-5">
+            <div class="containerno">
+                <div class="header">
+                    <h2>Edit Profile</h2>
+                </div>
+                <div id="user-photo-wrapper">
+                    @{
+                        string source = "/Content/Users/";
+                        source = source + TempData["image"].ToString();
+
+                    }
+                    <!-- <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image"> -->
+                    <img id="user-photo" src="@source" alt="user profile image">
+                </div>
+                <form id="form" action="/Register/getEditProfileData" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
+                    <!--     <form id="form" action="javascript:void(0)" class="form" autocomplete="off" method="post">-->
+                    <div class="form-control">
+                        <label for="username">Username</label> <br />
+                        <input id="username" type="text" name="Username" value="@Session["username"]" readonly />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Name</label>
+                        <input id="name" type="text" name="name" value="@TempData["Ename"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Phone No.</label>
+                        <input id="Phoneno" type="text" name="Phone" value="@TempData["Ephone"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Present Address</label>
+                        <input id="presentaddress" type="text" name="presentAddress" value="@TempData["EpresentAddress"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control autocomplete">
+                        <label for="username">Thana</label>
+
+                        <input id="thana" type="text" name="thana" value="@TempData["Ethana"]">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+
+
+
+
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Permanent Address</label>
+                        <input id="permanentaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["EpermanentAddress"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Old Password</label>
+                        <input id="oldpassword" type="password" name="Password" value="@TempData["Epass"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">New Password</label>
+                        <input id="password" type="password" name="newPassword" value="@TempData["Enewpass"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Retype New Password</label>
+                        <input id="password2" type="password" name="confirmPassword" value="@TempData["Econpass"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="profileimage">Enter Profile Image</label>
+                        <input id="profileimage" type="file" accept='image/*' name="file">
+
+
+                    </div>
+
+
+                    <!--<button>Submit</button> -->
+
+                    <button id="submit-btn" type="submit" class="btn btn-primary btn-block" name="submitbutton">Save</button>
+                </form>
             </div>
-            <div id="user-photo-wrapper">
-                @{
-                    string source = "/Content/Users/";
-                    source = source + TempData["image"].ToString();
+                </div>
+            <div class="col-md-7 align-self-start">
+                <img style="padding-top:20px;" src="~/Content/Images/bg3.jpg" class="img-fluid" alt="Responsive image">
 
-                }
-                <!-- <img id="user-photo" src="~/Content/Images/profile.jpg" alt="user profile image"> -->
-                <img id="user-photo" src="@source" alt="user profile image">
             </div>
-            <form id="form" action="/Register/getEditProfileData" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
-                <!--     <form id="form" action="javascript:void(0)" class="form" autocomplete="off" method="post">-->
-                <div class="form-control">
-                    <label for="username">Username</label> <br />
-                    <input id="username" type="text" name="Username" value="@Session["username"]" readonly/>
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-                <div class="form-control">
-                    <label for="username">Name</label>
-                    <input id="name" type="text" name="name" value="@TempData["Ename"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-                <div class="form-control">
-                    <label for="username">Phone No.</label>
-                    <input id="Phoneno" type="text" name="Phone" value="@TempData["Ephone"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-                <div class="form-control">
-                    <label for="username">Present Address</label>
-                    <input id="presentaddress" type="text" name="presentAddress" value="@TempData["EpresentAddress"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-                <div class="form-control autocomplete">
-                    <label for="username">Thana</label>
-
-                    <input id="thana" type="text" name="thana" value="@TempData["Ethana"]">
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-
-
-
-
-                </div>
-                <div class="form-control">
-                    <label for="username">Permanent Address</label>
-                    <input id="permanentaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["EpermanentAddress"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-                <div class="form-control">
-                    <label for="username">Old Password</label>
-                    <input id="oldpassword" type="password" name="Password" value="@TempData["Epass"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-                <div class="form-control">
-                    <label for="username">New Password</label>
-                    <input id="password" type="password" name="newPassword" value="@TempData["Enewpass"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-                <div class="form-control">
-                    <label for="username">Retype New Password</label>
-                    <input id="password2" type="password" name="confirmPassword" value="@TempData["Econpass"]" />
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
-                </div>
-
-                <div class="form-control">
-                    <label for="profileimage">Enter Profile Image</label>
-                    <input id="profileimage" type="file" accept='image/*' name="file" >
-
-
-                </div>
-
-
-                <!--<button>Submit</button> -->
-
-                <button id="submit-btn" type="submit" class="btn btn-primary btn-block" name="submitbutton">Save</button>
-            </form>
         </div>
-
     </div>
 
 
