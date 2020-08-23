@@ -96,7 +96,9 @@
                             <div>
                                 <h5>Starting Time</h5>
                                 <div class="experiencebox" style="padding-left: 10px;">
+
                                     <select name="startTime" id="main_menu" class="input-lg form-control" required>
+
                                         <option value=""> </option>
                                         <option value="6">6:00 AM</option>
                                         <option value="6:30">6:30 AM</option>
@@ -561,15 +563,35 @@
     <script src="~/Scripts/JS/timerscript.js"></script>
     <script src="~/Scripts/JS/tabscript.js"></script>
     <script>
-        $(document).ready(function(){
-            $('#main_menu').val("@Session["startTime"]");
+
+        $(document).ready(function () {
+            $('#main_menu').val("@Session["startTime"]")
+            
+            {
+                if ("@Session["startTime"]" != null) {
+                    var sub = document.getElementById('sub_menu');
+                    var selected_option = time["@Session["startTime"]"];
+                    while (sub.options.length > 0) {
+                         sub.options.remove(0);
+                    }
+                    Array.from(selected_option).forEach(function (el) {
+                        let val = el.substring(0, el.length - 3 )
+                        let option = new Option(el, val);
+                        sub.appendChild(option);
+                    });
+                    $('#sub_menu').val("@Session["endTime"]")
+                }
+            }
+
+
             $('#paperSelect').val("@Session["sortby"]");
             $('#paperSelect_1').val("@Session["Psortby"]");
             $('#paperSelect_2').val("@Session["Bsortby"]");
             $('#paperSelect_3').val("@Session["Esortby"]");
         });
+
         $(document).ready(function(){
-            $('#sub_menu').val("@Session["endTime"]");
+           $('#sub_menu').val("@Session["endTime"]");
         });
 
 

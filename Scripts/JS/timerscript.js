@@ -40,6 +40,8 @@ var sub = document.getElementById('sub_menu');
 
 
 // Trigger the Event when main menu change occurs
+var strUser = main.options;
+console.log(strUser)
 
 main.addEventListener('change', function () {
 
@@ -66,7 +68,10 @@ main.addEventListener('change', function () {
 
     Array.from(selected_option).forEach(function (el) {
 
-        let option = new Option(el, el);
+
+        let val = el.substring(0, el.length - 3 )
+        let option = new Option(el, val);
+        
 
         //append the child option in sub menu
 
