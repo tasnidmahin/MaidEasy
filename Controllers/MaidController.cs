@@ -22,8 +22,9 @@ namespace MaidEasy.Controllers
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             var id = Request["maid"].ToString();
-            //System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
-            //System.Diagnostics.Debug.WriteLine(id);
+            System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
+            System.Diagnostics.Debug.WriteLine(id);
+            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
 
             string sql = "SELECT Name,type,rating,experience,image from Worker where WorkerId = " + id;
 
