@@ -18,6 +18,28 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Add_worker()
         {
+            DBHelper db = DBHelper.getDB();
+
+            string sql = "SELECT Name from thana";
+            List<string> thanalist = new List<string>();
+            //string[] thanaList = new string[cnt];
+            var table = db.getData(sql);
+            while (table.Read())
+            {
+                System.Diagnostics.Debug.WriteLine("----------");
+                System.Diagnostics.Debug.WriteLine(table.GetString(0));
+                System.Diagnostics.Debug.WriteLine("----------");
+                if (table.GetString(0) == "") 
+                {
+                    System.Diagnostics.Debug.WriteLine("Thana -- thana");
+                    continue;
+                }
+                //thanaList[i++] = table.GetString(0);
+                thanalist.Add(table.GetString(0));
+            }
+            table.Close();
+
+            ViewData["thanaList"] = thanalist;
             return View();
         }
         public ActionResult WorkerList()
@@ -102,15 +124,64 @@ namespace MaidEasy.Controllers
             return View();
         }
 
-        public ActionResult AddNewWorker()
+        [HttpPost]
+        public ActionResult AddNewWorker(HttpPostedFileBase file)
         {
             var name = Request["name"];
             var fatherName = Request["fathername"];
             var phone = Request["Phone"];
             var presentAddress = Request["presentAddress"];
             var permanentAddress = Request["permanentAddress"];
+            Session["tempImage"] = file;
             var gender = Request["gender"];
-            return View();
+
+            bool temporaryType = (Request["temporaryType"] == "on") ? true : false;
+            bool permanentType = (Request["permanentType"] == "on") ? true : false;
+            bool babyCareType = (Request["babyCareType"] == "on") ? true : false;
+            bool elderlyCareType = (Request["elderlyCareType"] == "on") ? true : false;
+
+            var area = Request["area"];
+            var thana = getThanaString(area);
+            var type = getTypeString(temporaryType, permanentType, babyCareType, elderlyCareType);
+            var img = "defaultmaid.png";
+            //var img = Request["img"]; ;
+
+            string Month = DateTime.Now.ToString("MM");
+            string Year = DateTime.Now.ToString("yyyy");
+            Year = Month + "/" + Year;
+
+
+            DBHelper db = DBHelper.getDB();
+            string sql = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'users' AND table_schema = 'maideasy'";
+            var table = db.getData(sql);
+
+
+            table.Read();
+            int next = Int32.Parse(table.GetString(0));
+            table.Close();
+
+
+            if (Session["tempImage"] != null)
+            {
+                Session.Remove("tempImage");
+
+                var filename = next.ToString() + Path.GetExtension(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/Workers/"), filename);
+                file.SaveAs(path);
+
+                img = filename;
+            }
+
+
+            sql = " INSERT INTO worker (Name, fatherName, mobile , PresentAddress , PermanentAddress, gender, area, type, image, joinDate ) VALUES('" + name + "', '" + fatherName + " ', ' " + phone + " ', ' " + presentAddress + " ', ' " + permanentAddress + " ', ' " + gender + "', '" + thana + "', '" + type + "', '" + img + "', '" + Year + " '); ";
+            
+            db.setData(sql);
+
+            System.Diagnostics.Debug.WriteLine("-----IMAGE-------------------------------");
+            System.Diagnostics.Debug.WriteLine(img);
+            System.Diagnostics.Debug.WriteLine("-----IMAGE-------------------------------");
+
+            return RedirectToAction("WorkerList", "AdminWorker");
         }
 
         [HttpPost]
@@ -159,6 +230,16 @@ namespace MaidEasy.Controllers
             System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
             return RedirectToAction("Edit_Worker", "AdminWorker");
         }
+
+        public ActionResult DeleteWorker()
+        {
+            DBHelper db = DBHelper.getDB();
+            string sql = "DELETE from worker where WorkerId = '" + Session["workerID"] + "' ";
+            db.setData(sql);
+            Session.Remove("workerID");
+            return RedirectToAction("WorkerList", "AdminWorker");
+        }
+
         private string getThanaList(string thanaString)
         {
             string ret = "", sql;
@@ -263,13 +344,5 @@ namespace MaidEasy.Controllers
             return ret;
         }
 
-        public ActionResult DeleteWorker()
-        {
-            DBHelper db = DBHelper.getDB();
-            string sql = "DELETE from worker where WorkerId = '" + Session["workerID"] + "' ";
-            db.setData(sql);
-            Session.Remove("workerID");
-            return RedirectToAction("WorkerList", "AdminWorker");
-        }
     }
 }
