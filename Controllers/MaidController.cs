@@ -22,8 +22,16 @@ namespace MaidEasy.Controllers
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             var id = Request["maid"].ToString();
+            Uri MyUrl = Request.UrlReferrer;
+            var lastUrl = Server.HtmlEncode(MyUrl.AbsolutePath);
             System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
             System.Diagnostics.Debug.WriteLine(id);
+            System.Diagnostics.Debug.WriteLine(MyUrl);
+            System.Diagnostics.Debug.WriteLine(Server.HtmlEncode(MyUrl.Port.ToString()));
+            System.Diagnostics.Debug.WriteLine(Server.HtmlEncode(MyUrl.Scheme));
+            System.Diagnostics.Debug.WriteLine(Server.HtmlEncode(MyUrl.Host));
+            System.Diagnostics.Debug.WriteLine(Server.HtmlEncode(MyUrl.AbsolutePath));
+            System.Diagnostics.Debug.WriteLine(Server.HtmlEncode(MyUrl.LocalPath));
             System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
 
             string sql = "SELECT Name,type,rating,experience,image from Worker where WorkerId = " + id;
@@ -60,6 +68,8 @@ namespace MaidEasy.Controllers
             }
             table.Close();
 
+
+            ViewData["LastUrl"] = lastUrl;
             Session["CurWorker"] = data;
             ViewData["feedback"] = feedback;
             ViewData["cnt_feed"] = count;

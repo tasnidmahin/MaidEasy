@@ -75,7 +75,7 @@ E:\Mahin\3.2\New\Lab\ISD\MaidEasy\bin\System.Web.WebPages.Razor.xml
 E:\Mahin\3.2\New\Lab\ISD\MaidEasy\bin\Newtonsoft.Json.xml
 E:\Mahin\3.2\New\Lab\ISD\MaidEasy\bin\Antlr3.Runtime.pdb
 E:\Mahin\3.2\New\Lab\ISD\MaidEasy\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\Mahin\3.2\New\Lab\ISD\MaidEasy\obj\Debug\MaidEasy.csprojAssemblyReference.cache
 E:\Mahin\3.2\New\Lab\ISD\MaidEasy\obj\Debug\MaidEasy.csproj.CopyComplete
 E:\Mahin\3.2\New\Lab\ISD\MaidEasy\obj\Debug\MaidEasy.dll
 E:\Mahin\3.2\New\Lab\ISD\MaidEasy\obj\Debug\MaidEasy.pdb
+E:\Mahin\3.2\New\Lab\ISD\MaidEasy\obj\Debug\MaidEasy.csprojAssemblyReference.cache

@@ -41,21 +41,21 @@
     <div style="text-align:center;">
 
         <!--   <div class="current-box"> -->
-        <form action="/User/feedback" method="post">
-            <button type="button" class="collapsible">Current Workers</button>
-            <div class="content">
+        <!-- <form action="/User/feedback" method="post"> -->
+        <button type="button" class="collapsible">Current Workers</button>
+        <div class="content">
 
-                @{
-                    string[,] data1 = (string[,])ViewData["data1"];
-                }
-                @for (int i = 0; i < Convert.ToInt32(ViewData["cnt1"]); i++)
-                {
-                    string work = data1[i, 6];
-                    String[] spearator = { "\n" };
-                    String[] strlist = work.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
-                    int Wcnt = strlist.Length;
-                    string imgsrc = "/Content/Workers/";
-                    imgsrc = imgsrc + data1[i, 8];
+            @{
+                string[,] data1 = (string[,])ViewData["data1"];
+            }
+            @for (int i = 0; i < Convert.ToInt32(ViewData["cnt1"]); i++)
+            {
+                string work = data1[i, 6];
+                String[] spearator = { "\n" };
+                String[] strlist = work.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
+                int Wcnt = strlist.Length;
+                string imgsrc = "/Content/Workers/";
+                imgsrc = imgsrc + data1[i, 8];
 
                 <div class="card-box">
 
@@ -76,19 +76,19 @@
 
 
                         <!-- <div class="row">
-        <div class="column1"><h3>Name</h3></div>
+                    <div class="column1"><h3>Name</h3></div>
 
-           <div class="column2"><h3>Ms. XYZ</h3></div>
+                       <div class="column2"><h3>Ms. XYZ</h3></div>
 
-           </div>
+                       </div>
 
-                  <div class="row">
+                              <div class="row">
 
-        <div class="column1"><h3>Work Type</h3></div>
+                    <div class="column1"><h3>Work Type</h3></div>
 
-                <div class="column2"><h3>Temporary</h3></div>
+                            <div class="column2"><h3>Temporary</h3></div>
 
-                      </div> -->
+                                  </div> -->
                         <div id="user-data">
                             <h3 class="category">Name:<span class="user-input">@data1[i, 0]</span></h3>
                             <h3 class="category">Start Month:<span class="user-input">@data1[i, 1]</span></h3>
@@ -97,14 +97,15 @@
                             <h3 class="category">End Time:<span class="user-input">@data1[i, 4]</span></h3>
                             <h3 class="category">Amount:<span class="user-input">@data1[i, 5] BDT</span></h3>
                             <h3 class="category">
-                                Work-list:<span class="user-input"style="display:inline-block;">
-                                              <ul style="padding-left:0px;">
-                                                  
-                                                  @for (int j = 0; j < Wcnt - 1; j++)
-                                                  {
-                                                      <li>@strlist[j]</li>
-                                                  }
-                                              </ul></span>
+                                Work-list:<span class="user-input" style="display:inline-block;">
+                                    <ul style="padding-left:0px;">
+
+                                        @for (int j = 0; j < Wcnt - 1; j++)
+                                        {
+                                            <li>@strlist[j]</li>
+                                        }
+                                    </ul>
+                                </span>
                             </h3>
 
                         </div>
@@ -113,18 +114,22 @@
 
                     <!--        <div style="text-align:center;">
 
-    <button type="button" id="hw_button">Give Feedback</button>
+                <button type="button" id="hw_button">Give Feedback</button>
 
-    </div> -->
-                    <button type="submit" class="btn buttonprimary" name="maid" value="@data1[i, 7]">Give Feedback</button>
+                </div> -->
+                    <form action="/User/feedback" method="post">
+                        <button type="submit" class="btn buttonprimary" name="maid" value="@data1[i, 7]">Give Feedback</button>
+                    </form>
                     <br>
-                    <button class="btn buttonprimary">View Profile</button>
+                    <form action="/Maid/MaidProfile" method="post">
+                        <button type="submit" class="btn buttonprimary" name="maid" value="@data1[i, 7]">View Profile</button>
+                    </form>
                 </div>
-                    <br />
-                }
-            </div>
+                <br />
+            }
+        </div>
 
-        </form>
+        <!-- </form> -->
         <br>
         <!-- 	</div>  -->
         <!--<div class="previous-box"> -->
@@ -143,54 +148,54 @@
                     int Wcnt = strlist.Length;
                     string imgsrc = "/Content/Workers/";
                     imgsrc = imgsrc + data2[i, 8];
-                <div class="card-box extra">
+                    <div class="card-box extra">
 
 
 
-                    <div class="upper-box">
-                        <!-- <div class="time"><h2>Previous Worker</h2></div> -->
-                        <div class="image-box">
-                            <img src="@imgsrc" />
-                        </div>
-                    </div>
-
-
-
-                    <div class="lower-box">
-
-
-                        <div id="user-data">
-                            <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
-                            <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
-
-                            <h3 class="category">Month:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
-                            <h3 class="category">
-                                Work-list:<span class="user-input" style="display:inline-block;">
-    <ul style="padding-left:0px;">
-        @for (int j = 0; j < Wcnt - 1; j++)
-        {
-            <li>@strlist[j]</li>
-        }
-
-    </ul>
-</span>
-                            </h3>
-
-
+                        <div class="upper-box">
+                            <!-- <div class="time"><h2>Previous Worker</h2></div> -->
+                            <div class="image-box">
+                                <img src="@imgsrc" />
+                            </div>
                         </div>
 
+
+
+                        <div class="lower-box">
+
+
+                            <div id="user-data">
+                                <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
+                                <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
+
+                                <h3 class="category">Month:<span class="user-input">Temporary</span></h3>
+                                <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
+                                <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
+                                <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
+                                <h3 class="category">
+                                    Work-list:<span class="user-input" style="display:inline-block;">
+                                        <ul style="padding-left:0px;">
+                                            @for (int j = 0; j < Wcnt - 1; j++)
+                                            {
+                                                <li>@strlist[j]</li>
+                                            }
+
+                                        </ul>
+                                    </span>
+                                </h3>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <button type="submit" class="btn buttonprimary" name="maid" value="@data2[i, 7]">Give Feedback</button>
+                        <button type="button" class="btn buttonprimary">View Profile</button>
+
+
                     </div>
-
-
-
-                    <button type="submit" class="btn buttonprimary" name="maid" value="@data2[i, 7]">Give Feedback</button>
-                    <button  type="button" class="btn buttonprimary">View Profile</button>
-
-
-                </div>
                     <br />
                 }
             </div>

@@ -86,7 +86,12 @@
                                 }
                             </h4>
                             <h4 class="category">Rating:<span class="user-input">@data[2] / 5.00</span></h4>
-                            <button type="submit" class="btn btn-dark">Hire</button>
+                            @{
+                                if (ViewData["lastUrl"].ToString() == "/Service/Searching")
+                                {
+                                    <button type="submit" class="btn btn-dark">Hire</button>
+                                }
+                            }
                         </div>
 
 
