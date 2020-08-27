@@ -39,6 +39,7 @@ namespace MaidEasy.Controllers
             Session.Remove("thanaID");
             Session.Remove("SearchTimeForWorker");
             Session.Remove("CurWorker");
+            Session.Remove("uType");
             return RedirectToAction("Index", "Home");
         }
 
