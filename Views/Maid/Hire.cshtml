@@ -56,21 +56,24 @@
                                     @{
                                         string[,] WData = (string[,])ViewData["workList"];
                                     }
-                                    @for (int i = 0; i < Convert.ToInt32(Session["work_row"]); i++)
+                                    @for (int i = 3; i < Convert.ToInt32(Session["work_row"]); i++)
                                     {
-                                        <label class="container">
-                                            @WData[i, 0]
-                                            @{
-                                                var dynamicId = "check_" + i;
-                                                var dId = "box_" + i;
-                                            }
+                                    <label class="container">
+                                        @WData[i, 0]
+                                        <br>
+                                        <label> @WData[i, 1] (Unit price) </label>
+                                        @{
+                                            var dynamicId = "check_" + i;
+                                            var dId = "box_" + i;
+                                        }
 
-                                            <input type="checkbox" id="@dynamicId" onclick="myFunction('@dId' ,'@dynamicId' , '@WData[i, 0]', @Session["SearchTimeForWorker"], @WData[i, 1] )">
-                                            <input type="hidden" id="@dId" name="@dId" />
+                                        <input type="checkbox" id="@dynamicId" onclick="myFunction('@dId' ,'@dynamicId' , '@WData[i, 0]', @Session["SearchTimeForWorker"], @WData[i, 1] )">
+                                        <input type="hidden" id="@dId" name="@dId" />
 
-                                            <span class="checkmark"></span>
-                                          
-                                        </label>
+                                        <span class="checkmark"></span>
+
+                                    </label>
+                                        
 
                                         System.Diagnostics.Debug.WriteLine("--------------------------------");
                                         System.Diagnostics.Debug.WriteLine(@Int32.Parse(WData[i, 1]));
@@ -154,27 +157,28 @@
 
         @{
 
+            string[,] WData2 = (string[,])ViewData["workList"];
             if (s[1].Equals('1'))
             {
                 <script>
-                    document.getElementById("salary").innerHTML = 5000;
-                    document.getElementById("sal").setAttribute("value", 5000);
+                    document.getElementById("salary").innerHTML = @WData2[0,1];
+                    document.getElementById("sal").setAttribute("value", @WData2[0,1]);
                 </script>
 
             }
             if (s[2].Equals('1'))
             {
                 <script>
-                    document.getElementById("salary").innerHTML = 8000;
-                    document.getElementById("sal").setAttribute("value", 8000);
+                    document.getElementById("salary").innerHTML = @WData2[1,1];
+                    document.getElementById("sal").setAttribute("value", @WData2[1,1]);
                 </script>
 
             }
             if (s[3].Equals('1'))
             {
                 <script>
-                    document.getElementById("salary").innerHTML = 7000;
-                    document.getElementById("sal").setAttribute("value", 7000);
+                    document.getElementById("salary").innerHTML = @WData2[2,1];
+                    document.getElementById("sal").setAttribute("value", @WData2[2,1]);
                 </script>
 
             }
