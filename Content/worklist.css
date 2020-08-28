@@ -15,9 +15,12 @@
 }
 .active {
     background-color: #77c1e4 !important;
-    color: #fff;
+    /*color: #fff;*/
 }
 
+body{
+    background-color: #fff !important;
+}
 .collapsible:hover {
     background-color: #77c1e4;
     color: #fff;
