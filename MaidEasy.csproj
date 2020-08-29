@@ -123,6 +123,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminUserController.cs" />
     <Compile Include="Controllers\AdminWorkerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaidController.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Models\MaidProfileModel.cs" />
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
+    <Compile Include="Models\UserLIstModel.cs" />
     <Compile Include="Models\VerificationCodeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -260,6 +262,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AdminUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

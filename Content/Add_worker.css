@@ -14,7 +14,6 @@ body {
 }
 
 .row {
-   
     margin-right: 0px;
     margin-left: 0px;
 }
@@ -24,6 +23,7 @@ body {
     align-items: center;
     background-color: #8d949c;
 }
+
 h2 {
     font-family: "Georgia", "Arial", "Helvetica";
 }
@@ -38,10 +38,8 @@ h2 {
     border-radius:7px;
 }*/
 
-label {
-   
+label { 
     font-size: 1.2rem;
-    
 }
 
 .choices {
@@ -201,10 +199,12 @@ label {
 .borderbtm {
     border-bottom: 15px solid #fff;
 }
-.custom-file{
-    width:350px;
-    z-index:0;
+
+.custom-file {
+    width: 350px;
+    z-index: 0;
 }
+
 .collapsible {
     cursor: pointer;
     padding: 18px;
@@ -233,3 +233,4 @@ label {
 .dropdown-menu {
     z-index: 1999;
 }
+

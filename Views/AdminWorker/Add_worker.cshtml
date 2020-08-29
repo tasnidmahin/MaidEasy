@@ -13,7 +13,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <title>Add Worker</title>
     <link href="~/Content/Add_worker.css" rel="stylesheet" />
@@ -48,8 +48,9 @@
                 </div>
                 <div class="col-md-8 mb-3">
                     <label for="Father's Name">Phone</label>
-                    <input class="form-control" type="text" placeholder="phone no (+8801*********)" name="Phone" pattern="^\+88\d{11}$" required>
+
                    </div>
+
                 <div class="col-md-8 mb-3">
                     <label for="Father's Name">Present Address</label>
                     <input class="form-control" type="text" placeholder="Present Address" name="presentAddress" required>
@@ -57,7 +58,10 @@
                 <div class="col-md-8 mb-4">
                     <label for="Father's Name">Permanent Address</label>
                     <input class="form-control" type="text" placeholder="Permanent Address" name="permanentAddress" required>
+
              </div>
+
+
                 <div class="col-md-8 mb-4">
                     <select class="selectpicker" data-width="fit" title="Gender" name="gender">
                         <option>Male</option>
@@ -71,24 +75,23 @@
                         <input type="file" class="custom-file-input" id="customFile" name="file">
                         <label class="custom-file-label" for="customFile">Choose an Image</label>
                     </div>
+
                    </div>
-                    <!--  <div style="margin-top:20px;">
-        <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
-            <option>Temporary</option>
-            <option>Permanent</option>
-            <option>Elderly Care</option>
-            <option>Baby Care</option>
-
-
-        </select>
-    </div>-->
-
+      
                 </div>
+                <!--  <div style="margin-top:20px;">
+                    <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
+                        <option>Temporary</option>
+                        <option>Permanent</option>
+                        <option>Elderly Care</option>
+                        <option>Baby Care</option>
 
 
-
+                    </select>
+                </div>-->
 
             </div>
+
 
         <div class="row" style="margin-bottom:60px;">
             <div class="col-md-3 rounded-left columnstyle">
@@ -135,19 +138,20 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-8"> -->
+                
                 <div class="col-md-7 mb-4">
                     <label for="Father's Name"> Work Area </label>
                     <br>
-                    
-                        <select name="area" class="selectpicker" style="margin-bottom:20px;" title="Select Area" data-width="fit" data-style="btn-info" data-live-search="true" required multiple>
-                            @{
-                                for (int i = 0; i < thanalist.Count; i++)
-                                {
-                                    <option> @thanalist[i] </option>
-                                }
-                            }
 
-                        </select>
+                    <select name="area" class="selectpicker" style="margin-bottom:20px;" title="Select Area" data-width="fit" data-style="btn-info" data-live-search="true" required multiple>
+                        @{
+                            for (int i = 0; i < thanalist.Count; i++)
+                            {
+                                <option> @thanalist[i] </option>
+
+                            }
+                        }
+                    </select>
                     </div>
                 </div>
         </div>
