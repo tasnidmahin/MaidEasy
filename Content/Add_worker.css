@@ -14,7 +14,6 @@ body {
 }
 
 .row {
-   
     margin-right: 0px;
     margin-left: 0px;
 }
@@ -24,32 +23,25 @@ body {
     align-items: center;
     background-color: #8d949c;
 }
+
 h2 {
     font-family: "Georgia", "Arial", "Helvetica";
 }
 
 /*input[type=text], input[type=password] {
     width: 350px;
-    padding: 10px;*/
-    /* margin: 5px 0 22px 0; */
-/*display: block;
+    padding: 10px;
+    
+    display: block;
     border: none;
     background: #f1f1f1;
     border-radius:7px;
+}*/
+
+label {
+    font-size: 1.2rem;
 }
-    input[type=text]:focus{
-        border:none;
-        outline:none;
-    }
-    label {
-        display: inline-block;
-        margin-bottom: 5px;
-        font-size: 1.3rem;
-        color: #212529;
-    }*/
-label{
-    font-size:1.3rem;
-}
+
 .choices {
     padding: 20px 50px 30px 0px;
 }
@@ -60,7 +52,7 @@ label{
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 19px;
+    font-size: 22px;
     user-select: none;
 }
 
@@ -76,16 +68,16 @@ label{
     position: absolute;
     top: 0;
     left: 0;
-    height: 18px;
-    width: 18px;
+    height: 25px;
+    width: 25px;
     background-color: #eee;
 }
- On mouse-over, add a grey background color 
+/* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
- When the checkbox is checked, add a blue background 
+/* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
     background-color: #2196F3;
 }
@@ -96,17 +88,17 @@ label{
     display: none;
 }
 
- Show the checkmark when checked 
+/* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
     display: block;
 }
 
- Style the checkmark/indicator 
+/* Style the checkmark/indicator */
 .container .checkmark:after {
-    left: 6px;
-    top: 4px;
-    width: 7px;
-    height: 11px;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
@@ -207,10 +199,12 @@ label{
 .borderbtm {
     border-bottom: 15px solid #fff;
 }
-.custom-file{
-    width:350px;
-    z-index:0;
+
+.custom-file {
+    width: 350px;
+    z-index: 0;
 }
+
 .collapsible {
     cursor: pointer;
     padding: 18px;
@@ -226,23 +220,16 @@ label{
         outline: none;
     }
 
-./*form-control small {
-    color: #e74c3c;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    visibility: hidden;
-}
-
-.form-control.error small {
-    visibility: visible;
-}
-*/
 
 .invalid-feedback {
     border-style: solid;
     border-radius: 5px;
     border-width: 2px;
+    display: none;
     width: 70%;
-    display:none;
+}
+
+
+.dropdown-menu {
+    z-index: 1999;
 }

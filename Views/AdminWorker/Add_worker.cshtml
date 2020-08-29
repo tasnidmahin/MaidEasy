@@ -13,7 +13,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <title>Add Worker</title>
     <link href="~/Content/Add_worker.css" rel="stylesheet" />
@@ -26,57 +26,53 @@
 
 
 <body>
-    <div class="area">
-        <form id="form" action="/AdminWorker/AddNewWorker" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
-            <div class="row" style="padding-top:100px;">
-                @{
-                    List<string> thanalist = (List<string>)ViewData["thanaList"];
+    <form id="form" action="/AdminWorker/AddNewWorker" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
+        <div class="row" style="padding-top:100px;">
+            @{
+                List<string> thanalist = (List<string>)ViewData["thanaList"];
 
-                }
-                <div class="col-md-3 rounded-left columnstyle borderbtm">
-                    <div style="text-align:center;">
-                        <h2>Personal Information</h2>
+            }
+            <div class="col-md-3 rounded-left columnstyle borderbtm">
+                <div style="text-align:center;">
+                    <h2>Personal Information</h2>
+                </div>
+            </div>
+            <div class="col-md-5 rounded-right borderbtm" style="background-color:#a9afba;padding:35px;padding-top:50px;">
+                <div class="col-md-8 mb-3">
+                    <label for="Name">Name</label>
+                    <input class="form-control" type="text" placeholder="Name" name="name" required>
+                </div>
+                <div class="col-md-8 mb-3">
+                    <label for="Father's Name">Father's Name</label>
+                    <input class="form-control" type="text" placeholder="Father's Name" name="fathername" required>
+                </div>
+                <div class="col-md-8 mb-3">
+                    <label for="Father's Name">Phone</label>
+                    <input class="form-control" type="text" placeholder="phone no (+8801*********)" name="Phone" pattern="^\+88\d{11}$" required>
+                </div>
+                <div class="col-md-8 mb-3">
+                    <label for="Father's Name">Present Address</label>
+                    <input class="form-control" type="text" placeholder="Present Address" name="presentAddress" required>
+                </div>
+                <div class="col-md-8 mb-4">
+                    <label for="Father's Name">Permanent Address</label>
+                    <input class="form-control" type="text" placeholder="Permanent Address" name="permanentAddress" required>
+                </div>
+                <div class="col-md-8 mb-4">
+                    <select class="selectpicker" data-width="fit" title="Gender" name="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+
+
+                    </select>
+                </div>
+                <div class="col-md-8 mb-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" name="file">
+                        <label class="custom-file-label" for="customFile">Choose an Image</label>
                     </div>
                 </div>
-                <div class="col-md-5 rounded-right borderbtm" style=" background-color: #a9afba; padding: 35px;padding-top: 50px;">
-                    <div class="col-md-8 mb-3">
-                        <label for="Name">Name</label>
-                        <input class="form-control" type="text" placeholder="Name" name="name" required>
-                    </div>
-                    <div class="col-md-8 mb-3">
-                        <label for="Father's Name">Father's Name</label>
-                        <input type="text" class="form-control" placeholder="Father's Name" name="fathername" required>
-                    </div>
-                    <div class="col-md-8 mb-3">
-                        <label for="Father's Name">Phone</label>
-                        <input id="Phoneno" class="form-control" type="text" placeholder="phone no (+8801*********)" name="Phone" required>
-                        <div class="invalid-feedback" id="invalid-message">
-                            Please select an option
-                        </div>
-                    </div>
-                    <div class="col-md-8 mb-3">
-                        <label for="Father's Name">Present Address</label>
-                        <input class="form-control" type="text" placeholder="Present Address" name="presentAddress" required>
-                    </div>
-                    <div class="col-md-8 mb-4">
-                        <label for="Father's Name">Permanent Address</label>
-                        <input class="form-control" type="text" placeholder="Permanent Address" name="permanentAddress" required>
-                    </div>
-                    <div class="col-md-7 mb-4">
-                        <select class="selectpicker" data-width="fit" title="Gender" name="gender">
-                            <option>Male</option>
-                            <option>Female</option>
-
-
-                        </select>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" name="file">
-                            <label class="custom-file-label" for="customFile">Choose an Image</label>
-                        </div>
-                    </div>
-                    <!--  <div style="margin-top:20px;">
+                <!--  <div style="margin-top:20px;">
                     <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
                         <option>Temporary</option>
                         <option>Permanent</option>
@@ -87,152 +83,81 @@
                     </select>
                 </div>-->
 
-                </div>
-
-
-
-
             </div>
 
-            <div class="row" style="margin-bottom:60px;">
-                <div class="col-md-3 rounded-left columnstyle">
-                    <div style="text-align: center;">
-                        <h2>Work related information</h2>
+
+
+
+        </div>
+
+        <div class="row" style="margin-bottom:60px;">
+            <div class="col-md-3 rounded-left columnstyle">
+                <div style="    text-align: center;">
+                    <h2>Work related information</h2>
+                </div>
+            </div>
+
+
+            <div class="col-md-5 rounded-right" style="background-color: #a9afba;padding:35px;">
+                <div class="col-md-7 mb-3">
+                    <label for="Father's Name"> Work Type </label>
+                    <div class="choices">
+                        <label class="container">
+                            Temporary
+                            <input type="checkbox" name="temporaryType">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">
+                            Permanent
+                            <input type="checkbox" name="permanentType">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">
+                            Baby Care
+                            <input type="checkbox" name="babyCareType">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">
+                            Elderly Care
+                            <input type="checkbox" name="elderlyCareType">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <div class="invalid-feedback" id="invalid-message">
+                            Please select an option
+                        </div>
                     </div>
                 </div>
-
-
-                <div class="col-md-5 rounded-right" style="background-color: #a9afba;padding: 35px;">
-                    <div class="col-md-7 mb-3">
-                        <label for="Father's Name">Work Type</label>
-                        <div class="choices">
-                            <label class="container">
-                                Temporary
-                                <input type="checkbox" checked="checked" name="temporaryType">
-                                <span class="checkmark"></span>
-                            </label>
-
-                            <label class="container">
-                                Permanent
-                                <input type="checkbox" name="permanentType">
-                                <span class="checkmark"></span>
-                            </label>
-
-                            <label class="container">
-                                Baby Care
-                                <input type="checkbox" name="babyCareType">
-                                <span class="checkmark"></span>
-                            </label>
-
-                            <label class="container">
-                                Elderly Care
-                                <input type="checkbox" name="elderlyCareType">
-                                <span class="checkmark"></span>
-                            </label>
-
-
-                        </div>
-                        <!--<div class="custom-control custom-checkbox">
-          <input type="checkbox" name="temporaryType" class="custom-control-input" id="customCheck1" onclick='deRequire("custom-control-input")' required>
-          <label class="custom-control-label" for="customCheck1">Temporary</label>
-      </div>
-      <div class="custom-control custom-checkbox">
-          <input type="checkbox" name="permanentType" class="custom-control-input" id="customCheck2" onclick='deRequire("custom-control-input")' required>
-          <label class="custom-control-label" for="customCheck2">Permanent</label>
-      </div>
-      <div class="custom-control custom-checkbox">
-          <input type="checkbox" name="babyCareType" class="custom-control-input" id="customCheck3" onclick="deRequire('custom-control-input')" required>
-          <label class="custom-control-label" for="customCheck3">Baby Care</label>
-      </div>
-      <div class="custom-control custom-checkbox">
-          <input type="checkbox" name="elderlyCareType"class="custom-control-input" id="customCheck4" onclick="deRequire("custom-control-input")" required>
-          <label class="custom-control-label" for="customCheck4">Elderly Care</label>
-      </div>  -->
-                    </div>
-                    <!--  </div>
+                <!--  </div>
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-8"> -->
-                    <div class="col-md-7 mb-3">
-                        <label for="Father's Name">Work Area</label>
-                        <br>
-                        <div style="margin-bottom:20px;">
-                            <select name="area" class="selectpicker" style="margin-bottom:20px;" data-width="fit" data-style="btn-info" data-live-search="true" multiple>
-                                @{
-                                    for (int i = 0; i < thanalist.Count; i++)
-                                    {
-                                        <option> @thanalist[i] </option>
-                                    }
-                                }
+                <div class="col-md-7 mb-4">
+                    <label for="Father's Name"> Work Area </label>
+                    <br>
 
-                            </select>
-                        </div>
-                    </div>
+                    <select name="area" class="selectpicker" style="margin-bottom:20px;" title="Select Area" data-width="fit" data-style="btn-info" data-live-search="true" required multiple>
+                        @{
+                            for (int i = 0; i < thanalist.Count; i++)
+                            {
+                                <option> @thanalist[i] </option>
+                            }
+                        }
+
+                    </select>
                 </div>
             </div>
-            <div style="text-align:center;">
-                <button id="submit-btn" type="submit" class="btn btn-outline-dark collapsible">Submit</button>
-            </div>
-        </form>
-    </div>
+        </div>
+        <div style="text-align:center;">
+            <button id="submitbtn" type="submit" class="btn btn-outline-dark collapsible">Submit</button>
+        </div>
+    </form>
+    <script src="~/Scripts/JS/Addworker.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-   <script>
-       const phone = document.getElementById('Phoneno');
-       const submit = document.getElementById('submit-btn');
-       submit.addEventListener('click', e => {
-           e.preventDefault();
 
-           checkInputs();
-
-
-       });
-
-       function checkInputs() {
-           const phoneValue = phone.value.trim();
-
-           if (!isPhone(phoneValue)) {
-               document.getElementById("invalid-message").style.display = "block";
-               return;
-           }
-           else {
-               document.getElementById("invalid-message").style.display = "none";
-           }
-           
-           //form.submit();
-       }
-
-       function isPhone(phone) {
-           /* return /01d{ 9 }/.test(phone); */
-           var phoneno = /^\+88\d{11}$/;
-           if (phone.match(phoneno)) {
-               return true;
-           }
-           else {
-
-               return false;
-           }
-       } 
-       @*function deRequireCb(elClass) {
-           el = document.getElementsByClassName(elClass);
-
-           var atLeastOneChecked = false;//at least one cb is checked
-           for (i = 0; i < el.length; i++) {
-               if (el[i].checked === true) {
-                   atLeastOneChecked = true;
-               }
-           }
-
-           if (atLeastOneChecked === true) {
-               for (i = 0; i < el.length; i++) {
-                   el[i].required = false;
-               }
-           } else {
-               for (i = 0; i < el.length; i++) {
-                   el[i].required = true;
-               }
-           }
-       }*@
-   </script>
 </body>
 </html>
