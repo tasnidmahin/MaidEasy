@@ -58,18 +58,23 @@ namespace MaidEasy.Controllers
         }
         public ActionResult UserList()
         {
-            List<UserLIstModel> userListModel = new List<UserLIstModel>();
+            List<UserLIstModel> userList = new List<UserLIstModel>();
+            List<int> userIDs = new List<int>();
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT UserId from users";
             var table = db.getData(sql);
             while(table.Read())
             {
                 int id = Int32.Parse(table.GetString(0));
-                UserLIstModel ULModel = new UserLIstModel(id);
-                userListModel.Add(ULModel);
+                userIDs.Add(id);
             }
             table.Close();
-            ViewData["list"] = userListModel;
+            for(int i=0;i<userIDs.Count;i++)
+            {
+                UserLIstModel ULModel = new UserLIstModel(userIDs[i]);
+                userList.Add(ULModel);
+            }
+            ViewData["list"] = userList;
             return View();
         }
 
