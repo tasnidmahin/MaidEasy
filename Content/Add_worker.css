@@ -4,7 +4,7 @@
 
 body {
     padding: 0;
-    background-color: #000;
+    background-color: #fff !important;
 }
 
 .autocomplete {
@@ -14,7 +14,6 @@ body {
 }
 
 .row {
-   
     margin-right: 0px;
     margin-left: 0px;
 }
@@ -22,28 +21,25 @@ body {
 .columnstyle {
     display: flex;
     align-items: center;
-    background-color: #285eab
+    background-color: #8d949c;
 }
+
 h2 {
     font-family: "Georgia", "Arial", "Helvetica";
 }
 
-input[type=text], input[type=password] {
+/*input[type=text], input[type=password] {
     width: 350px;
     padding: 10px;
-    /* margin: 5px 0 22px 0; */
+    
     display: block;
     border: none;
     background: #f1f1f1;
     border-radius:7px;
-}
+}*/
 
 label {
-    display: inline-block;
-    margin-bottom: 5px;
-    font-family: 'Open Sans','sans-serif';
-    font-size: 1rem;
-    color: #212529;
+    font-size: 1.2rem;
 }
 
 .choices {
@@ -201,12 +197,14 @@ label {
 
 /* thana select box css */
 .borderbtm {
-    border-bottom: 15px solid black;
+    border-bottom: 15px solid #fff;
 }
-.custom-file{
-    width:350px;
-    z-index:0;
+
+.custom-file {
+    width: 350px;
+    z-index: 0;
 }
+
 .collapsible {
     cursor: pointer;
     padding: 18px;
@@ -222,3 +220,16 @@ label {
         outline: none;
     }
 
+
+.invalid-feedback {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    display: none;
+    width: 70%;
+}
+
+
+.dropdown-menu {
+    z-index: 1999;
+}
