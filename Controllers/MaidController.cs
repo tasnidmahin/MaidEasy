@@ -184,7 +184,7 @@ namespace MaidEasy.Controllers
              //System.Diagnostics.Debug.WriteLine(w2);
              //System.Diagnostics.Debug.WriteLine(w3);
              System.Diagnostics.Debug.WriteLine("--------------------------------");*/
-            for (int i = 0; i < cnt; i++)
+            for (int i = 3; i < cnt; i++)
             {
                 var nm = "box_" + i;
                 System.Diagnostics.Debug.WriteLine(Request[nm].ToString());
