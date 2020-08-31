@@ -44,7 +44,7 @@
 
 .box {
     border-radius: 8px;
-    padding-top: 80px;
+    padding-top: 120px;
 }
 
 /* class for the select box */
@@ -78,4 +78,16 @@ body {
 }
 h5{
     color:#fff !important;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #007bff !important;
+    color: #fff !important;
+    border-color: #0F93FE !important;
+}
+.nav-tabs {
+    border-bottom: 1px solid #0F93FE !important;
+}
+.textcolor{
+    color: #fff !important;
 }
