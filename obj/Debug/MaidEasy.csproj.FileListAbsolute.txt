@@ -78,3 +78,4 @@ E:\Mahin\3.2\New\Lab\ISD\MaidEasy\bin\Microsoft.CodeDom.Providers.DotNetCompiler
 E:\Mahin\3.2\New\Lab\ISD\MaidEasy\obj\Debug\MaidEasy.csproj.CopyComplete
 E:\Mahin\3.2\New\Lab\ISD\MaidEasy\obj\Debug\MaidEasy.dll
 E:\Mahin\3.2\New\Lab\ISD\MaidEasy\obj\Debug\MaidEasy.pdb
+E:\Mahin\3.2\New\Lab\ISD\MaidEasy\obj\Debug\MaidEasy.csprojAssemblyReference.cache

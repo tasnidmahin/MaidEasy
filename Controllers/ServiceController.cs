@@ -21,6 +21,8 @@ namespace MaidEasy.Controllers
         {
             if(Session["username"] == null) return RedirectToAction("Index", "Home");
             if(Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
+            if (TempData["message"] != null) //
+                ViewBag.Error = TempData["message"].ToString();
             ViewData["tab"] = "temporary";
             return View();
         }

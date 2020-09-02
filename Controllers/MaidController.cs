@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,6 +13,9 @@ namespace MaidEasy.Controllers
     {
         //
         // GET: Maid
+        private readonly Mutex m = new Mutex();
+        private readonly Mutex mut = new Mutex();
+
         public ActionResult Index()
         {
             return View();
@@ -156,6 +160,28 @@ namespace MaidEasy.Controllers
             return status;
         }
 
+        private bool checkStatus()
+        {
+            int start = Int32.Parse(Session["start"].ToString());
+            int end = Int32.Parse(Session["end"].ToString());
+            var wData = (string[])Session["CurWorker"];
+            var wID = wData[4];
+            string sql = "SELECT status from Worker where WorkerId = '" + wID + "' ";
+            DBHelper db = DBHelper.getDB();
+            var table = db.getData(sql);
+            table.Read();
+            string status = table.GetString(0);
+            table.Close();
+            StringBuilder sb = new StringBuilder();
+            sb.Append(status);
+
+            for (int i = start; i <= end; i++)
+            {
+                if (sb[i] == '1') return false;
+            }
+            return true;
+        }
+
         [HttpGet]
         public ActionResult Booking()
         {
@@ -216,12 +242,29 @@ namespace MaidEasy.Controllers
             string WName = table.GetString(0);
             table.Close();
 
-            sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + " ', ' " + uID + " ', ' " + SMonth + " ', ' " + EMonth + " ', ' " + STime + " ', ' " + ETime + " ', ' " + salary + "', '" + worklist + " ');";
-            db.setData(sql);
 
-            string status = getStatus();
-            sql = "UPDATE Worker SET status  = '" + status + "' where WorkerId = '" + wID + "'";
-            db.setData(sql);
+            m.WaitOne();
+            try
+            {
+                bool check = checkStatus();
+                if (!check)
+                {
+                    TempData["message"] = "Sorry!! This Maid had been hired in this time. Try another maid. Thank you.";
+                    m.ReleaseMutex();
+                    return RedirectToAction("Service", "Service");
+                }
+
+                sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + " ', ' " + uID + " ', ' " + SMonth + " ', ' " + EMonth + " ', ' " + STime + " ', ' " + ETime + " ', ' " + salary + "', '" + worklist + " ');";
+                db.setData(sql);
+
+                string status = getStatus();
+                sql = "UPDATE Worker SET status  = '" + status + "' where WorkerId = '" + wID + "'";
+                db.setData(sql);
+            }
+            finally
+            {
+                m.ReleaseMutex();
+            }
 
             Session.Remove("work_row");
             Session.Remove("start");
@@ -265,13 +308,29 @@ namespace MaidEasy.Controllers
             string WName = table.GetString(0);
             table.Close();
 
-            sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + " ', ' " + uID + " ', ' " + SMonth + " ', ' " + EMonth + " ', ' " + STime + " ', ' " + ETime + " ', ' " + salary + "', '" + worklist + " ');";
-            db.setData(sql);
+            mut.WaitOne();
+            try
+            {
+                bool check = checkStatus();
+                if (!check)
+                {
+                    TempData["message"] = "Sorry!! This Maid had been hired in this time. Try another maid. Thank you.";
+                    m.ReleaseMutex();
+                    return RedirectToAction("Service", "Service");
+                }
 
-            string status = "";
-            for (int i = 0; i < 25; i++) status += "1";
-            sql = "UPDATE Worker SET status  = '" + status + "' where WorkerId = '" + wID + "'";
-            db.setData(sql);
+                sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + " ', ' " + uID + " ', ' " + SMonth + " ', ' " + EMonth + " ', ' " + STime + " ', ' " + ETime + " ', ' " + salary + "', '" + worklist + " ');";
+                db.setData(sql);
+
+                string status = "";
+                for (int i = 0; i < 25; i++) status += "1";
+                sql = "UPDATE Worker SET status  = '" + status + "' where WorkerId = '" + wID + "'";
+                db.setData(sql);
+            }
+            finally
+            {
+                mut.ReleaseMutex();
+            }
 
             Session.Remove("work_row");
             Session.Remove("start");
