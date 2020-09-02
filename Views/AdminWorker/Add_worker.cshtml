@@ -50,6 +50,7 @@
                     <label for="Father's Name">Phone</label>
                     <input class="form-control" type="text" placeholder="phone no (+8801*********)" name="Phone" pattern="^\+88\d{11}$" required>
                 </div>
+
                 <div class="col-md-8 mb-3">
                     <label for="Father's Name">Present Address</label>
                     <input class="form-control" type="text" placeholder="Present Address" name="presentAddress" required>
@@ -57,7 +58,10 @@
                 <div class="col-md-8 mb-4">
                     <label for="Father's Name">Permanent Address</label>
                     <input class="form-control" type="text" placeholder="Permanent Address" name="permanentAddress" required>
-                </div>
+
+             </div>
+
+
                 <div class="col-md-8 mb-4">
                     <select class="selectpicker" data-width="fit" title="Gender" name="gender">
                         <option>Male</option>
@@ -71,6 +75,9 @@
                         <input type="file" class="custom-file-input" id="customFile" name="file">
                         <label class="custom-file-label" for="customFile">Choose an Image</label>
                     </div>
+
+                   </div>
+      
                 </div>
                 <!--  <div style="margin-top:20px;">
                     <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
@@ -85,10 +92,6 @@
 
             </div>
 
-
-
-
-        </div>
 
         <div class="row" style="margin-bottom:60px;">
             <div class="col-md-3 rounded-left columnstyle">
@@ -130,11 +133,12 @@
                             Please select an option
                         </div>
                     </div>
-                </div>
-                <!--  </div>
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-8"> -->
+                    </div>
+                    <!--  </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8"> -->
+                
                 <div class="col-md-7 mb-4">
                     <label for="Father's Name"> Work Area </label>
                     <br>
@@ -144,12 +148,12 @@
                             for (int i = 0; i < thanalist.Count; i++)
                             {
                                 <option> @thanalist[i] </option>
+
                             }
                         }
-
                     </select>
+                    </div>
                 </div>
-            </div>
         </div>
         <div style="text-align:center;">
             <button id="submitbtn" type="submit" class="btn btn-outline-dark collapsible">Submit</button>

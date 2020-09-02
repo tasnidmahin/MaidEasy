@@ -38,7 +38,7 @@ h2 {
     border-radius:7px;
 }*/
 
-label {
+label { 
     font-size: 1.2rem;
 }
 
@@ -225,11 +225,12 @@ label {
     border-style: solid;
     border-radius: 5px;
     border-width: 2px;
-    display: none;
-    width: 70%;
+    display:none;
+     width: 70%; 
 }
 
 
 .dropdown-menu {
     z-index: 1999;
 }
+
