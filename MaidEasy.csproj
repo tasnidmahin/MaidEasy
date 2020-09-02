@@ -259,10 +259,10 @@
     <Content Include="Views\AdminWorker\Add_worker.cshtml" />
     <Content Include="Views\AdminWorker\Edit_worker.cshtml" />
     <Content Include="Views\AdminWorker\WorkerList.cshtml" />
+    <Content Include="Views\AdminUser\UserLIst.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\AdminUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
