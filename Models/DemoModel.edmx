@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="maideasyModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contactus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contracts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+          <Property Name="WorkerName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="StartMonth" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EndMonth" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="startTime" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="endTime" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Worklist" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="thana">
+          <Key>
+            <PropertyRef Name="ThanaId" />
+          </Key>
+          <Property Name="ThanaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PresentAddress" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PermanentAddress" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="80" />
+          <Property Name="thana" Type="varchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="work">
+          <Key>
+            <PropertyRef Name="WorkId" />
+          </Key>
+          <Property Name="WorkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UnitPrice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="worker">
+          <Key>
+            <PropertyRef Name="WorkerId" />
+          </Key>
+          <Property Name="WorkerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fatherName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PresentAddress" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PermanentAddress" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="experience" Type="int" Nullable="false" />
+          <Property Name="joinDate" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="updateStatus" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rating" Type="double" />
+          <Property Name="image" Type="varchar" MaxLength="80" />
+          <Property Name="status" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="workerreview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="rating" Type="double" />
+          <Property Name="description" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="contracts_ibfk_1">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="contracts" Type="Self.contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="contracts">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="contracts_ibfk_2">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="contracts" Type="Self.contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="contracts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'fk_WorkerReview' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="fk_WorkerReview" />-->
+        <Association Name="workerreview_ibfk_1">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="workerreview" Type="Self.workerreview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="workerreview">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="maideasyModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="maideasy" store:Type="Tables" />
+          <EntitySet Name="contactus" EntityType="Self.contactus" Schema="maideasy" store:Type="Tables" />
+          <EntitySet Name="contracts" EntityType="Self.contracts" Schema="maideasy" store:Type="Tables" />
+          <EntitySet Name="thana" EntityType="Self.thana" Schema="maideasy" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="maideasy" store:Type="Tables" />
+          <EntitySet Name="work" EntityType="Self.work" Schema="maideasy" store:Type="Tables" />
+          <EntitySet Name="worker" EntityType="Self.worker" Schema="maideasy" store:Type="Tables" />
+          <EntitySet Name="workerreview" EntityType="Self.workerreview" Schema="maideasy" store:Type="Tables" />
+          <AssociationSet Name="contracts_ibfk_1" Association="Self.contracts_ibfk_1">
+            <End Role="worker" EntitySet="worker" />
+            <End Role="contracts" EntitySet="contracts" />
+          </AssociationSet>
+          <AssociationSet Name="contracts_ibfk_2" Association="Self.contracts_ibfk_2">
+            <End Role="users" EntitySet="users" />
+            <End Role="contracts" EntitySet="contracts" />
+          </AssociationSet>
+          <AssociationSet Name="workerreview_ibfk_1" Association="Self.workerreview_ibfk_1">
+            <End Role="worker" EntitySet="worker" />
+            <End Role="workerreview" EntitySet="workerreview" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="maideasyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contactu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <Property Name="WorkerName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="StartMonth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EndMonth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="startTime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="endTime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Worklist" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="worker" Relationship="Self.contracts_ibfk_1" FromRole="contracts" ToRole="worker" />
+          <NavigationProperty Name="user" Relationship="Self.contracts_ibfk_2" FromRole="contracts" ToRole="users" />
+        </EntityType>
+        <EntityType Name="thana">
+          <Key>
+            <PropertyRef Name="ThanaId" />
+          </Key>
+          <Property Name="ThanaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PresentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PermanentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="thana" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="contracts" Relationship="Self.contracts_ibfk_2" FromRole="users" ToRole="contracts" />
+        </EntityType>
+        <EntityType Name="work">
+          <Key>
+            <PropertyRef Name="WorkId" />
+          </Key>
+          <Property Name="WorkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UnitPrice" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="worker">
+          <Key>
+            <PropertyRef Name="WorkerId" />
+          </Key>
+          <Property Name="WorkerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fatherName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PresentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PermanentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="experience" Type="Int32" Nullable="false" />
+          <Property Name="joinDate" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="updateStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rating" Type="Double" />
+          <Property Name="image" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="contracts" Relationship="Self.contracts_ibfk_1" FromRole="worker" ToRole="contracts" />
+          <NavigationProperty Name="workerreviews" Relationship="Self.workerreview_ibfk_1" FromRole="worker" ToRole="workerreview" />
+        </EntityType>
+        <EntityType Name="workerreview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rating" Type="Double" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="worker" Relationship="Self.workerreview_ibfk_1" FromRole="workerreview" ToRole="worker" />
+        </EntityType>
+        <Association Name="contracts_ibfk_1">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="contracts" Type="Self.contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="contracts">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="contracts_ibfk_2">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="contracts" Type="Self.contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="contracts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="workerreview_ibfk_1">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="workerreview" Type="Self.workerreview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="workerreview">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DemoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
+          <EntitySet Name="contactus" EntityType="Self.contactu" />
+          <EntitySet Name="contracts" EntityType="Self.contract" />
+          <EntitySet Name="thanas" EntityType="Self.thana" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="works" EntityType="Self.work" />
+          <EntitySet Name="workers" EntityType="Self.worker" />
+          <EntitySet Name="workerreviews" EntityType="Self.workerreview" />
+          <AssociationSet Name="contracts_ibfk_1" Association="Self.contracts_ibfk_1">
+            <End Role="worker" EntitySet="workers" />
+            <End Role="contracts" EntitySet="contracts" />
+          </AssociationSet>
+          <AssociationSet Name="contracts_ibfk_2" Association="Self.contracts_ibfk_2">
+            <End Role="users" EntitySet="users" />
+            <End Role="contracts" EntitySet="contracts" />
+          </AssociationSet>
+          <AssociationSet Name="workerreview_ibfk_1" Association="Self.workerreview_ibfk_1">
+            <End Role="worker" EntitySet="workers" />
+            <End Role="workerreview" EntitySet="workerreviews" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="maideasyModelStoreContainer" CdmEntityContainer="DemoEntities">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="maideasyModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contactus">
+            <EntityTypeMapping TypeName="maideasyModel.contactu">
+              <MappingFragment StoreEntitySet="contactus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contracts">
+            <EntityTypeMapping TypeName="maideasyModel.contract">
+              <MappingFragment StoreEntitySet="contracts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="WorkerName" ColumnName="WorkerName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="StartMonth" ColumnName="StartMonth" />
+                <ScalarProperty Name="EndMonth" ColumnName="EndMonth" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Worklist" ColumnName="Worklist" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thanas">
+            <EntityTypeMapping TypeName="maideasyModel.thana">
+              <MappingFragment StoreEntitySet="thana">
+                <ScalarProperty Name="ThanaId" ColumnName="ThanaId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="maideasyModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
+                <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="thana" ColumnName="thana" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="works">
+            <EntityTypeMapping TypeName="maideasyModel.work">
+              <MappingFragment StoreEntitySet="work">
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workers">
+            <EntityTypeMapping TypeName="maideasyModel.worker">
+              <MappingFragment StoreEntitySet="worker">
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="fatherName" ColumnName="fatherName" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
+                <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="experience" ColumnName="experience" />
+                <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+                <ScalarProperty Name="updateStatus" ColumnName="updateStatus" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workerreviews">
+            <EntityTypeMapping TypeName="maideasyModel.workerreview">
+              <MappingFragment StoreEntitySet="workerreview">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

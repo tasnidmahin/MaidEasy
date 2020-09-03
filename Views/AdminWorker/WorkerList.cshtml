@@ -1,10 +1,10 @@
-﻿
+﻿@model IEnumerable<MaidEasy.Models.worker>
 @{
     ViewBag.Title = "WorkerList";
     Layout = null;
 }
 @{
-   // Html.RenderPartial("Header");
+    // Html.RenderPartial("Header");
 }
 <!DOCTYPE html>
 <html>
@@ -51,34 +51,39 @@
                         <th> </th>
                     </tr>
                 </thead>
-                <form action="/AdminWorker/Edit_Worker" method="get">
+                <!-- <form action="/AdminWorker/Edit_Worker" method="get">  -->
 
-                    @{
-                        string[,] WorkerList = (string[,])Session["WorkerList"];
-                    }
-                    @for (int i = 0; i < Convert.ToInt32(Session["WorkerList_Count"]); i++)
-                    {
-                        <tbody id="myTable">
-                            <tr>
-                                <td>@WorkerList[i, 0]</td>
-                                <td>@WorkerList[i, 1]</td>
-                                <td>@WorkerList[i, 2]</td>
-                                <td>@WorkerList[i, 3]</td>
-                                <td>@WorkerList[i, 4]</td>
-                                <td>@WorkerList[i, 5]</td>
-                                <td>@WorkerList[i, 6]</td>
-                                <td>@WorkerList[i, 7]</td>
-                                <td class="middle">
-                                    <button type="submit" class="btn btn-outline-dark" name="workerID" value="@WorkerList[i, 0]">View Profile</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </form>
+                @foreach (var item in Model)
+                {
+                    <tbody id="myTable">
+                        <tr>
+                            <td>@item.WorkerId</td>
+                            <td>@item.Name</td>
+                            <td>@item.gender</td>
+                            <td>@item.Area</td>
+                            <td>@item.type</td>
+                            <td>@item.status</td>
+                            <td>@item.experience</td>
+                            <td>@item.rating</td>
+                            <td class="middle">
+                                <a href="@Url.Action("Edit_Worker", "AdminWorker", new { workerID =  item.WorkerId })">
+                                    <button type="submit" class="btn btn-outline-dark">View Profile</button>
+                                </a>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+                <!-- </form> --> 
             </table>
+            </div>
         </div>
-    </div>
-    <script src="~/Scripts/JS/Worker.js"></script>
-</body>
-</html>
+
+
+
+
+
+        <script src="~/Scripts/JS/Worker.js"></script>
+    </body>
+    </html>
 

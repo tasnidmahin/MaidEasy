@@ -11,6 +11,7 @@ namespace MaidEasy.Controllers
 {
     public class AdminWorkerController : Controller
     {
+        DemoEntities dbContext = new DemoEntities();
         // GET: AdminWorker
         public ActionResult Index()
         {
@@ -44,6 +45,7 @@ namespace MaidEasy.Controllers
         }
         public ActionResult WorkerList()
         {
+            
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT count(WorkerId) FROM worker";
             var table = db.getData(sql);
@@ -81,13 +83,18 @@ namespace MaidEasy.Controllers
             System.Diagnostics.Debug.WriteLine("---------END Worker info-----------");
             Session["WorkerList"] = data;
             Session["WorkerList_Count"] = count;
-            return View();
+            
+
+            return View(dbContext.workers.ToList());
         }
         public ActionResult Edit_Worker()
         {
-            if (Request["workerID"] != null) Session["workerID"] = Request["workerID"];
+            
+            if (Request["workerID"] != null) 
+                Session["workerID"] = Request["workerID"];
 
-            var id = Session["workerID"];
+            var id = Int32.Parse(Session["workerID"].ToString());
+            
             string sql = "SELECT Name,fatherName,mobile,PresentAddress,PermanentAddress,gender,type,Area,image from worker where WorkerId = '" + id + "'";
 
             DBHelper db = DBHelper.getDB();
@@ -121,7 +128,9 @@ namespace MaidEasy.Controllers
 
             ViewData["thanaList"] = thanaList;
             ViewData["WorkerData"] = data;
-            return View();
+            
+            worker worker = dbContext.workers.Find(id);
+            return View(worker);
         }
 
         [HttpPost]

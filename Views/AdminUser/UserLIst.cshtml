@@ -1,4 +1,4 @@
-﻿@model MaidEasy.Models.UserLIstModel
+﻿@model IEnumerable<MaidEasy.Models.user>
 @{
     ViewBag.Title = "UserLIst";
     Layout = null;
@@ -32,41 +32,42 @@
 </head>
 <body>
 
-    <div style="text-align:center;margin-top:80px;">
-        <!-- <button type="button" class="collapsible">Add Admin</button> -->
-        <br />
-        <h2> List of Users </h2>
-        <br><br>
-        <div class="content">
-            <form>
-                <div class="form-group">
-                    <div class="col-md-4 mb-3" style="margin:auto;">
-                        <label for="validationServer01">Username</label>
-                        <input type="text" class="form-control is-valid" id="validationServer01" value="Washing" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 mb-3" style="margin:auto;">
-                        <label for="validationServer01">Password</label>
-                        <input type="text" class="form-control is-valid" id="validationServer01" value="10,000" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-
+    <!-- <div style="text-align:center;margin-top:80px;"> -->
+    <!-- <button type="button" class="collapsible">Add Admin</button> -->
+    <!--<br />
+    <h2> List of Users </h2>
+    <br><br>
+    <div class="content">
+        <form>
+            <div class="form-group">
+                <div class="col-md-4 mb-3" style="margin:auto;">
+                    <label for="validationServer01">Username</label>
+                    <input type="text" class="form-control is-valid" id="validationServer01" value="Washing" required>
+                    <div class="valid-feedback">
+                        Looks good!
                     </div>
 
+                </div>
+                <div class="col-md-4 mb-3" style="margin:auto;">
+                    <label for="validationServer01">Password</label>
+                    <input type="text" class="form-control is-valid" id="validationServer01" value="10,000" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
 
                 </div>
 
-                <button class="btn btn-primary" type="submit">Submit</button>
 
-            </form>
-        </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+
+        </form>
     </div>
+    </div> -->
     <div class="container">
-
+        <h2 style="text-align:center;margin-top:100px;"> List of Users </h2>
+        <br /> <br />
         <div class="table-responsive">
             <table id="example" class="display" style="width:100%">
                 <thead>
@@ -81,29 +82,38 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @{
+                        // var WorkerList = ViewData["userlist"];
 
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-secondary  btn-sm  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Action
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">View Profile</a>
-                                    <a id="makeadmin" class="dropdown-item" href="#">Make Admin</a>
-                                    <a class="dropdown-item" href="#">Block</a>
+                        //System.Diagnostics.Debug.WriteLine(WorkerList.GetType());
+                    }
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary  btn-sm  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Action
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">View Profile</a>
+                                        <a id="makeadmin" class="dropdown-item" href="#">Make Admin</a>
+                                        <a class="dropdown-item" href="#">Block</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                            }
 
-                </tbody>
+
+                    </tbody>
                 <tfoot>
 
                 </tfoot>

@@ -1,4 +1,4 @@
-﻿@model MaidEasy.Models.EditWorkerModel
+﻿@model MaidEasy.Models.worker
 @{
     ViewBag.Title = "Edit_worker";
     Layout = null;
@@ -65,22 +65,22 @@
                 <div class="col-md-7 rounded-right" style="background-color:#e4e5e8;padding: 25px;padding-left:50px;">
 
                     <label for="Name"><b>Name</b></label>
-                    <input id="name" type="text" placeholder="Name" name="name" value="@WorkerData[0]" readonly required>
+                    <input id="name" type="text" placeholder="Name" name="name" value="@Model.Name" readonly required>
                     <label for="Father's Name"><b>Father's Name</b></label>
-                    <input id="father" type="text" placeholder="Father's Name" name="fathername" value="@WorkerData[1]" readonly required>
+                    <input id="father" type="text" placeholder="Father's Name" name="fathername" value="@Model.fatherName" readonly required>
                     <label for="Father's Name"><b>Phone</b></label>
-                    <input id="phone" type="text" placeholder="phone no (+8801*********)" name="Phone" value="@WorkerData[2]" readonly required>
+                    <input id="phone" type="text" placeholder="phone no (+8801*********)" name="Phone" value="@Model.mobile" readonly required>
                     <label for="Father's Name"><b>Present Address</b></label>
-                    <input id="present" type="text" placeholder="Present Address" name="PresentAddress" value="@WorkerData[3]" readonly required>
+                    <input id="present" type="text" placeholder="Present Address" name="PresentAddress" value="@Model.PresentAddress" readonly required>
                     <label for="Father's Name"><b>Permanent Address</b></label>
-                    <input id="permanent" type="text" placeholder="Permanent Address" name="PermanentAddress" value="@WorkerData[4]" readonly required>
+                    <input id="permanent" type="text" placeholder="Permanent Address" name="PermanentAddress" value="@Model.PermanentAddress" readonly required>
 
 
                     <div id="selectbox1" style="margin-top:20px;margin-bottom: 20px;">
 
                         <select class="selectpicker" data-width="fit" title="Gender" name="gender">
                             @{
-                                if (WorkerData[5].ToString().Equals("Male"))
+                                if (@Model.gender.ToString().Equals("Male"))
                                 {
                                     <option selected="selected">Male</option>
                                     <option>Female</option>
@@ -97,7 +97,7 @@
                     </div>
                     <div id="selectboxhide" style="margin-bottom: 20px;">
                         <label for="Gender"><b>Gender</b></label>
-                        <input type="text" value="@WorkerData[5]" readonly>
+                        <input type="text" value="@Model.gender" readonly>
                     </div>
                     <!--  <div style="margin-top:20px;">
                         <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
