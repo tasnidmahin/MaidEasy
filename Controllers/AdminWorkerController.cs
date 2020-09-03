@@ -46,6 +46,7 @@ namespace MaidEasy.Controllers
         public ActionResult WorkerList()
         {
             
+            /*
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT count(WorkerId) FROM worker";
             var table = db.getData(sql);
@@ -83,9 +84,16 @@ namespace MaidEasy.Controllers
             System.Diagnostics.Debug.WriteLine("---------END Worker info-----------");
             Session["WorkerList"] = data;
             Session["WorkerList_Count"] = count;
-            
+            */
 
-            return View(dbContext.workers.ToList());
+            IEnumerable<MaidEasy.Models.worker> workerList = dbContext.workers.ToList();
+            foreach (var item in workerList)
+            {
+                item.Area = getThanaList(item.Area);
+                item.type = getWorkerTypeList(item.type);
+            }
+
+            return View(workerList);
         }
         public ActionResult Edit_Worker()
         {
@@ -159,7 +167,6 @@ namespace MaidEasy.Controllers
             string Year = DateTime.Now.ToString("yyyy");
             Year = Month + "/" + Year;
 
-
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'users' AND table_schema = 'maideasy'";
             var table = db.getData(sql);
@@ -181,16 +188,37 @@ namespace MaidEasy.Controllers
                 img = filename;
             }
 
+            worker worker = new worker();
+            worker.Name = name;
+            worker.fatherName = fatherName;
+            worker.mobile = phone;
+            worker.PresentAddress = presentAddress;
+            worker.PermanentAddress = permanentAddress;
+            worker.gender = gender;
+            worker.Area = thana;
+            worker.type = type;
+            worker.image = img;
+            worker.joinDate = Year;
+            worker.experience = 0;
+            worker.updateStatus = "pending";
+            worker.rating = 0.00;
+            worker.status = "0000000000000000000000000";
 
-            sql = " INSERT INTO worker (Name, fatherName, mobile , PresentAddress , PermanentAddress, gender, area, type, image, joinDate ) VALUES('" + name + "', '" + fatherName + " ', ' " + phone + " ', ' " + presentAddress + " ', ' " + permanentAddress + " ', ' " + gender + "', '" + thana + "', '" + type + "', '" + img + "', '" + Year + " '); ";
+            if (ModelState.IsValid)
+            {
+                dbContext.workers.Add(worker);
+                dbContext.SaveChanges();
+                return RedirectToAction("WorkerList");
+            }
+            //sql = " INSERT INTO worker (Name, fatherName, mobile , PresentAddress , PermanentAddress, gender, area, type, image, joinDate ) VALUES('" + name + "', '" + fatherName + " ', ' " + phone + " ', ' " + presentAddress + " ', ' " + permanentAddress + " ', ' " + gender + "', '" + thana + "', '" + type + "', '" + img + "', '" + Year + " '); ";
             
-            db.setData(sql);
+            //db.setData(sql);
 
             System.Diagnostics.Debug.WriteLine("-----IMAGE-------------------------------");
             System.Diagnostics.Debug.WriteLine(img);
             System.Diagnostics.Debug.WriteLine("-----IMAGE-------------------------------");
 
-            return RedirectToAction("WorkerList", "AdminWorker");
+            return RedirectToAction("Add_worker", "AdminWorker");
         }
 
         [HttpPost]
