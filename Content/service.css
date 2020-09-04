@@ -91,3 +91,12 @@ h5{
 .textcolor{
     color: #fff !important;
 }
+.card{
+    border:none !important;
+    border-radius:.75rem !important;
+}
+.card-header {
+    background-color: #313f4b !important;
+    color: white;
+   
+}

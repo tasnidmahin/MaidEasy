@@ -156,6 +156,7 @@
     <Content Include="Content\edit_worker.css" />
     <Content Include="Content\feedback.css" />
     <Content Include="Content\footer.css" />
+    <Content Include="Content\footer2.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\homepage.css" />
     <Content Include="Content\Images\1stslide.jpg" />

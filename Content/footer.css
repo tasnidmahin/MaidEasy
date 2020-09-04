@@ -4,6 +4,7 @@ html {
     background-color: #eaf0f2;
 }  */
 
+@import url('Workers/footer2.css');
 body {
    /* font: 16px/1.6 Arial, sans-serif; */
 }
