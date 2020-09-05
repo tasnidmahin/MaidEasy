@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <form action="/Maid/Hire" method="get">
-                        <div class="card" id="user-info" style="width:17rem;border:none;margin:auto;">
+                        <div class="card" id="user-info" style="width:19rem;border:none;margin:auto;">
                             @{
                                 string[] data = (string[])Session["CurWorker"];
                                 var Type = data[1];
@@ -74,40 +74,45 @@
                                 <h3 class="card-title" id="user-name">@data[0]</h3>
                                 <div id="user-data">
                                     <div class="d-flex">
-                                        <h4 class="category col-md-6">Experience:</h4><span class="user-input">@data[3] months</span>
+                                        <div class="col-md-6 text-right">
+                                            <h4 class="category">Experience:</h4>
+                                        </div><span class="user-input">@data[3] months</span>
                                     </div>
                                     <div class="d-flex">
-                                        <h4 class="category col-md-6">Maid type:</h4><span class="user-input">@type</span>
+                                        <h4 class="category col-md-6 text-right">Maid type:</h4><span class="user-input">@type</span>
                                     </div>
-                                    <h4 class="category  col-md-6">
-                                        Ratings:
-                                        @{
-                                            while (rat > 0.5)
-                                            {
-                                                <span class="text-warning fa fa-star user-input"></span>
-                                                rat -= 1;
-                                            }
-                                            while (rat > 0)
-                                            {
-                                                <span class="text-warning fa fa-star user-input half-checked"></span>
-                                                rat = 0;
-                                            }
-                                        }
-                                    </h4>
                                     <div class="d-flex">
-                                        <h4 class="category  col-md-6">Rating:</h4><span class="user-input">@data[2] / 5.00</span>
-                                    </div>
-                                    <div class="text-center" style="padding-top:40px;">
-                                        
-                                        @{
-                                            if (ViewData["lastUrl"].ToString() == "/Service/Searching" || ViewData["lastUrl"].ToString() == "/Service/SearchingFull")
-                                            {
-                                                <button type="submit" class="btn btn-dark">Hire</button>
+                                        <h4 class="category  col-md-6 text-right">
+                                            Ratings:
+                                        </h4>
+                                            @{
+                                                while (rat > 0.5)
+                                                {
+                                                    <span class="text-warning fa fa-star user-input"></span>
+                                                    rat -= 1;
+                                                }
+                                                while (rat > 0)
+                                                {
+                                                    <span class="text-warning fa fa-star user-input half-checked"></span>
+                                                    rat = 0;
+                                                }
                                             }
-                                        }
+                                       
+                                        </div>
+                                        <div class="d-flex">
+                                            <h4 class="category  col-md-6 text-right">Rating:</h4><span class="user-input">@data[2] / 5.00</span>
+                                        </div>
+                                        <div class="text-center" style="padding-top:40px;">
+
+                                            @{
+                                                if (ViewData["lastUrl"].ToString() == "/Service/Searching" || ViewData["lastUrl"].ToString() == "/Service/SearchingFull")
+                                                {
+                                                    <button type="submit" class="btn btn-dark">Hire</button>
+                                                }
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
 
                         </div>

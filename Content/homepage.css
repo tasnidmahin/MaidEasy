@@ -66,7 +66,7 @@ h5 {
         color: #fff !important;
     }
 
-section {
+.banner {
     background-image: url(images/bgadmin.jpg);
     position: relative;
     overflow: hidden;
@@ -140,3 +140,40 @@ ul {
         text-decoration: none;
         cursor: pointer;
     }
+
+
+.testimonial {
+    max-width: 800px;
+    margin: 0 auto !important;
+    text-align: center
+}
+
+    .testimonial blockquote {
+        font-size: 1.5rem;
+        font-style: italic
+    }
+
+    .testimonial figure img {
+        max-width: 100px;
+        margin: 0 auto;
+        border-radius: 50%
+    }
+.carousel-indicators li {
+    width: 15px !important;
+    height: 10px !important;
+    margin: 10px !important;
+    cursor: pointer !important;
+    border: none !important;
+    border-radius: 10px !important;
+    background-color: gray !important;
+    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5) !important;
+}
+
+.carousel-indicators .active {
+    width: 50px !important;
+    height: 10px !important;
+    margin: 10px;
+    background-image: linear-gradient(to right, cyan, rgb(0, 183, 255));
+    border-radius: 5px;
+    border: none;
+}
