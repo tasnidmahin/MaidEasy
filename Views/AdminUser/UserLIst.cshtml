@@ -91,19 +91,19 @@
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>@item.UserId</td>
+                            <td>@item.username</td>
                             <td>@item.Name</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
+                            <td>@item.mobile</td>
+                            <td>@item.thana</td>
+                            <td>@item.type</td>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-secondary  btn-sm  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Action
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">View Profile</a>
+                                        <a class="dropdown-item" href="@Url.Action("user_profile", "User" , new { userID =  item.UserId })">View Profile</a>
                                         <a id="makeadmin" class="dropdown-item" href="#">Make Admin</a>
                                         <a class="dropdown-item" href="#">Block</a>
                                     </div>

@@ -71,7 +71,7 @@ namespace MaidEasy.Controllers
             return ret;
         }
 
-        private int getThanaID(string thana)
+        public int getThanaID(string thana)
         {
             int t = 0;
             int len = thana.Length;

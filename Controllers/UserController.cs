@@ -56,6 +56,7 @@ namespace MaidEasy.Controllers
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             var id = Session["username"];
+            //if(Request["userID"] != null) id = Int32.Parse(Request["userID"].ToString());
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT Name ,mobile ,PresentAddress,PermanentAddress,thana,image  from Users where username = '" + id + "'";
             var table = db.getData(sql);
