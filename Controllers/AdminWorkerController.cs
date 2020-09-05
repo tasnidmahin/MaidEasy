@@ -103,6 +103,7 @@ namespace MaidEasy.Controllers
 
             var id = Int32.Parse(Session["workerID"].ToString());
             
+            /*
             string sql = "SELECT Name,fatherName,mobile,PresentAddress,PermanentAddress,gender,type,Area,image from worker where WorkerId = '" + id + "'";
 
             DBHelper db = DBHelper.getDB();
@@ -123,6 +124,7 @@ namespace MaidEasy.Controllers
             data[9] = data[6];
             data[6] = getWorkerTypeList(data[6]);
 
+            /*
             int cnt = data[7].Length;
             sql = "SELECT Name from thana";
             string[] thanaList = new string[cnt];
@@ -133,11 +135,15 @@ namespace MaidEasy.Controllers
                 thanaList[i++] = table.GetString(0);
             }
             table.Close();
+            
 
             ViewData["thanaList"] = thanaList;
             ViewData["WorkerData"] = data;
-            
+            */
+
             worker worker = dbContext.workers.Find(id);
+            var typeList = getWorkerTypeList(worker.type);
+            ViewData["typeList"] = typeList;
             return View(worker);
         }
 
@@ -203,6 +209,21 @@ namespace MaidEasy.Controllers
             worker.updateStatus = "pending";
             worker.rating = 0.00;
             worker.status = "0000000000000000000000000";
+
+
+            /*Instituitions instituitions = db.Instituitions.Find(id);
+            db.Instituitions.Remove(instituitions);
+            db.SaveChanges();
+            
+             
+            if (ModelState.IsValid)
+            {
+                db.Entry(instituitions).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+             */
 
             if (ModelState.IsValid)
             {
