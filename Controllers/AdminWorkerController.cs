@@ -98,7 +98,7 @@ namespace MaidEasy.Controllers
             Year = Month + "/" + Year;
 
             DBHelper db = DBHelper.getDB();
-            string sql = "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'users' AND table_schema = 'maideasy'";
+            string sql = "SELECT `auto_increment` FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'worker'";
             var table = db.getData(sql);
 
 
@@ -231,9 +231,18 @@ namespace MaidEasy.Controllers
 
         public ActionResult DeleteWorker()
         {
-            DBHelper db = DBHelper.getDB();
+            /*DBHelper db = DBHelper.getDB();
             string sql = "DELETE from worker where WorkerId = '" + Session["workerID"] + "' ";
-            db.setData(sql);
+            db.setData(sql);*/
+
+            int id = Int32.Parse(Session["workerID"].ToString());
+            worker worker = dbContext.workers.Find(id);
+            var img = worker.image;
+            img = @"E:\Mahin\3.2\New\Lab\ISD\MaidEasy\Content\Workers\" + img; 
+            dbContext.workers.Remove(worker);
+            dbContext.SaveChanges();
+            System.IO.File.Delete(@img);
+
             Session.Remove("workerID");
             return RedirectToAction("WorkerList", "AdminWorker");
         }
