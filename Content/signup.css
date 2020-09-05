@@ -1,10 +1,7 @@
 
-/*@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap'); */
 
-* {
-    box-sizing: border-box;
-}
+
+
 
 body {
     background-color: #000;
@@ -15,10 +12,11 @@ body {
     min-height: 100vh;
     margin: 0;
 }
-.area{
-    margin-top:70px;
+.area {
+    margin-top: 70px;
+    margin-bottom: 60px;
 }
-.container {
+.extra {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);

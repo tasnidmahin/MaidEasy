@@ -1,12 +1,14 @@
 ﻿body {
-    font-family: 'Open Sans', sans-serif; 
-    background: #000;
+    font-family: 'Open Sans', sans-serif;
+    background: #080f22db;
+    overflow-x:hidden;
     /* font-family: 'Helvetica Neue', sans-serif; */
 }
 
 .box {
     /*margin-top:60px;*/
-    height:800px;
+    min-height: 1000px;
+    margin-top: 120px;
 }
 
     
@@ -20,11 +22,11 @@
     padding-top: 56px;
 }
 
-#user-info {
+/*#user-info {
     background-color: #ccd9e2;
     padding: 50px;
     /* margin-top: 115px; */
-}
+}*/
 
 #user-photo-wrapper {
     width: 200px;
@@ -36,9 +38,9 @@
     margin: auto;
 }
 
-#user-photo {
+/*#user-photo {
     width: 200px;
-}
+}*/
 
 #user-name {
     font-weight: 600;
@@ -48,16 +50,16 @@
 }
 
 #user-data {
-    margin-top: 50px;
-    margin-left:60px;
+    margin-top: 40px;
+    
 }
 
 .btn-dark{
-    margin-left:40px;
+   
 }
 .category {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 30px;
 }
 
@@ -129,9 +131,7 @@
 
 
 @media (min-width: 769px) {
-    #user-data {
-        margin-left: 100px;
-    }
+    
 }
 
 
@@ -139,23 +139,19 @@
 @media (min-width: 1024px) {
 
 
-    #user-data {
-        margin-left: 0;
-    }
-
 
     #top-half {
          position: relative; 
     }
 
     #user-info {
-        position: absolute;
-        left: 100px;
+        /*position: absolute;
+        left: 100px;*/
         margin-top: 30px;
     }
 
     .btn-dark{
-     margin-left:50px;
+    
     }
 
     #bottom-half {
@@ -184,12 +180,12 @@
         margin-right: 100px;
     }
     .btn-dark {
-        margin-left: 50px;
+      
     }
 
     #user-info {
-        position: absolute;
-        left: 150px;
+        /*position: absolute;
+        left: 150px;*/
         margin-top:30px;
     }
 }

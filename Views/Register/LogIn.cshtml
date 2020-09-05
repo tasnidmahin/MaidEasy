@@ -2,6 +2,9 @@
 @{
     Layout = null;
 }
+@{
+    Html.RenderPartial("Header");
+}
 
 <!DOCTYPE html>
 <html>
@@ -10,6 +13,7 @@
     <title> Login </title>
     <link href="~/Content/login.css" rel="stylesheet" />
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
@@ -18,10 +22,11 @@
 
 
 <body>
-    <div class="container">
+    <div class="box">
+        <div class="container area">
 
-        <div class="form">
-            <form action="/Register/VerifyUser" class="signup-form" autocomplete="off" method="post">
+            <div class="form">
+                <form action="/Register/VerifyUser" class="signup-form" autocomplete="off" method="post">
                     <div class="form-control">
                         <label for="username">Username</label>
                         <input type="text" placeholder="Enter Username" name="Username" value="@TempData["user"]">
@@ -34,9 +39,10 @@
                     <button type="submit" class="btn btn-primary btn-block" name="signupbutton">Log In</button>
 
                     <p style="font-size:15px" ;>Don't have an account? <a href="@Url.Action("SignUp", "Register")" style="color:dodgerblue;">Register here</a>.</p>
-            </form>
-</div>
+                </form>
+            </div>
 
+        </div>
     </div>
 
     @*Footer*@

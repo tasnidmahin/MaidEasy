@@ -1,29 +1,31 @@
 ﻿
-/*@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap'); */
+
 
 * {
     /*box-sizing: border-box;*/
 }
 
 body {
-    background-color: #000;
-    font-family: 'Open Sans', sans-serif;
+    background-color: #000 !important;
+    font-family: 'Poppins', sans-serif !important;
     /* display: flex;
     align-items: center;
     justify-content: center;*/
     /* min-height: 100vh;*/
     margin: 0;
 }
-
-.container {
+.box {
+    min-height:500px !important;
+    margin-top:120px;
+}
+.area {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    width: 400px;
-    max-width: 100%;
-    margin-left:450px;
+    width: 400px !important;
+    max-width: 100% !important;
+ 
     margin-top:60px;
 }
 
@@ -42,9 +44,11 @@ body {
 }
 
 .form-control {
-    margin-bottom: 2px;
+    margin-bottom: 1rem;
     padding-bottom: 20px;
     position: relative;
+    padding: .375rem .75rem !important;
+    border:none!important;
 }
 
     .form-control label {
@@ -60,6 +64,7 @@ body {
         font-size: 14px;
         padding: 10px;
         width: 100%;
+
     }
 
         .form-control input:focus {
