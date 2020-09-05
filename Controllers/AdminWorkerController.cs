@@ -1,6 +1,7 @@
 ﻿using MaidEasy.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -46,46 +47,6 @@ namespace MaidEasy.Controllers
         public ActionResult WorkerList()
         {
             
-            /*
-            DBHelper db = DBHelper.getDB();
-            string sql = "SELECT count(WorkerId) FROM worker";
-            var table = db.getData(sql);
-            table.Read();
-            int count = Int32.Parse(table.GetString(0));
-            table.Close();
-
-
-            string[,] data = new string[count, 8];
-            sql = "select WorkerId,Name,gender,Area,type,status,experience,rating from Worker";
-            table = db.getData(sql);
-            int i = 0;
-            while (table.Read())
-            {
-                data[i, 0] = table.GetString(0);
-                data[i, 1] = table.GetString(1);
-                data[i, 2] = table.GetString(2);
-                data[i, 3] = table.GetString(3);
-                data[i, 4] = table.GetString(4);
-                data[i, 5] = table.GetString(5);
-                data[i, 6] = table.GetString(6);
-                data[i, 7] = table.GetString(7);
-
-                i++;
-            }
-            table.Close();
-            i = 0;
-            while (i < count)
-            {
-                data[i, 3] = getThanaList(data[i, 3]);
-                data[i, 4] = getWorkerTypeList(data[i, 4]);
-                i++;
-            }
-
-            System.Diagnostics.Debug.WriteLine("---------END Worker info-----------");
-            Session["WorkerList"] = data;
-            Session["WorkerList_Count"] = count;
-            */
-
             IEnumerable<MaidEasy.Models.worker> workerList = dbContext.workers.ToList();
             foreach (var item in workerList)
             {
@@ -103,43 +64,6 @@ namespace MaidEasy.Controllers
 
             var id = Int32.Parse(Session["workerID"].ToString());
             
-            /*
-            string sql = "SELECT Name,fatherName,mobile,PresentAddress,PermanentAddress,gender,type,Area,image from worker where WorkerId = '" + id + "'";
-
-            DBHelper db = DBHelper.getDB();
-            var table = db.getData(sql);
-            table.Read();
-            string[] data = new string[10];
-            data[0] = table.GetString(0);
-            data[1] = table.GetString(1);
-            data[2] = table.GetString(2);
-            data[3] = table.GetString(3);
-            data[4] = table.GetString(4);
-            data[5] = table.GetString(5);
-            data[6] = table.GetString(6);
-            data[7] = table.GetString(7);
-            data[8] = table.GetString(8);
-            table.Close();
-
-            data[9] = data[6];
-            data[6] = getWorkerTypeList(data[6]);
-
-            /*
-            int cnt = data[7].Length;
-            sql = "SELECT Name from thana";
-            string[] thanaList = new string[cnt];
-            int i = 0;
-            table = db.getData(sql);
-            while (table.Read())
-            {
-                thanaList[i++] = table.GetString(0);
-            }
-            table.Close();
-            
-
-            ViewData["thanaList"] = thanaList;
-            ViewData["WorkerData"] = data;
-            */
 
             worker worker = dbContext.workers.Find(id);
             var typeList = getWorkerTypeList(worker.type);
@@ -279,13 +203,29 @@ namespace MaidEasy.Controllers
                 img = filename;
             }
 
-            string sql = "UPDATE worker set Name = '" + name + "', fatherName = '" + fathername + "', mobile = '" + Phone + "', PresentAddress = '" + PresentAddress + "', PermanentAddress = '" + PermanentAddress + "', gender = '" + gender + "', type = '" + type + "', Area = '" + thana + "', image = '" + img + "' where WorkerId = '" + Session["workerID"] + "'";
+            /*string sql = "UPDATE worker set Name = '" + name + "', fatherName = '" + fathername + "', mobile = '" + Phone + "', PresentAddress = '" + PresentAddress + "', PermanentAddress = '" + PermanentAddress + "', gender = '" + gender + "', type = '" + type + "', Area = '" + thana + "', image = '" + img + "' where WorkerId = '" + Session["workerID"] + "'";
             DBHelper db = DBHelper.getDB();
-            db.setData(sql);
+            db.setData(sql);*/
 
-            System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
-            System.Diagnostics.Debug.WriteLine(name);
-            System.Diagnostics.Debug.WriteLine("-----Name-------------------------------");
+            int id = Int32.Parse(Session["workerID"].ToString());
+            worker worker = dbContext.workers.Find(id);
+            worker.Name = name;
+            worker.fatherName = fathername;
+            worker.mobile = Phone;
+            worker.PresentAddress = PresentAddress;
+            worker.PermanentAddress = PermanentAddress;
+            worker.gender = gender;
+            worker.Area = thana;
+            worker.type = type;
+            worker.image = img;
+
+            if (ModelState.IsValid)
+            {
+                dbContext.Entry(worker).State = EntityState.Modified;
+                dbContext.SaveChanges();
+                return RedirectToAction("Edit_Worker", "AdminWorker");
+            }
+
             return RedirectToAction("Edit_Worker", "AdminWorker");
         }
 
