@@ -15,52 +15,7 @@
 
 </head>
 <body>
-    <!-- <div class="topnav" id="myTopnav">
-            @if (Session["username"] != null)
-
-            {
-                <div class="dropdown-header">
-                    <button class="dropbtn-header">
-                        @Session["username"]
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-header-content">
-                        <a href="@Url.Action("user_profile", "User")">Profile</a>
-                        <a href="@Url.Action("Logout", "Register")">logout</a>
-                    </div>
-                </div>
-            }
-            @if (Session["username"] == null)
-            {
-                <a href="@Url.Action("LogIn", "Register")" style="margin-right:20px;">Login</a>
-            }
-
-            @if (Session["uType"] != null)
-            {
-                if (Session["uType"].ToString() == "general")
-                {
-                    <a href="@Url.Action("Index", "Home")">Home</a>
-                    <a href="@Url.Action("Service", "Service")">Service</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#about">About</a>
-                }
-                else
-                {
-                    <a href="@Url.Action("Admin_home", "Admin")">Home</a>
-                }
-            }
-            else
-            {
-                <a href="@Url.Action("Index", "Home")">Home</a>
-                <a href="@Url.Action("Service", "Service")">Service</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
-            }
-
-
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-        </div>
-    -->
+   
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 
         <!--<a class="navbar-brand" href="#">Navbar</a>-->
