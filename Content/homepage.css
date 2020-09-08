@@ -32,9 +32,9 @@ h5 {
     background-color: white !important;
 }
 
-.card {
+/*.card {
     border: none;
-}
+}*/
 
 .mla {
     margin-left: auto;
@@ -110,7 +110,7 @@ ul {
     top: 0;
     width: 100% !important; /* Full width */
     height: 100% !important; /* Full height */
-    overflow: auto !important; /* Enable scroll if needed */
+    /*  overflow: auto !important;  Enable scroll if needed */
     background-color: rgb(0,0,0) !important; /* Fallback color */
     background-color: rgba(0,0,0,0.8) !important; /* Black w/ opacity */
 }
@@ -159,21 +159,62 @@ ul {
         border-radius: 50%
     }
 .carousel-indicators li {
-    width: 15px !important;
+    width: 10px !important;
     height: 10px !important;
     margin: 10px !important;
     cursor: pointer !important;
     border: none !important;
-    border-radius: 10px !important;
+    border-radius: 50% !important;
     background-color: gray !important;
     box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5) !important;
 }
 
 .carousel-indicators .active {
-    width: 50px !important;
+    width: 10px !important;
     height: 10px !important;
     margin: 10px;
     background-image: linear-gradient(to right, cyan, rgb(0, 183, 255));
-    border-radius: 5px;
+    border-radius: 50%;
     border: none;
 }
+.features {
+    margin-top: 100px;
+}
+
+.card {
+    border-radius: 10px !important;
+    border: none !important;
+    transition: box-shadow .5s ease !important;
+}
+
+    .card:hover {
+        border: none!important;
+        box-shadow: 3px 3px 5px 3px lightslategray !important;
+        transform: scale(1.05) !important;
+    }
+
+.card-img {
+    transform: scale(.9) !important;
+    transition: transform 2s ease !important;
+}
+
+.card-body {
+    text-align: center !important;
+}
+
+    .card-body h5 {
+        font-weight: bold !important;
+    }
+
+.card-img:hover {
+    transform: scale(1.0) !important;
+}
+
+button{
+    outline:none!important;
+}
+
+
+/*btn-outline-info.focus, .btn-outline-info:focus{
+    box-shadow:none!important;
+}*/
