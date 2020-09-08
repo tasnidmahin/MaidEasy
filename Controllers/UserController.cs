@@ -51,11 +51,11 @@ namespace MaidEasy.Controllers
         }
 
         [HttpGet]
-        public ActionResult user_profile()
+        public ActionResult user_profile(string id)
         {
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
-            var id = Session["username"];
+            //var id = Session["username"];
             //if(Request["userID"] != null) id = Int32.Parse(Request["userID"].ToString());
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT Name ,mobile ,PresentAddress,PermanentAddress,thana,image  from Users where username = '" + id + "'";
@@ -69,8 +69,18 @@ namespace MaidEasy.Controllers
             ViewData["image"]            =  table.GetString(5);
             table.Close();
 
-            /*System.Diagnostics.Debug.WriteLine("--------thana id------------");
-            System.Diagnostics.Debug.WriteLine(tttt);
+            if(id != Session["username"].ToString())
+            {
+                ViewData["me"] = "No";
+            }
+            else
+            {
+                ViewData["me"] = "Yes";
+            }
+
+
+            /*System.Diagnostics.Debug.WriteLine("--------userID------------");
+            System.Diagnostics.Debug.WriteLine(userID);
             System.Diagnostics.Debug.WriteLine("--------------------");*/
 
             ViewData["thana"] = getThana(s);

@@ -73,11 +73,15 @@
 
         <div class="d-flex justify-content-around" style="padding-top:40px;">
 
-            @if (Session["uType"].ToString() == "general")
+            @if (ViewData["me"].ToString() == "Yes")
             {
-                <a href="@Url.Action("hired_workers_profile", "User")"> <button type="button" class="hw_button1">Hired Workers</button> </a>
+                if (Session["uType"].ToString() == "general")
+                {
+                    <a href="@Url.Action("hired_workers_profile", "User")"> <button type="button" class="hw_button1">Hired Workers</button> </a>
+                }
+
+                <a href="@Url.Action("Edit_profile", "User")"> <button type="button" class="hw_button1">Edit Profile</button> </a>
             }
-            <a href="@Url.Action("Edit_profile", "User")"> <button type="button" class="hw_button1">Edit Profile</button> </a>
 
         </div>
 
