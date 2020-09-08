@@ -10,7 +10,7 @@ namespace MaidEasy.Controllers
    
     public class AdminUserController : Controller
     {
-        DemoEntities dbContext = new DemoEntities();
+        CustomDbContext dbContext = new CustomDbContext();
         // GET: AdminUser
         public ActionResult Index()
         {
@@ -18,12 +18,16 @@ namespace MaidEasy.Controllers
         }
         public ActionResult UserList()
         {
+            DemoEntities db = new DemoEntities();
+            IEnumerable<MaidEasy.Models.user> us = db.users.ToList();
+
+
             IEnumerable<MaidEasy.Models.user> userList = dbContext.users.ToList();
             RegisterController regC = new RegisterController();
             foreach (var item in userList)
             {
                 int id = regC.getThanaID(item.thana);
-                thana thana = dbContext.thanas.Find(id);
+                thana thana = dbContext.thana.Find(id);
                 item.thana = thana.Name;
                 System.Diagnostics.Debug.WriteLine("--------------");
                 System.Diagnostics.Debug.WriteLine(thana.ThanaId);

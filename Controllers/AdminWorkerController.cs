@@ -1,7 +1,7 @@
 ﻿using MaidEasy.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace MaidEasy.Controllers
 {
     public class AdminWorkerController : Controller
     {
-        DemoEntities dbContext = new DemoEntities();
+        CustomDbContext dbContext = new CustomDbContext();
         // GET: AdminWorker
         public ActionResult Index()
         {
@@ -47,7 +47,7 @@ namespace MaidEasy.Controllers
         public ActionResult WorkerList()
         {
             
-            IEnumerable<MaidEasy.Models.worker> workerList = dbContext.workers.ToList();
+            IEnumerable<MaidEasy.Models.worker> workerList = dbContext.worker.ToList();
             foreach (var item in workerList)
             {
                 item.Area = getThanaList(item.Area);
@@ -65,7 +65,7 @@ namespace MaidEasy.Controllers
             var id = Int32.Parse(Session["workerID"].ToString());
             
 
-            worker worker = dbContext.workers.Find(id);
+            worker worker = dbContext.worker.Find(id);
             var typeList = getWorkerTypeList(worker.type);
             ViewData["typeList"] = typeList;
             return View(worker);
@@ -151,7 +151,7 @@ namespace MaidEasy.Controllers
 
             if (ModelState.IsValid)
             {
-                dbContext.workers.Add(worker);
+                dbContext.worker.Add(worker);
                 dbContext.SaveChanges();
                 return RedirectToAction("WorkerList");
             }
@@ -208,7 +208,7 @@ namespace MaidEasy.Controllers
             db.setData(sql);*/
 
             int id = Int32.Parse(Session["workerID"].ToString());
-            worker worker = dbContext.workers.Find(id);
+            worker worker = dbContext.worker.Find(id);
             worker.Name = name;
             worker.fatherName = fathername;
             worker.mobile = Phone;
@@ -236,10 +236,10 @@ namespace MaidEasy.Controllers
             db.setData(sql);*/
 
             int id = Int32.Parse(Session["workerID"].ToString());
-            worker worker = dbContext.workers.Find(id);
+            worker worker = dbContext.worker.Find(id);
             var img = worker.image;
             img = @"E:\Mahin\3.2\New\Lab\ISD\MaidEasy\Content\Workers\" + img; 
-            dbContext.workers.Remove(worker);
+            dbContext.worker.Remove(worker);
             dbContext.SaveChanges();
             System.IO.File.Delete(@img);
 

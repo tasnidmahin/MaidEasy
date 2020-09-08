@@ -54,8 +54,8 @@
             string source = "/Content/Workers/";
             source = source + Model.image.ToString();
 
-            MaidEasy.Models.DemoEntities dbContext = new MaidEasy.Models.DemoEntities();
-            IEnumerable<MaidEasy.Models.thana> thanalist = dbContext.thanas.ToList();
+            MaidEasy.Models.CustomDbContext dbContext = new MaidEasy.Models.CustomDbContext();
+            IEnumerable<MaidEasy.Models.thana> thanalist = dbContext.thana.ToList();
 
         }
         <form action="/AdminWorker/SaveWorkerData" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
