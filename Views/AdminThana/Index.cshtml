@@ -8,8 +8,8 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@*    @Html.ActionLink("Create New", "Create")
+*@</p>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     CREATE
@@ -63,10 +63,22 @@
             </td>
             
             <td>
-@*                @Html.ActionLink("Edit", "Edit", new { id = item.ThanaId }) |
-*@                
-@*                @Html.ActionLink("Details", "Details", new { id = item.ThanaId }) |
-*@                @Html.ActionLink("Delete", "Delete", new { id = item.ThanaId })
+
+                <form action="@Url.Action("Delete","AdminThana",new {id=item.ThanaId})" method="post">
+                    @Html.AntiForgeryToken()
+
+         
+
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+
+
+                @*                @Html.ActionLink("Edit", "Edit", new { id = item.ThanaId }) |
+                *@
+                @*                @Html.ActionLink("Details", "Details", new { id = item.ThanaId }) |
+                *@
+                @*                                @Html.ActionLink("Delete", "Delete", new { id = item.ThanaId })
+                *@
             </td>
             <td>
                 <!-- Button trigger modal -->
@@ -85,12 +97,15 @@
                             </div>
                             <div class="modal-body">
 
-                                <form action="@Url.Action("Create","AdminThana",new {id=item.ThanaId})" method="post">
+                                <form action="@Url.Action("Edit","AdminThana",new {id=item.ThanaId})" method="post">
                                     @Html.AntiForgeryToken()
+
+                                    <input value="@item.ThanaId" name="ThanaId" type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
                                         <input value="@item.Name" name="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+
                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
 
@@ -107,3 +122,18 @@
     }
 
 </table>
+<script>
+    var isDeleted = "@Session["ADMIN_THANA_DELETE"]";
+    if (isDeleted != null && isDeleted!="")
+    {
+        alert("DATA is deleted");
+        @{
+@*            @Session["ADMIN_THANA_DELETE"]= null;
+*@
+        Session["ADMIN_THANA_DELETE"] = null;
+        }
+
+
+    }
+
+</script>
