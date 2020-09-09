@@ -115,7 +115,17 @@
                                                 <a id="makeadmin" class="dropdown-item" href="@Url.Action("RemoveAdmin", "AdminUser" , new { id =  item.UserId })">Remove Admin</a>
                                             }
                                         }
-                                        <a class="dropdown-item" href="#">Block</a>
+                                        @if (item.type.ToString() != "super")
+                                        {
+                                            if (item.type.ToString() != "blocked")
+                                            {
+                                                <a class="dropdown-item" href="@Url.Action("BlockUser", "AdminUser" , new { id =  item.UserId })">Block</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="dropdown-item" href="@Url.Action("UnblockUser", "AdminUser" , new { id =  item.UserId })">Unblock</a>
+                                            }
+                                        }
                                     </div>
                                 </div>
                             </td>
