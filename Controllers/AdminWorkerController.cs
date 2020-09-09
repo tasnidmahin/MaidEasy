@@ -20,28 +20,6 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Add_worker()
         {
-            DBHelper db = DBHelper.getDB();
-
-            string sql = "SELECT Name from thana";
-            List<string> thanalist = new List<string>();
-            //string[] thanaList = new string[cnt];
-            var table = db.getData(sql);
-            while (table.Read())
-            {
-                System.Diagnostics.Debug.WriteLine("----------");
-                System.Diagnostics.Debug.WriteLine(table.GetString(0));
-                System.Diagnostics.Debug.WriteLine("----------");
-                if (table.GetString(0) == "") 
-                {
-                    System.Diagnostics.Debug.WriteLine("Thana -- thana");
-                    continue;
-                }
-                //thanaList[i++] = table.GetString(0);
-                thanalist.Add(table.GetString(0));
-            }
-            table.Close();
-
-            ViewData["thanaList"] = thanalist;
             return View();
         }
         public ActionResult WorkerList()

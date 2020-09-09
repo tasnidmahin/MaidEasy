@@ -29,7 +29,9 @@
     <form id="form" action="/AdminWorker/AddNewWorker" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
         <div class="row" style="padding-top:100px;">
             @{
-                List<string> thanalist = (List<string>)ViewData["thanaList"];
+                //List<string> thanalist = (List<string>)ViewData["thanaList"];
+                MaidEasy.Models.CustomDbContext dbContext = new MaidEasy.Models.CustomDbContext();
+                IEnumerable<MaidEasy.Models.thana> thanalist = dbContext.thana.ToList();
 
             }
             <div class="col-md-3 rounded-left columnstyle borderbtm">
@@ -145,9 +147,9 @@
 
                     <select name="area" class="selectpicker" style="margin-bottom:20px;" title="Select Area" data-width="fit" data-style="btn-info" data-live-search="true" required multiple>
                         @{
-                            for (int i = 0; i < thanalist.Count; i++)
+                            foreach (var item in thanalist)
                             {
-                                <option> @thanalist[i] </option>
+                                <option> @item.Name </option>
 
                             }
                         }
