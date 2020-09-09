@@ -1,6 +1,8 @@
 ﻿using MaidEasy.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,6 +37,21 @@ namespace MaidEasy.Controllers
                 System.Diagnostics.Debug.WriteLine("--------------");
             }
             return View(userList);
+        }
+
+        public ActionResult MakeAdmin(int id)
+        {
+            user user = dbContext.users.Find(id);
+            user.type = "admin";
+
+            if (ModelState.IsValid)
+            {
+                dbContext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                dbContext.SaveChanges();
+                return RedirectToAction("UserList", "AdminUser");
+            }
+
+            return RedirectToAction("UserList", "AdminUser");
         }
     }
 }

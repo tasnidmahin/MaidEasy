@@ -104,7 +104,10 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="@Url.Action("user_profile", "User" , new { id =  item.username })">View Profile</a>
-                                        <a id="makeadmin" class="dropdown-item" href="#">Make Admin</a>
+                                        @if (Session["uType"].ToString() == "super")
+                                        {
+                                            <a id="makeadmin" class="dropdown-item" href="@Url.Action("MakeAdmin", "AdminUser" , new { id =  item.UserId })">Make Admin</a>
+                                        }
                                         <a class="dropdown-item" href="#">Block</a>
                                     </div>
                                 </div>
