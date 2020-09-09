@@ -1,4 +1,5 @@
 ﻿using MaidEasy.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace MaidEasy.Controllers
 {
     public class UserController : Controller
     {
+        CustomDbContext dbContext = new CustomDbContext();
         // GET: User
         public ActionResult Index()
         {
@@ -51,25 +53,12 @@ namespace MaidEasy.Controllers
         }
 
         [HttpGet]
-        public ActionResult user_profile(string id)
+        public ActionResult user_profile(int id)
         {
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
-            //var id = Session["username"];
-            //if(Request["userID"] != null) id = Int32.Parse(Request["userID"].ToString());
-            DBHelper db = DBHelper.getDB();
-            string sql = "SELECT Name ,mobile ,PresentAddress,PermanentAddress,thana,image  from Users where username = '" + id + "'";
-            var table = db.getData(sql);
-            table.Read();
-            ViewData["Name"]             =  table.GetString(0);
-            ViewData["mobile"]           =  table.GetString(1);
-            ViewData["PresentAddress"]   =  table.GetString(2);
-            ViewData["PermanentAddress"] =  table.GetString(3);
-            string s                     =  table.GetString(4);
-            ViewData["image"]            =  table.GetString(5);
-            table.Close();
 
-            if(id != Session["username"].ToString())
+            if (id != Int32.Parse(Session["userID"].ToString()) )
             {
                 ViewData["me"] = "No";
             }
@@ -78,14 +67,15 @@ namespace MaidEasy.Controllers
                 ViewData["me"] = "Yes";
             }
 
+            user user = dbContext.users.Find(id);
 
-            /*System.Diagnostics.Debug.WriteLine("--------userID------------");
-            System.Diagnostics.Debug.WriteLine(userID);
+            /*System.Diagnostics.Debug.WriteLine("--------Image------------");
+            System.Diagnostics.Debug.WriteLine(user.image);
             System.Diagnostics.Debug.WriteLine("--------------------");*/
 
-            ViewData["thana"] = getThana(s);
+            ViewData["thana"] = getThana(user.thana.ToString());
 
-            return View();
+            return View(user);
         }
 
         public ActionResult hired_workers_profile()

@@ -103,7 +103,7 @@
                                         Action
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="@Url.Action("user_profile", "User" , new { id =  item.username })">View Profile</a>
+                                        <a class="dropdown-item" href="@Url.Action("user_profile", "User" , new { id =  item.UserId })">View Profile</a>
                                         @if (Session["uType"].ToString() == "super")
                                         {
                                             if (item.type.ToString() == "general")

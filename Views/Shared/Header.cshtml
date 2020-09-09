@@ -76,7 +76,7 @@
                             @Session["username"]
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="@Url.Action("user_profile", "User" , new { id =  Session["username"] })">Profile</a>
+                            <a class="dropdown-item" href="@Url.Action("user_profile", "User" , new { id =  Session["userID"] })">Profile</a>
                             <a class="dropdown-item" href="@Url.Action("Logout", "Register")">Log Out</a>
 
                         </div>

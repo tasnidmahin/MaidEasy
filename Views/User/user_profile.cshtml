@@ -1,4 +1,4 @@
-﻿
+﻿@model MaidEasy.Models.user
 @{
     ViewBag.Title = "user_profile";
     Layout = null;
@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      
+
     <link href="/Content/user_profile.css" rel="stylesheet" />
 
     <title>User Profile</title>
@@ -35,8 +35,13 @@
         <div class="upper-box">
             <div class="image-box">
                 @{
+                    System.Diagnostics.Debug.WriteLine("-------- Model Image ------------");
+                    System.Diagnostics.Debug.WriteLine(Model.image);
+                    System.Diagnostics.Debug.WriteLine("--------------------");
+
                     string source = "/Content/Users/";
-                    source = source + ViewData["image"].ToString();
+                    source = source + Model.image.ToString();
+                    //source = source + ViewData["image"].ToString();
 
                 }
                 <!--  <img src="~/Content/Images/profile.jpg" /> -->
@@ -52,11 +57,11 @@
 
 
             <div id="user-data">
-                <h4 class="category">User Name:<span class="user-input">@Session["username"]</span></h4>
-                <h4 class="category">Name:<span class="user-input">@ViewData["Name"]</span></h4>
-                <h4 class="category">Mobile:<span class="user-input">@ViewData["mobile"]</span></h4>
-                <h4 class="category">Present Address:<span class="user-input">@ViewData["PresentAddress"]</span></h4>
-                <h4 class="category">Permanent Address:<span class="user-input">@ViewData["PermanentAddress"]</span></h4>
+                <h4 class="category">User Name:<span class="user-input">@Model.username</span></h4>
+                <h4 class="category">Name:<span class="user-input">@Model.Name</span></h4>
+                <h4 class="category">Mobile:<span class="user-input">@Model.mobile</span></h4>
+                <h4 class="category">Present Address:<span class="user-input">@Model.PresentAddress</span></h4>
+                <h4 class="category">Permanent Address:<span class="user-input">@Model.PermanentAddress</span></h4>
 
                 <h4 class="category">Thana:<span class="user-input">@ViewData["thana"]</span></h4>
 
