@@ -53,5 +53,20 @@ namespace MaidEasy.Controllers
 
             return RedirectToAction("UserList", "AdminUser");
         }
+
+        public ActionResult RemoveAdmin(int id)
+        {
+            user user = dbContext.users.Find(id);
+            user.type = "general";
+
+            if (ModelState.IsValid)
+            {
+                dbContext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                dbContext.SaveChanges();
+                return RedirectToAction("UserList", "AdminUser");
+            }
+
+            return RedirectToAction("UserList", "AdminUser");
+        }
     }
 }
