@@ -10,7 +10,7 @@ body {
 
 
 .navbar {
-    padding: .5rem 3.5rem;
+    padding: .5rem 3.5rem !important;
 }
 
 .dropdown-menu {
