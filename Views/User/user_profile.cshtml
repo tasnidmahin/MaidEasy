@@ -3,6 +3,9 @@
     ViewBag.Title = "user_profile";
     Layout = null;
 }
+@{
+    Html.RenderPartial("Header");
+}
 
 <!DOCTYPE html>
 <html>
@@ -12,87 +15,146 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="/Content/user_profile.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <title>User Profile</title>
 
 </head>
-@{
-    Html.RenderPartial("Header");
-}
 
 <body>
 
 
 
 
+    <div class="row no-gutters" style="margin-top:74px;height:1000px;">
+        <div class="col-md-7" style="margin:auto 0;">
 
 
 
-    <div class="card-box">
+            <div class="card" data-aos="fade-right" style="  width: 26rem;border:none;margin:auto;">
 
 
+                <!--
+                <div class="upper-box">
+                    <div class="image-box">
+                        @{
+                            //string source = "/Content/Users/";
+                            //source = source + ViewData["image"].ToString();
 
-        <div class="upper-box">
-            <div class="image-box">
-                @{
-                    System.Diagnostics.Debug.WriteLine("-------- Model Image ------------");
-                    System.Diagnostics.Debug.WriteLine(Model.image);
-                    System.Diagnostics.Debug.WriteLine("--------------------");
-
-                    string source = "/Content/Users/";
-                    source = source + Model.image.ToString();
-                    //source = source + ViewData["image"].ToString();
-
-                }
-                <!--  <img src="~/Content/Images/profile.jpg" /> -->
+                        }
+                        <!--  <img src="~/Content/Images/profile.jpg" /> -->
                 <!-- <img src="~/Content/Users/Ami.PNG" /> -->
-                <img src="@source" id="myImage" name="myImage" />
+                <!--     <img id="myImage" name="myImage" />
+
+                    </div>
+                </div>
+
+                -->
+                <div class="card-body text-center" style="background-color:#001a33;height:15rem;">
+
+                    <div>
+                        @{
+                            string source = "/Content/Users/";
+                            source = source + Model.image.ToString();
+
+                        }
+                        <img style="max-height:250px;max-width:250px;" id="myImage" name="myImage" class="card-img-top img-fluid" src="@source" alt="user profile image">
+                    </div>
+                </div>
+
+                <div class="card-body">
+
+
+                    <div id="user-data">
+                        <div class="row">
+                            <div class="col-md-6 text-right">
+                                <h4 class="category">User Name:</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="user-input">@Model.username</span>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-md-6 text-right">
+                                <h4 class="category">Name:</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="user-input">@Model.Name</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 text-right">
+                                <h4 class="category">Mobile:</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="user-input">@Model.mobile</span>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-md-6 text-right">
+                                <h4 class="category">Present Address:</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="user-input">@Model.PresentAddress</span>
+                            </div>
+
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-md-6 text-right">
+                                <h4 class="category">Permanent Address:</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="user-input">@Model.PermanentAddress</span>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-md-6 text-right">
+                                <h4 class="category">Thana:</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="user-input">@ViewData["thana"]</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex justify-content-around" style="padding-top:40px;">
+
+                        @if (ViewData["me"].ToString() == "Yes")
+                        {
+                            if (Session["uType"].ToString() == "general")
+                            {
+                                <a href="@Url.Action("hired_workers_profile", "User")"> <button type="button" class="hw_button1">Hired Workers</button> </a>
+                            }
+
+                            <a href="@Url.Action("Edit_profile", "User")"> <button type="button" class="hw_button1">Edit Profile</button> </a>
+                        }
+
+                    </div>
+                </div>
+
+
+
+
+
+                <br>
+
+
+
 
             </div>
         </div>
-
-
-
-        <div class="lower-box">
-
-
-            <div id="user-data">
-                <h4 class="category">User Name:<span class="user-input">@Model.username</span></h4>
-                <h4 class="category">Name:<span class="user-input">@Model.Name</span></h4>
-                <h4 class="category">Mobile:<span class="user-input">@Model.mobile</span></h4>
-                <h4 class="category">Present Address:<span class="user-input">@Model.PresentAddress</span></h4>
-                <h4 class="category">Permanent Address:<span class="user-input">@Model.PermanentAddress</span></h4>
-
-                <h4 class="category">Thana:<span class="user-input">@ViewData["thana"]</span></h4>
-
-            </div>
-
-
+        <div class="col-md-5" data-aos="fade-left" style="align-self:start;">
+            <img style="padding-top:100px;" src="~/Content/Images/bg3.jpg" class="img-fluid" alt="Responsive image">
         </div>
-
-
-
-
-
-        <br>
-
-        <div class="d-flex justify-content-around" style="padding-top:40px;">
-
-            @if (ViewData["me"].ToString() == "Yes")
-            {
-                if (Session["uType"].ToString() == "general")
-                {
-                    <a href="@Url.Action("hired_workers_profile", "User")"> <button type="button" class="hw_button1">Hired Workers</button> </a>
-                }
-
-                <a href="@Url.Action("Edit_profile", "User")"> <button type="button" class="hw_button1">Edit Profile</button> </a>
-            }
-
-        </div>
-
-
     </div>
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 200,
+            duration: 2000,
+        });
+    </script>
 </body>
 @{
     Html.RenderPartial("footer");

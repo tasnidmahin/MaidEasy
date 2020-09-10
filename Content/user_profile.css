@@ -87,28 +87,12 @@
         font-weight: bold;
 }
 
-.hw_button {
-    color: #00ccff;
-    margin: 20px;
-    border-radius: 20px;
-    width: 150px;
-    height: 60px;
-    /* font-size: x-large;*/
-    /* font-weight: bold; */
-    font-size: 20px;
-    background-color: #001a33;
-    border-color: #00ccff;
-    /* border-width: thick;
-    font-family: "Helvetica","Arial","sans-serif";*/
-}
-    .hw_button:hover {
-        background-color: #fff;
-    }
+
 .hw_button1 {
     color: #00ccff;
     /* margin: 20px;*/
     border-radius: 20px;
-    width: 150px;
+    width: 160px;
     height: 60px;
     /* font-size: x-large;*/
     /* font-weight: bold; */
@@ -116,7 +100,7 @@
     background-color: #000;
     border-color: #00ccff;
     /* border-width: thick;*/
-    font-family: "Helvetica","Arial","sans-serif";
+   
 }
     .hw_button1:hover {
         background-color: #fff;
@@ -129,15 +113,15 @@
         font-weight: 600;
         font-size: 20px;
         margin-bottom: 30px;
-        text-align: left;
+        
     }
 
 #user-data {
     margin-top: 50px;
-    margin-left: 25px;
+   
 }
 
 .user-input {
     font-weight: 300 !important;
-    margin-left: 1em;
+   
 }
