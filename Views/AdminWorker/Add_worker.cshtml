@@ -27,105 +27,105 @@
 
 <body>
     <form id="form" action="/AdminWorker/AddNewWorker" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
-        <div class="row" style="padding-top:100px;">
-            @{
-                //List<string> thanalist = (List<string>)ViewData["thanaList"];
-                MaidEasy.Models.CustomDbContext dbContext = new MaidEasy.Models.CustomDbContext();
-                IEnumerable<MaidEasy.Models.thana> thanalist = dbContext.thana.ToList();
 
-            }
-            <div class="col-md-3 rounded-left columnstyle borderbtm">
-                <div style="text-align:center;">
+        @{
+            //List<string> thanalist = (List<string>)ViewData["thanaList"];
+            MaidEasy.Models.CustomDbContext dbContext = new MaidEasy.Models.CustomDbContext();
+            IEnumerable<MaidEasy.Models.thana> thanalist = dbContext.thana.ToList();
+
+        }
+        <div class="container something" style=" margin-top: 190px !important;
+    margin-bottom: 150px !important;">
+            <div class="submit-area" data-aos="zoom-out">
+                <div style="text-align:center;margin-bottom:1.5rem;">
                     <h2>Personal Information</h2>
                 </div>
-            </div>
-            <div class="col-md-5 rounded-right borderbtm" style="background-color:#a9afba;padding:35px;padding-top:50px;">
-                <div class="col-md-8 mb-3">
+
+
+                <div class="form-group">
                     <label for="Name">Name</label>
                     <input class="form-control" type="text" placeholder="Name" name="name" required>
                 </div>
-                <div class="col-md-8 mb-3">
+                <div class="form-group">
                     <label for="Father's Name">Father's Name</label>
                     <input class="form-control" type="text" placeholder="Father's Name" name="fathername" required>
                 </div>
-                <div class="col-md-8 mb-3">
+                <div class="form-group">
                     <label for="Father's Name">Phone</label>
                     <input class="form-control" type="text" placeholder="phone no (+8801*********)" name="Phone" pattern="^\+88\d{11}$" required>
                 </div>
 
-                <div class="col-md-8 mb-3">
+                <div class="form-group">
                     <label for="Father's Name">Present Address</label>
                     <input class="form-control" type="text" placeholder="Present Address" name="presentAddress" required>
                 </div>
-                <div class="col-md-8 mb-4">
+                <div class="form-group">
                     <label for="Father's Name">Permanent Address</label>
                     <input class="form-control" type="text" placeholder="Permanent Address" name="permanentAddress" required>
 
-             </div>
+                </div>
 
 
-                <div class="col-md-8 mb-4">
-                    <select class="selectpicker" data-width="fit" title="Gender" name="gender">
+                <div class="form-group">
+                    <select class="selectpicker" data-style="btn-dark" data-width="fit" title="Gender" name="gender">
                         <option>Male</option>
                         <option>Female</option>
 
 
                     </select>
                 </div>
-                <div class="col-md-8 mb-3">
+                <div class="form-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile" name="file">
-                        <label class="custom-file-label" for="customFile">Choose an Image</label>
+                        <input type="file" class="custom-file-input" accept='image/*' id="customFile" name="file">
+                        <label style="font-size:.9rem;" class="custom-file-label" for="customFile">Choose an Image</label>
                     </div>
 
-                   </div>
-      
                 </div>
-                <!--  <div style="margin-top:20px;">
-                    <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
-                        <option>Temporary</option>
-                        <option>Permanent</option>
-                        <option>Elderly Care</option>
-                        <option>Baby Care</option>
-
-
-                    </select>
-                </div>-->
 
             </div>
+            <!--  <div style="margin-top:20px;">
+                <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
+                    <option>Temporary</option>
+                    <option>Permanent</option>
+                    <option>Elderly Care</option>
+                    <option>Baby Care</option>
 
 
-        <div class="row" style="margin-bottom:60px;">
-            <div class="col-md-3 rounded-left columnstyle">
-                <div style="    text-align: center;">
+                </select>
+            </div>-->
+
+            <div class="submit-area" data-aos="zoom-out">
+
+
+                <div style="margin-bottom:1.5rem;text-align: center;">
                     <h2>Work related information</h2>
                 </div>
-            </div>
 
 
-            <div class="col-md-5 rounded-right" style="background-color: #a9afba;padding:35px;">
-                <div class="col-md-7 mb-3">
+
+
+                <div class="form-group">
                     <label for="Father's Name"> Work Type </label>
                     <div class="choices">
-                        <label class="container">
+                        <label class="contain">
                             Temporary
                             <input type="checkbox" name="temporaryType">
                             <span class="checkmark"></span>
                         </label>
 
-                        <label class="container">
+                        <label class="contain">
                             Permanent
                             <input type="checkbox" name="permanentType">
                             <span class="checkmark"></span>
                         </label>
 
-                        <label class="container">
+                        <label class="contain">
                             Baby Care
                             <input type="checkbox" name="babyCareType">
                             <span class="checkmark"></span>
                         </label>
 
-                        <label class="container">
+                        <label class="contain">
                             Elderly Care
                             <input type="checkbox" name="elderlyCareType">
                             <span class="checkmark"></span>
@@ -135,13 +135,10 @@
                             Please select an option
                         </div>
                     </div>
-                    </div>
-                    <!--  </div>
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-8"> -->
-                
-                <div class="col-md-7 mb-4">
+                </div>
+
+                <div class="form-group">
+                    <!--     <div class="col-md-7 mb-4"> -->
                     <label for="Father's Name"> Work Area </label>
                     <br>
 
@@ -154,14 +151,24 @@
                             }
                         }
                     </select>
-                    </div>
                 </div>
-        </div>
-        <div style="text-align:center;">
-            <button id="submitbtn" type="submit" class="btn btn-outline-dark collapsible">Submit</button>
+
+
+                <div style="text-align:center;margin-top:1.75rem;">
+                    <button id="submitbtn" type="submit" class="btn btn-outline-dark collapsible">Submit</button>
+                </div>
+            </div>
         </div>
     </form>
     <script src="~/Scripts/JS/Addworker.js"></script>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 

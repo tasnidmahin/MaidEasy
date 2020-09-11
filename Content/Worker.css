@@ -44,6 +44,6 @@ tr {
     text-align: center;
 }
 
-Table tbody th, table.dataTable tbody td {
+/*Table tbody th, table.dataTable tbody td {
     padding: 5px 5px !important;
-}
+}*/
