@@ -1,17 +1,78 @@
 ﻿@{
     ViewBag.Title = "Contact";
+    Layout = null;
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+@{
+    Html.RenderPartial("Header");
+}
+<!DOCTYPE html>
+<html>
+<head>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="~/Content/contact.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+</head>
+<body>
+
+    <div class="box" style="margin-top:69px;">
+        <div class="container contact-us">
+            <div class="back-section">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="contact-info">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" placeholder="Full Name">
+                                    <label for="name" class="form-label">Name</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                    <label for="email" class="form-label">Email</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject" class="form-label">Subject</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea class="form-control form-control-textarea" id="message"
+                                              rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="review">Review</label>
+                                    <textarea class="form-control form-control-textarea" id="review"
+                                              rows="3"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="location">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.900966904653!2d90.38828391429689!3d23.750910694675326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8bcd681372b%3A0x5c2b8755e4327004!2sBashundhara%20City%20Shopping%20Complex!5e0!3m2!1sen!2sbd!4v1598518526026!5m2!1sen!2sbd"
+                                    width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""
+                                    aria-hidden="false" tabindex="0"></iframe>
+                            <br>
+                            <br>
+                            <p><i class="fas fa-phone-alt pr-2"></i>456789</p>
+                            <p><i class="far fa-envelope-open pr-2"></i>MaidEasy@mail.com</p>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-5 text-center">
+                        <a class="send-us-button" href="">Submit</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+        @{
+            Html.RenderPartial("footer");
+        }
+</body>
+</html>

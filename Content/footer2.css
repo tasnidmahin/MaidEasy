@@ -5,11 +5,11 @@
     font-family: 'Poppins', sans-serif !important;
 }
 
-    h5 {
-        color: white;
-        font-weight: 400;
-        margin-bottom: 20px;
-    }
+h5 {
+    color: #ffac18;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
 
     .footer-area p {
         color: rgb(182, 182, 174);

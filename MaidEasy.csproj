@@ -308,6 +308,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\about.css" />
     <Content Include="Content\Add_worker.css" />
     <Content Include="Content\Adminhome.css" />
     <Content Include="Content\Admin_login.css" />
@@ -315,6 +316,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\contact.css" />
+    <Content Include="Content\contactus.css" />
     <Content Include="Content\editprofile.css" />
     <Content Include="Content\editwork.css" />
     <Content Include="Content\edit_worker.css" />
@@ -330,6 +333,7 @@
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\bg3.jpg" />
     <Content Include="Content\Images\bgadmin.jpg" />
+    <Content Include="Content\Images\DSC_0030.JPG" />
     <Content Include="Content\Images\elderly.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
     <Content Include="Content\Images\im1.jpg" />
