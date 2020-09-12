@@ -9,10 +9,19 @@ body {
     padding: 0;
     background-color: #000;
 }
-.area{
-    padding-top:150px;
+.area {
+    margin-top: 69px;
+    height: auto !important;
+    background-image: url(Images/bgadmin.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    background-size: cover;
 }
-
+.back {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    
+}
 #selectbox1{
     display:none;
 }
@@ -26,37 +35,33 @@ body {
     display: inline-block;*/
 }
 
- .row 
+ /*.row 
      {
     margin-right: 0px;
     margin-left: 0px;
-}
+}*/
 
 .columnstyle {
     /*display: flex;*/
     align-items: center;
-    background-color: #285eab
+    
 }
 
 h2 {
     font-family: "Georgia", "Arial", "Helvetica";
 }
-
-input[type=text], input[type=password] {
-    width: 350px;
-    padding: 15px;
-    /* margin: 5px 0 22px 0; */
-    display: block;
-    border: none;
-    background: #f1f1f1;
+input {
+    width: 70% !important;
+    background-color: transparent !important;
+    /* border: none;
+    border-bottom: 2px solid lightgray;
+    border-radius: 2px; */
+    color: white !important;
+    /* background: none; */
 }
 
-label {
-    display: inline-block;
-    margin-bottom: 5px;
-    font-family: 'Open Sans','sans-serif';
-    font-size: 1rem;
-    color: #212529;
+label{
+    color:whitesmoke;
 }
 
 .choices {
@@ -68,7 +73,7 @@ label {
 }
 #choicelist {
     display: block;
-    padding-left: 30px;
+   
     font-size: 1rem;
 }
 
@@ -78,10 +83,10 @@ label {
 
 #thanalist {
     display: block;
-    padding-left: 30px;
+    
     font-size: 1rem;
 }
-.container {
+.contain {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -91,7 +96,7 @@ label {
     user-select: none;
 }
 
-    .container input {
+    .contain input {
         position: absolute;
         opacity: 0;
         cursor: pointer;
@@ -119,12 +124,12 @@ label {
     background-color: #eee;
 }
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.contain:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.contain input:checked ~ .checkmark {
     background-color: #2196F3;
 }
 
@@ -135,12 +140,12 @@ label {
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.contain input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.contain .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;

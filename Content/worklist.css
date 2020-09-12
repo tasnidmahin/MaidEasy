@@ -1,17 +1,26 @@
-﻿
+﻿.content{
+    display:none;
+}
 .collapsible {
-    background-color: #001a33;
-    color: #77c1e4;
+    background-color: #3b5998;
+    color: whitesmoke;
     cursor: pointer;
-    padding: 18px;
-    width: 350px;
+    padding: 20px 20px;
+    width: 200px;
     border: none;
     text-align: center;
     outline: none;
     font-size: 25px;
-    font-family: 'Montserrat', "Georgia", "Arial", "Helvetica";
+    height: 200px;
+    border-radius: 25px;
     font-weight: bold;
     margin-top: 50px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+}
+.collapsible:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(10px);
 }
 body{
 background-color: #fff !important;
@@ -23,8 +32,8 @@ background-color: #fff !important;
 }*/
 
 .collapsible:hover {
-    background-color: #77c1e4;
-    color: #fff;
+    background-color: rgb(41, 105, 243);
+    /*#001a33*/ color: whitesmoke;
 }
 
 .collapsible:focus {
@@ -35,20 +44,20 @@ background-color: #fff !important;
     display: none;
 }
 
-.form {
+/*.form {
     padding: 30px 40px;
-}
+}*/
 
 .container {
-    margin-top: 80px;
-    margin-bottom:60px;
+    /*margin-top: 80px;
+    margin-bottom:60px;*/
    
 }
 
-.table {
+/*.table {
     width: auto;
   
-}
+}*/
 th {
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
@@ -63,3 +72,39 @@ tr {
 .middle {
     text-align: center;
 }
+
+.login {
+    padding: 10px 20px !important;
+    background-color: rgb(41, 105, 243) !important;
+    color: white !important;
+    border-radius: 5px !important;
+    border: none !important;
+}
+
+    .login:hover {
+        text-decoration: none;
+        color: white;
+        background-color: rgb(1, 78, 245);
+    }
+
+.submit-area {
+    margin: 50px 200px;
+    box-shadow: 0px 2px 10px lightgray;
+    padding: 80px 120px 50px;
+    background-color: #fff;
+}
+
+    .submit-area a {
+        text-decoration: none !important;
+    }
+
+.form-group {
+    display: flex;
+}
+
+    .form-group i {
+        background-color: lightgray;
+        text-align: center;
+        padding: 10px;
+        border-radius: 2px;
+    }
