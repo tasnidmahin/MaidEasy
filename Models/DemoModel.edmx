@@ -177,7 +177,10 @@ warning 6035: The relationship 'fk_WorkerReview' has columns that are not part o
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Subject" Type="String" Nullable="false" />
+          <Property Name="Message" Type="String" Nullable="false" />
+          <Property Name="Review" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="contract">
           <Key>
@@ -339,7 +342,7 @@ warning 6035: The relationship 'fk_WorkerReview' has columns that are not part o
               <MappingFragment StoreEntitySet="contactus">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Email" ColumnName="description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

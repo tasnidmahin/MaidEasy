@@ -24,28 +24,31 @@
                 <div class="row">
                     <div class="col-md-7">
                         <div class="contact-info">
-                            <form>
+                            <form action="/Home/EntryContactInfo" method="post">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="name" placeholder="Full Name">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
                                     <label for="name" class="form-label">Name</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
                                     <label for="email" class="form-label">Email</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
                                     <label for="subject" class="form-label">Subject</label>
                                 </div>
                                 <div class="form-group">
                                     <label for="message">Message</label>
-                                    <textarea class="form-control form-control-textarea" id="message"
+                                    <textarea class="form-control form-control-textarea" id="message" name="message"
                                               rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="review">Review</label>
-                                    <textarea class="form-control form-control-textarea" id="review"
+                                    <textarea class="form-control form-control-textarea" id="review" name="review"
                                               rows="3"></textarea>
+                                </div>
+                                <div class="col-md-5 text-center">
+                                    <a class="send-us-button" href=""> <button type="submit"> Submit </button> </a> 
                                 </div>
                             </form>
                         </div>
@@ -64,7 +67,7 @@
                         </div>
                     </div>
                     <div class="col-md-5 text-center">
-                        <a class="send-us-button" href="">Submit</a>
+                        <a class="send-us-button" href="@Url.Action("EntryContactInfo")">Submit</a>
                     </div>
 
                 </div>

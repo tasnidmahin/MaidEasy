@@ -1,4 +1,5 @@
 ﻿using MaidEasy.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace MaidEasy.Controllers
 {
     public class HomeController : Controller
     {
+        CustomDbContext dbContext = new CustomDbContext();
+
         public ActionResult Index()
         {
             DBHelper db = DBHelper.getDB();
@@ -81,6 +84,30 @@ namespace MaidEasy.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult EntryContactInfo()
+        {
+            contactu contactus = new contactu();
+
+            contactus.Name      = Request["name"];
+            contactus.Email     = Request["email"];
+            contactus.Subject   = Request["subject"];
+            contactus.Message   = Request["message"];
+            contactus.Review    = Request["review"];
+
+            if (ModelState.IsValid)
+            {
+                dbContext.contactus.Add(contactus);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            System.Diagnostics.Debug.WriteLine("-----Contact Us-------------------------------");
+            System.Diagnostics.Debug.WriteLine(Request["name"]);
+            System.Diagnostics.Debug.WriteLine("-----Contact Us-------------------------------");
+            return RedirectToAction("Index");
         }
     }
 }
