@@ -122,7 +122,7 @@
                 <!--  <div id=page> -->
 
 
-                <div class="col-md-6 align-self-center">
+                <div class="col-12 col-md-6 align-self-center">
 
 
                     <div>
@@ -135,14 +135,14 @@
                             @for (int i = 0; i < Convert.ToInt32(ViewData["cnt_feed"]); i++)
                             {
                                 Double rating = Convert.ToDouble(feedback[i, 2]);
-                                <div class="card justify-content-center align-self-cente" style="width:20rem;">
+                                <div class="card justify-content-center align-self-cente comment" >
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-2 col-md-2">
                                                 <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
                                                 <!--  <p class="text-secondary text-center">15 Minutes Ago</p> -->
                                             </div>
-                                            <div class="col-md-10">
+                                            <div class="col-10 col-md-10">
                                                 <p>
                                                     <!-- <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Maniruzzaman Akash</strong></a> -->
                                                     <strong>@feedback[i, 0]</strong>
