@@ -32,10 +32,10 @@
 
 
         <div class="box">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row no-gutters">
+                <div class="col-md-6 col-12">
                     <form action="/Maid/Hire" method="get">
-                        <div class="card" id="user-info" style="width:19rem;border:none;margin:auto;">
+                        <div class="card inner" id="user-info" style="">
                             @{
                                 string[] data = (string[])Session["CurWorker"];
                                 var Type = data[1];
@@ -74,15 +74,15 @@
                                 <h3 class="card-title" id="user-name">@data[0]</h3>
                                 <div id="user-data">
                                     <div class="d-flex">
-                                        <div class="col-md-6 text-right">
+                                        <div class="col-7 col-md-6 text-right">
                                             <h4 class="category">Experience:</h4>
                                         </div><span class="user-input">@data[3] months</span>
                                     </div>
                                     <div class="d-flex">
-                                        <h4 class="category col-md-6 text-right">Maid type:</h4><span class="user-input">@type</span>
+                                        <h4 class="category col-7 col-md-6 text-right">Maid type:</h4><span class="user-input">@type</span>
                                     </div>
                                     <div class="d-flex">
-                                        <h4 class="category  col-md-6 text-right">
+                                        <h4 class="category col-7  col-md-6 text-right">
                                             Ratings:
                                         </h4>
                                             @{
@@ -100,7 +100,7 @@
                                        
                                         </div>
                                         <div class="d-flex">
-                                            <h4 class="category  col-md-6 text-right">Rating:</h4><span class="user-input">@data[2] / 5.00</span>
+                                            <h4 class="category col-7  col-md-6 text-right">Rating:</h4><span class="user-input">@data[2] / 5.00</span>
                                         </div>
                                         <div class="text-center" style="padding-top:40px;">
 

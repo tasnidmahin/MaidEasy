@@ -29,240 +29,248 @@
 
 <body>
     <div class="area">
-        @{
-            /*
-            string[] WorkerData = (string[])ViewData["WorkerData"];
-            string[] thanaList = (string[])ViewData["thanaList"];
-            */
+        <div class="container" style="padding: 100px 0px;">
+            @{
+                /*
+                string[] WorkerData = (string[])ViewData["WorkerData"];
+                string[] thanaList = (string[])ViewData["thanaList"];
+                */
 
-            string temp = (string)ViewData["typeList"];
-            //string temp = Model.type;
-            String[] spearator = { "\n" };
-            String[] typeList = temp.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
-            int TypeCnt = typeList.Length;
-
-
-            //temp = WorkerData[7];
-            temp = Model.Area;
-            //String[] areaList = temp.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
-            int areaCnt = temp.Length;
-
-            string typeString = Model.type;
-            string areaString = temp;
+                string temp = (string)ViewData["typeList"];
+                //string temp = Model.type;
+                String[] spearator = { "\n" };
+                String[] typeList = temp.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
+                int TypeCnt = typeList.Length;
 
 
-            string source = "/Content/Workers/";
-            source = source + Model.image.ToString();
+                //temp = WorkerData[7];
+                temp = Model.Area;
+                //String[] areaList = temp.Split(spearator, StringSplitOptions.RemoveEmptyEntries);
+                int areaCnt = temp.Length;
 
-            MaidEasy.Models.CustomDbContext dbContext = new MaidEasy.Models.CustomDbContext();
-            IEnumerable<MaidEasy.Models.thana> thanalist = dbContext.thana.ToList();
-
-        }
-        <form action="/AdminWorker/SaveWorkerData" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
-            <!-- <form  onsubmit="return false"> -->
-            <div class="row" style="margin-bottom:80px;">
-                <div class="col-md-3 rounded-left columnstyle">
-                    <div id="user-photo-wrapper" style="text-align:center;">
-                        <img class="rounded mx-auto d-block" id="user-photo" src="@source" alt="Worker profile image">
-                    </div>
-                    <input type="hidden" name="img" value="@Model.image.ToString()" />
-                    <input id="file" type="file" accept='image/*' name="file">
-
-                </div>
-                <div class="col-md-7 rounded-right" style="background-color:#e4e5e8;padding: 25px;padding-left:50px;">
-
-                    <label for="Name"><b>Name</b></label>
-                    <input id="name" type="text" placeholder="Name" name="name" value="@Model.Name" readonly required>
-                    <label for="Father's Name"><b>Father's Name</b></label>
-                    <input id="father" type="text" placeholder="Father's Name" name="fathername" value="@Model.fatherName" readonly required>
-                    <label for="Father's Name"><b>Phone</b></label>
-                    <input id="phone" type="text" placeholder="phone no (+8801*********)" name="Phone" value="@Model.mobile" readonly required>
-                    <label for="Father's Name"><b>Present Address</b></label>
-                    <input id="present" type="text" placeholder="Present Address" name="PresentAddress" value="@Model.PresentAddress" readonly required>
-                    <label for="Father's Name"><b>Permanent Address</b></label>
-                    <input id="permanent" type="text" placeholder="Permanent Address" name="PermanentAddress" value="@Model.PermanentAddress" readonly required>
+                string typeString = Model.type;
+                string areaString = temp;
 
 
-                    <div id="selectbox1" style="margin-top:20px;margin-bottom: 20px;">
+                string source = "/Content/Workers/";
+                source = source + Model.image.ToString();
 
-                        <select class="selectpicker" data-width="fit" title="Gender" name="gender">
-                            @{
-                                if (@Model.gender.ToString().Equals("Male"))
-                                {
-                                    <option selected="selected">Male</option>
-                                    <option>Female</option>
-                                }
-                                else
-                                {
-                                    <option>Male</option>
-                                    <option selected="selected">Female</option>
-                                }
-                            }
+                MaidEasy.Models.CustomDbContext dbContext = new MaidEasy.Models.CustomDbContext();
+                IEnumerable<MaidEasy.Models.thana> thanalist = dbContext.thana.ToList();
 
-                        </select>
+            }
+            <form action="/AdminWorker/SaveWorkerData" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
+                <!-- <form  onsubmit="return false"> -->
+
+                <div class="row no-gutters back" >
+                    <div class="col-md-4 rounded-left columnstyle">
+                        <div id="user-photo-wrapper" style="text-align:center;">
+                            <img class="rounded mx-auto d-block" id="user-photo" src="@source" alt="Worker profile image">
+                        </div>
+                        <input type="hidden" name="img" value="@Model.image.ToString()" />
+                        <input id="file" type="file" accept='image/*' name="file">
 
                     </div>
-                    <div id="selectboxhide" style="margin-bottom: 20px;">
-                        <label for="Gender"><b>Gender</b></label>
-                        <input type="text" value="@Model.gender" readonly>
-                    </div>
-                    <!--  <div style="margin-top:20px;">
-                        <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
-                            <option>Temporary</option>
-                            <option>Permanent</option>
-                            <option>Elderly Care</option>
-                            <option>Baby Care</option>
+                    <div class="col-md-8 rounded-right" style="padding: 25px;padding-left:50px;">
+                        <div class="form-group">
+                            <label for="Name"><b>Name</b></label>
+                            <input id="name" class="form-control" type="text" placeholder="Name" name="name" value="@Model.Name" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Father's Name"><b>Father's Name</b></label>
+                            <input id="father" class="form-control" type="text" placeholder="Father's Name" name="fathername" value="@Model.fatherName" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Father's Name"><b>Phone</b></label>
+                            <input id="phone" class="form-control" type="text" placeholder="phone no (+8801*********)" name="Phone" value="@Model.mobile" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Father's Name"><b>Present Address</b></label>
+                            <input id="present" class="form-control" type="text" placeholder="Present Address" name="PresentAddress" value="@Model.PresentAddress" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Father's Name"><b>Permanent Address</b></label>
+                            <input id="permanent" class="form-control" type="text" placeholder="Permanent Address" name="PermanentAddress" value="@Model.PermanentAddress" readonly required>
+                        </div>
 
+                        <div id="selectbox1" style="margin-top:20px;margin-bottom: 20px;">
 
-                        </select>
-                    </div>-->
-
-                    <label for="Work Type"><b>Work Type</b></label>
-                    <div id="choicelist" class="choices">
-                        <ul>
-                            @{ for (int i = 0; i < TypeCnt; i++)
-                                {
-                                    <li>@typeList[i]</li>
-                                }
-                            }
-
-                        </ul>
-
-                    </div>
-                    <div id="choicebox" class="choices">
-                        <label class="container">
-                            Temporary
-                            @{
-                                if (typeString[0] == '1')
-                                {
-                                    <input type="checkbox" checked="checked" name="temporaryType">}
-                                else
-                                {
-                                    <input type="checkbox" name="temporaryType">
-                                }
-
-
-                            }
-                            <span class="checkmark"></span>
-                        </label>
-
-                        <label class="container">
-                            Permanent
-                            @{
-                                if (typeString[1] == '1')
-                                {
-                                    <input type="checkbox" checked="checked" name="permanentType">}
-                                else
-                                {
-                                    <input type="checkbox" name="permanentType">
-                                }
-
-
-                            }
-                            <span class="checkmark"></span>
-                        </label>
-
-                        <label class="container">
-                            Baby Care
-                            @{
-                                if (typeString[2] == '1')
-                                {
-                                    <input type="checkbox" checked="checked" name="babyCareType">}
-                                else
-                                {
-                                    <input type="checkbox" name="babyCareType">
-                                }
-
-
-                            }
-                            <span class="checkmark"></span>
-                        </label>
-
-                        <label class="container">
-                            Elderly Care
-                            @{
-                                if (typeString[3] == '1')
-                                {
-                                    <input type="checkbox" checked="checked" name="elderlyCareType">}
-                                else
-                                {
-                                    <input type="checkbox" name="elderlyCareType">
-                                }
-
-
-                            }
-                            <span class="checkmark"></span>
-                        </label>
-
-                    </div>
-                    <!--  </div>
-                    <div class="col-md-4">
-                    </div>
-                    <div class="col-md-8"> -->
-                    <label for="Work Area"><b>Work Area</b></label>
-                    <br>
-                    <div id="thanalist" class="choices">
-                        <ul>
-                            @{
-                                
-                                foreach (var item in thanalist)
-                                {
-                                    if (areaString[item.ThanaId - 1] == '1')
+                            <select class="selectpicker" data-width="fit" title="Gender" name="gender">
+                                @{
+                                    if (@Model.gender.ToString().Equals("Male"))
                                     {
-                                        <li> @item.Name</li>
-                                    }
-
-                                }
-                                    
-                               }
-                        </ul>
-
-                    </div>
-                    <div id="selectbox2" style="margin-bottom:20px;">
-                        <select name="area" class="selectpicker" style="margin-bottom:20px;" data-width="fit" data-style="btn-info" data-live-search="true" multiple>
-                            @{
-                                foreach (var item in thanalist)
-                                {
-                                    if (areaString[item.ThanaId - 1] == '1')
-                                    {
-                                        <option selected="selected">@item.Name</option>
+                                        <option selected="selected">Male</option>
+                                        <option>Female</option>
                                     }
                                     else
                                     {
-                                        <option>@item.Name</option>
+                                        <option>Male</option>
+                                        <option selected="selected">Female</option>
                                     }
                                 }
-                            }
 
-                        </select>
-                    </div>
-                    <span>
-                        <div id="edit" style="text-align:center;">
-                            <button type="button" style="margin-right: 40px;" class="btn btn-outline-dark collapsible" name="edit">Edit</button>
+                            </select>
+
+                        </div>
+                        <div id="selectboxhide" style="margin-bottom: 20px;">
+                            <label for="Gender"><b>Gender</b></label>
+                            <input class="form-control" type="text" value="@Model.gender" readonly>
+                        </div>
+                        <!--  <div style="margin-top:20px;">
+                    <select class="selectpicker" data-width="fit" title="Maid Type" multiple>
+                        <option>Temporary</option>
+                        <option>Permanent</option>
+                        <option>Elderly Care</option>
+                        <option>Baby Care</option>
+
+
+                    </select>
+                </div>-->
+
+                        <label for="Work Type"><b>Work Type</b></label>
+                        <div id="choicelist">
+                            <ul>
+                                @{ for (int i = 0; i < TypeCnt; i++)
+                                    {
+                                        <li style="color: whitesmoke;">@typeList[i]</li>
+                                    }
+                                }
+
+                            </ul>
+
+                        </div>
+                        <div id="choicebox" class="choices">
+                            <label class="contain">
+                                Temporary
+                                @{
+                                    if (typeString[0] == '1')
+                                    {
+                                        <input type="checkbox" checked="checked" name="temporaryType">}
+                                    else
+                                    {
+                                        <input type="checkbox" name="temporaryType">
+                                    }
+
+
+                                }
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="contain">
+                                Permanent
+                                @{
+                                    if (typeString[1] == '1')
+                                    {
+                                        <input type="checkbox" checked="checked" name="permanentType">}
+                                    else
+                                    {
+                                        <input type="checkbox" name="permanentType">
+                                    }
+
+
+                                }
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="contain">
+                                Baby Care
+                                @{
+                                    if (typeString[2] == '1')
+                                    {
+                                        <input type="checkbox" checked="checked" name="babyCareType">}
+                                    else
+                                    {
+                                        <input type="checkbox" name="babyCareType">
+                                    }
+
+
+                                }
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="contain">
+                                Elderly Care
+                                @{
+                                    if (typeString[3] == '1')
+                                    {
+                                        <input type="checkbox" checked="checked" name="elderlyCareType">}
+                                    else
+                                    {
+                                        <input type="checkbox" name="elderlyCareType">
+                                    }
+
+
+                                }
+                                <span class="checkmark"></span>
+                            </label>
+
+                        </div>
+                        <!--  </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-8"> -->
+                        <label for="Work Area"><b>Work Area</b></label>
+                        <br>
+                        <div id="thanalist">
+                            <ul>
+                                @{
+
+                                    foreach (var item in thanalist)
+                                    {
+                                        if (areaString[item.ThanaId - 1] == '1')
+                                        {
+                                            <li style="color: whitesmoke;"> @item.Name</li>
+                                        }
+
+                                    }
+
+                                }
+                            </ul>
+
+                        </div>
+                        <div id="selectbox2" style="margin-bottom:20px;">
+                            <select name="area" class="selectpicker" style="margin-bottom:20px;" data-width="fit" data-style="btn-info" data-live-search="true" multiple>
+                                @{
+                                    foreach (var item in thanalist)
+                                    {
+                                        if (areaString[item.ThanaId - 1] == '1')
+                                        {
+                                            <option selected="selected">@item.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option>@item.Name</option>
+                                        }
+                                    }
+                                }
+
+                            </select>
+                        </div>
+
+                        <div style="text-align:center;">
+                            <button id="edit" type="button" style="margin-right: 40px;" class="btn btn-outline-dark collapsible" name="edit">Edit</button>
 
                         </div>
 
-                        <div id="save" style="text-align:center;">
-                            <button type="submit" style="margin-right: 40px;" class="btn btn-outline-dark collapsible" name="save">Save</button>
+                        <div style="text-align:center;">
+                            <button id="save" type="submit" style="margin-right: 40px;" class="btn btn-outline-dark collapsible" name="save">Save</button>
 
                         </div>
-        </form>
+            </form>
 
-                        <form action="/AdminWorker/DeleteWorker">
-                            <div style="text-align:center;">
-                                <button type="submit" class="btn btn-outline-dark collapsible">Delete</button>
+            <form action="/AdminWorker/DeleteWorker">
+                <div style="text-align:center;">
+                    <button type="submit" class="btn btn-outline-dark collapsible">Delete</button>
 
-                            </div>
-                        </form>
+                </div>
+            </form>
 
-                    </span>
+        </div>             
     </div>
 
 
     <!--<button>Submit</button> -->
-    </div>
-    <!-- </form>-->
-    </div>
+   
 
 
 

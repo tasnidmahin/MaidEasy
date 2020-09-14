@@ -34,16 +34,26 @@ namespace MaidEasy.Controllers
 
             return View(workerList);
         }
-        public ActionResult Edit_Worker()
+        public ActionResult Edit_Worker(int workerID)
         {
-            
-            if (Request["workerID"] != null) 
+            System.Diagnostics.Debug.WriteLine("-----Edit Worker-------------------------------");
+            System.Diagnostics.Debug.WriteLine(workerID);
+            System.Diagnostics.Debug.WriteLine("-----Edit Worker-------------------------------");
+
+            /*if (Request["workerID"] != null) 
                 Session["workerID"] = Request["workerID"];
 
-            var id = Int32.Parse(Session["workerID"].ToString());
-            
+            var id = Int32.Parse(Session["workerID"].ToString());*/
 
-            worker worker = dbContext.worker.Find(id);
+            Session["workerID"] = workerID;
+
+
+
+            worker worker = dbContext.worker.Find(workerID);
+            if (worker == null)
+            {
+                return HttpNotFound();
+            }
             var typeList = getWorkerTypeList(worker.type);
             ViewData["typeList"] = typeList;
             return View(worker);
@@ -201,10 +211,11 @@ namespace MaidEasy.Controllers
             {
                 dbContext.Entry(worker).State = EntityState.Modified;
                 dbContext.SaveChanges();
-                return RedirectToAction("Edit_Worker", "AdminWorker");
+                //return RedirectToAction("Edit_Worker", "AdminWorker");
+                return RedirectToAction("Edit_Worker", new { workerID = Session["workerID"] });
             }
 
-            return RedirectToAction("Edit_Worker", "AdminWorker");
+            return RedirectToAction("Edit_Worker", new { workerID = Session["workerID"] });
         }
 
         public ActionResult DeleteWorker()

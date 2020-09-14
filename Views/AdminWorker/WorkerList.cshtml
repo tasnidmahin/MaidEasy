@@ -4,7 +4,7 @@
     Layout = null;
 }
 @{
-    // Html.RenderPartial("Header");
+     Html.RenderPartial("Header");
 }
 <!DOCTYPE html>
 <html>
@@ -12,15 +12,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <title> Worker List</title>
     <link href="~/Content/Worker.css" rel="stylesheet" />
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
 
 </head>
 
@@ -32,30 +32,69 @@
             <a href="@Url.Action("Add_worker", "AdminWorker")"> <button type="button" class="collapsible">Add Worker</button> </a>
         </div>
 
-        <div class="container">
-            <input class="form-control mb-4" id="tableSearch" type="text"
-                   placeholder="Type something to search list items">
+        <div class="container-fluid"style="margin-top:120px;margin-bottom:120px;">
+            <div class="table-responsive">
 
-            <table class="table table-bordered table-striped tablestyle" id="myTable">
-                <thead>
-                    <tr>
-                        <th onclick="sortTable(0)">Worker ID</th>
-                        <th onclick="sortTable(1)">Name</th>
-                        <th>Gender</th>
-                        <th>Area</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th>Experience</th>
-                        <th>Rating</th>
 
-                        <th> </th>
-                    </tr>
-                </thead>
-                <!-- <form action="/AdminWorker/Edit_Worker" method="get">  -->
+                <!--  <table class="display" style="width:100%" id="myTable">
+    <thead>
+        <tr>
+            <th>Worker ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Area</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Experience</th>
+            <th>Rating</th>
 
-                @foreach (var item in Model)
-                {
-                    <tbody id="myTable">
+            <th> </th>
+        </tr>
+    </thead>
+
+
+          @foreach (var item in Model)
+          {
+              <tbody>
+                  <tr>
+                      <td>@item.WorkerId</td>
+                      <td>@item.Name</td>
+                      <td>@item.gender</td>
+                      <td>@item.Area</td>
+                      <td>@item.type</td>
+                      <td>@item.status</td>
+                      <td>@item.experience</td>
+                      <td>@item.rating</td>
+                      <td class="middle">
+                          <a href="@Url.Action("Edit_Worker", "AdminWorker", new { workerID =  item.WorkerId })">
+                              <button type="submit" class="btn btn-outline-dark">View Profile</button>
+                          </a>
+
+                      </td>
+                  </tr>
+              </tbody>
+          }
+
+          </table> -->
+                <table id="myTable" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Worker ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Area</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Experience</th>
+                            <th>Rating</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+
+                        @foreach (var item in Model)
+                        {
                         <tr>
                             <td>@item.WorkerId</td>
                             <td>@item.Name</td>
@@ -69,21 +108,36 @@
                                 <a href="@Url.Action("Edit_Worker", "AdminWorker", new { workerID =  item.WorkerId })">
                                     <button type="submit" class="btn btn-outline-dark">View Profile</button>
                                 </a>
-                                
+
                             </td>
                         </tr>
+                        }
+
+
                     </tbody>
-                }
-                <!-- </form> --> 
-            </table>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+
             </div>
         </div>
+    </div>
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>src = "https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"</script>
 
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/r-2.2.5/datatables.min.js"></script>
 
+    <script>
 
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
 
-        <script src="~/Scripts/JS/Worker.js"></script>
-    </body>
+    <script src="~/Scripts/JS/Worker.js"></script>
+</body>
     </html>
 

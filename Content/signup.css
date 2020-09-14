@@ -13,7 +13,7 @@ body {
     margin: 0;
 }
 .area {
-    margin-top: 70px;
+    margin-top: 110px;
     margin-bottom: 60px;
 }
 .extra {
@@ -21,7 +21,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    width: 400px;
+    width: 500px;
     max-width: 100%;
     margin-bottom: 70px;
     margin-top: 100px;
@@ -44,7 +44,7 @@ body {
 }
 
 .form-control {
-    margin-bottom: 2px;
+    margin-bottom: 22px;
     padding-bottom: 20px;
     position: relative;
 }

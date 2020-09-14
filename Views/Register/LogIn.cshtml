@@ -11,6 +11,7 @@
 <head>
     <meta charset="utf-8" />
     <title> Login </title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="~/Content/login.css" rel="stylesheet" />
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -18,34 +19,58 @@
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 </head>
 
 
 <body>
-    <div class="box">
-        <div class="container area">
+    <!--
+     <div class="box">
+         <div class=" area align-middle">
 
-            <div class="form">
-                <form action="/Register/VerifyUser" class="signup-form" autocomplete="off" method="post">
-                    <div class="form-control">
-                        <label for="username">Username</label>
-                        <input type="text" placeholder="Enter Username" name="Username" value="@TempData["user"]">
-                    </div>
+             <div class="form">
+                 <form action="/Register/VerifyUser" class="signup-form" autocomplete="off" method="post">
+                     <div class="form-control">
+                         <label for="username">Username</label>
+                         <input type="text" placeholder="Enter Username" name="Username" value="@TempData["user"]">
+                     </div>
 
-                    <div class="form-control">
-                        <label for="username">Password</label>
-                        <input type="password" placeholder="Enter Password" name="loginpassword" value="@TempData["pass"]">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block" name="signupbutton">Log In</button>
+                     <div class="form-control">
+                         <label for="username">Password</label>
+                         <input type="password" placeholder="Enter Password" name="loginpassword" value="@TempData["pass"]">
+                     </div>
+                     <button type="submit" class="btn btn-primary btn-block" name="signupbutton">Log In</button>
 
-                    <p style="font-size:15px" ;>Don't have an account? <a href="@Url.Action("SignUp", "Register")" style="color:dodgerblue;">Register here</a>.</p>
-                </form>
-            </div>
+                     <p style="font-size:15px" ;>Don't have an account? <a href="@Url.Action("SignUp", "Register")" style="color:dodgerblue;">Register here</a>.</p>
+                 </form>
+             </div>
 
+         </div>
+     </div> -->
+
+    <div class="container something" style=" margin-top: 190px !important;
+    margin-bottom: 150px !important;
+    text-align: center !important;">
+
+        <div class="submit-area" data-aos="zoom-out">
+            <form action="/Register/VerifyUser" class="signup-form" autocomplete="off" method="post">
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="form-control" placeholder="Username" name="Username" value="@TempData["user"]">
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" class="form-control" placeholder="Password" name="loginpassword" value="@TempData["pass"]">
+                </div>
+                <br>
+                <button class="login" type="submit"><i class="fas fa-sign-in-alt pr-2"></i>Login</button>
+                <!-- <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt pr-2"></i>Login</button> -->
+            </form>
+            <p class="pt-3 pb-2 text-secondary">Don't have an account? <a href="@Url.Action("SignUp", "Register")">Sign Up</a></p>
         </div>
     </div>
-   
+
     @*Footer*@
     @{
         Html.RenderPartial("footer");
@@ -54,17 +79,23 @@
     @if (ViewBag.Error != null)
     {
         <script>
-           
+
               Swal.fire({
               icon: 'error',
               title: 'Oops...',
               text: '@ViewBag.Error',
- 
+
             })
 
+        </script>
+    }
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            //offset: 200,
+           duration: 3000,
+        });
     </script>
-}
-
 
 </body>
 </html>

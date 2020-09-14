@@ -1,23 +1,20 @@
 ﻿body {
-    background-color: #000;
+    background-color: #fff !important;
 }
 
 th {
-    font-family: 'Montserrat', sans-serif;
+    /*font-family: 'Montserrat', sans-serif;*/
     cursor: pointer;
 }
 
 th, td {
-    background-color: #fff
+    
 }
 
 tr {
-    font-size: 17px;
+   
 }
 
-    tr:nth-child(odd) {
-        background-color: #f2f2f2;
-    }
 
 .collapsible {
     background-color: #777;
@@ -46,3 +43,7 @@ tr {
 .middle {
     text-align: center;
 }
+
+/*Table tbody th, table.dataTable tbody td {
+    padding: 5px 5px !important;
+}*/

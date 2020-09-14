@@ -53,8 +53,21 @@ h5 {
     z-index:auto;
 }
 .carousel-indicators{
-    z-index:auto;
+    /*z-index:auto;*/
 }
+.ok {
+    position:relative;
+}
+    .ok::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.5);
+    }
 .text-box:hover {
     background-color: #0F93FE;
     opacity: 0.8;

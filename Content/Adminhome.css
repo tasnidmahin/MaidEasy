@@ -1,6 +1,4 @@
-﻿* {
-    box-sizing: border-box;
-}
+﻿
 
 /* Create three equal columns that floats next to each other */
 .column {
@@ -60,7 +58,7 @@
     }
 
 h2 {
-    font-family: "Georgia", "Arial", "Helvetica";
+    /*font-family: "Georgia", "Arial", "Helvetica";*/
     text-align: center;
     /* margin-top: 30px; */
 }
@@ -69,7 +67,7 @@ h2 {
     /* The image used */
     background-image: url("Images/bgadmin.jpg");
     /* Set a specific height */
-    min-height: 500px;
+    min-height: 600px;
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;

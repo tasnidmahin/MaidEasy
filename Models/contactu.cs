@@ -16,6 +16,9 @@ namespace MaidEasy.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string description { get; set; }
+        public string Email { get; set; }
+        public string Subject { get; set; }
+        public string Message { get; set; }
+        public string Review { get; set; }
     }
 }
