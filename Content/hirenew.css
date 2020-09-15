@@ -1,8 +1,111 @@
 body{
     background-color: black;
 }
+.form-group {
+    margin-bottom: 2rem!important;
+}
+.spaces {
+    margin-top: 69px;
+    height: auto !important;
+    background-image: url(Images/bgadmin.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    background-size: cover;
+}
 
-.spaces{
-padding-top: 100px;
-margin-bottom: 100px;;
+.card {
+    box-shadow: 0px 2px 10px lightgrey !important;
+    background: rgba(0, 0, 0, 0.8)!important;
+}
+.card-body{
+    padding:60px 120px !important;
+    color:whitesmoke!important;
+}
+.fontsize {
+    font-size: 1.25em !important;
+    color: #dcb775!important;
+}
+
+.choices {
+    padding:9px 0px 0px 0px;
+}
+/*----------------check-box-----------------------------------*/
+/* Customize the label (the container) */
+.contain {
+    display: block;
+    position: relative;
+    padding-left: 35px !important;
+    margin-bottom: .5rem!important;
+    cursor: pointer;
+    /*font-size: 22px;*/
+    user-select: none;
+    /*font-family: "Helvetica","sans-serif";
+    font-weight: 10;*/
+}
+
+
+    /* Hide the browser's default checkbox */
+    .contain input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.contain:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.contain input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.contain input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.contain .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.invalid-feedback {
+    /*border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;*/
+    width: 70%;
+}
+
+ /*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .card-body {
+        padding: 60px 30px !important;
+        
+    }
 }
