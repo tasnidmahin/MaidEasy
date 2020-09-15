@@ -81,16 +81,16 @@ h5 {
 
 .banner {
     background-image: url(images/bgadmin.jpg);
-    position: relative;
+    /*position: relative;*/
     overflow: hidden;
-    height: 500px;
+    min-height: 500px;
     width: 100%;
     background-position: center;
     /*background-repeat: no-repeat;*/
     background-size: contain;
 }
 .overlay{
-    position:absolute;
+    /*position:absolute;*/
     width:100%;
     height:100%;
     background:rgba(0,0,0,.7);
@@ -99,12 +99,18 @@ h5 {
 ul {
     list-style: none;
     padding: 0 25px;
+    color: antiquewhite;
 }
 
 .borderleft {
-    border-left: 3px solid #0F93FE;
+    /*border-left: 3px solid #0F93FE;*/
+    width: 3px;
+    background-color: #0F93FE;
     height: 3rem;
-    color:antiquewhite;
+    color: antiquewhite;
+    position:absolute;
+    top:0;
+    /*left:0;*/
 }
 
 @media (max-width: 576px) {
@@ -227,7 +233,20 @@ button{
     outline:none!important;
 }
 
-
+.inner {
+    width: 13rem !important;
+    height: 19rem !important;
+}
 /*btn-outline-info.focus, .btn-outline-info:focus{
     box-shadow:none!important;
 }*/
+ /*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) {
+    .inner {
+        width: 10rem !important;
+        height: 18.5rem !important;
+    }
+    .dis{
+        padding:0rem 1.25rem !important;
+    }
+}
