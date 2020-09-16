@@ -21,14 +21,14 @@ namespace MaidEasy.Controllers
             return View();
         }
 
-        public ActionResult MaidProfile()
+        public ActionResult MaidProfile(string id)
         {
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
-            var id = Request["maid"].ToString();
+            //var id = Request["maid"].ToString();
             Uri MyUrl = Request.UrlReferrer;
             var lastUrl = Server.HtmlEncode(MyUrl.AbsolutePath);
-            /*System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
+            System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
             System.Diagnostics.Debug.WriteLine(id);
             System.Diagnostics.Debug.WriteLine(MyUrl);
             System.Diagnostics.Debug.WriteLine(Server.HtmlEncode(MyUrl.Port.ToString()));
@@ -36,7 +36,7 @@ namespace MaidEasy.Controllers
             System.Diagnostics.Debug.WriteLine(Server.HtmlEncode(MyUrl.Host));
             System.Diagnostics.Debug.WriteLine(Server.HtmlEncode(MyUrl.AbsolutePath));
             System.Diagnostics.Debug.WriteLine(Server.HtmlEncode(MyUrl.LocalPath));
-            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");*/
+            System.Diagnostics.Debug.WriteLine("----------------------------------------------------");
 
             string sql = "SELECT Name,type,rating,experience,image from Worker where WorkerId = " + id;
 
