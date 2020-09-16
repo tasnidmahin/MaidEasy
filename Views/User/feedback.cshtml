@@ -1,67 +1,65 @@
-﻿
+﻿@model MaidEasy.Models.worker
 @{
     ViewBag.Title = "feedback";
     Layout = null;
 }
 
-    <html>
+<html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-
-
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link href="~/Content/starrating.css" rel="stylesheet">
-        <link href="~/Content/feedback.css" rel="stylesheet">
-        <title>Feedback</title>
-
-    </head>
-
-
-    @{
-        Html.RenderPartial("Header");
-    }
-
-    <body>
-
-        <div class="area">
-            <div class="container1">
-                <div class="form">
-                    <form action="/User/EntryFeedback" method="post">
-                        <h2>Feedback of @ViewData["maidName"]</h2>
-                        <!--      <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">  -->
-
-                        <label for="subject">Comment</label>
-                        <textarea id="subject" name="comment" placeholder="Write something.." style="height:170px"></textarea>
-                        <fieldset class="rating">
-                            <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                            <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                        </fieldset>
-                        <br>
-                        <br>
-                        <!--  <input type="submit" value="Submit">   -->
-                        <button type="submit" class="btn btn-dark" name="maid" value="@ViewData["maid"]">Submit</button>
-
-
-                    </form>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
 
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="~/Content/starrating.css" rel="stylesheet">
+    <link href="~/Content/feedback.css" rel="stylesheet">
+    <title>Feedback</title>
+
+</head>
+
+
+@{
+    Html.RenderPartial("Header");
+}
+
+<body>
+
+    <div class="area">
+        <div class="container1">
+            <div class="form">
+                <form action="/User/EntryFeedback" method="post">
+                    <!-- <h2>Feedback of @ViewData["maidName"]</h2> -->
+                    <h2>Feedback of @Model.Name</h2>
+                    <!--      <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">  -->
+
+                    <label for="subject">Comment</label>
+                    <textarea id="subject" name="comment" placeholder="Write something.." style="height:170px"></textarea>
+                    <fieldset class="rating">
+                        <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                        <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                    </fieldset>
+                    <br>
+                    <br>
+                    <!--  <input type="submit" value="Submit">   -->
+                    <button type="submit" class="btn btn-dark" name="maid" value="@Model.WorkerId">Submit</button>
+
+
+                </form>
 
 
 
@@ -69,13 +67,15 @@
 
 
 
-                </div>
+
 
 
             </div>
 
+
         </div>
 
+    </div>
 
 
 
@@ -85,9 +85,10 @@
 
 
 
-    </body>
-    
-    @{
-        Html.RenderPartial("footer");
-    } 
-    </html>
+
+</body>
+
+@{
+    Html.RenderPartial("footer");
+}
+</html>

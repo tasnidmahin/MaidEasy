@@ -20,6 +20,9 @@ namespace MaidEasy.Controllers
         }
         public ActionResult UserList()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             DemoEntities db = new DemoEntities();
             IEnumerable<MaidEasy.Models.user> us = db.users.ToList();
 
@@ -41,6 +44,9 @@ namespace MaidEasy.Controllers
 
         public ActionResult MakeAdmin(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             user user = dbContext.users.Find(id);
             user.type = "admin";
 
@@ -56,6 +62,9 @@ namespace MaidEasy.Controllers
 
         public ActionResult RemoveAdmin(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             user user = dbContext.users.Find(id);
             user.type = "general";
 
@@ -71,6 +80,9 @@ namespace MaidEasy.Controllers
 
         public ActionResult BlockUser(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             user user = dbContext.users.Find(id);
             user.type = "blocked";
 
@@ -86,6 +98,9 @@ namespace MaidEasy.Controllers
 
         public ActionResult UnblockUser(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             user user = dbContext.users.Find(id);
             user.type = "general";
 

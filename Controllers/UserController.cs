@@ -24,15 +24,9 @@ namespace MaidEasy.Controllers
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             int id = Int32.Parse(Request["maid"].ToString());
-            ViewData["maid"] = id;
-            DBHelper db = DBHelper.getDB();
-            string sql = "SELECT Name from Worker where WorkerId = '" + id + "'";
-            var table = db.getData(sql);
-            table.Read();
-            string name = table.GetString(0);
-            table.Close();
-            ViewData["maidName"] = name;
-            return View();
+
+            worker worker = dbContext.worker.Find(id);
+            return View(worker);
         }
 
         private string getThana(string s)
@@ -147,23 +141,11 @@ namespace MaidEasy.Controllers
             if (TempData["message"] != null) //It will true when Password not match with DB password 
                 ViewBag.Error = TempData["message"].ToString();
 
+            int id = Int32.Parse(Session["userID"].ToString());
+            user user = dbContext.users.Find( id );
+            user.thana = getThana(user.thana);
+            return View(user);
 
-            DBHelper db = DBHelper.getDB();
-            string sql = "SELECT Name ,  mobile , PresentAddress , PermanentAddress , thana , image  from Users where username  = '" + Session["username"] + "' ";
-            var table = db.getData(sql);
-            table.Read();
-            TempData["Ename"] =              table.GetString(0);
-            TempData["Ephone"] =             table.GetString(1);
-            TempData["EpresentAddress"] =    table.GetString(2);
-            TempData["EpermanentAddress"] =  table.GetString(3);
-            string s =             table.GetString(4);
-            TempData["image"] = table.GetString(5);
-            table.Close();
-
-            TempData["Ethana"] = getThana(s);
-
-
-            return View();
         }
         [HttpPost]
         public ActionResult EntryFeedback()
@@ -187,7 +169,7 @@ namespace MaidEasy.Controllers
             sql = "UPDATE Worker SET rating  = '" + rat + "' where WorkerId = '" + wID + "'";
             db.setData(sql);
             //return View("~/Views/User/user_profile.cshtml");
-            return RedirectToAction("user_profile", "User");
+            return RedirectToAction("user_profile", "User", new { id = Session["userID"] });
         }
     }
 }

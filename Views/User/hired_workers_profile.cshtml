@@ -122,7 +122,8 @@
                     </form>
                     <br>
                     <form action="/Maid/MaidProfile" method="post">
-                        <button type="submit" class="btn buttonprimary" name="maid" value="@data1[i, 7]">View Profile</button>
+                        <a href="@Url.Action("MaidProfile", "Maid", new { id =  @data1[i, 7] })" class="btn" name="link" value="@data1[i, 7]">View profile</a>
+                        <!-- <button type="submit" class="btn buttonprimary" name="maid" value="@data1[i, 7]">View Profile</button> -->
                     </form>
                 </div>
                 <br />
