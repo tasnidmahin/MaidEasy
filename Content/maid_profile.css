@@ -81,6 +81,10 @@
     margin-left: 4rem;
 }
 
+.comment {
+    width: 20rem;
+}
+
  /*Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
 
@@ -94,5 +98,16 @@
       
         margin-left: 0em;
     }
+    .comment {
+        width: 17rem;
+        margin:auto;
+    }
 
+}
+
+/*Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
+    .comment {
+        margin: auto;
+    }
 }
