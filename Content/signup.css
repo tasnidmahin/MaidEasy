@@ -4,35 +4,42 @@
 
 
 body {
-    background-color: #000;
+    /*background-color: #000;
     font-family: 'Open Sans', sans-serif;
    /* display: flex; */
-    align-items: center;
+    /*align-items: center;
     justify-content: center;
     min-height: 100vh;
-    margin: 0;
+    margin: 0;*/
 }
-.area {
-    margin-top: 110px;
-    margin-bottom: 60px;
+.box {
+    margin-top: 40px;
+  
+    height: auto !important;
+    background-image: url(Images/bgadmin.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    background-size: cover;
 }
 .extra {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    width: 500px;
+    width: 600px;
     max-width: 100%;
     margin-bottom: 70px;
     margin-top: 100px;
     /* margin-left: 450px;*/
     margin: auto;
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .header {
-    border-bottom: 1px solid #f0f0f0;
-    background-color: #f7f7f7;
+    /*border-bottom: 1px solid #f0f0f0;
+    background-color: #f7f7f7;*/
     padding: 20px 40px;
+    color:antiquewhite;
 }
 
     .header h2 {
@@ -47,11 +54,14 @@ body {
     margin-bottom: 22px;
     padding-bottom: 20px;
     position: relative;
+    background: inherit;
+    border:none;
 }
 
     .form-control label {
         display: inline-block;
         margin-bottom: 5px;
+        color:whitesmoke;
     }
 
     .form-control input {
@@ -62,7 +72,12 @@ body {
         font-size: 14px;
         padding: 10px;
         width: 100%;
+        background: inherit;
+        color:whitesmoke;
     }
+::placeholder {
+    color: #c3c0c0;
+}
 
         .form-control input:focus {
             outline: 0;
@@ -94,13 +109,14 @@ body {
         visibility: visible;
     }
 
-    .form-control small {
-        color: #e74c3c;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        visibility: hidden;
-    }
+.form-control small {
+    color: #e74c3c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    padding-left: 1rem;
+}
 
     .form-control.error small {
         visibility: visible;
@@ -113,7 +129,7 @@ body {
     color: #fff;
     display: block;
     font-family: inherit;
-    font-size: 16px;
+    font-size: 1rem;
     padding: 10px;
     margin-top: 20px;
     width: 100%;

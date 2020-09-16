@@ -113,12 +113,7 @@ ul {
     /*left:0;*/
 }
 
-@media (max-width: 576px) {
 
-    .mla {
-        margin: auto;
-    }
-}
 
 .modal {
     display: none; /* Hidden by default */
@@ -240,13 +235,52 @@ button{
 /*btn-outline-info.focus, .btn-outline-info:focus{
     box-shadow:none!important;
 }*/
+
+
+.position {
+    position: relative !important;
+}
+
+.padding {
+    padding: 60px 100px!important;
+}
+
+
+
  /*Large devices (desktops, less than 1200px)*/
 @media (max-width: 1199.98px) {
     .inner {
         width: 10rem !important;
         height: 18.5rem !important;
+        margin:auto!important;
     }
     .dis{
         padding:0rem 1.25rem !important;
     }
+}
+
+ /*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
+
+    /*.borderleft {
+       
+        position: static;
+        
+    } */
+
+    .position {
+        /*position: static !important;
+        display:flex;
+        justify-content:center;*/
+        padding:0!important;
+    }
+
+
+
+}
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .inner{
+     margin:auto!important;
+ }
 }
