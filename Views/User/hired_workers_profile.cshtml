@@ -38,12 +38,12 @@
 
     </div>
 
-    <div style="text-align:center;">
+    <div style="text-align:center;margin-bottom:60px;">
 
         <!--   <div class="current-box"> -->
         <!-- <form action="/User/feedback" method="post"> -->
         <button type="button" class="collapsible">Current Workers</button>
-        <div class="content">
+        <div class="content"style="padding-top: 60px;">
 
             @{
                 string[,] data1 = (string[,])ViewData["data1"];
@@ -57,47 +57,89 @@
                 string imgsrc = "/Content/Workers/";
                 imgsrc = imgsrc + data1[i, 8];
 
-                <div class="card-box">
+            <div class="card"style="max-width:18rem;margin:auto;border:none;">
 
 
 
-                    <div class="upper-box">
-                        <!--   <div class="time"><h2>Current Worker</h2></div>-->
-                        <div class="image-box">
-                            <img src="@imgsrc" />
-                        </div>
+                <div class="card-body text-center" style="background-color:#001a33;height:10rem;">
+                    <!--   <div class="time"><h2>Current Worker</h2></div>-->
+                    <div style="transform: translate(0px,60px);">
+                        <img style="max-height:250px;max-width:250px;" class="rounded-circle img-fluid" src="@imgsrc" />
                     </div>
+                </div>
 
 
 
 
 
-                    <div class="lower-box">
+                <div class="card-body" style="padding-top:150px;">
 
 
-                        <!-- <div class="row">
-                    <div class="column1"><h3>Name</h3></div>
 
-                       <div class="column2"><h3>Ms. XYZ</h3></div>
 
-                       </div>
+                    <div id="user-data">
+                        <div class="row">
+                            <div class="col-6 col-md-6 text-right">
+                                <h3 class="category">
+                                    Name:
+                                </h3>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
 
-                              <div class="row">
+                                <span class="user-input">@data1[i, 0]</span>
+                            </div>
 
-                    <div class="column1"><h3>Work Type</h3></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-6 text-right">
+                                <h3 class="category">Start Month:</h3>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                <span class="user-input">@data1[i, 1]</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-6 text-right">
+                                <h3 class="category">End Month:</h3>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                <span class="user-input">@data1[i, 2]</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-6 text-right">
+                                <h3 class="category">Start Time:</h3>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                <span class="user-input">@data1[i, 3]</span>
+                            </div>
 
-                            <div class="column2"><h3>Temporary</h3></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-6 text-right">
+                                <h3 class="category">End Time:</h3>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                <span class="user-input">@data1[i, 4]</span>
+                            </div>
 
-                                  </div> -->
-                        <div id="user-data">
-                            <h3 class="category">Name:<span class="user-input">@data1[i, 0]</span></h3>
-                            <h3 class="category">Start Month:<span class="user-input">@data1[i, 1]</span></h3>
-                            <h3 class="category">End Month:<span class="user-input">@data1[i, 2]</span></h3>
-                            <h3 class="category">Start Time:<span class="user-input">@data1[i, 3]</span></h3>
-                            <h3 class="category">End Time:<span class="user-input">@data1[i, 4]</span></h3>
-                            <h3 class="category">Amount:<span class="user-input">@data1[i, 5] BDT</span></h3>
-                            <h3 class="category">
-                                Work-list:<span class="user-input" style="display:inline-block;">
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-6 text-right">
+                                <h3 class="category">Amount:</h3>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                <span class="user-input">@data1[i, 5] BDT</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-6 text-right">
+                                <h3 class="category">
+                                    Work-list:
+                                </h3>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                <span class="user-input" style="display:inline-block;">
                                     <ul style="padding-left:0px;">
 
                                         @for (int j = 0; j < Wcnt - 1; j++)
@@ -106,26 +148,28 @@
                                         }
                                     </ul>
                                 </span>
-                            </h3>
-
+                            </div>
                         </div>
                     </div>
-
-
-                    <!--        <div style="text-align:center;">
-
-                <button type="button" id="hw_button">Give Feedback</button>
-
-                </div> -->
                     <form action="/User/feedback" method="post">
                         <button type="submit" class="btn buttonprimary" name="maid" value="@data1[i, 7]">Give Feedback</button>
                     </form>
                     <br>
                     <form action="/Maid/MaidProfile" method="post">
-                        <a href="@Url.Action("MaidProfile", "Maid", new { id =  @data1[i, 7] })" class="btn" name="link" value="@data1[i, 7]">View profile</a>
+                        <a href="@Url.Action("MaidProfile", "Maid", new { id =  @data1[i, 7] })" class="btn buttonprimary" name="link" value="@data1[i, 7]">View profile</a>
                         <!-- <button type="submit" class="btn buttonprimary" name="maid" value="@data1[i, 7]">View Profile</button> -->
                     </form>
                 </div>
+
+
+                <!--        <div style="text-align:center;">
+
+    <button type="button" id="hw_button">Give Feedback</button>
+
+    </div> -->
+                
+
+            </div>
                 <br />
             }
         </div>
@@ -149,56 +193,104 @@
                     int Wcnt = strlist.Length;
                     string imgsrc = "/Content/Workers/";
                     imgsrc = imgsrc + data2[i, 8];
-                    <div class="card-box extra">
-
-
-
-                        <div class="upper-box">
-                            <!-- <div class="time"><h2>Previous Worker</h2></div> -->
-                            <div class="image-box">
-                                <img src="@imgsrc" />
-                            </div>
-                        </div>
-
-
-
-                        <div class="lower-box">
-
-
-                            <div id="user-data">
-                                <h3 class="category">Experience:<span class="user-input">3 Year</span></h3>
-                                <h3 class="category">Maid type:<span class="user-input">Temporary</span></h3>
-
-                                <h3 class="category">Month:<span class="user-input">Temporary</span></h3>
-                                <h3 class="category">Start Month:<span class="user-input">Temporary</span></h3>
-                                <h3 class="category">Hour:<span class="user-input">Temporary</span></h3>
-                                <h3 class="category">Amount:<span class="user-input">Temporary</span></h3>
-                                <h3 class="category">
-                                    Work-list:<span class="user-input" style="display:inline-block;">
-                                        <ul style="padding-left:0px;">
-                                            @for (int j = 0; j < Wcnt - 1; j++)
-                                            {
-                                                <li>@strlist[j]</li>
-                                            }
-
-                                        </ul>
-                                    </span>
-                                </h3>
-
-
-                            </div>
-
-                        </div>
-
-
-
-                        <button type="submit" class="btn buttonprimary" name="maid" value="@data2[i, 7]">Give Feedback</button>
-                        <button type="button" class="btn buttonprimary">View Profile</button>
-
-
-                    </div>
-                    <br />
                 }
+                <div class="card" style="max-width:18rem;margin:auto;border:none;">
+
+
+
+                    <div class="card-body text-center" style="background-color:#001a33;height:10rem;">
+                        <!-- <div class="time"><h2>Previous Worker</h2></div> -->
+                        <div style="transform: translate(0px,60px);">
+                            <img style="max-height:250px;max-width:250px;" class="rounded-circle img-fluid" src="@imgsrc" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="card-body" style="padding-top:150px;">
+
+
+                        <div id="user-data">
+                            <div class="row">
+                                <div class="col-6 col-md-6 text-right">
+                                    <h3 class="category">Experience:</h3>
+                                </div>
+                                <div class="col-6 col-md-6 text-left">
+                                    <span class="user-input">3 Year</span>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-6 text-right">
+                                        <h3 class="category">Maid type:</h3>
+                                    </div>
+                                    <div class="col-6 col-md-6 text-left">
+                                        <span class="user-input">Temporary</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-6 text-right">
+                                        <h3 class="category">Month:</h3>
+                                    </div>
+                                    <div class="col-6 col-md-6 text-left">
+                                        <span class="user-input">Temporary</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-6 text-right">
+                                        <h3 class="category">Start Month: </h3>
+                                    </div>
+                                    <div class="col-6 col-md-6 text-left">
+                                        <span class="user-input">Temporary</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-6 text-right">
+                                        <h3 class="category">Hour:</h3>
+                                    </div>
+                                    <div class="col-6 col-md-6 text-left">
+                                        <span class="user-input">Temporary</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-6 text-right">
+                                        <h3 class="category">Amount:</h3>
+                                    </div>
+                                    <div class="col-6 col-md-6 text-left">
+                                        <span class="user-input">Temporary</span>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-6 text-right">
+                                        <h3 class="category">
+                                            Work-list:
+                                        </h3>
+                                    </div>
+                                    <div class="col-6 col-md-6 text-left">
+                                        <span class="user-input" style="display:inline-block;">
+                                            <ul style="padding-left:0px;">
+                                                @for (int j = 0; j < Wcnt - 1; j++)
+                                                {
+                                                    <li>@strlist[j]</li>
+                                                }
+
+                                            </ul>
+                                        </span>
+                                    </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                    <button type="submit" class="btn buttonprimary" name="maid" value="@data2[i, 7]">Give Feedback</button>
+                    <button type="button" class="btn buttonprimary">View Profile</button>
+
+
+                </div>
+                    <br />
+                
             </div>
         </form>
     </div>
