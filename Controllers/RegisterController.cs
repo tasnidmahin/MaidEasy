@@ -415,7 +415,7 @@ namespace MaidEasy.Controllers
                 db.setData(sql);
             }
 
-            return RedirectToAction("user_profile", "User");
+            return RedirectToAction("user_profile", "User", new { id = Session["userID"] });
         }
 
     }

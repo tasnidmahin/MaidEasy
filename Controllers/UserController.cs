@@ -37,13 +37,16 @@ namespace MaidEasy.Controllers
                 if (s[i] == '1')
                 { id = i + 1; break; }
             }
-            DBHelper db = DBHelper.getDB();
+            thana thana = dbContext.thana.Find(id);
+            return thana.Name;
+
+            /*DBHelper db = DBHelper.getDB();
             string sql = "SELECT Name from Thana where ThanaId  = '" + id + "'";
             var table = db.getData(sql);
             table.Read();
             string ret = table.GetString(0);
             table.Close();
-            return ret;
+            return ret;*/
         }
 
         [HttpGet]
@@ -132,6 +135,22 @@ namespace MaidEasy.Controllers
 
             ViewData["cnt1"] = cnt1;        ViewData["cnt2"] = cnt2;
             ViewData["data1"] = data1;      ViewData["data2"] = data2;
+
+            /*
+             https://stackoverflow.com/questions/2767709/join-where-with-linq-and-lambda
+            */
+
+
+            //IEnumerable<contract> currentWorker = dbContext.contracts.ToList().Where(m => m.status == "current");
+            /*IEnumerable<HiredWorker> currentWorker = dbContext.contracts.Join(dbContext.worker,
+                contracts=> contracts.WorkerId,
+                worker=> worker.WorkerId,
+                (contracts, worker) => new {Contracts = contracts, Worker = worker })*/
+            IEnumerable<contract> previousWorker = dbContext.contracts.ToList().Where(m => m.status == "previous");
+
+            var viewModel = new HiredWorkerModel();
+            //viewModel.currentWorker = currentWorker;
+
             return View();
         }
         public ActionResult Edit_profile()
@@ -168,6 +187,13 @@ namespace MaidEasy.Controllers
 
             sql = "UPDATE Worker SET rating  = '" + rat + "' where WorkerId = '" + wID + "'";
             db.setData(sql);
+
+            workerreview review = new workerreview();
+            review.WorkerId = Int32.Parse(wID);
+            review.rating = Int32.Parse(rating);
+            review.username = Session["username"].ToString();
+            review.description = comment;
+
             //return View("~/Views/User/user_profile.cshtml");
             return RedirectToAction("user_profile", "User", new { id = Session["userID"] });
         }

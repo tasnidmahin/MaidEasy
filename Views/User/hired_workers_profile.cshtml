@@ -216,76 +216,82 @@
                                     <h3 class="category">Experience:</h3>
                                 </div>
                                 <div class="col-6 col-md-6 text-left">
-                                    <span class="user-input">3 Year</span>
+                                    <span class="user-input">@data2[i, 0]</span>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-md-6 text-right">
+                                    <h3 class="category">Maid type:</h3>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-6 text-right">
-                                        <h3 class="category">Maid type:</h3>
-                                    </div>
-                                    <div class="col-6 col-md-6 text-left">
-                                        <span class="user-input">Temporary</span>
-                                    </div>
+                                <div class="col-6 col-md-6 text-left">
+                                    <span class="user-input">@data2[i, 1]</span>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-6 text-right">
-                                        <h3 class="category">Month:</h3>
-                                    </div>
-                                    <div class="col-6 col-md-6 text-left">
-                                        <span class="user-input">Temporary</span>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-md-6 text-right">
+                                    <h3 class="category">Month:</h3>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-6 text-right">
-                                        <h3 class="category">Start Month: </h3>
-                                    </div>
-                                    <div class="col-6 col-md-6 text-left">
-                                        <span class="user-input">Temporary</span>
-                                    </div>
+                                <div class="col-6 col-md-6 text-left">
+                                    <span class="user-input">@data2[i, 2]</span>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-6 text-right">
-                                        <h3 class="category">Hour:</h3>
-                                    </div>
-                                    <div class="col-6 col-md-6 text-left">
-                                        <span class="user-input">Temporary</span>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-md-6 text-right">
+                                    <h3 class="category">Start Month: </h3>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-6 text-right">
-                                        <h3 class="category">Amount:</h3>
-                                    </div>
-                                    <div class="col-6 col-md-6 text-left">
-                                        <span class="user-input">Temporary</span>
-                                    </div>
-                                    </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-6 text-right">
-                                        <h3 class="category">
-                                            Work-list:
-                                        </h3>
-                                    </div>
-                                    <div class="col-6 col-md-6 text-left">
-                                        <span class="user-input" style="display:inline-block;">
-                                            <ul style="padding-left:0px;">
-                                                @for (int j = 0; j < Wcnt - 1; j++)
-                                                {
-                                                    <li>@strlist[j]</li>
-                                                }
+                                <div class="col-6 col-md-6 text-left">
+                                    <span class="user-input">@data2[i, 3]</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-md-6 text-right">
+                                    <h3 class="category">Hour:</h3>
+                                </div>
+                                <div class="col-6 col-md-6 text-left">
+                                    <span class="user-input">@data2[i, 4]</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-md-6 text-right">
+                                    <h3 class="category">Amount:</h3>
+                                </div>
+                                <div class="col-6 col-md-6 text-left">
+                                    <span class="user-input">@data2[i, 5]</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-md-6 text-right">
+                                    <h3 class="category">
+                                        Work-list:
+                                    </h3>
+                                </div>
+                                <div class="col-6 col-md-6 text-left">
+                                    <span class="user-input" style="display:inline-block;">
+                                        <ul style="padding-left:0px;">
+                                            @for (int j = 0; j < Wcnt - 1; j++)
+                                            {
+                                                <li>@strlist[j]</li>
+                                            }
 
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    </div>
-
+                                        </ul>
+                                    </span>
                                 </div>
-
                             </div>
 
+                        </div>
+
+                    </div>
 
 
-                    <button type="submit" class="btn buttonprimary" name="maid" value="@data2[i, 7]">Give Feedback</button>
-                    <button type="button" class="btn buttonprimary">View Profile</button>
+
+                    <form action="/User/feedback" method="post">
+                        <button type="submit" class="btn buttonprimary" name="maid" value="@data2[i, 7]">Give Feedback</button>
+                    </form>
+                    <br>
+                    <form action="/Maid/MaidProfile" method="post">
+                        <a href="@Url.Action("MaidProfile", "Maid", new { id =  @data2[i, 7] })" class="btn buttonprimary" name="link" value="@data1[i, 7]">View profile</a>
+                        <!-- <button type="submit" class="btn buttonprimary" name="maid" value="@data1[i, 7]">View Profile</button> -->
+                    </form>
 
 
                 </div>
