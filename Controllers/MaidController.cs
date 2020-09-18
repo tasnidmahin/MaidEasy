@@ -27,7 +27,8 @@ namespace MaidEasy.Controllers
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             //var id = Request["maid"].ToString();
             Uri MyUrl = Request.UrlReferrer;
-            var lastUrl = Server.HtmlEncode(MyUrl.AbsolutePath);
+            var lastUrl = "";
+            if (MyUrl != null) lastUrl = Server.HtmlEncode(MyUrl.AbsolutePath);
             /*System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
             System.Diagnostics.Debug.WriteLine(id);
             System.Diagnostics.Debug.WriteLine(MyUrl);

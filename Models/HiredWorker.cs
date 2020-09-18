@@ -7,14 +7,14 @@ namespace MaidEasy.Models
 {
     public class HiredWorker
     {
-        int workerId;
-        string workerName;
-        string startMonth;
-        string endMonth;
-        string startTime;
-        string endTime;
-        int amount;
-        string workList;
-        string image;
+        public int workerId;
+        public string workerName;
+        public string startMonth;
+        public string endMonth;
+        public string startTime;
+        public string endTime;
+        public int amount;
+        public string workList;
+        public string image;
     }
 }
