@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> -->
     <title> SignUp </title>
     <link href="~/Content/signup.css" rel="stylesheet" />
 
@@ -28,7 +28,7 @@
 <body>
     <!--sign up page-->
     <div class="box">
-        <div class="container"style="padding:100px 0;">
+        <div class="container" style="padding:100px 0;">
             <div class="extra">
                 <div class="header">
                     <h2>Create Account</h2>
@@ -67,6 +67,13 @@
                         <label for="username">Thana</label>
 
                         <input id="thana" type="text" name="thana" placeholder="Your current thana" value="@TempData["thana"]">
+                        <!--<select id="thana" name="area" class="selectpicker" title="Select Area" data-width="fit" data-style="btn-dark" data-live-search="true" value="@TempData["thana"]">
+                            <option>Mustard</option>
+                            <option>Ketchup</option>
+                            <option>Relish</option>
+                        </select>-->
+
+
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
@@ -112,7 +119,7 @@
                     <p style="font-size:15px;text-align: center;margin-top:1rem;color:antiquewhite;" ;>Already have an account? <a href="@Url.Action("LogIn", "Register")" style="color:dodgerblue;">Login</a></p>
                 </form>
             </div>
-            </div>
+        </div>
 
     </div>
 
@@ -133,7 +140,7 @@
     <script src="~/Scripts/JS/thanaScript.js" type="text/javascript"></script>
     <script src="~/Scripts/JS/signupscript.js" type="text/javascript"></script>
 
-
+    <!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script> -->
 </body>
 @{
     Html.RenderPartial("footer");

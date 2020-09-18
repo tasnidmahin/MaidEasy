@@ -122,19 +122,23 @@ body {
         visibility: visible;
     }
 
-.form button {
-    background-color: #0a8aec;
-    border: 2px solid #0a8aec;
-    border-radius: 4px;
-    color: #fff;
-    display: block;
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 10px;
-    margin-top: 20px;
-    width: 100%;
+.btn-primary {
+    background-color: #0a8aec!important;
+    border: 2px solid #0a8aec!important;
+    border-radius: 4px!important;
+    color: #fff!important;
+    display: block!important;
+    font-family: inherit!important;
+    font-size: 1rem!important;
+    padding: 10px!important;
+    margin-top: 20px!important;
+    width: 100%!important;
 }
 
+    .btn-primary:hover {
+        background-color: #1169c8!important;
+    }
+   
 
 
 
@@ -144,21 +148,22 @@ body {
 
 
 
-.floating-btn {
-    border-radius: 26.5px;
-    background-color: #001F61;
-    border: 1px solid #001F61;
-    box-shadow: 0 16px 22px -17px #03153B;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 20px;
-    padding: 12px 20px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-}
+
+    .floating-btn {
+        border-radius: 26.5px;
+        background-color: #001F61;
+        border: 1px solid #001F61;
+        box-shadow: 0 16px 22px -17px #03153B;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 12px 20px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+    }
 
     .floating-btn:hover {
         background-color: #ffffff;

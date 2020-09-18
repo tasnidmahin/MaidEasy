@@ -118,7 +118,7 @@
     color: #77c1e4;
     cursor: pointer;
     padding: 18px;
-    width: 350px;
+    max-width: 350px;
     border: none;
     text-align: center;
     outline: none;
@@ -171,8 +171,29 @@
     font-weight: 300 !important;
     
 }
-
+/*.card-body{
+    padding:2rem!important;
+}*/
 li {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     margin-left: 1em;
+}
+
+.inner{
+    width:23rem!important;
+}
+
+
+/*Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
+    .inner {
+        width: 20rem!important;
+    }
+}
+
+ /*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .inner {
+        width: 15rem !important;
+    }
 }
