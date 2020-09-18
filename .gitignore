@@ -1,7 +1,7 @@
 .vs/
 
 
-bin/
-obj/
+\bin
+\obj
 
 obj/Debug/MaidEasy.csproj.FileListAbsolute.txt
