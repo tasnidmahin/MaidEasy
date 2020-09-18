@@ -29,31 +29,60 @@ namespace MaidEasy.Controllers
 
         private int convert(string end)
         {
-            if (end == "6:00 AM" || end == "6") return 0;
+            if (end == "6:00 AM" || end == "6" || end == "6:00") return 0;
             else if (end == "6:30 AM" || end == "6:30") return 1;
-            else if (end == "7:00 AM" || end == "7") return 2;
+            else if (end == "7:00 AM" || end == "7" || end == "7:00") return 2;
             else if (end == "7:30 AM" || end == "7:30") return 3;
-            else if (end == "8:00 AM" || end == "8") return 4;
+            else if (end == "8:00 AM" || end == "8" || end == "8:00") return 4;
             else if (end == "8:30 AM" || end == "8:30") return 5;
-            else if (end == "9:00 AM" || end == "9") return 6;
+            else if (end == "9:00 AM" || end == "9" || end == "9:00") return 6;
             else if (end == "9:30 AM" || end == "9:30") return 7;
-            else if (end == "10:00 AM" || end == "10") return 8;
+            else if (end == "10:00 AM" || end == "10" || end == "10:00") return 8;
             else if (end == "10:30 AM" || end == "10:30") return 9;
-            else if (end == "11:00 AM" || end == "11") return 10;
+            else if (end == "11:00 AM" || end == "11" || end == "11:00") return 10;
             else if (end == "11:30 AM" || end == "11:30") return 11;
-            else if (end == "12:00 PM" || end == "12") return 12;
+            else if (end == "12:00 PM" || end == "12" || end == "12:00") return 12;
             else if (end == "12:30 PM" || end == "12:30") return 13;
-            else if (end == "1:00 PM" || end == "1") return 14;
+            else if (end == "1:00 PM" || end == "1" || end == "1:00") return 14;
             else if (end == "1:30 PM" || end == "1:30") return 15;
-            else if (end == "2:00 PM" || end == "2") return 16;
+            else if (end == "2:00 PM" || end == "2" || end == "2:00") return 16;
             else if (end == "2:30 PM" || end == "2:30") return 17;
-            else if (end == "3:00 PM" || end == "3") return 18;
+            else if (end == "3:00 PM" || end == "3" || end == "3:00") return 18;
             else if (end == "3:30 PM" || end == "3:30") return 19;
-            else if (end == "4:00 PM" || end == "4") return 20;
+            else if (end == "4:00 PM" || end == "4" || end == "4:00") return 20;
             else if (end == "4:30 PM" || end == "4:30") return 21;
-            else if (end == "5:00 PM" || end == "5") return 22;
+            else if (end == "5:00 PM" || end == "5" || end == "5:00") return 22;
             else if (end == "5:30 PM" || end == "5:30") return 23;
             else return 24;
+        }
+
+        private string formatting (string end)
+        {
+            if (end == "6:00 AM" || end == "6" || end == "6:00") return "6:00 AM";
+            else if (end == "6:30 AM" || end == "6:30") return "6:30 AM";
+            else if (end == "7:00 AM" || end == "7" || end == "7:00") return "7:00 AM";
+            else if (end == "7:30 AM" || end == "7:30") return "7:30 AM";
+            else if (end == "8:00 AM" || end == "8" || end == "8:00") return "8:00 AM";
+            else if (end == "8:30 AM" || end == "8:30") return "8:30 AM";
+            else if (end == "9:00 AM" || end == "9" || end == "9:00") return "9:00 AM";
+            else if (end == "9:30 AM" || end == "9:30") return "9:30 AM";
+            else if (end == "10:00 AM" || end == "10" || end == "10:00") return "10:00 AM";
+            else if (end == "10:30 AM" || end == "10:30") return "10:30 AM";
+            else if (end == "11:00 AM" || end == "11" || end == "11:00") return "11:00 AM";
+            else if (end == "11:30 AM" || end == "11:30") return "11:30 AM";
+            else if (end == "12:00 PM" || end == "12" || end == "12:00") return "12:00 PM";
+            else if (end == "12:30 PM" || end == "12:30") return "12:30 PM";
+            else if (end == "1:00 PM" || end == "1" || end == "1:00") return "1:00 PM";
+            else if (end == "1:30 PM" || end == "1:30") return "1:30 PM";
+            else if (end == "2:00 PM" || end == "2" || end == "2:00") return "2:00 PM";
+            else if (end == "2:30 PM" || end == "2:30") return "2:30 PM";
+            else if (end == "3:00 PM" || end == "3" || end == "3:00") return "3:00 PM";
+            else if (end == "3:30 PM" || end == "3:30") return "3:30 PM";
+            else if (end == "4:00 PM" || end == "4" || end == "4:00") return "4:00 PM";
+            else if (end == "4:30 PM" || end == "4:30") return "4:30 PM";
+            else if (end == "5:00 PM" || end == "5" || end == "5:00") return "5:00 PM";
+            else if (end == "5:30 PM" || end == "5:30") return "5:30 PM";
+            else return "6:00 PM";
         }
 
         private int findType(string s)
@@ -81,6 +110,12 @@ namespace MaidEasy.Controllers
 
             int type = findType(t);
 
+            startTime = formatting(startTime);
+            endTime = formatting(endTime);
+            System.Diagnostics.Debug.WriteLine("--------------");
+            System.Diagnostics.Debug.WriteLine(startTime);
+            System.Diagnostics.Debug.WriteLine(endTime);
+            System.Diagnostics.Debug.WriteLine("--------------");
             int start = convert(startTime);
             int end = convert(endTime);
             double time = (end - start) / 2.0;

@@ -73,6 +73,9 @@ namespace MaidEasy.Controllers
             }
             table.Close();
 
+            System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
+            System.Diagnostics.Debug.WriteLine(data[1]);
+            System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
 
             ViewData["LastUrl"] = lastUrl;
             Session["CurWorker"] = data;
@@ -84,6 +87,13 @@ namespace MaidEasy.Controllers
         {
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
+
+            var wData = (string[])Session["CurWorker"];
+            string workerType = wData[1];
+            System.Diagnostics.Debug.WriteLine("------------ Hire --------------------");
+            System.Diagnostics.Debug.WriteLine(workerType);
+            System.Diagnostics.Debug.WriteLine("-------------- Hire ------------------");
+
             string sql = "SELECT COUNT(WorkId) from work";
             DBHelper db = DBHelper.getDB();
             var table = db.getData(sql);
