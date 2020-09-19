@@ -351,7 +351,42 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Hire_new()
         {
-            return View();
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
+
+            var wData = (string[])Session["CurWorker"];
+            string workerType = wData[1];
+            System.Diagnostics.Debug.WriteLine("------------ Hire --------------------");
+            System.Diagnostics.Debug.WriteLine(workerType);
+            System.Diagnostics.Debug.WriteLine("-------------- Hire ------------------");
+
+            string sql = "SELECT COUNT(WorkId) from work";
+            DBHelper db = DBHelper.getDB();
+            var table = db.getData(sql);
+            table.Read();
+            int count = Int32.Parse(table.GetString(0));
+            table.Close();
+            Session["work_row"] = count;
+
+            /*System.Diagnostics.Debug.WriteLine("--------------------------------");
+            System.Diagnostics.Debug.WriteLine("--------------------------------");*/
+
+            string[,] data = new string[count, 2];
+
+            sql = "SELECT Name,UnitPrice from work";
+            table = db.getData(sql);
+            int i = 0;
+            while (table.Read())
+            {
+                data[i, 0] = table.GetString(0);
+                data[i, 1] = table.GetString(1);
+                i++;
+            }
+            table.Close();
+
+            ViewData["workList"] = data;
+
+            return View("~/Views/Maid/Hire_new.cshtml");
         }
     }
 }
