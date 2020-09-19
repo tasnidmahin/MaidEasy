@@ -22,51 +22,7 @@ namespace MaidEasy.Controllers
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");*/
             return View();
         }
-        public ActionResult Worklist()
-        {
-            return View(Db.work.ToList());
-        }
-
-        [HttpPost]
-        public ActionResult WorklistEdit([Bind(Include = "")] work work)
-        {
-            if (ModelState.IsValid)
-            {
-                Db.Entry(work).State = EntityState.Modified;
-                Db.SaveChanges();
-            }
-            return RedirectToAction("Worklist");
-        }
-
-        [HttpPost]
-        public ActionResult WorklistCreate([Bind(Include = "")] work work)
-        {
-
-            // TODO: Add insert logic here
-            if (ModelState.IsValid)
-            {
-                Db.work.Add(work);
-                Db.SaveChanges();
-
-            }
-
-            return RedirectToAction("Worklist");
-        }
-
-        [HttpPost, ActionName("WorklistDelete")]
-        public ActionResult WorklistDeleteConfirm(int id)
-        {
-            work work = Db.work.Find(id);
-            Db.work.Remove(work);
-            Db.SaveChanges();
-            Session["ADMIN_WORKLIST_DELETE"] = "Admin Worklist Delete";
-            return RedirectToAction("Worklist");
-        }
-
-        public ActionResult Edit_work()
-        {
-            return View();
-        }
+        
 
     }
 }

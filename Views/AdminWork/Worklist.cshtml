@@ -37,7 +37,7 @@
             </button>
 
             <div class="submit-area content" data-aos="zoom-out">
-                <form action="@Url.Action("WorklistCreate","Admin")" method="post">
+                <form action="@Url.Action("WorklistCreate","AdminWork")" method="post">
                     @Html.AntiForgeryToken()
 
 
@@ -105,7 +105,7 @@
 
                                         <div class="dropdown-item">
                                         
-                                            <form action="@Url.Action("WorklistDelete","Admin",new {id=item.WorkId})" method="post">
+                                            <form action="@Url.Action("WorklistDelete","AdminWork",new {id=item.WorkId})" method="post">
                                                 @Html.AntiForgeryToken()
 
 
@@ -133,7 +133,7 @@
                                             </div>
                                             <div class="modal-body">
 
-                                                <form action="@Url.Action("WorklistEdit","Admin",new {id=item.WorkId})" method="post">
+                                                <form action="@Url.Action("WorklistEdit","AdminWork",new {id=item.WorkId})" method="post">
                                                     @Html.AntiForgeryToken()
 
                                                     <input value="@item.WorkId" name="WorkId" type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
