@@ -24,15 +24,9 @@ namespace MaidEasy.Controllers
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
             int id = Int32.Parse(Request["maid"].ToString());
-            ViewData["maid"] = id;
-            DBHelper db = DBHelper.getDB();
-            string sql = "SELECT Name from Worker where WorkerId = '" + id + "'";
-            var table = db.getData(sql);
-            table.Read();
-            string name = table.GetString(0);
-            table.Close();
-            ViewData["maidName"] = name;
-            return View();
+
+            worker worker = dbContext.worker.Find(id);
+            return View(worker);
         }
 
         private string getThana(string s)
@@ -43,13 +37,16 @@ namespace MaidEasy.Controllers
                 if (s[i] == '1')
                 { id = i + 1; break; }
             }
-            DBHelper db = DBHelper.getDB();
+            thana thana = dbContext.thana.Find(id);
+            return thana.Name;
+
+            /*DBHelper db = DBHelper.getDB();
             string sql = "SELECT Name from Thana where ThanaId  = '" + id + "'";
             var table = db.getData(sql);
             table.Read();
             string ret = table.GetString(0);
             table.Close();
-            return ret;
+            return ret;*/
         }
 
         [HttpGet]
@@ -82,7 +79,7 @@ namespace MaidEasy.Controllers
         {
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
-            DBHelper db = DBHelper.getDB();
+            /*DBHelper db = DBHelper.getDB();
             int id = Int32.Parse(Session["userID"].ToString());
             string sql = "SELECT count(WorkerId) from Contracts where UserId = '" + id + "' and status = 'current'";
             var table = db.getData(sql);
@@ -137,8 +134,93 @@ namespace MaidEasy.Controllers
 
 
             ViewData["cnt1"] = cnt1;        ViewData["cnt2"] = cnt2;
-            ViewData["data1"] = data1;      ViewData["data2"] = data2;
-            return View();
+            ViewData["data1"] = data1;      ViewData["data2"] = data2;*/
+
+
+
+            /*IEnumerable<contract> currentWorker = dbContext.contracts.ToList().Where(m => m.status == "current");
+            /IEnumerable<HiredWorker> currentWorker = dbContext.contracts.Join(dbContext.worker,
+                contracts=> contracts.WorkerId,
+                worker=> worker.WorkerId,
+                (contracts, worker) => new {Contracts = contracts, Worker = worker })
+            IEnumerable<contract> previousWorker = dbContext.contracts.ToList().Where(m => m.status == "previous");
+
+            var viewModel = new HiredWorkerModel();
+            viewModel.currentWorker = currentWorker;*/
+
+            var viewModel = new HiredWorkerModel();
+            List<HiredWorker> a = new List<HiredWorker>();
+            List<HiredWorker> b = new List<HiredWorker>();
+
+            var query = from c in dbContext.contracts
+                        join w in dbContext.worker on c.WorkerId equals w.WorkerId
+                        where c.status == "current"
+                        select new
+                        {
+                            workerId = w.WorkerId,
+                            workerName = c.WorkerName,
+                            startMonth = c.StartMonth,
+                            endMonth = c.EndMonth,
+                            startTime = c.startTime,
+                            endTime = c.endTime,
+                            amount = c.Amount,
+                            workList = c.Worklist,
+                            image = w.image,
+                        };
+
+
+            foreach(var item in query)
+            {
+                HiredWorker hw = new HiredWorker();
+                hw.workerId = item.workerId;
+                hw.workerName = item.workerName;
+                hw.startMonth = item.startMonth;
+                hw.endMonth = item.endMonth;
+                hw.startTime = item.startTime;
+                hw.endTime = item.endTime;
+                hw.amount = item.amount;
+                hw.workList = item.workList;
+                hw.image = item.image;
+
+                a.Add(hw);
+            }
+
+            query = from c in dbContext.contracts
+                    join w in dbContext.worker on c.WorkerId equals w.WorkerId
+                    where c.status == "previous"
+                    select new
+                    {
+                        workerId = w.WorkerId,
+                        workerName = c.WorkerName,
+                        startMonth = c.StartMonth,
+                        endMonth = c.EndMonth,
+                        startTime = c.startTime,
+                        endTime = c.endTime,
+                        amount = c.Amount,
+                        workList = c.Worklist,
+                        image = w.image,
+                    };
+
+            foreach (var item in query)
+            {
+                HiredWorker hw = new HiredWorker();
+                hw.workerId = item.workerId;
+                hw.workerName = item.workerName;
+                hw.startMonth = item.startMonth;
+                hw.endMonth = item.endMonth;
+                hw.startTime = item.startTime;
+                hw.endTime = item.endTime;
+                hw.amount = item.amount;
+                hw.workList = item.workList;
+                hw.image = item.image;
+
+                b.Add(hw);
+            }
+
+            viewModel.currentWorker = a;
+            viewModel.previousWorker = b;
+
+            return View(viewModel);
         }
         public ActionResult Edit_profile()
         {
@@ -147,23 +229,11 @@ namespace MaidEasy.Controllers
             if (TempData["message"] != null) //It will true when Password not match with DB password 
                 ViewBag.Error = TempData["message"].ToString();
 
+            int id = Int32.Parse(Session["userID"].ToString());
+            user user = dbContext.users.Find( id );
+            user.thana = getThana(user.thana);
+            return View(user);
 
-            DBHelper db = DBHelper.getDB();
-            string sql = "SELECT Name ,  mobile , PresentAddress , PermanentAddress , thana , image  from Users where username  = '" + Session["username"] + "' ";
-            var table = db.getData(sql);
-            table.Read();
-            TempData["Ename"] =              table.GetString(0);
-            TempData["Ephone"] =             table.GetString(1);
-            TempData["EpresentAddress"] =    table.GetString(2);
-            TempData["EpermanentAddress"] =  table.GetString(3);
-            string s =             table.GetString(4);
-            TempData["image"] = table.GetString(5);
-            table.Close();
-
-            TempData["Ethana"] = getThana(s);
-
-
-            return View();
         }
         [HttpPost]
         public ActionResult EntryFeedback()
@@ -186,8 +256,15 @@ namespace MaidEasy.Controllers
 
             sql = "UPDATE Worker SET rating  = '" + rat + "' where WorkerId = '" + wID + "'";
             db.setData(sql);
+
+            workerreview review = new workerreview();
+            review.WorkerId = Int32.Parse(wID);
+            review.rating = Int32.Parse(rating);
+            review.username = Session["username"].ToString();
+            review.description = comment;
+
             //return View("~/Views/User/user_profile.cshtml");
-            return RedirectToAction("user_profile", "User");
+            return RedirectToAction("user_profile", "User", new { id = Session["userID"] });
         }
     }
 }

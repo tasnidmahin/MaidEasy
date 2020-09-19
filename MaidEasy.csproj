@@ -283,6 +283,8 @@
       <DependentUpon>DemoModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EditWorkerModel.cs" />
+    <Compile Include="Models\HiredWorker.cs" />
+    <Compile Include="Models\HiredWorkerModel.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\MaidProfileModel.cs" />
     <Compile Include="Models\ServiceModel.cs" />
@@ -341,6 +343,9 @@
     <Content Include="Content\Images\logo2.png" />
     <Content Include="Content\Images\logo3.png" />
     <Content Include="Content\Images\logonew.png" />
+    <Content Include="Content\Images\panel1.jpg" />
+    <Content Include="Content\Images\panel2.jpg" />
+    <Content Include="Content\Images\panel3.jpg" />
     <Content Include="Content\Images\permanent.jpg" />
     <Content Include="Content\Images\plus-circle-solid.svg" />
     <Content Include="Content\Images\profile.jpg" />

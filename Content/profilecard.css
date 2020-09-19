@@ -9,8 +9,8 @@
 }
 
 .card-box {
-    width: 300px;
-    height: 430px;
+    min-width: 300px;
+    min-height: 430px;
     background: #FFF;
     border-radius: 6px;
     /*position: absolute;
@@ -22,13 +22,14 @@
     overflow: hidden;
     /* display: inline-block;*/
     margin:auto;
-    margin-top: 40px;
+    margin-top: 60px;
     /*margin-left: 35%; */
 }
 
 .upper-box {
     height: 150px;
-    background: #00afffc7;
+    background: #001a33;
+    position: relative;
 }
 .category {
     font-weight: 600;
@@ -38,7 +39,9 @@
 
 .user-input {
     font-weight: 300 !important;
-    margin-left: 1em;
+    /*margin-left: 1em;*/
+    color: #001a33;
+    font-size:16px;
 }
 .image-box {
     background: white;
@@ -46,7 +49,12 @@
     height: 80px;
     border-radius: 50%;
     /*padding: 5px;*/
-    transform: translate(100px,100px);
+    /*transform: translate(100px,100px);*/
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
     .image-box img {
@@ -67,11 +75,11 @@
         box-sizing: border-box;
         line-height: .6;
         font-weight: lighter;
-        color: #00afffc7;
+        color: #001a33;
     }
 
     .lower-box h4 {
-        color: #00afffc7;
+        color: #001a33;
         opacity: .9;
         font-weight: bold;
     }
@@ -84,7 +92,7 @@
 
     .lower-box .btn {
         padding: 12px 20px;
-        background: #00afffc7;
+        background: #001a33;
         border: none;
         color: white;
         border-radius: 30px;
@@ -96,6 +104,6 @@
 
         .lower-box .btn:hover {
             background: transparent;
-            color: #00afffc7;
-            border: 2px solid #00afffc7;
+            color: #001a33;
+            border: 2px solid #001a33;
         }

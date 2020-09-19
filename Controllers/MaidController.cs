@@ -21,13 +21,14 @@ namespace MaidEasy.Controllers
             return View();
         }
 
-        public ActionResult MaidProfile()
+        public ActionResult MaidProfile(string id)
         {
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
-            var id = Request["maid"].ToString();
+            //var id = Request["maid"].ToString();
             Uri MyUrl = Request.UrlReferrer;
-            var lastUrl = Server.HtmlEncode(MyUrl.AbsolutePath);
+            var lastUrl = "";
+            if (MyUrl != null) lastUrl = Server.HtmlEncode(MyUrl.AbsolutePath);
             /*System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
             System.Diagnostics.Debug.WriteLine(id);
             System.Diagnostics.Debug.WriteLine(MyUrl);
@@ -72,6 +73,9 @@ namespace MaidEasy.Controllers
             }
             table.Close();
 
+            System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
+            System.Diagnostics.Debug.WriteLine(data[1]);
+            System.Diagnostics.Debug.WriteLine("--------------Maid ID--------------------------------------");
 
             ViewData["LastUrl"] = lastUrl;
             Session["CurWorker"] = data;
@@ -83,6 +87,13 @@ namespace MaidEasy.Controllers
         {
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
+
+            var wData = (string[])Session["CurWorker"];
+            string workerType = wData[1];
+            System.Diagnostics.Debug.WriteLine("------------ Hire --------------------");
+            System.Diagnostics.Debug.WriteLine(workerType);
+            System.Diagnostics.Debug.WriteLine("-------------- Hire ------------------");
+
             string sql = "SELECT COUNT(WorkId) from work";
             DBHelper db = DBHelper.getDB();
             var table = db.getData(sql);

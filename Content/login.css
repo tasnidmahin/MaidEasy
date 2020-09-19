@@ -189,5 +189,19 @@
 }*/
 
 
-
-
+ /*Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
+    .submit-area {
+        margin:0;
+       
+    }
+}
+ /*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .submit-area {
+        padding: 30px 30px 30px;
+    }
+    .veri{
+        font-size:1rem!important;
+    }
+}

@@ -1,23 +1,5 @@
 ﻿/*
-[data-tab-content] {
-    display: none;
-}
 
-.active[data-tab-content] {
-    display: block;
-}
-
-.tabs {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    margin-left: 10%;
-    margin-right: 10%;
-    border: 1px solid black;
-    background-color: #00afffc7;
-}
 
 .tab {
     cursor: pointer;
@@ -65,7 +47,10 @@
 
 
 .checked {
-    color: orange;
+    color: #ffe749;
+}
+.notchecked {
+    color: #f8f0c1;
 }
 
 body {
@@ -75,6 +60,7 @@ body {
 .searchresults {
     top: 120%;
     min-height: 200px;
+    margin-bottom:60px;
 }
 h5{
     color:#fff !important;
@@ -91,12 +77,45 @@ h5{
 .textcolor{
     color: #fff !important;
 }
-.card{
-    border:none !important;
-    border-radius:.75rem !important;
+.card {
+    /*border: none !important;*/
+    /*border-radius:.75rem !important;*/
+    /*border-bottom-right-radius: 0rem!important;
+    border-bottom-left-radius: 0rem!important;
+    border-right:1px solid grey!important;*/
+    border-radius:0rem!important;
 }
 .card-header {
-    background-color: #313f4b !important;
-    color: white;
+    /*background-color: #313f4b !important; */
+    color:black;
    
+}
+.fcolor{
+color:black;
+font-size:.85rem!important;
+}
+.pdn{
+    padding:1rem!important;
+}
+
+.leftradius {
+    border-top-left-radius: 45px!important;
+    border-bottom-left-radius: 45px!important;
+}
+.rightradius {
+    border-top-right-radius: 45px !important;
+    border-bottom-right-radius: 45px !important;
+}
+
+ /*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
+    .leftradius {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+    }
+
+    .rightradius {
+        border-top-right-radius: 0!important;
+        border-bottom-right-radius: 0 !important;
+    }
 }

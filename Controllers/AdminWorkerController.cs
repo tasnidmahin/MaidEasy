@@ -20,11 +20,16 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Add_worker()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             return View();
         }
         public ActionResult WorkerList()
         {
-            
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             IEnumerable<MaidEasy.Models.worker> workerList = dbContext.worker.ToList();
             foreach (var item in workerList)
             {
@@ -36,6 +41,9 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Edit_Worker(int workerID)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             System.Diagnostics.Debug.WriteLine("-----Edit Worker-------------------------------");
             System.Diagnostics.Debug.WriteLine(workerID);
             System.Diagnostics.Debug.WriteLine("-----Edit Worker-------------------------------");
@@ -62,6 +70,9 @@ namespace MaidEasy.Controllers
         [HttpPost]
         public ActionResult AddNewWorker(HttpPostedFileBase file)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             var name = Request["name"];
             var fatherName = Request["fathername"];
             var phone = Request["Phone"];
@@ -157,6 +168,9 @@ namespace MaidEasy.Controllers
         [HttpPost]
         public ActionResult SaveWorkerData(HttpPostedFileBase file)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             var name = Request["name"];
             var fathername = Request["fathername"];
             var Phone = Request["Phone"];
@@ -220,6 +234,9 @@ namespace MaidEasy.Controllers
 
         public ActionResult DeleteWorker()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
             /*DBHelper db = DBHelper.getDB();
             string sql = "DELETE from worker where WorkerId = '" + Session["workerID"] + "' ";
             db.setData(sql);*/
