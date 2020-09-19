@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="col-md-7">
                         <div class="contact-info">
-                            <form action="/Home/EntryContactInfo" method="post"  autocomplete="off">
+                            <form action="/Home/EntryContactInfo" method="post" autocomplete="off">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
                                     <label for="name" class="form-label">Name</label>
@@ -48,11 +48,11 @@
                                               rows="3"></textarea>
                                 </div>
                                 <div class="col-md-5 text-center">
-                                     <a class="send-us-button" href=""> <button type="submit"> Submit </button> </a>
+                                    <a class="send-us-button" href=""> <button type="submit"> Submit </button> </a>
                                     <!-- <a class="send-us-button" href=""> <input type="submit" Submit /> </a> -->
                                     <!-- <input type="button" class="button_active" onclick="location.href='/Home/EntryContactInfo';" /> -->
                                 </div>
-                            </form>
+
                         </div>
                     </div>
 
@@ -65,13 +65,13 @@
                             <br>
                             <p><i class="fas fa-phone-alt pr-2"></i>456789</p>
                             <p><i class="far fa-envelope-open pr-2"></i>MaidEasy@mail.com</p>
-                            
+
                         </div>
                     </div>
                     <div class="col-md-5 text-center">
-                        <a class="send-us-button" href="@Url.Action("EntryContactInfo")">Submit</a>
+                        <button type="submit" class="send-us-button" href="@Url.Action("EntryContactInfo")">Submit</button>
                     </div>
-
+                    </form>
                 </div>
             </div>
         </div>

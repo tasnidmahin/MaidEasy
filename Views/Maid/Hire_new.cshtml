@@ -119,11 +119,11 @@
                                 <div class="form-group">
                                     <label class="fontsize" for="exampleFormControlTextarea1">Salary</label>
 
-                                    <!-- <input type="text" class="form-control col-md-3 col-6" value="" id="salary" placeholder="BDT"> -->
-                                    <div class="Salary">
-                                        <div class="salary_amount"><strong id=salary></strong></div>
-                                        <input type="hidden" id="sal" name="salary" />
-                                    </div>
+                                     <input type="text" class="form-control col-md-3 col-6" value="" id="salary" placeholder="BDT" readonly> 
+                                     <div class="Salary">
+                                         <!--  <div class="salary_amount"><strong id=salary></strong></div> -->
+                                         <input type="hidden" id="sal" name="salary" />
+                                     </div>
 
                                 </div>
                                 <div class="pt-3 text-center">
@@ -136,7 +136,7 @@
                             if (s[1].Equals('1'))
                             {
                                 <script>
-                                    document.getElementById("salary").innerHTML = @WData2[0,1];
+                                    document.getElementById("salary").value = @WData2[0,1];
                                     document.getElementById("sal").setAttribute("value", @WData2[0,1]);
                                 </script>
 
@@ -144,7 +144,7 @@
                             if (s[2].Equals('1'))
                             {
                                 <script>
-                                    document.getElementById("salary").innerHTML = @WData2[1,1];
+                                    document.getElementById("salary").value = @WData2[1,1];
                                     document.getElementById("sal").setAttribute("value", @WData2[1,1]);
                                 </script>
 
