@@ -343,6 +343,9 @@
     <Content Include="Content\Images\logo2.png" />
     <Content Include="Content\Images\logo3.png" />
     <Content Include="Content\Images\logonew.png" />
+    <Content Include="Content\Images\panel1.jpg" />
+    <Content Include="Content\Images\panel2.jpg" />
+    <Content Include="Content\Images\panel3.jpg" />
     <Content Include="Content\Images\permanent.jpg" />
     <Content Include="Content\Images\plus-circle-solid.svg" />
     <Content Include="Content\Images\profile.jpg" />
