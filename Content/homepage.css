@@ -230,7 +230,8 @@ button{
 
 .inner {
     width: 13rem !important;
-    height: 19rem !important;
+    min-height: 19rem !important;
+    margin: auto !important;
 }
 /*btn-outline-info.focus, .btn-outline-info:focus{
     box-shadow:none!important;
