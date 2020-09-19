@@ -94,6 +94,7 @@ namespace MaidEasy.Controllers
             thana thana = Db.thana.Find(id);
             Db.thana.Remove(thana);
             Db.SaveChanges();
+            Session["ADMIN_THANA_DELETE"] = "Admin Thana Delete";
             return RedirectToAction("Index");
         }
     }

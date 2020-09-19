@@ -247,6 +247,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminThanaController.cs" />
     <Compile Include="Controllers\AdminUserController.cs" />
+    <Compile Include="Controllers\AdminWorkController.cs" />
     <Compile Include="Controllers\AdminWorkerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaidController.cs" />
@@ -447,7 +448,7 @@
     <Content Include="Views\User\user_profile.cshtml" />
     <Content Include="Views\User\Edit_profile.cshtml" />
     <Content Include="Views\Admin\Admin_home.cshtml" />
-    <Content Include="Views\Admin\Worklist.cshtml" />
+    <Content Include="Views\AdminWork\Worklist.cshtml" />
     <Content Include="Views\Admin\Edit_work.cshtml" />
     <Content Include="Views\Admin\Thanalist.cshtml" />
     <Content Include="Views\Admin\Edit_thanalist.cshtml" />

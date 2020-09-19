@@ -1,4 +1,5 @@
 ﻿using MaidEasy.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace MaidEasy.Controllers
 {
     public class AdminController : Controller
     {
+        CustomDbContext Db = new CustomDbContext();
         // GET: Admin
         public ActionResult Index()
         {
@@ -20,14 +22,7 @@ namespace MaidEasy.Controllers
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");*/
             return View();
         }
-        public ActionResult Worklist()
-        {
-            return View();
-        }
-        public ActionResult Edit_work()
-        {
-            return View();
-        }
+        
 
     }
 }

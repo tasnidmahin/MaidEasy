@@ -8,28 +8,132 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@*    @Html.ActionLink("Create New", "Create")
+*@</p>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    CREATE
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form action="@Url.Action("Create","AdminThana")" method="post">
+                    @Html.AntiForgeryToken()
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input name="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th></th>
+        <th>EDIT</th>
+
     </tr>
     @{ }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ThanaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ThanaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ThanaId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            
+            <td>
+
+                <form action="@Url.Action("Delete","AdminThana",new {id=item.ThanaId})" method="post">
+                    @Html.AntiForgeryToken()
+
+         
+
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+
+
+                @*                @Html.ActionLink("Edit", "Edit", new { id = item.ThanaId }) |
+                *@
+                @*                @Html.ActionLink("Details", "Details", new { id = item.ThanaId }) |
+                *@
+                @*                                @Html.ActionLink("Delete", "Delete", new { id = item.ThanaId })
+                *@
+            </td>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#_@item.ThanaId">
+                    EDIT
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="_@item.ThanaId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form action="@Url.Action("Edit","AdminThana",new {id=item.ThanaId})" method="post">
+                                    @Html.AntiForgeryToken()
+
+                                    <input value="@item.ThanaId" name="ThanaId" type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input value="@item.Name" name="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
 
 </table>
+<script>
+    var isDeleted = "@Session["ADMIN_THANA_DELETE"]";
+    if (isDeleted != null && isDeleted!="")
+    {
+        alert("DATA is deleted");
+        @{
+@*            @Session["ADMIN_THANA_DELETE"]= null;
+*@
+        Session["ADMIN_THANA_DELETE"] = null;
+        }
+
+
+    }
+
+</script>
