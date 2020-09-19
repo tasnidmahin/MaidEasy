@@ -154,7 +154,7 @@ namespace MaidEasy.Controllers
 
             var query = from c in dbContext.contracts
                         join w in dbContext.worker on c.WorkerId equals w.WorkerId
-                        where c.status == "current"
+                        where c.status == "current" && c.UserId == ( Int32.Parse(Session["userID"].ToString()) )
                         select new
                         {
                             workerId = w.WorkerId,
@@ -187,7 +187,7 @@ namespace MaidEasy.Controllers
 
             query = from c in dbContext.contracts
                     join w in dbContext.worker on c.WorkerId equals w.WorkerId
-                    where c.status == "previous"
+                    where c.status == "previous" && c.UserId == (Int32.Parse(Session["userID"].ToString()))
                     select new
                     {
                         workerId = w.WorkerId,
