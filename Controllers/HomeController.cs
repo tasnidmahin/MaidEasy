@@ -97,6 +97,10 @@ namespace MaidEasy.Controllers
             contactus.Message   = Request["message"];
             contactus.Review    = Request["review"];
 
+            System.Diagnostics.Debug.WriteLine("-----Contact Us-------------------------------");
+            System.Diagnostics.Debug.WriteLine("Before");
+            System.Diagnostics.Debug.WriteLine("-----Contact Us-------------------------------");
+
             if (ModelState.IsValid)
             {
                 dbContext.contactus.Add(contactus);

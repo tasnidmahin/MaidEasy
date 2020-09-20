@@ -21,10 +21,12 @@
     <div class="box" style="margin-top:69px;">
         <div class="container contact-us">
             <div class="back-section">
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="contact-info">
-                            <form action="/Home/EntryContactInfo" method="post" autocomplete="off">
+                <form action="/Home/EntryContactInfo" method="post" autocomplete="off">
+                    <div class="row">
+
+                        <div class="col-md-7">
+                            <div class="contact-info">
+
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
                                     <label for="name" class="form-label">Name</label>
@@ -48,31 +50,33 @@
                                               rows="3"></textarea>
                                 </div>
                                 <div class="col-md-5 text-center">
-                                    <a class="send-us-button" href=""> <button type="submit"> Submit </button> </a>
-                                    <!-- <a class="send-us-button" href=""> <input type="submit" Submit /> </a> -->
+                                    <!-- <a class="send-us-button" href="@Url.Action("EntryContactInfo")"> <button type="submit"> Submit </button> </a>
+                        <!-- <a class="send-us-button" href=""> <input type="submit" Submit /> </a> -->
                                     <!-- <input type="button" class="button_active" onclick="location.href='/Home/EntryContactInfo';" /> -->
                                 </div>
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-5">
-                        <div class="location">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.900966904653!2d90.38828391429689!3d23.750910694675326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8bcd681372b%3A0x5c2b8755e4327004!2sBashundhara%20City%20Shopping%20Complex!5e0!3m2!1sen!2sbd!4v1598518526026!5m2!1sen!2sbd"
-                                    width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""
-                                    aria-hidden="false" tabindex="0"></iframe>
-                            <br>
-                            <br>
-                            <p><i class="fas fa-phone-alt pr-2"></i>456789</p>
-                            <p><i class="far fa-envelope-open pr-2"></i>MaidEasy@mail.com</p>
+                        <div class="col-md-5">
+                            <div class="location">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.900966904653!2d90.38828391429689!3d23.750910694675326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8bcd681372b%3A0x5c2b8755e4327004!2sBashundhara%20City%20Shopping%20Complex!5e0!3m2!1sen!2sbd!4v1598518526026!5m2!1sen!2sbd"
+                                        width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""
+                                        aria-hidden="false" tabindex="0"></iframe>
+                                <br>
+                                <br>
+                                <p><i class="fas fa-phone-alt pr-2"></i>456789</p>
+                                <p><i class="far fa-envelope-open pr-2"></i>MaidEasy@mail.com</p>
 
+                            </div>
                         </div>
+
+
                     </div>
                     <div class="col-md-5 text-center">
-                        <button type="submit" class="send-us-button" href="@Url.Action("EntryContactInfo")">Submit</button>
+                        <button type="submit" class="send-us-button" href="">Submit</button>
                     </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
         </div>
