@@ -58,11 +58,11 @@ namespace MaidEasy.Controllers
             int t = Int32.Parse(table.GetString(0));
             table.Close();
 
-            thana th = new thana();
+            /*thana th = new thana();
             th = dbContext.thana.Find(thana);
             System.Diagnostics.Debug.WriteLine("---------Thana ID-----------");
             System.Diagnostics.Debug.WriteLine(th.ThanaId);
-            System.Diagnostics.Debug.WriteLine("---------Thana ID-----------");
+            System.Diagnostics.Debug.WriteLine("---------Thana ID-----------");*/
 
 
             StringBuilder r = new StringBuilder("00000000000000000000000000000000000000000000000000");

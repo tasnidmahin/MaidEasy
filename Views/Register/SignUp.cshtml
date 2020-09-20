@@ -33,6 +33,10 @@
                 <div class="header">
                     <h2>Create Account</h2>
                 </div>
+                @{ 
+                    MaidEasy.Models.CustomDbContext dbContext = new MaidEasy.Models.CustomDbContext();
+                    IEnumerable<MaidEasy.Models.thana> thanalist = dbContext.thana.ToList();
+                }
                 <form id="form" action="/Register/CheckInfo" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
                     <!--     <form id="form" action="javascript:void(0)" class="form" autocomplete="off" method="post">-->
                     <div class="form-control">
@@ -79,12 +83,15 @@
 
     </div> -->
                     <div class="form-control">
-    <select name="area" class="selectpicker" title="Select Area" data-width="fit" data-style="btn-dark" data-live-search="true" value="@TempData["thana"]" required>
-        <option>Mustard</option>
-        <option>Ketchup</option>
-        <option>Relish</option>
-    </select>
-    </div>
+                        <select name="thana" class="selectpicker" title="Select Area" data-width="fit" data-style="btn-dark" data-live-search="true" value="@TempData["thana"]" required>
+                            @{ 
+                                foreach (var item in thanalist)
+                                {
+                                    <option>@item.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
                     <div class="form-control">
                         <label for="username">Permanent Address</label>
                         <input id="permanentaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["permanentAddress"]" />
