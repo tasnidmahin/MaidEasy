@@ -140,19 +140,20 @@
                         <td>
                             <!-- Default dropright button -->
                             <div class="btn-group dropdown">
+
                                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Action
                                 </button>
-                              
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <!-- Dropdown menu links -->
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#_@item.ThanaId">Edit</button>
 
                                     <form action="@Url.Action("Delete","AdminThana",new {id=item.ThanaId})" method="post">
                                         @Html.AntiForgeryToken()
 
-                                        <button type="submit" class="dropdown-item" href="#">Another action</button>
+                                        <button type="submit" class="dropdown-item" href="#">Delete</button>
                                     </form>
-                               
+                                </div>
                             </div>
 
 
