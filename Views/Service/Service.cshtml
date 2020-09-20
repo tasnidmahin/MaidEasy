@@ -3,9 +3,7 @@
     ViewBag.Title = "Service";
     Layout = null;
 }
-@{
-    Html.RenderPartial("Header");
-}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +14,9 @@
 
     <link href="~/Content/service.css" rel="stylesheet">
     <link href="~/Content/profilecard.css" rel="stylesheet">
-    <!--  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
-    <!--   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,8 +26,10 @@
 
     <title>Services</title>
 
-
 </head>
+@{
+    Html.RenderPartial("Header");
+}
 
 <body>
     <div class="box">
@@ -76,9 +77,9 @@
                         <div class="d-flex justify-content-center row">
 
                             <div class="card text-center leftradius">
-                               <!-- <div class="card-header">
-                                    Sort By
-                                </div> -->
+                                <!-- <div class="card-header">
+                                     Sort By
+                                 </div> -->
                                 <div class="card-body pdn">
                                     <h6 class="fcolor">Sort By</h6>
                                     <div class="experiencebox" style="width:120px;">
@@ -98,12 +99,12 @@
 
 
                             <!--    <div class="row">
-    <div class="col-md-2"> -->
+                            <div class="col-md-2"> -->
 
                             <div class="card text-center">
                                 <!-- <div class="card-header">
-          Starting Time
-      </div> -->
+                                    Starting Time
+                                </div> -->
                                 <div class="card-body pdn">
                                     <h6 class="fcolor"> Starting Time</h6>
                                     <div class="experiencebox">
@@ -142,25 +143,25 @@
                             <!-- </div> -->
                             <!--  <div class="col-md-2" style="padding-left: 55px;">
 
-        <h5>Time</h5>
+                                <h5>Time</h5>
 
-        <div class="experiencebox" style="position: relative;">
-            <select name="car" id="main_menu" class="input-lg form-control">
+                                <div class="experiencebox" style="position: relative;">
+                                    <select name="car" id="main_menu" class="input-lg form-control">
 
-                <option value="am">a.m.</option>
-                <option value="pm">p.m.</option>
+                                        <option value="am">a.m.</option>
+                                        <option value="pm">p.m.</option>
 
-            </select>
-            <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-        </div>
-    </div>  -->
+                                    </select>
+                                    <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                </div>
+                            </div>  -->
                             <!--  </div> -->
-                            <div class="card text-center"style="border:none;border-right: none!important;">
+                            <div class="card text-center" style="border:none;border-right: none!important;">
 
 
                                 <!--   <div class="card-header">
-            Ending Time
-        </div> -->
+                                    Ending Time
+                                </div> -->
                                 <div class="card-body pdn">
                                     <h6 class="fcolor">End time</h6>
                                     <div class="experiencebox">
@@ -171,33 +172,35 @@
                                 </div>
                                 <!--  </div> -->
                                 <!-- <div class="col-md-2" style="padding-left:55px;">
-        <h5>Time</h5>
-        <div class="experiencebox" style="position: relative;">
-            <select name="car" id="main_menu" class="input-lg form-control">
+                                    <h5>Time</h5>
+                                    <div class="experiencebox" style="position: relative;">
+                                        <select name="car" id="main_menu" class="input-lg form-control">
 
-                <option value="am">a.m.</option>
-                <option value="pm">p.m.</option>
-            </select>
-            <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
-        </div>
-    </div> -->
+                                            <option value="am">a.m.</option>
+                                            <option value="pm">p.m.</option>
+                                        </select>
+                                        <img src="https://creation.bitechx.com/images/creation/down.svg" style="width:10px;margin-left:-25px;">
+                                    </div>
+                                </div> -->
                                 <!-- </div> -->
 
 
 
                             </div>
-                            <div class="card rightradius"style="border:none!important;min-width:8.24rem;">
-                                <div class="card-body pdn"style="text-align:center;">
+                            <div class="card rightradius" style="border:none!important;min-width:8.24rem;">
+                                <div class="card-body pdn" style="text-align:center;">
                                     <button style="background-color:#6ab2ff;    border: none;margin-top: 20px;
     border-radius: 50%;width: 3rem;
-    height: 3rem;" type="submit"><i class="fas fa-search"></i></button>
+    height: 3rem;" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
                                 </div>
                             </div>
-                            </div>
+                        </div>
                         <div class="container d-flex justify-content-center" style="padding-top:5%;">
 
                             <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button>  -->
-                            
+
 
                         </div>
                     </div>
@@ -244,7 +247,7 @@
                                             </div>
                                             <div class="col-6 col-md-6 text-left">
                                                 <h4 class="category"> @WData[i, 2] / 5.00 </h4>
-                                              </div>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6 col-md-6 text-right">
@@ -252,13 +255,13 @@
                                             </div>
                                             <div class="col-6 col-md-6 text-left">
                                                 <h4 class="category"> @WData[i, 3] months </h4>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <a href="@Url.Action("MaidProfile", "Maid", new { id =  WData[i,0] })" class="btn" name="link" value="@WData[i, 0]">View profile</a>
-                                                <!-- <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@WData[i, 0]">View profile</button> -->
                                             </div>
                                         </div>
+                                        <div>
+                                            <a href="@Url.Action("MaidProfile", "Maid", new { id =  WData[i,0] })" class="btn" name="link" value="@WData[i, 0]">View profile</a>
+                                            <!-- <button type="submit" class="btn btn-outline-light btn-lg" name="maid" value="@WData[i, 0]">View profile</button> -->
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -270,8 +273,8 @@
                             }
 
                         </div>
-                        </div>
-</form>
+                    </div>
+                </form>
 
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -305,39 +308,39 @@
 
 
 
-                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
-                        <!--    <div class="">
-    <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
-    </div> -->
+                            <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
+                            <!--    <div class="">
+                            <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                            </div> -->
                         </div>
+                    </div>
+                    <!--    <div class="card-box">
+
+                        <div class="upper-box">
+                            <div class="image-box">
+                                <img src="~/Content/Images/profile.jpg" />
+                            </div>
                         </div>
-                        <!--    <div class="card-box">
 
-            <div class="upper-box">
-                <div class="image-box">
-                    <img src="~/Content/Images/profile.jpg" />
-                </div>
-            </div>
+                        <div class="lower-box">
+                            <div>
+                                <h3>Alaina Wick</h3>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
 
-            <div class="lower-box">
-                <div>
-                    <h3>Alaina Wick</h3>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                            </div>
+                            <div>
+                                <h4 class="category">Favorite Country: <span class="user-input">Thailand</span></h4>
+                            </div>
+                            <div>
+                                <a href="#" class="btn">View profile</a>
+                            </div>
+                        </div>
 
-                </div>
-                <div>
-                    <h4 class="category">Favorite Country: <span class="user-input">Thailand</span></h4>
-                </div>
-                <div>
-                    <a href="#" class="btn">View profile</a>
-                </div>
-            </div>
-
-        </div>  -->
+                    </div>  -->
                 </form>
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
@@ -402,9 +405,9 @@
 
 
                             }
-</div>
                         </div>
-</form>
+                    </div>
+                </form>
 
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -436,40 +439,40 @@
 
 
 
-                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
-                        <!--    <div class="">
-            <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
-        </div> -->
+                            <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
+                            <!--    <div class="">
+                                <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                            </div> -->
                         </div>
+                    </div>
+                    <!--     <div class="card-box">
+
+                        <div class="upper-box">
+                            <div class="image-box">
+                                <img src="~/Content/Images/profile.jpg" />
+                            </div>
                         </div>
-                        <!--     <div class="card-box">
 
-            <div class="upper-box">
-                <div class="image-box">
-                    <img src="~/Content/Images/profile.jpg" />
-                </div>
-            </div>
+                        <div class="lower-box">
+                            <div>
+                                <h3>Alaina Wick</h3>
+                                <h4>3 year experience</h4>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
 
-            <div class="lower-box">
-                <div>
-                    <h3>Alaina Wick</h3>
-                    <h4>3 year experience</h4>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                            </div>
+                            <div>
+                                <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
+                            </div>
+                            <div>
+                                <a href="#" class="btn">View profile</a>
+                            </div>
+                        </div>
 
-                </div>
-                <div>
-                    <p>sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.</p>
-                </div>
-                <div>
-                    <a href="#" class="btn">View profile</a>
-                </div>
-            </div>
-
-        </div>  -->
+                    </div>  -->
                 </form>
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
@@ -528,9 +531,9 @@
 
 
                             }
-</div>
                         </div>
-</form>
+                    </div>
+                </form>
 
             </div>
 
@@ -562,10 +565,10 @@
 
 
 
-                        <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
-                     <!--   <div class="">
-                            <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
-                        </div> -->
+                            <!-- <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='@Url.Action("Searching", "Service")'">Search</button> -->
+                            <!--   <div class="">
+                                   <button type="submit" class="btn btn-outline-light btn-lg">Search</button>
+                               </div> -->
 
 
                             <button class="ml-2" style="background-color:#6ab2ff;    border: none;margin-top:7px;
@@ -574,8 +577,8 @@
                                 <i class="fas fa-search"></i>
                             </button>
 
-</div>
                         </div>
+                    </div>
                 </form>
                 <!-- <form action="/Service/ViewProfile" method="get"> -->
                 <form action="/Maid/MaidProfile" method="get">
@@ -634,24 +637,27 @@
 
 
                             }
-                            </div>
                         </div>
-</form>
+                    </div>
+                </form>
 
             </div>
         </div>
     </div>
+
     <script src="~/Scripts/JS/timerscript.js"></script>
     <script src="~/Scripts/JS/tabscript.js"></script>
+
     <script>
 
         $(document).ready(function () {
             $('#main_menu').val("@Session["startTime"]")
-
+            console.log("here");
             {
                 if ("@Session["startTime"]" != null) {
                     var sub = document.getElementById('sub_menu');
                     var selected_option = time["@Session["startTime"]"];
+                    console.log(selected_option);
                     while (sub.options.length > 0) {
                          sub.options.remove(0);
                     }
@@ -691,7 +697,6 @@
         var hash = window.location.hash;
         $('#myTab a[href="' + hash + '"]').tab('show');  */
     </script>
-
 
 
     @{
