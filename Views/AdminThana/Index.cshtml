@@ -148,11 +148,23 @@
                                     <!-- Dropdown menu links -->
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#_@item.ThanaId">Edit</button>
 
-                                    <form action="@Url.Action("Delete","AdminThana",new {id=item.ThanaId})" method="post">
+                                    <form action="javascript::void(0)" method="post" id="fromdelete_@item.ThanaId">
                                         @Html.AntiForgeryToken()
 
-                                        <button type="submit" class="dropdown-item" href="#">Delete</button>
+                                        <button type="button" class="move_to_@item.ThanaId dropdown-item" href="#">Delete</button>
                                     </form>
+
+                                    <script>
+                                        $(".move_to_@item.ThanaId").on("click", function (e) {
+                                            e.preventDefault();
+                                            var condel = confirm("Confirm delete?");
+                                            if (condel) {
+                                                $('#fromdelete_@item.ThanaId').attr('action', "@Url.Action("Delete","AdminThana",new {id=item.ThanaId})").submit();
+                                                
+                                            }
+                                        });
+                                    </script>
+
                                 </div>
                             </div>
 
@@ -178,6 +190,7 @@
 
             $(document).ready(function () {
                 $('#example').DataTable();
+                
             });
         </script>
         <script>
