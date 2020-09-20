@@ -41,12 +41,12 @@
                     @Html.AntiForgeryToken()
 
 
-                    <div class="form-group">
+                    <div class="form-group"style="display:block;">
                         <label for="exampleInputEmail1">Name</label>
                         <input name="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group"style="display:block;">
                         <label for="exampleInputEmail1">Unit Price</label>
                         <input name="UnitPrice" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter unit price" required>
 
@@ -88,80 +88,80 @@
                             <td class="middle">
 
 
-                                <div class="btn-group">
+                                <div class="btn-group dropdown">
                                     <button class="btn btn-secondary  btn-sm  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Action
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <div class="dropdown-item" data-toggle="modal" data-target="#_@item.WorkId"  >
+                                        <!-- <div class="dropdown-item" data-toggle="modal" data-target="#_@item.WorkId"  > -->
 
 
-                                            <button type="button" class="btn btn-primary">Edit</button>
+                                        <button type="button" class="dropdown-item" data-toggle="modal" data-target="#_@item.WorkId">Edit</button>
 
 
 
-                                        </div>
 
 
-                                        <div class="dropdown-item">
+
                                         
+
                                             <form action="@Url.Action("WorklistDelete","AdminWork",new {id=item.WorkId})" method="post">
                                                 @Html.AntiForgeryToken()
 
 
 
-                                                <button type="submit" class="btn btn-primary">Delete</button>
+                                                <button type="submit" class="dropdown-item">Delete</button>
                                             </form>
-                                        </div>
-
-
-
+                                        
 
 
                                     </div>
+
+
                                 </div>
+                                 
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="_@item.WorkId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-
-                                                <form action="@Url.Action("WorklistEdit","AdminWork",new {id=item.WorkId})" method="post">
-                                                    @Html.AntiForgeryToken()
-
-                                                    <input value="@item.WorkId" name="WorkId" type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
-
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">Name</label>
-                                                        <input value="@item.Name" name="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" required>
-
-                                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <!-- Modal -->
+                                        <div class="modal fade" id="_@item.WorkId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Edit Work</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                     </div>
+                                                    <div class="modal-body">
 
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">Unit Price</label>
-                                                        <input value="@item.UnitPrice" name="UnitPrice" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter unit price" required>
+                                                        <form action="@Url.Action("WorklistEdit","AdminWork",new {id=item.WorkId})" method="post">
+                                                            @Html.AntiForgeryToken()
 
-                                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                            <input value="@item.WorkId" name="WorkId" type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+
+                                                            <div class="form-group"style="display:block;">
+                                                                <label for="exampleInputEmail1">Work Name</label>
+                                                                <input value="@item.Name" name="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" required>
+
+                                                              
+                                                            </div>
+
+                                                            <div class="form-group"style="display:block;">
+                                                                <label for="exampleInputEmail1">Unit Price</label>
+                                                                <input value="@item.UnitPrice" name="UnitPrice" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter unit price" required>
+
+                                                                
+                                                            </div>
+
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </form>
+
+
                                                     </div>
-
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </form>
-
-
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                            </td>
+                                </td>
                         </tr>
 
                     }

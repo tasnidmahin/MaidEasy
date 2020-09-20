@@ -62,13 +62,19 @@
             <form action="/AdminWorker/SaveWorkerData" class="form" autocomplete="off" method="post" enctype="multipart/form-data">
                 <!-- <form  onsubmit="return false"> -->
 
-                <div class="row no-gutters back" >
+                <div class="row no-gutters back">
                     <div class="col-md-4 rounded-left columnstyle">
                         <div id="user-photo-wrapper" style="text-align:center;">
                             <img class="rounded mx-auto d-block" id="user-photo" src="@source" alt="Worker profile image">
                         </div>
                         <input type="hidden" name="img" value="@Model.image.ToString()" />
                         <input id="file" type="file" accept='image/*' name="file">
+                        <form action="/AdminWorker/DeleteWorker">
+                            <div style="text-align:center;">
+                                <button type="submit" class="btn btn-outline-dark collapsible">Delete</button>
+
+                            </div>
+                        </form>
 
                     </div>
                     <div class="col-md-8 rounded-right" style="padding: 25px;padding-left:50px;">
@@ -256,29 +262,20 @@
                             <button id="save" type="submit" style="margin-right: 40px;" class="btn btn-outline-dark collapsible" name="save">Save</button>
 
                         </div>
-            </form>
 
-            <form action="/AdminWorker/DeleteWorker">
-                <div style="text-align:center;">
-                    <button type="submit" class="btn btn-outline-dark collapsible">Delete</button>
+
+
+
+                    </div>
 
                 </div>
             </form>
 
-        </div>             
-    </div>
+           
 
-
-    <!--<button>Submit</button> -->
-   
-
-
-
-
-
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+            <!--<button>Submit</button> -->
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
 
 </body>
