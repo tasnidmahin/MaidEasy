@@ -34,7 +34,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Area entry</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -45,9 +45,9 @@
                             @Html.AntiForgeryToken()
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input name="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                <label for="exampleInputEmail1"></label>
+                                <input name="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Area Name" required>
+                                <small id="emailHelp" class="form-text text-muted"></small>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -148,11 +148,23 @@
                                     <!-- Dropdown menu links -->
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#_@item.ThanaId">Edit</button>
 
-                                    <form action="@Url.Action("Delete","AdminThana",new {id=item.ThanaId})" method="post">
+                                    <form action="javascript::void(0)" method="post" id="fromdelete_@item.ThanaId">
                                         @Html.AntiForgeryToken()
 
-                                        <button type="submit" class="dropdown-item" href="#">Delete</button>
+                                        <button type="button" class="move_to_@item.ThanaId dropdown-item" href="#">Delete</button>
                                     </form>
+
+                                    <script>
+                                        $(".move_to_@item.ThanaId").on("click", function (e) {
+                                            e.preventDefault();
+                                            var condel = confirm("Confirm delete?");
+                                            if (condel) {
+                                                $('#fromdelete_@item.ThanaId').attr('action', "@Url.Action("Delete","AdminThana",new {id=item.ThanaId})").submit();
+                                                
+                                            }
+                                        });
+                                    </script>
+
                                 </div>
                             </div>
 
@@ -178,6 +190,7 @@
 
             $(document).ready(function () {
                 $('#example').DataTable();
+                
             });
         </script>
         <script>
