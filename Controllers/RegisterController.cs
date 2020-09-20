@@ -49,48 +49,6 @@ namespace MaidEasy.Controllers
             return View();
         }
 
-        private string getThanaString(string thana)
-        {
-            DBHelper db = DBHelper.getDB();
-            string sql = "SELECT ThanaId from Thana where Name = '" + thana + "'";
-            var table = db.getData(sql);
-            table.Read();
-            int t = Int32.Parse(table.GetString(0));
-            table.Close();
-
-            /*thana th = new thana();
-            th = dbContext.thana.Find(thana);
-            System.Diagnostics.Debug.WriteLine("---------Thana ID-----------");
-            System.Diagnostics.Debug.WriteLine(th.ThanaId);
-            System.Diagnostics.Debug.WriteLine("---------Thana ID-----------");*/
-
-
-            StringBuilder r = new StringBuilder("00000000000000000000000000000000000000000000000000");
-
-            if(t-1 >= 0 && t-1<r.Length) r[t - 1] = '1';
-
-            string ret = r.ToString();
-
-            System.Diagnostics.Debug.WriteLine("---------Thana String-----------");
-            System.Diagnostics.Debug.WriteLine(ret);
-            System.Diagnostics.Debug.WriteLine(t);
-
-            Session["thanaID"] = t - 1;
-
-            return ret;
-        }
-
-        public int getThanaID(string thana)
-        {
-            int t = 0;
-            int len = thana.Length;
-            for(int i=0;i<len;i++){
-                if(thana[i] == '1'){
-                    t = i;  break;
-                }
-            }
-            return t;
-        }
 
         [HttpPost]
         public ActionResult CheckInfo(HttpPostedFileBase file)
@@ -213,42 +171,22 @@ namespace MaidEasy.Controllers
         [HttpGet]
         public ActionResult AddUser()
         {
-            Session["username"] = TempData["username"];
             string image = "default.jpg";
             DBHelper db = DBHelper.getDB();
-            //string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress ) VALUES('" + TempData["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + " ');" ;
-            //string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress , thana ) VALUES('" + Session["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + "', '" + TempData["thanastring"] + " ');" ;
 
+            string thana = TempData["thanastring"].ToString();
+            int tID = getThanaID(thana);
 
-            //System.Diagnostics.Debug.WriteLine("--------------------");
-            //System.Diagnostics.Debug.WriteLine(ViewData["phoneNumber"]);
-            //System.Diagnostics.Debug.WriteLine(TempData["username"]);
-            
-            if(Session["img"] != null)
+            Session["username"]     = TempData["username"];
+            Session["uType"]        = "general";
+            //Session["userID"]       = next;
+            Session["thanaID"]      = tID;
+
+            if (Session["img"] != null)
             {
                 HttpPostedFileBase file = (HttpPostedFileBase) Session["img"];
-                //var fileName = Path.GetFileName(file.FileName);
-                //var fileName = file.FileName.ToString();
-                //var f = ReplaceFileName(fileName, Session["username"].ToString());
-                //var filename = Path.GetFileNameWithoutExtension(file.FileName.ToString()) + Guid.NewGuid() + Path.GetExtension(file.FileName);
-                /*System.Diagnostics.Debug.WriteLine("--------------------");
-                System.Diagnostics.Debug.WriteLine(filename);
-                System.Diagnostics.Debug.WriteLine("--------------------");
-                var path = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
-                //System.IO.File.Move(fileName, f);
-                file.SaveAs(path);
-                image = filename;*/
-
-
-                //var filename = Path.GetFileNameWithoutExtension(fileName) + Guid.NewGuid() + Path.GetExtension(file.FileName);
-                //var fullpath = Server.MapPath("~/Content/Users/") + filename;
-                //var fullpath = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
-                //file.SaveAs(fullpath);
-                //System.Diagnostics.Debug.WriteLine((HttpPostedFileBase)Session["img"]).FileName);
-                //var filename = Path.GetFileNameWithoutExtension(file.FileName) + Guid.NewGuid() + Path.GetExtension(file.FileName);
                 var filename = Session["username"].ToString() + Path.GetExtension(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/Content/Users/"), filename);
-                //System.IO.File.Move(fileName, f);
                 
                 file.SaveAs(path);
 
@@ -259,8 +197,17 @@ namespace MaidEasy.Controllers
                 /*string path = Path.Combine(Server.MapPath("~/App_Data/Photo/User/"), Session["username"].ToString()).ToString();
                 file.SaveAs(path);*/
             }
-            string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress,image  , thana ) VALUES('" + Session["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + "', '" + image + "', '" + TempData["thanastring"] + " ');";
+            string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress,image  , thana ) VALUES('" + Session["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + "', '" + image + "', '" + thana + " ');";
             db.setData(sql);
+            sql = "SELECT UserId FROM users WHERE username = '" + Session["username"] + "'";
+            var table = db.getData(sql);
+            int id = 0;
+            if(table.Read())
+            {
+                id = Int32.Parse(table.GetString(0));
+            }
+            table.Close();
+            Session["userID"] = id;
 
             return RedirectToAction("Index", "Home");
         }
@@ -404,6 +351,51 @@ namespace MaidEasy.Controllers
             }
 
             return RedirectToAction("user_profile", "User", new { id = Session["userID"] });
+        }
+
+        private string getThanaString(string thana)
+        {
+            DBHelper db = DBHelper.getDB();
+            string sql = "SELECT ThanaId from Thana where Name = '" + thana + "'";
+            var table = db.getData(sql);
+            table.Read();
+            int t = Int32.Parse(table.GetString(0));
+            table.Close();
+
+            /*thana th = new thana();
+            th = dbContext.thana.Find(thana);
+            System.Diagnostics.Debug.WriteLine("---------Thana ID-----------");
+            System.Diagnostics.Debug.WriteLine(th.ThanaId);
+            System.Diagnostics.Debug.WriteLine("---------Thana ID-----------");*/
+
+
+            StringBuilder r = new StringBuilder("00000000000000000000000000000000000000000000000000");
+
+            if (t - 1 >= 0 && t - 1 < r.Length) r[t - 1] = '1';
+
+            string ret = r.ToString();
+
+            System.Diagnostics.Debug.WriteLine("---------Thana String-----------");
+            System.Diagnostics.Debug.WriteLine(ret);
+            System.Diagnostics.Debug.WriteLine(t);
+
+            Session["thanaID"] = t - 1;
+
+            return ret;
+        }
+
+        public int getThanaID(string thana)
+        {
+            int t = 0;
+            int len = thana.Length;
+            for (int i = 0; i < len; i++)
+            {
+                if (thana[i] == '1')
+                {
+                    t = i; break;
+                }
+            }
+            return t;
         }
 
     }
