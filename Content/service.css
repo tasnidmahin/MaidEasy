@@ -44,8 +44,12 @@
         /*position: relative; */
         -webkit-appearance: none;
     }
-
-
+button{
+    cursor:pointer!important;
+}
+button:focus{
+    outline:none!important;
+}
 .checked {
     color: #ffe749;
 }
@@ -68,7 +72,8 @@ h5{
 
 .nav-tabs .nav-link.active {
     background-color: #007bff !important;
-    color: #fff !important;
+    color: whitesmoke !important;
+    /*border:none!important;*/
     border-color: #0F93FE !important;
 }
 .nav-tabs {

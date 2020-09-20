@@ -67,8 +67,15 @@
                         <div id="user-photo-wrapper" style="text-align:center;">
                             <img class="rounded mx-auto d-block" id="user-photo" src="@source" alt="Worker profile image">
                         </div>
-                        <input type="hidden" name="img" value="@Model.image.ToString()" />
-                        <input id="file" type="file" accept='image/*' name="file">
+                     <!--   <input type="hidden" name="img" value="@Model.image.ToString()" />
+                        <input id="file" type="file" accept='image/*' name="file"> -->
+
+                            
+                            <input type="hidden" name="img" value="@Model.image.ToString()" />
+                            <input style="margin: auto;" id="file" type="file" class="wb mb-3" accept='image/*' name="file">
+
+
+                       
                         <form action="/AdminWorker/DeleteWorker">
                             <div style="text-align:center;">
                                 <button type="submit" class="btn btn-outline-dark collapsible">Delete</button>
@@ -80,23 +87,23 @@
                     <div class="col-md-8 rounded-right" style="padding: 25px;padding-left:50px;">
                         <div class="form-group">
                             <label for="Name"><b>Name</b></label>
-                            <input id="name" class="form-control" type="text" placeholder="Name" name="name" value="@Model.Name" readonly required>
+                            <input id="name" class="form-control wb" type="text" placeholder="Name" name="name" value="@Model.Name" readonly required>
                         </div>
                         <div class="form-group">
                             <label for="Father's Name"><b>Father's Name</b></label>
-                            <input id="father" class="form-control" type="text" placeholder="Father's Name" name="fathername" value="@Model.fatherName" readonly required>
+                            <input id="father" class="form-control wb" type="text" placeholder="Father's Name" name="fathername" value="@Model.fatherName" readonly required>
                         </div>
                         <div class="form-group">
                             <label for="Father's Name"><b>Phone</b></label>
-                            <input id="phone" class="form-control" type="text" placeholder="phone no (+8801*********)" name="Phone" value="@Model.mobile" readonly required>
+                            <input id="phone" class="form-control wb" type="text" placeholder="phone no (+8801*********)" name="Phone" value="@Model.mobile" readonly required>
                         </div>
                         <div class="form-group">
                             <label for="Father's Name"><b>Present Address</b></label>
-                            <input id="present" class="form-control" type="text" placeholder="Present Address" name="PresentAddress" value="@Model.PresentAddress" readonly required>
+                            <input id="present" class="form-control wb" type="text" placeholder="Present Address" name="PresentAddress" value="@Model.PresentAddress" readonly required>
                         </div>
                         <div class="form-group">
                             <label for="Father's Name"><b>Permanent Address</b></label>
-                            <input id="permanent" class="form-control" type="text" placeholder="Permanent Address" name="PermanentAddress" value="@Model.PermanentAddress" readonly required>
+                            <input id="permanent" class="form-control wb" type="text" placeholder="Permanent Address" name="PermanentAddress" value="@Model.PermanentAddress" readonly required>
                         </div>
 
                         <div id="selectbox1" style="margin-top:20px;margin-bottom: 20px;">
@@ -120,7 +127,7 @@
                         </div>
                         <div id="selectboxhide" style="margin-bottom: 20px;">
                             <label for="Gender"><b>Gender</b></label>
-                            <input class="form-control" type="text" value="@Model.gender" readonly>
+                            <input class="form-control wb" type="text" value="@Model.gender" readonly>
                         </div>
                         <!--  <div style="margin-top:20px;">
                     <select class="selectpicker" data-width="fit" title="Maid Type" multiple>

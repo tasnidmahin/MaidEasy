@@ -4,6 +4,9 @@ body{
 .form-group {
     margin-bottom: 2rem!important;
 }
+.dropdown-menu {
+    z-index: 1999 !important;
+}
 .spaces {
     margin-top: 69px;
     height: auto !important;
