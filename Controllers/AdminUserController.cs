@@ -24,7 +24,7 @@ namespace MaidEasy.Controllers
             if (Session["uType"] == null) return RedirectToAction("Index", "Home");
 
             DemoEntities db = new DemoEntities();
-            IEnumerable<MaidEasy.Models.user> us = db.users.ToList();
+            //IEnumerable<MaidEasy.Models.user> us = db.users.ToList();
 
 
             IEnumerable<MaidEasy.Models.user> userList = dbContext.users.ToList();
