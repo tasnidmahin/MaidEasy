@@ -12,6 +12,7 @@ namespace MaidEasy.Controllers
 {
     public class RegisterController : Controller
     {
+        CustomDbContext dbContext = new CustomDbContext();
         // GET: Register
         public ActionResult Index()
         {
@@ -55,12 +56,20 @@ namespace MaidEasy.Controllers
             var table = db.getData(sql);
             table.Read();
             int t = Int32.Parse(table.GetString(0));
+            table.Close();
+
+            thana th = new thana();
+            th = dbContext.thana.Find(thana);
+            System.Diagnostics.Debug.WriteLine("---------Thana ID-----------");
+            System.Diagnostics.Debug.WriteLine(th.ThanaId);
+            System.Diagnostics.Debug.WriteLine("---------Thana ID-----------");
+
+
             StringBuilder r = new StringBuilder("00000000000000000000000000000000000000000000000000");
 
             if(t-1 >= 0 && t-1<r.Length) r[t - 1] = '1';
 
             string ret = r.ToString();
-            table.Close();
 
             System.Diagnostics.Debug.WriteLine("---------Thana String-----------");
             System.Diagnostics.Debug.WriteLine(ret);
@@ -200,27 +209,6 @@ namespace MaidEasy.Controllers
             return true;
         }
 
-        /*private string ReplaceFileName(string f, string name)
-        {
-            string s = "";
-            int l = f.Length,v = 0;
-            for (int i = 0; i < l; i++)
-            {
-                if (f[i].Equals('.')) v = 1;
-                if(v == 1)s += f[i];
-            }
-            System.Diagnostics.Debug.WriteLine("-----------SSSSSSSSSSSSSS---------");
-            System.Diagnostics.Debug.WriteLine(s);
-            System.Diagnostics.Debug.WriteLine("--------------------");
-            System.Diagnostics.Debug.WriteLine("---------NAME-----------");
-            System.Diagnostics.Debug.WriteLine(name);
-            System.Diagnostics.Debug.WriteLine("--------------------");
-            name = name + s;
-            System.Diagnostics.Debug.WriteLine("-------NNNNNNNNNNNNNNNNNNNNNNNNN-------------");
-            System.Diagnostics.Debug.WriteLine(name);
-            System.Diagnostics.Debug.WriteLine("--------------------");
-            return name;
-        }*/
 
         [HttpGet]
         public ActionResult AddUser()

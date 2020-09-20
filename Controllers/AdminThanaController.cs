@@ -16,13 +16,16 @@ namespace MaidEasy.Controllers
         
         public ActionResult Index()
         {
-            
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             return View(Db.thana.ToList());
         }
 
         // GET: AdminThana/Details/5
         public ActionResult Details(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             thana thana = Db.thana.Find(id);
             if (thana == null)
             {
@@ -34,6 +37,8 @@ namespace MaidEasy.Controllers
         // GET: AdminThana/Create
         public ActionResult Create()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -41,9 +46,11 @@ namespace MaidEasy.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "")] thana thana  )
         {
-            
-                // TODO: Add insert logic here
-                if (ModelState.IsValid)
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
+
+            // TODO: Add insert logic here
+            if (ModelState.IsValid)
                 {
                     Db.thana.Add(thana);
                     Db.SaveChanges();
@@ -56,6 +63,8 @@ namespace MaidEasy.Controllers
         // GET: AdminThana/Edit/5
         public ActionResult Edit(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             thana thana = Db.thana.Find(id);
             if (thana == null)
             {
@@ -68,6 +77,8 @@ namespace MaidEasy.Controllers
         [HttpPost]
         public ActionResult Edit([Bind(Include = "")] thana thana)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             if (ModelState.IsValid)
             {
                 Db.Entry(thana).State = EntityState.Modified;
@@ -79,6 +90,8 @@ namespace MaidEasy.Controllers
         // GET: AdminThana/Delete/5
         public ActionResult Delete(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             thana thana = Db.thana.Find(id);
             if (thana == null)
             {
@@ -91,6 +104,8 @@ namespace MaidEasy.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirm(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             thana thana = Db.thana.Find(id);
             Db.thana.Remove(thana);
             Db.SaveChanges();

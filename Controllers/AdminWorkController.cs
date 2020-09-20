@@ -17,23 +17,21 @@ namespace MaidEasy.Controllers
         {
             return View();
         }
-        public ActionResult Admin_home()
-        {
-            /*if (Session["username"] == null) return RedirectToAction("Index", "Home");
-            if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");*/
-            return View();
-        }
 
 
         // GET: AdminWork/Details/5
         public ActionResult Details(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             return View();
         }
 
         // GET: AdminWork/Create
         public ActionResult Create()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -41,6 +39,8 @@ namespace MaidEasy.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             try
             {
                 // TODO: Add insert logic here
@@ -56,6 +56,8 @@ namespace MaidEasy.Controllers
         // GET: AdminWork/Edit/5
         public ActionResult Edit(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -63,6 +65,8 @@ namespace MaidEasy.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             try
             {
                 // TODO: Add update logic here
@@ -78,6 +82,8 @@ namespace MaidEasy.Controllers
         // GET: AdminWork/Delete/5
         public ActionResult Delete(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -85,6 +91,8 @@ namespace MaidEasy.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             try
             {
                 // TODO: Add delete logic here
@@ -98,12 +106,16 @@ namespace MaidEasy.Controllers
         }
         public ActionResult Worklist()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             return View(Db.work.ToList());
         }
 
         [HttpPost]
         public ActionResult WorklistEdit([Bind(Include = "")] work work)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             if (ModelState.IsValid)
             {
                 Db.Entry(work).State = EntityState.Modified;
@@ -115,7 +127,8 @@ namespace MaidEasy.Controllers
         [HttpPost]
         public ActionResult WorklistCreate([Bind(Include = "")] work work)
         {
-
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             // TODO: Add insert logic here
             if (ModelState.IsValid)
             {
@@ -130,6 +143,8 @@ namespace MaidEasy.Controllers
         [HttpPost, ActionName("WorklistDelete")]
         public ActionResult WorklistDeleteConfirm(int id)
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             work work = Db.work.Find(id);
             Db.work.Remove(work);
             Db.SaveChanges();
@@ -139,6 +154,8 @@ namespace MaidEasy.Controllers
 
         public ActionResult Edit_work()
         {
+            if (Session["username"] == null) return RedirectToAction("Index", "Home");
+            if (Session["uType"] == null) return RedirectToAction("Index", "Home");
             return View();
         }
     }

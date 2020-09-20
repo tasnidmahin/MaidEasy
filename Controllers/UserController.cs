@@ -79,63 +79,6 @@ namespace MaidEasy.Controllers
         {
             if (Session["username"] == null) return RedirectToAction("Index", "Home");
             if (Session["username"] == null) return Content("<script language='javascript' type='text/javascript'>alert('Login to continue');</script>");
-            /*DBHelper db = DBHelper.getDB();
-            int id = Int32.Parse(Session["userID"].ToString());
-            string sql = "SELECT count(WorkerId) from Contracts where UserId = '" + id + "' and status = 'current'";
-            var table = db.getData(sql);
-            table.Read();
-            int cnt1 = Int32.Parse(table.GetString(0));
-            table.Close();
-            string[,] data1 = new string[cnt1, 9];
-            //sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, WorkerId  from Contracts where UserId = '" + id + "' and status = 'current'";
-            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, Worker.WorkerId,image  from Contracts JOIN Worker ON Contracts.WorkerId = Worker.WorkerId where UserId = '" + id + "' and Contracts.status = 'current' ";
-            table = db.getData(sql);
-            int i = 0;
-            while(table.Read())
-            {
-                data1[i, 0] = table.GetString(0);
-                data1[i, 1] = table.GetString(1);
-                data1[i, 2] = table.GetString(2);
-                data1[i, 3] = table.GetString(3);
-                data1[i, 4] = table.GetString(4);
-                data1[i, 5] = table.GetString(5);
-                data1[i, 6] = table.GetString(6);
-                data1[i, 7] = table.GetString(7);
-                data1[i, 8] = table.GetString(8);
-                i++;
-            }
-            table.Close();
-
-
-            sql = "SELECT count(WorkerId) from Contracts where UserId = '" + id + "' and status = 'previous'";
-            table = db.getData(sql);
-            table.Read();
-            int cnt2 = Int32.Parse(table.GetString(0));
-            table.Close();
-            string[,] data2 = new string[cnt2, 9];
-            //sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, WorkerId from Contracts where UserId = '" + id + "' and status = 'previous'";
-            sql = "SELECT WorkerName, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist, Worker.WorkerId,image  from Contracts JOIN Worker ON Contracts.WorkerId = Worker.WorkerId where UserId = '" + id + "' and Contracts.status = 'previous' ";
-            table = db.getData(sql);
-            i = 0;
-            while (table.Read())
-            {
-                data2[i, 0] = table.GetString(0);
-                data2[i, 1] = table.GetString(1);
-                data2[i, 2] = table.GetString(2);
-                data2[i, 3] = table.GetString(3);
-                data2[i, 4] = table.GetString(4);
-                data2[i, 5] = table.GetString(5);
-                data2[i, 6] = table.GetString(6);
-                data2[i, 7] = table.GetString(7);
-                data2[i, 8] = table.GetString(8);
-                i++;
-            }
-            table.Close();
-
-
-            ViewData["cnt1"] = cnt1;        ViewData["cnt2"] = cnt2;
-            ViewData["data1"] = data1;      ViewData["data2"] = data2;*/
-
 
 
             /*IEnumerable<contract> currentWorker = dbContext.contracts.ToList().Where(m => m.status == "current");
@@ -258,8 +201,8 @@ namespace MaidEasy.Controllers
             db.setData(sql);
 
             workerreview review = new workerreview();
-            review.WorkerId = Int32.Parse(wID);
-            review.rating = Int32.Parse(rating);
+            review.WorkerId = Int32.Parse(wID.ToString());
+            review.rating = Convert.ToDouble(rating.ToString());
             review.username = Session["username"].ToString();
             review.description = comment;
 
