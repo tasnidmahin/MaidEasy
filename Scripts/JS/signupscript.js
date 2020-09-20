@@ -6,7 +6,7 @@ const presentaddress = document.getElementById('presentaddress');
 const permanentaddress = document.getElementById('permanentaddress');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
-const thana = document.getElementById('thana');
+//const thana = document.getElementById('thana');
 const submit = document.getElementById('submit-btn');
 /*
 form.addEventListener('submit', e => {
@@ -34,7 +34,7 @@ function checkInputs() {
 	const permanentaddressValue = permanentaddress.value.trim();
 	const passwordValue = password.value.trim();
 	const password2Value = password2.value.trim();
-	const thanaValue = thana.value.trim();
+	//const thanaValue = thana.value.trim();
 
 	if (usernameValue === '') {
 		setErrorFor(username, 'Username cannot be blank');
@@ -65,20 +65,20 @@ function checkInputs() {
 		setSuccessFor(presentaddress);
 	}
 
-	if (thanaValue === '') {
-		setErrorFor(thana, 'Thana cannot be blank');
-		return;
-	}
-	else if (!thanalist.includes(thanaValue)) {
+	//if (thanaValue === '') {
+	//	setErrorFor(thana, 'Thana cannot be blank');
+	//	return;
+	//}
+	//else if (!thanalist.includes(thanaValue)) {
 
-		setErrorFor(thana, 'Thana did not match');
-		return;
+	//	setErrorFor(thana, 'Thana did not match');
+	//	return;
 		
 
-	}
-	else {
-		setSuccessFor(thana);
-	}
+	//}
+	//else {
+	//	setSuccessFor(thana);
+	//}
 
 	if (permanentaddressValue === '') {
 		setErrorFor(permanentaddress, 'Permanent address cannot be blank');

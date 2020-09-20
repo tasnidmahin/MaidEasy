@@ -79,47 +79,47 @@
 
     </div> -->
                     <div class="form-control">
-                        <select name="area" class="selectpicker" title="Select Area" data-width="fit" data-style="btn-dark" data-live-search="true" value="@TempData["thana"]" required>
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
-                        </select>
-                        </div>
-                        <div class="form-control">
-                            <label for="username">Permanent Address</label>
-                            <input id="permanentaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["permanentAddress"]" />
-                            <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Error message</small>
-                        </div>
-                        <div class="form-control">
-                            <label for="username">Password</label>
-                            <input id="password" type="password" name="signUpPassword" placeholder="Password" value="@TempData["pass"]" />
-                            <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Error message</small>
-                        </div>
-                        <div class="form-control">
-                            <label for="username">Password check</label>
-                            <input id="password2" type="password" name="confirmPassword" placeholder="confirmPassword" value="@TempData["conpass"]" />
-                            <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Error message</small>
-                        </div>
+    <select name="area" class="selectpicker" title="Select Area" data-width="fit" data-style="btn-dark" data-live-search="true" value="@TempData["thana"]" required>
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Relish</option>
+    </select>
+    </div>
+                    <div class="form-control">
+                        <label for="username">Permanent Address</label>
+                        <input id="permanentaddress" type="text" name="permanentAddress" placeholder="Permanent Address" value="@TempData["permanentAddress"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Password</label>
+                        <input id="password" type="password" name="signUpPassword" placeholder="Password" value="@TempData["pass"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Password check</label>
+                        <input id="password2" type="password" name="confirmPassword" placeholder="confirmPassword" value="@TempData["conpass"]" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
 
-                        <div class="form-control">
-                            <label for="username">Enter Profile Image</label>
-                            <input id="file" type="file" accept='image/*' name="file" value="@TempData["img"]">
-
-
-                        </div>
+                    <div class="form-control">
+                        <label for="username">Enter Profile Image</label>
+                        <input id="file" type="file" accept='image/*' name="file" value="@TempData["img"]">
 
 
-                        <!--<button>Submit</button> -->
+                    </div>
 
-                        <button id="submit-btn" type="button" class="btn btn-primary btn-block" name="submitbutton">Sign Up</button>
 
-                        <p style="font-size:15px;text-align: center;margin-top:1rem;color:antiquewhite;" ;>Already have an account? <a href="@Url.Action("LogIn", "Register")" style="color:dodgerblue;">Login</a></p>
+                    <!--<button>Submit</button> -->
+
+                    <button id="submit-btn" type="button" class="btn btn-primary btn-block" name="submitbutton">Sign Up</button>
+
+                    <p style="font-size:15px;text-align: center;margin-top:1rem;color:antiquewhite;" ;>Already have an account? <a href="@Url.Action("LogIn", "Register")" style="color:dodgerblue;">Login</a></p>
                 </form>
             </div>
         </div>
