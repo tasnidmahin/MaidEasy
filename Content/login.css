@@ -17,8 +17,11 @@
         text-decoration: none;
         color: white;
         background-color: rgb(1, 78, 245);
+        cursor:pointer;
     }
-
+    button:focus{
+        outline:none!important;
+    }
 .submit-area {
     margin: 50px 200px;
     box-shadow: 0px 2px 10px lightgray;
