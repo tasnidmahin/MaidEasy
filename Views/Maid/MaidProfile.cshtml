@@ -20,6 +20,8 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <title>Maid Profile</title>
 
     </head>
@@ -72,7 +74,7 @@
                             </div>
 
                             <div class="card-body" style="padding-top:150px;">
-                                <h3 class="card-title" id="user-name">@data[0]</h3>
+                                <h3 class="card-title animate__animated animate__bounce animate__delay-2s" id="user-name">@data[0]</h3>
                                 <div id="user-data">
                                     <div class="d-flex">
                                         <div class="col-7 col-md-6 text-right">
@@ -108,7 +110,7 @@
                                         @{
                                             if (ViewData["lastUrl"].ToString() == "/Service/Searching" || ViewData["lastUrl"].ToString() == "/Service/SearchingFull")
                                             {
-                                                <button type="submit" class="btn btn-dark">Hire</button>
+                                                <button type="submit" class="btn btn-dark" data-aos="flip-down">Hire</button>
                                             }
                                         }
                                     </div>
@@ -191,7 +193,7 @@
         <script>
             AOS.init({
                 //offset: 200,
-                duration: 3000,
+                duration: 2000,
             });
         </script>
     </body>

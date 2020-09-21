@@ -36,6 +36,9 @@ h5 {
         cursor:pointer;
     }
 
+.social-icons {
+    width: 150px;
+}
 
 .social {
     height: 30px;
@@ -66,21 +69,18 @@ p {
     padding-right:0;
 }
 
-.social {
+/*.social {
     height: 30px;
     width: 30px;
     border: 2px solid rgb(182, 182, 174);
     border-radius: 50%;
     text-align: center;
     transition: 0.4s ease;
-}
-.social-icons {
-    width: 150px;
-}
+} */
 
 
-
+/*
 .social:hover {
     background-color: rgb(15, 21, 24);
     border: 2px solid rgb(182, 182, 174);
-}
+}*/
