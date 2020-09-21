@@ -112,7 +112,7 @@ namespace MaidEasy.Controllers
                 return RedirectToAction("SignUp", "Register");
             }
 
-            /*sql = "SELECT count(UserId) from users where mobile = '" + phone + "'";
+            sql = "SELECT count(UserId) from users where mobile = " + signup.PhoneNo + "";
             table = db.getData(sql);
             table.Read();
             count = Int32.Parse(table.GetString(0));
@@ -120,7 +120,14 @@ namespace MaidEasy.Controllers
             {
                 TempData["message"] = "Phone No allready used";
                 return RedirectToAction("SignUp", "Register");
-            }*/
+            }
+
+            System.Diagnostics.Debug.WriteLine("---------Phone-----------");
+            System.Diagnostics.Debug.WriteLine(signup.PhoneNo);
+            System.Diagnostics.Debug.WriteLine(count);
+            System.Diagnostics.Debug.WriteLine(sql);
+            System.Diagnostics.Debug.WriteLine("---------phone-----------"); 
+
             signup.Password = hash(signup.Password);
             TempData["pass"] = signup.Password;
             ViewData["phoneNumber"] = signup.PhoneNo;
@@ -247,11 +254,18 @@ namespace MaidEasy.Controllers
                 table.Close();
                 return RedirectToAction("LogIn", "Register");
             }
+
             var thanaS = table.GetString(2);
             var thana = getThanaID(thanaS);
             var uID = table.GetString(3);
             var uType = table.GetString(4);
             table.Close();
+
+            if (uType == "blocked")
+            {
+                TempData["message"] = "Sorry!! You are blocked";
+                return RedirectToAction("LogIn", "Register");
+            }
 
             Session["thanaID"] = thana;
             Session["username"] = login.Username;
