@@ -260,6 +260,7 @@
     <Compile Include="Models\admin.cs">
       <DependentUpon>DemoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\cancelUsercontract.cs" />
     <Compile Include="Models\contactu.cs">
       <DependentUpon>DemoModel.tt</DependentUpon>
     </Compile>
@@ -467,7 +468,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

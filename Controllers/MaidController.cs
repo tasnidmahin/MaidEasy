@@ -173,6 +173,10 @@ namespace MaidEasy.Controllers
 
         private bool checkStatus()
         {
+            System.Diagnostics.Debug.WriteLine("--------------------------------");
+            System.Diagnostics.Debug.WriteLine(Session["start"]);
+            System.Diagnostics.Debug.WriteLine(Session["end"]);
+            System.Diagnostics.Debug.WriteLine("--------------------------------");
             int start = Int32.Parse(Session["start"].ToString());
             int end = Int32.Parse(Session["end"].ToString());
             var wData = (string[])Session["CurWorker"];
@@ -265,7 +269,7 @@ namespace MaidEasy.Controllers
                     return RedirectToAction("Service", "Service");
                 }
 
-                sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + " ', ' " + uID + " ', ' " + SMonth + " ', ' " + EMonth + " ', ' " + STime + " ', ' " + ETime + " ', ' " + salary + "', '" + worklist + " ');";
+                sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + "', '" + uID + "', '" + SMonth + "', '" + EMonth + "', '" + STime + "', '" + ETime + "', '" + salary + "', '" + worklist + "');";
                 db.setData(sql);
 
                 string status = getStatus();
@@ -295,10 +299,10 @@ namespace MaidEasy.Controllers
             var salary = Session["salary"];
             var conLen = Int32.Parse(Session["conLen"].ToString());
 
-            System.Diagnostics.Debug.WriteLine("---------------S A L A R Y-----------------");
+            /*System.Diagnostics.Debug.WriteLine("---------------S A L A R Y-----------------");
             System.Diagnostics.Debug.WriteLine(salary);
             System.Diagnostics.Debug.WriteLine(conLen);
-            System.Diagnostics.Debug.WriteLine("--------------------------------");
+            System.Diagnostics.Debug.WriteLine("--------------------------------");*/
             string worklist = "";
 
             string SMonth = DateTime.Now.ToString("MM");
@@ -309,8 +313,9 @@ namespace MaidEasy.Controllers
             var wID = wData[4];
             var uID = Int32.Parse(Session["userID"].ToString());
             int id = uID;
-            var STime = "";
-            var ETime = "";
+            var STime = "6:00 AM";
+            var ETime = "6:00 PM";
+            Session["start"] = 0;   Session["end"] = 24;
 
             DBHelper db = DBHelper.getDB();
             string sql = "SELECT Name from Worker where WorkerId = ' " + wID + "'";
@@ -330,7 +335,7 @@ namespace MaidEasy.Controllers
                     return RedirectToAction("Service", "Service");
                 }
 
-                sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + " ', ' " + uID + " ', ' " + SMonth + " ', ' " + EMonth + " ', ' " + STime + " ', ' " + ETime + " ', ' " + salary + "', '" + worklist + " ');";
+                sql = "INSERT into contracts (WorkerId, WorkerName, UserId, StartMonth, EndMonth, StartTime, EndTime, Amount, Worklist)VALUES('" + wID + "', '" + WName + "', '" + uID + "', '" + SMonth + "', '" + EMonth + "', '" + STime + "', '" + ETime + "', '" + salary + "', '" + worklist + "');";
                 db.setData(sql);
 
                 string status = "";
@@ -346,6 +351,8 @@ namespace MaidEasy.Controllers
             Session.Remove("work_row");
             Session.Remove("start");
             Session.Remove("end");
+            Session.Remove("startTime");
+            Session.Remove("endTime");
             Session.Remove("CurWorker");
             return RedirectToAction("hired_workers_profile", "User");
         }
@@ -356,9 +363,9 @@ namespace MaidEasy.Controllers
 
             var wData = (string[])Session["CurWorker"];
             string workerType = wData[1];
-            System.Diagnostics.Debug.WriteLine("------------ Hire --------------------");
+            /*System.Diagnostics.Debug.WriteLine("------------ Hire --------------------");
             System.Diagnostics.Debug.WriteLine(workerType);
-            System.Diagnostics.Debug.WriteLine("-------------- Hire ------------------");
+            System.Diagnostics.Debug.WriteLine("-------------- Hire ------------------");*/
 
             string sql = "SELECT COUNT(WorkId) from work";
             DBHelper db = DBHelper.getDB();

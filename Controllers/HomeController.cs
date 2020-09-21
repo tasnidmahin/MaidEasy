@@ -33,7 +33,7 @@ namespace MaidEasy.Controllers
                     Year = Month + "/" + Year;
                     sql = "UPDATE Contracts SET status = 'previous' WHERE EndMonth = '" + Year + "'";
                     db.setData(sql);
-                    sql = "UPDATE Worker SET experience = experience +1 ";
+                    sql = "UPDATE Worker SET experience = experience +1";
                     db.setData(sql);
                     sql = "UPDATE Worker SET updateStatus  = 'updated'";
                     db.setData(sql);

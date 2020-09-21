@@ -186,7 +186,7 @@ namespace MaidEasy.Controllers
             var wID = Request["maid"];
 
             DBHelper db = DBHelper.getDB();
-            string sql = "INSERT into WorkerReview (WorkerId, rating , username , description )VALUES( '" + wID + " ', ' " + rating + "', '" + Session["username"] + "', '" + comment + " ');";
+            string sql = "INSERT into WorkerReview (WorkerId, rating , username , description )VALUES( '" + wID + "', '" + rating + "', '" + Session["username"] + "', '" + comment + "');";
             db.setData(sql);
             sql = "SELECT sum(rating),COUNT(Id) from workerreview WHERE WorkerId = '" + wID + "' ";
             var table = db.getData(sql);

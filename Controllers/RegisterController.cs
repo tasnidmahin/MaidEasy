@@ -122,11 +122,11 @@ namespace MaidEasy.Controllers
                 return RedirectToAction("SignUp", "Register");
             }
 
-            System.Diagnostics.Debug.WriteLine("---------Phone-----------");
+            /*System.Diagnostics.Debug.WriteLine("---------Phone-----------");
             System.Diagnostics.Debug.WriteLine(signup.PhoneNo);
             System.Diagnostics.Debug.WriteLine(count);
             System.Diagnostics.Debug.WriteLine(sql);
-            System.Diagnostics.Debug.WriteLine("---------phone-----------"); 
+            System.Diagnostics.Debug.WriteLine("---------phone-----------"); */
 
             signup.Password = hash(signup.Password);
             TempData["pass"] = signup.Password;
@@ -204,7 +204,7 @@ namespace MaidEasy.Controllers
                 /*string path = Path.Combine(Server.MapPath("~/App_Data/Photo/User/"), Session["username"].ToString()).ToString();
                 file.SaveAs(path);*/
             }
-            string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress,image  , thana ) VALUES('" + Session["username"] + "', '" + TempData["pass"] + " ', ' " + TempData["name"] + " ', ' " + TempData["phone"] + " ', ' " + TempData["presentAddress"] + " ', ' " + TempData["permanentAddress"] + "', '" + image + "', '" + thana + " ');";
+            string sql = " INSERT INTO Users (username , password , Name , mobile , PresentAddress , PermanentAddress,image  , thana ) VALUES('" + Session["username"] + "', '" + TempData["pass"] + "', '" + TempData["name"] + "', '" + TempData["phone"] + "', '" + TempData["presentAddress"] + "', '" + TempData["permanentAddress"] + "', '" + image + "', '" + thana + "');";
             db.setData(sql);
             sql = "SELECT UserId FROM users WHERE username = '" + Session["username"] + "'";
             var table = db.getData(sql);
@@ -389,9 +389,9 @@ namespace MaidEasy.Controllers
 
             string ret = r.ToString();
 
-            System.Diagnostics.Debug.WriteLine("---------Thana String-----------");
+            /*System.Diagnostics.Debug.WriteLine("---------Thana String-----------");
             System.Diagnostics.Debug.WriteLine(ret);
-            System.Diagnostics.Debug.WriteLine(t);
+            System.Diagnostics.Debug.WriteLine(t);*/
 
             Session["thanaID"] = t - 1;
 
