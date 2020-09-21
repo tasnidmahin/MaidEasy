@@ -337,6 +337,11 @@
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\bg3.jpg" />
     <Content Include="Content\Images\bgadmin.jpg" />
+    <Content Include="Content\Images\bgpanel1.jpg" />
+    <Content Include="Content\Images\bgpanel2.jpg" />
+    <Content Include="Content\Images\bgpanel3.jpg" />
+    <Content Include="Content\Images\bgpanel4.jpg" />
+    <Content Include="Content\Images\bgpanel5.jpg" />
     <Content Include="Content\Images\DSC_0030.JPG" />
     <Content Include="Content\Images\elderly.jpg" />
     <Content Include="Content\Images\hw_pic.jpg" />
