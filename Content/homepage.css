@@ -67,7 +67,7 @@ h5 {
         bottom: 0;
         left: 0;
         right: 0;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.7);
     }
 .text-box:hover {
     background-color: #0F93FE;
@@ -247,7 +247,9 @@ button{
     padding: 60px 100px!important;
 }
 
-
+.hcap{
+    min-height:380px!important;
+}
 
  /*Large devices (desktops, less than 1200px)*/
 @media (max-width: 1199.98px) {
@@ -258,6 +260,10 @@ button{
     }
     .dis{
         padding:0rem 1.25rem !important;
+    }
+
+    .hcap {
+        min-height: 420px !important;
     }
 }
 
@@ -276,13 +282,30 @@ button{
         justify-content:center;*/
         padding:0!important;
     }
+    .hcap{
+        min-height:600px!important;
+    }
 
 
-
+}
+ /*Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
+    .hcap {
+        min-height: 550px !important;
+    }
 }
 /*Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
     .inner{
      margin:auto!important;
  }
+    .capf{
+        font-size:1.25rem!important;
+    }
+    .capf1{
+        font-size:.75rem!important;
+    }
+    .hcap{
+        min-height:690px!important;
+    }
 }
