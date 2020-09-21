@@ -41,6 +41,14 @@ namespace MaidEasy.Controllers
             Session.Remove("SearchTimeForWorker");
             Session.Remove("CurWorker");
             Session.Remove("uType");
+            Session.Remove("WData");
+            Session.Remove("PworkerData");
+            Session.Remove("BworkerData");
+            Session.Remove("EworkerData");
+            Session.Remove("Wcnt_row");
+            Session.Remove("Pcnt_row");
+            Session.Remove("Bcnt_row");
+            Session.Remove("Ecnt_row");
             return RedirectToAction("Index", "Home");
         }
 

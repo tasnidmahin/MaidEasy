@@ -81,6 +81,15 @@ namespace MaidEasy.Controllers
             Session["CurWorker"] = data;
             ViewData["feedback"] = feedback;
             ViewData["cnt_feed"] = count;
+
+            Session.Remove("WData");
+            Session.Remove("PworkerData");
+            Session.Remove("BworkerData");
+            Session.Remove("EworkerData");
+            Session.Remove("Wcnt_row");
+            Session.Remove("Pcnt_row");
+            Session.Remove("Bcnt_row");
+            Session.Remove("Ecnt_row");
             return View();
         }
         public ActionResult Hire()
