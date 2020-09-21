@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2020 at 04:23 AM
+-- Generation Time: Sep 21, 2020 at 05:56 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -56,7 +56,8 @@ CREATE TABLE `contactus` (
 INSERT INTO `contactus` (`Id`, `Name`, `Email`, `Subject`, `Message`, `Review`) VALUES
 (1, 'Tasnid Mahin', 'mahin@example.com', 'Test', 'Test', 'Good'),
 (2, 'Mahin', 'test@test.com', 'test', 'fg fgrrer ewe ', 'good'),
-(3, 'Mahin', 'sample@mail.com', 'test', 'ggg', 'check');
+(3, 'Mahin', 'sample@mail.com', 'test', 'ggg', 'check'),
+(4, 'test', 'test@mail.com', 'd', 'msg', 'dsds');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,12 @@ INSERT INTO `contracts` (`Id`, `WorkerId`, `WorkerName`, `UserId`, `StartMonth`,
 (15, 2, 'Even ', 4, ' 07/2020 ', ' 09/2020 ', ' 7:00 AM', ' 8:00 AM ', 150, 'Washing Clothes\n ', 'current'),
 (16, 15, 'Tashreef ', 4, ' 09/2020 ', ' 10/2020 ', ' 6:30 AM', ' 7:30 AM', 150, 'Dish Washing\n ', 'current'),
 (19, 24, 'Mahin ', 9, ' 09/2020 ', ' 10/2020 ', ' 6:00 AM ', ' 7:00 AM ', 270, 'Dish Washing\nClothing\n ', 'current'),
-(21, 24, 'Mahin ', 9, ' 09/2020 ', ' 10/2020 ', ' 7:30 AM ', ' 8:30 AM ', 320, 'Cooking\nClothing\n ', 'current');
+(21, 24, 'Mahin ', 9, ' 09/2020 ', ' 10/2020 ', ' 7:30 AM ', ' 8:30 AM ', 320, 'Cooking\nClothing\n ', 'current'),
+(23, 10, 'Sadman ', 43, ' 09/2020 ', '09/2020', ' 6:00 AM ', ' 6:00 PM ', 6000, ' ', 'previous'),
+(24, 10, 'Sadman ', 43, ' 09/2020 ', '09/2020', ' 6:00 AM ', ' 6:00 PM ', 6000, ' ', 'previous'),
+(25, 10, 'Sadman ', 43, ' 09/2020 ', '09/2020', ' 6:00 AM ', ' 6:00 PM ', 6000, ' ', 'previous'),
+(26, 10, 'Sadman ', 43, ' 09/2020 ', '09/2020', ' 6:00 AM ', ' 6:00 PM ', 6000, ' ', 'previous'),
+(27, 10, 'Sadman', 43, '09/2020', '09/2020', '6:00 AM', '6:00 PM', 6000, '', 'previous');
 
 -- --------------------------------------------------------
 
@@ -182,7 +188,13 @@ INSERT INTO `users` (`UserId`, `username`, `password`, `type`, `Name`, `mobile`,
 (39, 'Ami', 'lTak/i2aIuwtl9V0P+TemDCdsrohnn9u6Ke9emf82sbYdJ7v ', 'general', ' Ami ', ' +8801536174793', ' a ', ' a', 'Ami.PNG', '01000000000000000000000000000000000000000000000000 '),
 (40, 'admin', 'eSvYlNptkJb6l29oPFdoPeREjuSO3n9OunHwTe0GasNMkNJj ', 'super', ' admin ', ' +8801536174793', ' dhaka ', ' dhaka', 'default.jpg', '00000000000000000100000000000000000000000000000000 '),
 (41, 'b', 'ke1tLMOf31Gm3I9Rl0zWdYSSR+dRSBOCt1dJ1EQQ/B6HWRUZ ', 'general', ' Mahin ', ' +8801536174793', ' dhaka ', ' dhaka', 'default.jpg', '00000000000000000000000000000010000000000000000000 '),
-(42, 'c', '1KtM1DVULs0FWZebEUlECpqmPA65m2kvX2JdJ+0HvBdYGcSP', 'general', ' Mahin ', ' +8801536174793', ' dhaka ', ' sylhet', 'default.jpg', '00000000000000000000000000000000000000000010000000');
+(42, 'c', '1KtM1DVULs0FWZebEUlECpqmPA65m2kvX2JdJ+0HvBdYGcSP', 'general', ' Mahin ', ' +8801536174793', ' dhaka ', ' sylhet', 'default.jpg', '00000000000000000000000000000000000000000010000000'),
+(43, 'User A', 'zj4fcLKoQ75XSiSfUWxHgf68O89tV04zkmywcF00q8McuMjU ', 'blocked', ' user a ', ' +8801536174793', ' dhaka ', ' dhaka', 'default.jpg', '00000001000000000000000000000000000000000000000000 '),
+(44, 'User B', 'oLM8kQOk018D/kHVlXZUr60MSXTS9lFPGUVHEugWn9nhxuq7 ', 'general', ' user b ', ' +8801536174793', ' dhaka ', ' dhaka', 'default.jpg', '00000000000000000000100000000000000000000000000000 '),
+(45, 'User C', '8swG5LVBfzeyJaD5U+/oloexOS6T4JLelbs/JN/S6y5ee7mR ', 'general', ' user c ', ' +8801536174793', ' dhaka ', ' dhaka', 'default.jpg', '00000000000000000000000100000000000000000000000000 '),
+(46, 'User D', '3r58c+UrtOQRwNlx5uInxfWmxuIrfXwhrxYHTtENtGvImoU2 ', 'general', ' user d ', ' +8801536174793', ' dhaka ', ' dhaka', 'default.jpg', '00000000000000000000000000000000010000000000000000 '),
+(47, 'User E', 'ihreBvr/f1ZIYn3oKJe+/ptH0MJUS6VeGoESXAG/XR/h+RdK ', 'blocked', ' user e ', ' +8801536174793', ' dhaka ', ' dhaka', 'default.jpg', '00000000000000000000010000000000000000000000000000 '),
+(51, 'User F', 'tXvZycxORbwiYZ8fbdrLiZODngprQUx3nBIUMY40bDH+exp+ ', 'general', ' user f ', ' +8801536174793', ' dhaka ', ' dhaka', 'default.jpg', '00000000000000000000010000000000000000000000000000 ');
 
 -- --------------------------------------------------------
 
@@ -237,17 +249,17 @@ CREATE TABLE `worker` (
 --
 
 INSERT INTO `worker` (`WorkerId`, `Name`, `fatherName`, `mobile`, `PresentAddress`, `PermanentAddress`, `Area`, `type`, `experience`, `joinDate`, `updateStatus`, `rating`, `image`, `status`, `gender`) VALUES
-(1, 'Jim', 'Jim F', '01701040010', 'dhaka', 'dhaka', '1110000000000110000000000000000000000000000', '1000', 1, '', 'pending', 0.00, '1.png', '0000000000000000000000000', 'Male'),
+(1, 'Jim', 'Jim F', '01701040010', 'dhaka', 'dhaka', '1110000000000110000000000000000000000000000', '1000', 1, '', 'pending', 0.00, '1.jpg', '0000000000000000000000000', 'Male'),
 (2, 'Even', 'Even F', '01701040020', 'canada', 'dhaka', '0011111000000000000000000000000000000000000', '1000', 1, '', 'pending', 2.00, 'defaultmaid.png', '0011100000000000000000000', 'Male'),
 (3, 'Dip', 'Dip F', '01701040030', 'dhaka', 'rangamati', '1100000000000000000000000000000000000000000', '1000', 1, '', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
 (4, 'Umme', 'Umme F', '01701040040', 'dhaka', 'dhaka', '0000000000000000001100000000000000000000000', '0001', 1, '', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
 (5, 'Shams', 'ShamsF', '01701040050', 'dhaka', 'dhaka', '1111100000000000010000000000000000000000000', '0100', 1, '', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
-(7, 'Dhusor', 'Dhusor F', '01701040050', 'dhaka', 'noakhali', '0011111110111000000111111111110001110000111', '01000000', 1, '', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
+(7, 'Dhusor', 'Dhusor F', '01701040050', 'dhaka', 'noakhali', '0011111110111000000111111111110001110000111', '0100', 1, '', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
 (8, 'Joy', 'Joy F', '01701040070', 'dhaka', 'rangamati', '1111111000000011000000000000000000000001111', '0001', 1, '', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
 (9, 'Farhan', 'Farhan F', '01701040080', 'dhaka', 'dhaka', '0101111001110000111100000111001111000000000', '0001', 1, '', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
 (10, 'Sadman', 'Sadman F', '01701040090', 'dhaka', 'mymensing', '1111111111111111111111111111111111111011111', '0010', 1, '', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
-(12, 'Sabbir', 'Sabbir F ', ' 01701040110 ', ' dhaka ', ' dhaka ', '0000000000000110000001000000000000000000011', '1000', 1, '08/2020 ', 'pending', 0.00, '~/Content/Workers/defaultmaid.png', '0000000000000000000000000', 'Female'),
-(13, 'Shah Alam', 'Tasin F ', ' 01701040120 ', ' dhaka ', ' kushtia ', '0000000001000000000001100000000000000000000', '0100', 1, '08/2020 ', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
+(12, 'Sabbir', 'Sabbir F ', ' 01701040110 ', ' dhaka ', ' dhaka ', '0000000000000110000001000000000000000000011', '1000', 1, '08/2020 ', 'pending', 0.00, '12.jpg', '0000000000000000000000000', 'Female'),
+(13, 'Shah Alam', 'Tasin F ', ' 01701040120 ', ' dhaka ', ' kushtia ', '0000000001000000000001100000000000000000000', '0100', 1, '08/2020 ', 'pending', 0.00, '13.png', '0000000000000000000000000', 'Male'),
 (14, 'Tanim', 'Tanim F ', ' +8801701040130', ' dhaka ', ' dhaka ', '0000001100001000000000000000000000000000000', '1000', 1, '08/2020 ', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', ' Male'),
 (15, 'Tashreef', 'Tashreef F ', ' +8801701040140', ' dhaka ', ' Mymensing ', '0010000000000000010000010000100000001100000', '1000', 0, '09/2020 ', 'pending', 4.00, 'defaultmaid.png', '0111000000000000000000000', ' Male'),
 (16, 'Taqi', 'Taqi F ', ' +8801701040150', ' dhaka ', ' Chottogram ', '0000001000110000000100000000010000001100000', '0100', 0, '09/2020 ', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', ' Male'),
@@ -255,7 +267,28 @@ INSERT INTO `worker` (`WorkerId`, `Name`, `fatherName`, `mobile`, `PresentAddres
 (18, 'Nishat', 'Nishat F', '+8801701040160', 'dhaka', 'Rajshahi', '0000000000001010000000110110000001100000000', '0110', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
 (22, 'Muhu', 'Muhu F', '+8801701040170', 'dhaka', 'dhaka', '0000000000110000000010000110000001010000000', '0001', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
 (23, 'Aesha', 'Aesha F', '+8801701040180', 'dhaka ', 'rajshahi', '0000101000010000000000011100000000010000000', '0100', 0, '09/2020', 'pending', 0.00, '23.jpg', '0000000000000000000000000', 'Female'),
-(24, 'Mahin', 'Mahin', '+8801701040190', 'dhaka', 'dhaka', '1111011101001110100000000000110000000001111', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '1111110000000000000000000', 'Male');
+(24, 'Mahin', 'Mahin', '+8801701040190', 'dhaka', 'dhaka', '1111011101001110100000000000110000000001111', '1000', 0, '09/2020', 'pending', 1.75, 'defaultmaid.png', '1111110000000000000000000', 'Male'),
+(25, 'A', 'A Father ', '+8801701040150', 'dhaka', 'dhaka', '0011101001010010000000000000101000001001101', '0100', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
+(26, 'B', 'B Father', '+8801701040150', 'dhaka', 'dhaka', '1110000111000001110100000011100000000100100', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(27, 'C', 'C father', '+8801701040190', 'dhaka', 'Mymensing', '0000000011000000000110000001110000011010110', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
+(28, 'D', 'D Father', '+8801701040190', 'dhaka', 'comilla', '1111100111111101101000000011101000000001100', '0010', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(29, 'E', 'E Father', '+8801701040190', 'dhaka', 'kushtia', '0001111110110000000001000000000000000000000', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(30, 'F', 'F Father', '+8801701040190', 'dhaka', 'rangpur', '1110101010101110101110010000000101101001000', '0001', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(31, 'G', 'G Father', '+8801701040090', 'dhaka', 'Sylhet', '0001010011100000001100000110110000000000100', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
+(32, 'H', 'H Father', '+8801701040190', 'dhaka', 'khulna', '0000111001100000001100000000000000011101110', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(33, 'I', 'I Father', '+8801701040200', 'dhaka', 'gazipur', '1111101101000110000000001110100000000000010', '0010', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(34, 'J', 'J Father', '+8801701040110', 'dhaka', 'feni', '1111011010000001110000000011110000000100110', '0001', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(35, 'K', 'K Father', '+8801701040190', 'dhaka', 'dhaka', '1110000001110000000000000110001001110001001', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(36, 'L', 'L Father', '+8801701040110', 'dhaka', 'chiitagong', '0000000000011100100111010000011001100000110', '0010', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(37, 'M', 'M Father', '+8801701040190', 'dhaka', 'dhaka', '1110000111000000001000111110000000001110000', '0010', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(38, 'N', 'N Father', '+8801701040200', 'dhaka', 'rajshahi', '0011011111000000000110000000001110001000010', '0010', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(39, 'O', 'O Father', '+8801701040190', 'dhaka', 'dhaka', '0100100110100000001110000100001010100100010', '0001', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(40, 'Swaad', 'Swaad F', '+8801701040200', 'dhaka', 'dhaka', '1111111110000000000000011000000000000000100', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
+(41, 'P', 'P Father', '+8801701040770', 'dhaka', 'dhaka', '0001001001001000000000101100000000011001000', '0001', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(42, 'Raju', 'Raju F', '+8801701040770', 'dhaka', 'dhaka', '1101110001010100000000000011000001100000100', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
+(43, 'Mahi', 'Mahi F', '+8801701040190', 'dhaka', 'comilla', '1110000000011110100110000000001110100011000', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male'),
+(44, 'Q', 'Q Father', '+8801701042600', 'dhaka', 'dhaka', '1101010000100011110000000000111101001000000', '0001', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Female'),
+(45, 'Q', 'Q Father', '+8801701040150', 'dhaka', 'dhaka', '1011010100110000000000001010000001001100000', '1000', 0, '09/2020', 'pending', 0.00, 'defaultmaid.png', '0000000000000000000000000', 'Male');
 
 -- --------------------------------------------------------
 
@@ -279,7 +312,9 @@ INSERT INTO `workerreview` (`Id`, `WorkerId`, `username`, `rating`, `description
 (1, 2, 'tasnidmahin3', 1.50, 'Fakibaj '),
 (2, 2, 'tasnidmahin3', 2.50, 'tarahura kore khali '),
 (4, 15, 'tasnidmahin3', 4.00, 'Punctual '),
-(5, 15, 'tasnidmahin3', 4.00, 'Hard working ');
+(5, 15, 'tasnidmahin3', 4.00, 'Hard working '),
+(6, 24, 'a', 3.50, ' '),
+(7, 24, 'a', 0.00, 'dd ');
 
 --
 -- Indexes for dumped tables
@@ -353,13 +388,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `Id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contracts`
 --
 ALTER TABLE `contracts`
-  MODIFY `Id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `thana`
@@ -371,7 +406,7 @@ ALTER TABLE `thana`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `UserId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `work`
@@ -383,13 +418,13 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `worker`
 --
 ALTER TABLE `worker`
-  MODIFY `WorkerId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `WorkerId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `workerreview`
 --
 ALTER TABLE `workerreview`
-  MODIFY `Id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
