@@ -34,10 +34,10 @@
 <body>
 
     <style>
-        .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
-            background-color:#007bff !important;
+        .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+            background-color: #007bff !important;
             /*border:none!important;*/
-               border-color: #0F93FE !important;
+            border-color: #0F93FE !important;
         }
     </style>
 
@@ -245,14 +245,30 @@
 
                                         <h3 class="mt-2 mb-3">@WData[i, 1]</h3>
                                         <div class="d-flex justify-content-center mb-3">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <i style="color:#ffe749;" class="fas fa-star-half"></i>
-                                            <i style="color:#ffe749;" class="fas fa-star-half-alt"></i>
-                                            <i style="color:#ffe749;" class="far fa-star"></i>
-                                            <span class="fa fa-star notchecked"></span>
-                                            <i  style="color:#ffe749;" class="fas fa-star"></i>
+                                            @{
+                                                double rat = Convert.ToDouble(WData[i, 2]);
+                                                while (rat > 0.5)
+                                                {
+                                                    <i style="color:#ffe749;" class="fas fa-star"></i>
+                                                    rat -= 1;
+                                                }
+                                                while (rat > 0.0)
+                                                {
+                                                    <i style="color:#ffe749;" class="fas fa-star-half"></i>
+                                                    rat = 0;
+                                                }
+                                            }
+
+                                            <!--
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <i style="color:#ffe749;" class="fas fa-star-half"></i>
+                                                <i style="color:#ffe749;" class="fas fa-star-half-alt"></i>
+                                                <i style="color:#ffe749;" class="far fa-star"></i>
+                                                <span class="fa fa-star notchecked"></span>
+                                                <i style="color:#ffe749;" class="fas fa-star"></i>
+                                            -->
 
                                         </div>
                                         <div class="row mt-2">
@@ -391,18 +407,39 @@
                                     <div class="lower-box">
                                         <div>
                                             <h3>@PData[i, 1]</h3>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
 
+                                            @{
+                                                double rat = Convert.ToDouble(PData[i, 2]);
+                                                while (rat > 0.5)
+                                                {
+                                                    <i style="color:#ffe749;" class="fas fa-star"></i>
+                                                    rat -= 1;
+                                                }
+                                                while (rat > 0.0)
+                                                {
+                                                    <i style="color:#ffe749;" class="fas fa-star-half"></i>
+                                                    rat = 0;
+                                                }
+                                            }
+                                            <!--
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                            -->
                                         </div>
                                         <div>
-                                            <h4 class="category">Rating: <span class="user-input"> @PData[i, 2] / 5.00 </span></h4>
+                                            <h4 class="category">
+                                                Rating:
+                                                <span class="user-input"> @PData[i, 2] / 5.00 </span>
+                                            </h4>
                                         </div>
                                         <div>
-                                            <h4 class="category">Experience: <span class="user-input"> @PData[i, 3] months </span></h4>
+                                            <h4 class="category">
+                                                Experience:
+                                                <span class="user-input"> @PData[i, 3] months </span>
+                                            </h4>
                                         </div>
                                         <div>
 
@@ -522,18 +559,41 @@
                                     <div class="lower-box">
                                         <div>
                                             <h3>@BData[i, 1]</h3>
+
+                                            @{
+                                                double rat = Convert.ToDouble(BData[i, 2]);
+                                                while (rat > 0.5)
+                                                {
+                                                    <i style="color:#ffe749;" class="fas fa-star"></i>
+                                                    rat -= 1;
+                                                }
+                                                while (rat > 0.0)
+                                                {
+                                                    <i style="color:#ffe749;" class="fas fa-star-half"></i>
+                                                    rat = 0;
+                                                }
+                                            }
+
+                                            <!--
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span>
                                             <span class="fa fa-star"></span>
+                                                -->
 
                                         </div>
                                         <div>
-                                            <h4 class="category">Rating: <span class="user-input"> @BData[i, 2] / 5.00 </span></h4>
+                                            <h4 class="category">
+                                                Rating:
+                                                <span class="user-input"> @BData[i, 2] / 5.00 </span>
+                                            </h4>
                                         </div>
                                         <div>
-                                            <h4 class="category">Experience: <span class="user-input">3] months </span></h4>
+                                            <h4 class="category">
+                                                Experience:
+                                                <span class="user-input">3] months </span>
+                                            </h4>
                                         </div>
                                         <div>
 
@@ -628,18 +688,41 @@
                                     <div class="lower-box">
                                         <div>
                                             <h3>@EData[i, 1]</h3>
+
+                                            @{
+                                                double rat = Convert.ToDouble(EData[i, 2]);
+                                                while (rat > 0.5)
+                                                {
+                                                    <i style="color:#ffe749;" class="fas fa-star"></i>
+                                                    rat -= 1;
+                                                }
+                                                while (rat > 0.0)
+                                                {
+                                                    <i style="color:#ffe749;" class="fas fa-star-half"></i>
+                                                    rat = 0;
+                                                }
+                                            }
+
+                                            <!--
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span>
                                             <span class="fa fa-star"></span>
+                                                -->
 
                                         </div>
                                         <div>
-                                            <h4 class="category">Rating: <span class="user-input"> @EData[i, 2] / 5.00 </span></h4>
+                                            <h4 class="category">
+                                                Rating:
+                                                <span class="user-input"> @EData[i, 2] / 5.00 </span>
+                                            </h4>
                                         </div>
                                         <div>
-                                            <h4 class="category">Experience: <span class="user-input">3] months </span></h4>
+                                            <h4 class="category">
+                                                Experience:
+                                                <span class="user-input">3] months </span>
+                                            </h4>
                                         </div>
                                         <div>
 
