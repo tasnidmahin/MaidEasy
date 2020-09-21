@@ -25,8 +25,31 @@ h5 {
         .footer-area a:hover {
             color: white;
         }
+.footer-area i {
+    color: rgb(182, 182, 174);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+    .footer-area i:hover {
+        color: white;
+        cursor:pointer;
+    }
 
 
+.social {
+    height: 30px;
+    width: 30px;
+    /*border: 2px solid rgb(182, 182, 174);*/
+    /*border-radius: 50%;*/
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+    .social:hover {
+        /*background-color: rgb(15, 21, 24);*/
+        /*border: 2px solid rgb(182, 182, 174);*/
+    }
 
 hr {
     background-color: rgb(182, 182, 174);

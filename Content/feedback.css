@@ -8,16 +8,17 @@ body {
  
 }
 .area {
-    padding-top: 80px;
+    margin-top: 169px;
     /* margin-left:300px;*/
+    margin-bottom:100px;
 }
 .container1 {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    width: 400px;
-    max-width: 100%;
+    max-width: 600px;
+   
     margin: auto;
 }
 .form {
