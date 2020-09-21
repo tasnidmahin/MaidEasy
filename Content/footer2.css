@@ -26,23 +26,7 @@ h5 {
             color: white;
         }
 
-.social-icons {
-    width: 150px;
-}
 
-.social {
-    height: 30px;
-    width: 30px;
-    border: 2px solid rgb(182, 182, 174);
-    border-radius: 50%;
-    text-align: center;
-    transition: 0.4s ease;
-}
-
-    .social:hover {
-        background-color: rgb(15, 21, 24);
-        border: 2px solid rgb(182, 182, 174);
-    }
 
 hr {
     background-color: rgb(182, 182, 174);
@@ -57,4 +41,23 @@ p {
     padding:  0 40px !important;
     padding-left:0;
     padding-right:0;
+}
+
+.social {
+    height: 30px;
+    width: 30px;
+    border: 2px solid rgb(182, 182, 174);
+    border-radius: 50%;
+    text-align: center;
+    transition: 0.4s ease;
+}
+.social-icons {
+    width: 150px;
+}
+
+
+
+.social:hover {
+    background-color: rgb(15, 21, 24);
+    border: 2px solid rgb(182, 182, 174);
 }
