@@ -155,7 +155,12 @@
     margin: 10px;
     /*  margin-left: 115px;*/
 }
-
+.do {
+    color: #77c1e4!important;
+}
+.do:hover{
+    text-decoration:none!important;
+}
 #user-data {
     margin-top: 50px;
   

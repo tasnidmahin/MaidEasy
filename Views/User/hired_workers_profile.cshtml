@@ -166,7 +166,7 @@
                             </form>
                             <br>
                             <form action="/Maid/MaidProfile" method="post">
-                                <a href="@Url.Action("MaidProfile", "Maid", new { id =  @Model.currentWorker[i].workerId })" class="btn buttonprimary" name="link" value="@Model.currentWorker[i].workerId">View profile</a>
+                                <button class="btn buttonprimary" > <a href="@Url.Action("MaidProfile", "Maid", new { id =  @Model.currentWorker[i].workerId })" class="do" name="link" value="@Model.currentWorker[i].workerId">View profile</a> </button>
                                 <!-- <button type="submit" class="btn buttonprimary" name="maid" value="@Model.currentWorker[i].workerId">View Profile</button> -->
                             </form>
                         </div>
