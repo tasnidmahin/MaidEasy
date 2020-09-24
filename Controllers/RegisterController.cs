@@ -124,11 +124,12 @@ namespace MaidEasy.Controllers
             table = db.getData(sql);
             table.Read();
             count = Int32.Parse(table.GetString(0));
-            if (count > 0)
+            if (count > 1)
             {
                 TempData["message"] = "Phone No allready used";
                 return RedirectToAction("SignUp", "Register");
             }
+            table.Close();
 
             /*System.Diagnostics.Debug.WriteLine("---------Phone-----------");
             System.Diagnostics.Debug.WriteLine(signup.PhoneNo);
