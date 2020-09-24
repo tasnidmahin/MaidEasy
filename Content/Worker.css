@@ -17,21 +17,31 @@ tr {
 
 
 .collapsible {
-    background-color: #777;
-    color: white;
+    background-color: #3b5998;
+    color: whitesmoke;
     cursor: pointer;
-    padding: 18px;
-    width: 250px;
+    padding: 20px 20px;
+    width: 200px;
     border: none;
     text-align: center;
     outline: none;
-    font-size: 15px;
+    font-size: 25px;
+    height: 200px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 50px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
 }
 
     .active, .collapsible:hover {
-        background-color: #555;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        transform: translateY(10px);
+        background-color: rgb(41, 105, 243);
     }
-
+    button:focus{
+        outline:none!important;
+    }
 .tablestyle {
     /* background-color: #000;*/
 }
